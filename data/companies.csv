@@ -1,0 +1,51 @@
+name,revenue_22_23_USD_e9,market_cap_USD_e12,emp_num,founded,incomeTax_22_23_USD_e9,sector,state
+apple inc.,387.53,2.52,164000,1976,18.314,consumer electronics,california
+microsoft corporation,204.09,2.037,221000,1975,15.139,software infrastructure,washington
+alphabet (google),282.83,1.35,190234,1998,11.356,software infrastructure,california
+amazon,513.98,1.03,1541000,1994,-3.217,software application,washington
+nvidia corporation,26.97,0.653,22473,1993,0.189,semiconductors,california
+tesla,81.46,0.625,127855,2003,1.132,software infrastructure,texas
+meta platforms,116.6,0.524,86482,2004,5.619,software infrastructure,california
+broadcom inc.,34.41,0.266,20000,1961,0.939,semiconductors,california
+oracle corporation,46.07,0.236,143000,1977,0.932,software infrastructure,texas
+cisco systems inc.,53.16,0.208,83300,1984,2.665,communication equipments,california
+salesforce inc.,31.35,0.189,73541,1999,0.452,software application,california
+adobe inc.,17.6,0.172,29239,1982,1.252,software infrastructure,california
+texas instruments inc.,20.02,0.162,33000,1930,1.283,semiconductors,texas
+advanced micro devices (amd) inc.,23.6,0.155,25000,1969,-0.122,semiconductors,california
+qualcomm inc.,42.95,0.138,51000,1985,2.012,semiconductors,california
+netflix,31.61,0.136,12800,1997,0.772,software application,california
+intel corporation,63.05,0.118,131900,1968,-0.249,semiconductors,california
+intuit inc.,13.68,0.118,17300,1983,0.476,software application,california
+ibm corporation,60.52,0.113,345000,1911,-0.626,it services,new york
+applied materials inc.,26.25,0.102,33000,1967,1.074,semiconductors,california
+booking holdings,17.09,0.097,20700,1996,0.865,software application,connecticut
+analog devices inc.,12.57,0.095,24450,1965,0.35,semiconductors,massachusetts
+servicenow inc.,7.24,0.09,20433,2004,0.074,software application,california
+automatic data processing,16.67,0.09,60000,1949,0.855,software application,new jersey
+paypal holdings inc.,27.51,0.087,29900,1998,0.947,software infrastructure,california
+airbnb,8.39,0.078,6132,2008,0.096,software application,california
+fiserv inc.,17.73,0.071,44000,1984,0.551,it services,wisconsin
+lam research corporation,19.04,0.069,18700,1980,0.588,semiconductors,california
+uber technologies inc.,31.87,0.066,32500,2009,-0.181,software application,california
+micron technology,27.15,0.064,49000,1978,0.888,semiconductors,idaho
+equinix,7.26,0.064,11451,1998,0.125,it services,california
+activision blizzard,7.52,0.063,13000,2008,0.231,software application,california
+palo alto networks inc.,6.15,0.059,12561,2005,0.06,software infrastructure,california
+synopsys inc.,5.17,0.057,19000,1986,0.137,software infrastructure,california
+cadence design systems inc.,3.56,0.057,9300,1988,0.196,software application,california
+kla corporation,10.48,0.053,14000,1997,0.167,semiconductors,california
+arista networks inc.,4.38,0.052,2993,2004,0.229,computer hardware,california
+vmware inc.,13.34,0.051,37500,1998,0.265,software infrastructure,california
+workday inc.,6.21,0.049,17522,2005,0.107,software application,california
+fortinet inc.,4.41,0.049,11508,2000,0.031,software infrastructure,california
+block inc.,17.53,0.047,8521,2009,-0.012,software infrastructure,california
+snowflake inc.,2.06,0.046,4991,2012,0.003,software application,montana
+roper technologies,5.61,0.046,19300,1890,0.296,electronic components,florida
+microchip technology inc.,8.05,0.045,21000,1989,0.197,semiconductors,arizona
+autodesk inc.,5.0,0.045,12600,1982,0.068,software application,california
+globalfoundries,8.1,0.038,14600,2009,0.086,semiconductors,new york
+iqvia holdings,14.41,0.037,85000,1982,0.26,software application,north carolina
+marvell technology inc.,5.91,0.035,6695,1995,0.249,semiconductors,california
+dell technologies inc.,102.3,0.028,133000,1984,0.981,computer hardware,texas
+hp inc.,59.78,0.028,51000,1939,1.238,computer hardware,california
