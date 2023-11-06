@@ -1,0 +1,6431 @@
+name,decimal,state,year
+aaa,0.75,Georgia,1906
+aag,0.31,Wisconsin,1997
+aao,0.32,Tennessee,1914
+aap,0.41,Virginia,2014
+aaq,0.73,Rhode Island,1937
+aas,0.82,Maryland,1915
+aau,0.01,Minnesota,1926
+aaw,0.66,Arkansas,1970
+aax,0.38,Washington,1946
+aba,0.15,New Jersey,1927
+abd,0.9,California,1997
+abi,0.13,New Mexico,2005
+abj,0.25,Minnesota,2009
+abk,0.77,Washington,1952
+abm,0.01,Florida,1962
+abn,0.29,Minnesota,1970
+abq,0.47,North Dakota,1903
+abx,0.54,Nevada,1922
+aby,0.58,Indiana,1962
+aca,0.92,Idaho,2022
+acd,0.43,Wisconsin,1979
+aci,0.32,Florida,2009
+acn,0.5,California,2020
+acp,0.55,Massachusetts,1977
+act,0.89,North Carolina,2020
+acx,0.95,Wisconsin,2020
+acy,0.96,New Mexico,1975
+adb,0.89,Louisiana,1925
+adc,0.1,Alaska,1977
+adf,0.0,Texas,2013
+adi,0.19,Texas,2006
+adp,0.99,Texas,1901
+adr,0.83,Ohio,1966
+ads,0.13,Michigan,2014
+adv,0.0,Arkansas,1942
+aed,0.45,Nevada,1910
+aeg,0.49,West Virginia,2009
+aej,0.41,New Jersey,1990
+aek,0.68,Wisconsin,1912
+ael,0.29,Colorado,2023
+aeq,0.72,South Dakota,2022
+aeu,0.92,Massachusetts,1902
+aev,0.72,Kansas,1916
+aew,0.16,Maine,2002
+aey,0.57,New Mexico,1907
+afa,0.05,Iowa,1956
+aff,0.54,Arkansas,1964
+afh,0.41,North Carolina,1950
+afj,0.77,Rhode Island,1913
+afk,0.29,Colorado,1933
+afm,0.89,Arkansas,2006
+afv,0.29,Connecticut,1955
+afw,0.99,Montana,1916
+aga,1.0,Oklahoma,1981
+agb,0.49,Hawaii,1999
+agh,0.0,Washington,1994
+agk,0.4,Maine,1943
+agl,0.25,New Hampshire,1951
+agp,0.53,Delaware,1937
+agr,0.65,Montana,1932
+ags,0.93,Mississippi,1985
+agu,0.01,Kansas,1925
+agv,0.01,North Carolina,1922
+aha,0.6,Massachusetts,1979
+ahc,0.64,Florida,1981
+ahe,0.58,North Dakota,1910
+ahg,0.49,New Jersey,2012
+ahk,0.14,Texas,1970
+ahm,1.0,Oklahoma,1957
+aho,0.7,Oregon,1904
+ahp,0.21,North Dakota,2017
+ahq,1.0,Arkansas,1984
+ahs,0.43,California,1921
+aht,0.0,Nebraska,1944
+ahu,0.18,New Jersey,1947
+aib,0.15,Connecticut,1984
+aic,0.93,Iowa,1938
+aie,0.01,Montana,1988
+aig,0.82,South Carolina,2021
+aik,0.37,Georgia,1961
+ain,0.32,Virginia,1948
+aio,0.34,Minnesota,1922
+aiq,0.75,Wisconsin,1956
+air,0.32,Colorado,1969
+ais,0.93,South Dakota,1901
+aiu,0.21,North Dakota,1903
+aix,0.98,Florida,2002
+aiy,0.92,Florida,1908
+aiz,0.21,Oregon,1934
+ajb,0.14,Wyoming,1957
+ajd,0.84,South Dakota,2010
+ajh,0.89,New York,1933
+aji,0.85,Kentucky,1929
+ajs,0.82,New Mexico,1978
+aju,0.54,New Jersey,1976
+akd,1.0,Louisiana,2011
+akg,1.0,Vermont,1941
+aki,0.9,Iowa,1982
+akj,0.58,Arkansas,1906
+akk,0.21,California,2012
+akr,0.38,Arkansas,1963
+aks,0.86,New Mexico,1978
+akw,0.92,New Jersey,1909
+akx,0.04,Oregon,1992
+akz,0.35,Nebraska,1921
+alc,0.36,North Carolina,1999
+alg,0.13,Michigan,1956
+ali,0.0,Georgia,1916
+alk,0.41,Michigan,2022
+aln,0.69,Connecticut,1935
+alo,0.59,New Jersey,1978
+alq,0.24,Wyoming,1920
+alt,0.27,Wyoming,1967
+alv,0.21,New Hampshire,1943
+alw,0.07,New York,1966
+aly,0.54,New Mexico,1952
+ama,0.6,Arkansas,1925
+ame,0.42,North Carolina,1909
+amh,0.49,New Jersey,1900
+ami,0.31,Georgia,1985
+amk,0.63,Mississippi,2016
+aml,0.83,New York,2020
+amp,0.36,Hawaii,1979
+amx,0.27,Nebraska,1945
+amy,0.07,Ohio,1934
+amz,0.67,Vermont,1976
+ang,0.71,Massachusetts,2000
+anm,0.46,New Jersey,2022
+ans,0.92,North Carolina,1959
+ant,0.48,Nevada,1930
+anv,0.85,Florida,1995
+any,0.62,Montana,1949
+aoa,0.39,New Mexico,1991
+aod,0.24,Louisiana,1956
+aoe,0.79,Utah,1906
+aok,0.96,Utah,2012
+aom,0.37,Texas,2012
+aoq,0.47,Alabama,1925
+aot,0.5,Wisconsin,1994
+aox,0.93,Iowa,1968
+aoy,0.13,Nebraska,1934
+apa,0.4,Florida,1987
+apb,0.95,Alabama,1984
+ape,0.87,Illinois,1975
+apf,0.18,Virginia,1985
+apj,0.65,Washington,1983
+apl,0.94,Colorado,1976
+apo,0.96,Tennessee,1956
+apr,0.55,Minnesota,1921
+aps,0.28,Michigan,1929
+apu,0.9,Kentucky,1986
+aqd,0.27,Texas,1913
+aqe,0.45,New Jersey,1939
+aqh,0.44,Oklahoma,2006
+aqj,0.93,Georgia,1908
+aqs,0.93,Michigan,1910
+aqu,0.46,Alaska,1924
+aqx,0.66,Alabama,1964
+aqy,0.37,Minnesota,1901
+arb,0.37,Vermont,1981
+arc,0.86,Colorado,1963
+arh,0.74,New Jersey,1932
+arn,0.99,California,1957
+arp,0.49,Wisconsin,1920
+art,0.58,Texas,1981
+arw,0.55,South Dakota,1994
+asa,0.39,Indiana,1992
+ase,0.59,Oklahoma,1990
+ask,0.43,Tennessee,2010
+asm,0.78,Utah,1958
+ass,0.66,New Hampshire,1948
+asu,0.99,Arkansas,1969
+asv,0.35,Oregon,2009
+asy,0.61,Utah,1933
+asz,0.28,Maine,1992
+ata,0.83,New Hampshire,1927
+atb,0.79,Indiana,2018
+atd,0.75,Texas,2019
+ate,0.69,Louisiana,1986
+atg,0.31,Kansas,2023
+ath,0.64,Wisconsin,1985
+atj,0.29,Missouri,1969
+atl,0.44,Connecticut,1945
+ato,0.92,Vermont,1906
+atp,0.43,New Mexico,2002
+ats,0.79,Alaska,1954
+att,0.66,Maryland,1944
+atv,0.36,Mississippi,1998
+atw,0.55,Arkansas,1995
+aua,0.72,South Dakota,2020
+auc,0.23,Wyoming,1985
+aue,0.65,Wisconsin,1925
+auh,0.98,Illinois,1988
+aui,0.63,Utah,1914
+auj,0.05,Colorado,1934
+auk,0.48,West Virginia,2020
+aul,0.57,Ohio,1988
+aup,0.38,Maryland,1975
+aut,0.99,Nevada,1966
+auu,0.75,Nevada,1953
+auv,0.5,Wyoming,2016
+avl,0.55,South Carolina,1995
+avm,0.6,South Carolina,1958
+avn,0.13,Alaska,1902
+avp,0.79,South Carolina,1955
+avr,0.44,Rhode Island,1947
+avw,0.38,Arkansas,1901
+avy,0.48,Tennessee,1959
+awh,0.53,Maine,1932
+awk,0.82,California,1925
+awo,0.61,Nevada,2023
+awp,0.26,South Dakota,1991
+awt,0.48,Vermont,1991
+awu,0.71,Maine,1923
+aww,0.98,California,1929
+awx,0.18,Arkansas,1983
+awy,0.27,Rhode Island,2009
+awz,0.71,Georgia,2005
+axb,0.91,Arizona,1948
+axd,0.25,Hawaii,1910
+axh,0.77,West Virginia,2011
+axj,0.84,Illinois,1972
+axm,0.13,Maine,1903
+axs,0.06,Virginia,1945
+axv,0.12,Alabama,1913
+axz,0.78,Arizona,1931
+ayc,0.31,Nevada,1900
+aye,0.67,Maine,2011
+ayh,0.9,Kentucky,1911
+ayk,0.91,Montana,2022
+ayl,0.79,North Carolina,1944
+ayr,0.32,Alaska,1950
+ayw,0.52,Connecticut,1904
+ayy,0.16,Maine,1935
+azc,0.04,Tennessee,1926
+azf,0.03,Washington,2001
+azh,0.92,Alabama,1935
+azj,0.74,Michigan,1954
+azm,0.12,Texas,1956
+azo,0.9,South Carolina,1980
+azq,0.49,Indiana,2021
+azr,0.38,Arizona,1900
+azt,0.43,Arizona,1975
+azw,0.07,Arizona,1981
+bag,0.56,Utah,1997
+baj,0.48,Wisconsin,1922
+bam,0.96,Nevada,2003
+ban,0.61,Massachusetts,1944
+bat,0.82,Idaho,2003
+bav,0.76,Louisiana,1907
+bay,0.4,Hawaii,2014
+baz,0.43,Vermont,2018
+bbd,0.91,Montana,1992
+bbh,0.7,Louisiana,1940
+bbi,0.49,Colorado,1959
+bbn,0.24,Iowa,1947
+bbs,0.26,Wyoming,1953
+bbu,0.73,Kansas,1975
+bca,0.82,Idaho,1961
+bcb,0.84,Michigan,1927
+bcc,0.05,Nevada,1965
+bcd,0.79,New Hampshire,1916
+bce,0.46,South Carolina,1982
+bcf,0.45,Illinois,1919
+bch,0.17,New Hampshire,1926
+bcr,0.52,New York,1947
+bct,0.08,Delaware,1922
+bcu,0.19,South Carolina,1940
+bdb,0.83,Minnesota,1965
+bdc,0.73,Nebraska,1975
+bde,0.9,North Carolina,1943
+bdk,0.8,Minnesota,1925
+bdl,0.25,Connecticut,1945
+bdo,0.01,Missouri,1948
+bdq,0.75,Pennsylvania,1961
+bdr,0.36,Iowa,1900
+bds,0.84,Michigan,1979
+bdt,0.98,Massachusetts,1909
+bdw,0.41,Delaware,1936
+bdy,0.25,Wisconsin,1933
+beb,0.98,Arizona,1979
+bec,0.84,Mississippi,2008
+bed,0.14,Indiana,1995
+bef,0.83,Ohio,1921
+beg,0.0,Vermont,1968
+beh,0.33,Louisiana,1925
+bei,0.47,Georgia,1939
+bek,0.13,Maine,1948
+bes,0.62,Kansas,1961
+beu,0.87,West Virginia,1991
+bex,1.0,Rhode Island,2001
+bez,0.48,Utah,2003
+bfb,0.82,South Carolina,1983
+bff,0.55,Louisiana,1903
+bfg,0.49,Alaska,2014
+bfj,0.21,Texas,1930
+bfl,0.74,Virginia,1947
+bfm,0.42,Oregon,1937
+bfn,0.69,Wyoming,1974
+bfq,0.75,Mississippi,1952
+bfs,0.51,Virginia,1995
+bfv,0.93,Rhode Island,2008
+bge,0.68,Missouri,2020
+bgg,0.16,Kentucky,1924
+bgh,0.22,Kansas,1940
+bgk,0.33,Alabama,1990
+bgp,0.49,New York,2000
+bgq,0.98,Rhode Island,1957
+bgr,0.36,Maine,1921
+bgv,0.97,Illinois,1900
+bgy,0.08,Massachusetts,2018
+bhc,0.73,Idaho,2005
+bhg,0.71,Oregon,1932
+bhm,0.65,Nevada,1961
+bhn,0.77,New Jersey,1994
+bhy,0.22,California,2008
+bhz,0.42,Oregon,1986
+bie,0.58,Iowa,1911
+bip,0.74,Rhode Island,1918
+bir,0.04,Vermont,1965
+bis,0.64,Oklahoma,1937
+biz,0.58,Georgia,1909
+bja,0.12,Louisiana,1943
+bje,0.2,Michigan,1931
+bjg,0.89,Massachusetts,1981
+bjk,0.5,West Virginia,2005
+bjm,0.89,Vermont,1953
+bjn,0.38,Utah,1952
+bjq,0.11,Indiana,1982
+bjt,0.36,Alabama,1991
+bju,0.9,Rhode Island,1981
+bjv,0.67,Indiana,1949
+bjy,0.08,Maryland,1993
+bka,0.22,Arkansas,1934
+bkd,0.5,Oklahoma,1953
+bkg,0.73,New Jersey,1939
+bkj,0.53,Kentucky,1965
+bkk,0.95,Michigan,1944
+bkn,0.26,Maine,1942
+bko,0.12,Texas,2001
+bks,0.98,Maryland,1998
+bku,0.41,Wisconsin,1916
+bkv,0.61,New Hampshire,1967
+blb,0.38,Michigan,1999
+blc,0.1,New Hampshire,1918
+ble,0.31,Nebraska,1993
+blg,0.94,Arizona,1904
+bli,0.75,Missouri,2001
+bll,0.71,Maine,1952
+blo,0.42,Kansas,1979
+blr,0.43,Pennsylvania,1943
+bls,0.31,Michigan,1919
+blt,0.79,North Carolina,2014
+bly,0.09,West Virginia,1998
+bmd,0.02,Illinois,1958
+bmg,0.53,Colorado,1955
+bmh,0.3,Georgia,1903
+bmi,0.95,Arizona,1934
+bml,0.73,Idaho,1985
+bmq,0.0,Illinois,1919
+bmw,0.99,Kentucky,2001
+bmx,0.62,Arkansas,1900
+bmz,0.73,Indiana,1991
+bna,0.64,Texas,2004
+bnb,0.12,Maryland,1972
+bnc,0.15,North Carolina,1920
+bnd,0.38,Arkansas,1992
+bnf,0.44,Alabama,1962
+bnh,0.8,Georgia,1908
+bnk,0.1,Washington,1958
+bns,1.0,Michigan,1931
+bnt,0.6,Washington,1900
+bnw,0.46,Montana,1970
+bnz,0.29,Pennsylvania,1955
+boc,0.34,Pennsylvania,1917
+bod,0.58,Mississippi,1940
+boi,0.79,Nevada,1912
+bok,0.07,Maine,2002
+bom,0.68,Louisiana,2010
+bon,0.45,Louisiana,1906
+boq,0.92,Georgia,1933
+bot,0.6,Rhode Island,1980
+bov,0.18,New Mexico,1983
+bow,0.01,Arizona,1903
+bpb,0.87,Illinois,1968
+bpd,0.5,Nebraska,1922
+bpe,0.51,Nevada,1990
+bpn,0.07,Wyoming,1927
+bpt,0.11,Arizona,1976
+bpu,0.14,Hawaii,2012
+bpx,0.05,New York,1931
+bqa,0.23,Virginia,1973
+bqb,0.74,Louisiana,2008
+bqk,0.95,Oregon,1948
+bqn,0.59,Oklahoma,1982
+bqr,0.17,Idaho,1980
+bqt,0.5,Utah,2003
+bqw,0.66,Iowa,1900
+bra,0.81,Oregon,2004
+brd,0.62,South Carolina,2005
+bre,0.36,Alabama,1940
+bri,0.15,Missouri,1967
+brj,0.36,New Hampshire,1975
+brm,0.73,Colorado,1965
+brv,0.88,Connecticut,1976
+brw,0.39,Wyoming,1987
+brx,0.38,Vermont,2018
+bsa,0.53,Tennessee,1929
+bsc,0.57,North Dakota,1929
+bsd,0.59,Pennsylvania,1911
+bsf,0.63,Utah,1939
+bsh,0.59,Maryland,1985
+bsi,0.11,California,1969
+bsj,0.68,Arkansas,1919
+bsm,0.49,Washington,1909
+bsn,0.81,Washington,2009
+bso,0.91,West Virginia,1927
+bsr,0.79,Vermont,1909
+bss,0.31,Nebraska,1995
+bsx,0.22,Nevada,1955
+bsy,0.37,New Mexico,2020
+btb,0.04,Montana,1928
+bte,0.91,Texas,2017
+btf,0.71,Illinois,1961
+btg,0.26,South Carolina,1927
+bth,0.16,Utah,1946
+btk,0.64,Delaware,1906
+btm,0.16,Washington,1979
+bts,0.7,Alabama,1934
+btw,0.89,Pennsylvania,1992
+btx,0.65,Michigan,1924
+btz,0.78,California,1998
+bud,0.17,Delaware,1923
+buh,0.58,Mississippi,2002
+bum,0.6,Kansas,2006
+bux,0.48,Nebraska,1954
+buy,0.51,Texas,1930
+bvf,0.44,Michigan,1900
+bvg,0.97,Montana,2017
+bvh,0.97,Alabama,1921
+bvk,0.6,Virginia,1968
+bvl,0.73,North Dakota,1924
+bvp,0.34,Georgia,1925
+bvq,0.34,Arizona,2014
+bvu,0.79,Arkansas,1968
+bvw,0.06,Hawaii,1952
+bvx,0.69,Minnesota,1981
+bwb,0.14,Michigan,1917
+bwd,0.36,Florida,1966
+bwh,0.52,Arkansas,1900
+bwj,0.17,North Dakota,1932
+bwk,0.8,Arkansas,1928
+bwl,0.97,Illinois,1983
+bwn,0.76,Iowa,1990
+bwp,0.16,Alaska,1912
+bwr,0.44,Kentucky,1971
+bxb,0.38,Iowa,1915
+bxd,0.71,Indiana,2013
+bxf,0.13,Wyoming,1963
+bxk,0.59,Virginia,1934
+bxm,0.38,Mississippi,2013
+bxn,0.62,New Jersey,1989
+bxo,0.97,Kentucky,1983
+bxq,0.2,Louisiana,1976
+bxu,0.1,Washington,1904
+byc,0.25,Maine,1971
+byf,0.42,Kentucky,2015
+byh,0.14,Massachusetts,1959
+byj,0.87,Minnesota,1987
+byn,0.97,Oregon,1921
+byp,0.64,Alaska,1935
+byr,0.26,Alabama,2002
+bys,0.26,Illinois,2018
+byu,0.88,Mississippi,1983
+byv,0.25,Mississippi,1991
+byw,0.21,Illinois,1911
+bza,0.49,Virginia,1943
+bzb,0.73,Georgia,1952
+bzg,0.22,Tennessee,1977
+bzq,0.61,Alabama,1960
+bzr,0.63,Virginia,1906
+bzt,0.2,South Carolina,1958
+bzv,0.16,Wyoming,1923
+caa,0.59,Nevada,1920
+cac,0.75,Alabama,1921
+cae,0.13,South Carolina,2019
+caf,0.05,Florida,2016
+cag,0.49,West Virginia,1952
+cal,0.34,Missouri,2019
+can,0.85,Alabama,1948
+caq,0.06,Colorado,1988
+cat,0.15,Ohio,1977
+cba,0.33,Virginia,1923
+cbg,0.49,Virginia,1967
+cbj,0.52,Michigan,1947
+cbp,0.73,Colorado,1922
+cbq,0.12,Texas,1912
+cbr,0.85,Utah,1980
+cbs,0.57,Mississippi,2015
+ccb,0.43,Washington,1960
+ccc,0.04,Oregon,1958
+ccd,0.92,Tennessee,1954
+cck,0.46,Louisiana,1972
+ccw,0.97,New York,1983
+ccx,0.63,Arizona,1995
+cdf,0.91,Vermont,2015
+cdk,0.27,Delaware,2015
+cdl,0.03,Pennsylvania,1911
+cdn,0.05,Rhode Island,2013
+cdo,0.21,Texas,1939
+cdp,0.74,Kansas,1991
+cdq,0.0,Alaska,2020
+cdu,0.15,Michigan,2023
+cdx,0.88,Colorado,1904
+cdz,0.58,Oklahoma,1999
+cec,0.94,West Virginia,1952
+ced,0.47,Louisiana,2021
+cee,0.31,Minnesota,2005
+cef,0.49,Massachusetts,1922
+ceg,0.88,New Jersey,2019
+cei,0.81,New Hampshire,1961
+cen,0.58,Washington,2005
+ceq,0.96,North Carolina,1967
+cer,0.48,Florida,1967
+ces,0.74,Utah,1903
+cet,0.36,Virginia,2005
+cev,0.97,Colorado,1999
+cew,0.11,New Hampshire,1908
+cex,0.63,Utah,1976
+cfd,0.76,Washington,1983
+cfe,0.9,Washington,1997
+cfh,0.84,West Virginia,1932
+cfs,0.15,Oregon,1980
+cfy,0.76,North Carolina,1965
+cga,0.01,Tennessee,1994
+cgb,0.54,Alaska,1998
+cgc,0.58,Oklahoma,1902
+cgd,0.01,Oklahoma,1920
+cgg,0.54,New York,1919
+cgk,0.07,Alabama,1981
+cgl,0.06,New Hampshire,1943
+cgr,0.02,Mississippi,1934
+cgt,0.65,Arizona,1907
+cgu,0.19,Oregon,1938
+cgv,0.21,Alaska,2008
+cgw,0.7,Hawaii,2012
+cgx,0.47,Tennessee,1977
+cgy,0.09,Maine,1974
+cgz,0.94,Alabama,1947
+cha,0.57,Alabama,1965
+chc,0.09,Connecticut,1935
+chd,0.14,Hawaii,1927
+chf,0.02,Arkansas,1969
+chg,0.14,Idaho,1929
+chj,0.86,Massachusetts,1995
+chp,0.43,Louisiana,1940
+chr,0.5,Texas,1941
+chs,0.95,Montana,1975
+chy,0.18,Arkansas,1970
+cia,0.84,North Carolina,1976
+cib,0.35,Arizona,1934
+cie,0.24,Colorado,1968
+cig,0.89,Ohio,1957
+cii,0.61,New Jersey,2021
+cil,0.41,Minnesota,1927
+cio,0.99,Connecticut,1961
+cir,0.03,Utah,1939
+ciw,0.95,New York,1920
+cix,0.82,Indiana,2005
+ciy,0.56,Missouri,2016
+cjb,0.97,Delaware,1997
+cjd,0.7,Hawaii,1982
+cjl,0.49,Minnesota,1995
+cjm,0.68,Virginia,1948
+cjp,0.15,South Dakota,1920
+cjt,0.48,Alaska,1972
+cjw,0.27,South Carolina,1909
+cjx,0.64,Michigan,2020
+cka,0.45,California,1907
+ckg,0.56,Colorado,2005
+cki,0.28,New York,1903
+cku,0.49,Maryland,2016
+ckz,0.54,Maryland,1970
+cle,0.32,Washington,1961
+clg,0.42,Florida,1906
+clk,0.76,Ohio,1921
+cls,0.22,Rhode Island,1998
+clu,0.55,New Hampshire,1937
+cma,0.93,Kansas,1947
+cmg,0.6,Oregon,1983
+cmh,0.82,Maine,2015
+cmj,0.23,Ohio,1966
+cmk,0.96,New Mexico,2009
+cmm,0.55,New Mexico,1933
+cms,0.85,Colorado,1935
+cmu,0.07,West Virginia,1954
+cmw,0.53,West Virginia,1935
+cmx,0.5,Connecticut,1904
+cmz,0.12,Colorado,1938
+cna,0.54,New York,2019
+cng,0.92,Alaska,1960
+cni,0.48,Delaware,1918
+cnj,0.62,Georgia,1945
+cnl,0.54,Rhode Island,1927
+cnn,0.77,New York,1923
+cnr,0.99,Alaska,1977
+cnt,0.06,Virginia,1984
+cnu,0.42,Oklahoma,2019
+cnw,0.26,Wyoming,1973
+cnx,0.95,Washington,1971
+cnz,0.41,Maine,1986
+coa,0.94,Louisiana,1906
+coj,0.09,Utah,1963
+col,0.59,Maryland,2019
+cor,0.44,Oregon,1917
+cot,0.6,Arkansas,1971
+cov,0.62,Maine,1977
+cpa,0.79,Alabama,1988
+cpd,0.33,Virginia,1915
+cpe,0.94,Nebraska,1914
+cpf,0.67,California,1918
+cpj,0.21,California,1983
+cpn,0.91,Delaware,1977
+cpo,0.93,South Dakota,1942
+cpt,0.29,New Jersey,1942
+cpv,0.85,Michigan,1980
+cpz,0.64,Connecticut,1980
+cqb,0.76,Hawaii,1947
+cqc,0.61,California,1927
+cqe,0.37,New Hampshire,1964
+cqj,0.64,California,1917
+cqo,0.82,New Hampshire,1955
+cqp,0.67,Tennessee,1952
+cqr,0.39,Michigan,1920
+cqt,0.6,New Hampshire,1964
+cqy,0.44,New Jersey,1968
+crf,0.65,New Jersey,1986
+cri,0.38,North Dakota,1954
+crm,0.42,South Dakota,1965
+crp,0.17,Montana,1997
+crr,0.66,North Dakota,2003
+cru,0.86,Arizona,1957
+crw,0.43,Georgia,2014
+csa,0.24,Indiana,2001
+csb,0.55,South Dakota,1917
+cse,0.98,Massachusetts,1939
+csi,0.16,Tennessee,1998
+csk,0.92,Wyoming,1910
+csm,0.01,Indiana,1950
+cso,0.52,Colorado,1908
+css,0.58,Iowa,1932
+csv,0.01,Wyoming,1933
+cta,0.64,Mississippi,1927
+ctg,0.09,Tennessee,1933
+ctj,0.56,Wyoming,1989
+ctn,0.95,Texas,1926
+cto,0.37,Ohio,1902
+cts,0.39,Kentucky,1930
+ctt,0.69,Texas,1935
+ctv,0.3,Delaware,1933
+ctz,0.03,Louisiana,2000
+cua,0.9,Illinois,2007
+cuc,0.19,Illinois,1940
+cud,0.4,Kentucky,2008
+cuf,0.76,Kentucky,2014
+cuk,0.64,Oklahoma,1968
+cul,0.06,Alabama,1996
+cum,0.21,Alaska,1992
+cup,0.28,Kentucky,1974
+cut,0.87,Iowa,1995
+cuu,0.44,Maine,2007
+cuv,0.89,Alabama,1922
+cuy,1.0,Delaware,1980
+cuz,0.81,Kansas,1935
+cvc,0.89,Michigan,1903
+cvf,0.19,Texas,1964
+cvg,0.33,Pennsylvania,1962
+cvh,0.57,South Carolina,2013
+cvl,0.6,Nevada,2023
+cvo,0.09,Oregon,1973
+cvr,0.85,South Carolina,1949
+cvs,0.52,South Carolina,1923
+cvw,0.17,Connecticut,1944
+cvz,0.06,Idaho,2003
+cwa,1.0,Washington,1986
+cwb,0.91,Florida,1928
+cwg,0.17,Ohio,1988
+cwk,0.08,Maryland,1909
+cwl,0.88,Indiana,1915
+cwm,0.35,Delaware,1913
+cwq,0.6,Iowa,1946
+cwt,0.89,Ohio,2015
+cwv,0.56,South Carolina,1916
+cwx,0.15,Connecticut,1971
+cxc,0.67,South Dakota,1963
+cxd,0.0,Kansas,2013
+cxk,0.71,Virginia,1923
+cxn,0.71,Arizona,1974
+cxp,0.91,New Hampshire,2018
+cxr,0.87,Texas,1958
+cxs,0.92,Iowa,1979
+cxu,0.49,Hawaii,1980
+cxw,0.78,Washington,1929
+cxz,0.91,Florida,1996
+cya,0.61,Nevada,1987
+cyc,0.27,Montana,1925
+cyf,0.18,Illinois,1964
+cyh,0.4,Washington,1931
+cyj,0.03,Nebraska,2003
+cyk,0.08,Oklahoma,2021
+cyl,0.99,Maine,1912
+cyx,0.54,Illinois,1933
+czb,0.17,Ohio,2000
+czc,0.13,South Carolina,1930
+czd,0.21,Kentucky,1908
+czf,0.21,Nevada,1969
+czg,0.47,Delaware,2020
+czj,0.01,Vermont,1908
+czl,0.55,Tennessee,2014
+czm,0.04,Alaska,2023
+czn,0.29,Tennessee,1983
+czo,0.39,Nevada,1998
+czp,0.54,Delaware,2003
+czu,0.15,Idaho,1927
+czy,0.86,Connecticut,2000
+dae,0.57,Nebraska,2005
+daj,0.73,Colorado,2023
+dak,0.39,Colorado,1961
+dan,0.86,Virginia,1921
+dap,0.86,North Carolina,2013
+das,0.21,Texas,1977
+dau,0.87,Florida,1936
+daw,0.87,Arkansas,1914
+dax,0.61,Louisiana,1947
+dba,0.17,Massachusetts,1981
+dbb,0.36,Rhode Island,1982
+dbc,0.0,Washington,1990
+dbd,0.17,Wyoming,1961
+dbg,0.03,Iowa,1923
+dbj,0.16,Connecticut,1980
+dbk,0.63,Arizona,1913
+dbr,0.18,Colorado,1916
+dbt,0.04,Virginia,2018
+dbv,0.01,Louisiana,1930
+dbx,0.89,Nebraska,1972
+dby,0.88,Kansas,1999
+dce,0.54,Alaska,1961
+dcg,0.2,Kentucky,1941
+dci,0.61,Maryland,1920
+dda,0.87,Texas,1936
+ddc,0.76,Washington,1920
+dde,0.63,Colorado,1903
+ddo,0.18,Oklahoma,1915
+ddq,0.39,Colorado,1997
+ddr,0.97,New York,1917
+ddt,0.03,New Jersey,1900
+ddx,0.11,Wyoming,1931
+ddy,0.15,West Virginia,1952
+dec,0.13,Utah,1911
+def,0.26,New York,2000
+deg,0.81,Wisconsin,1973
+deh,0.82,Delaware,1994
+dej,0.78,South Carolina,1929
+dek,0.5,Missouri,1910
+deq,0.85,Illinois,1903
+der,0.88,Connecticut,1938
+deu,0.81,Ohio,1999
+dex,0.47,North Carolina,1985
+dey,0.9,New Jersey,1955
+dez,0.8,Oklahoma,1905
+dfd,0.0,New Jersey,1947
+dfe,0.37,Indiana,1921
+dff,0.44,Utah,1983
+dfh,0.2,Virginia,2006
+dfj,0.17,Washington,1917
+dfk,0.04,Maryland,1911
+dfl,0.7,Nebraska,1958
+dfn,0.73,Michigan,2013
+dfp,0.33,North Carolina,1957
+dft,0.46,Vermont,1930
+dfv,0.13,Rhode Island,1953
+dfw,0.1,Wisconsin,1933
+dfx,0.12,Minnesota,2013
+dfy,0.57,Georgia,1939
+dgc,0.02,North Carolina,1952
+dgg,0.68,Georgia,1922
+dgh,0.17,New Mexico,1963
+dgj,0.25,Idaho,1966
+dgk,0.29,Maryland,1948
+dgr,0.66,Connecticut,1941
+dgt,0.05,Arizona,1935
+dgz,0.87,New York,2022
+dha,0.25,Massachusetts,1985
+dhb,0.61,Minnesota,1954
+dhd,0.12,Alaska,1997
+dhf,0.47,Louisiana,1990
+dhh,0.18,Washington,1925
+dhi,0.15,Alabama,2004
+dhj,0.58,Minnesota,1957
+dhq,0.58,South Carolina,1924
+dhv,0.25,Maryland,1957
+dhy,0.28,Connecticut,1999
+die,0.12,New Jersey,1907
+dif,0.0,South Dakota,1997
+dig,0.25,Kentucky,1979
+dih,0.32,New Mexico,1957
+dii,0.83,Nebraska,1963
+dik,0.14,Hawaii,1941
+dil,0.86,Tennessee,1915
+dim,0.16,Minnesota,1996
+dio,0.11,Utah,1997
+dja,0.34,Nevada,1977
+djb,0.18,Oklahoma,2021
+djf,0.99,Colorado,2001
+djl,0.88,Alabama,1981
+djm,0.83,Nevada,1955
+djn,0.19,Vermont,1971
+djr,0.5,Massachusetts,1999
+djs,0.99,Colorado,1932
+djx,0.49,Delaware,1999
+djy,1.0,Michigan,1972
+dkb,0.98,Mississippi,2023
+dkc,0.83,Wisconsin,2005
+dkd,0.94,Montana,2020
+dke,0.3,California,1934
+dkn,0.09,South Dakota,1909
+dko,0.54,New Jersey,1937
+dkq,0.55,New Mexico,2002
+dkr,0.63,Wisconsin,1950
+dku,0.94,Iowa,1959
+dkv,0.83,Massachusetts,1902
+dkx,0.96,Hawaii,1949
+dla,0.13,California,2012
+dln,0.41,Georgia,2017
+dlq,0.55,West Virginia,1975
+dlr,0.64,Washington,1936
+dlt,0.95,Oregon,1942
+dma,0.52,Michigan,1926
+dmc,0.2,Virginia,2017
+dmf,0.21,Massachusetts,1976
+dmi,0.49,Virginia,2002
+dmj,0.44,Maine,1929
+dmn,0.79,Oregon,2000
+dmo,0.07,Virginia,1952
+dmt,0.17,New Mexico,1960
+dmu,0.56,Oklahoma,1979
+dmv,0.47,Pennsylvania,1990
+dmx,0.87,Arkansas,2017
+dnb,0.78,Vermont,2009
+dnc,0.53,New York,1981
+dnd,0.73,Alabama,2011
+dnl,0.61,Nevada,1948
+dnm,0.95,Louisiana,1991
+dnn,0.08,California,1969
+dnp,0.67,New Mexico,1934
+dnr,0.88,South Carolina,1916
+dnw,0.17,Vermont,1907
+doc,0.6,Virginia,1919
+dof,0.07,Illinois,2000
+dog,0.87,West Virginia,1951
+doj,0.11,Vermont,1942
+dol,0.34,Utah,1905
+dop,0.1,Oklahoma,2007
+doq,0.13,Arkansas,1928
+dot,0.53,Maine,1928
+dou,0.47,New Jersey,1988
+dov,0.4,Louisiana,2014
+dow,0.85,Wyoming,1929
+dox,0.32,Florida,1910
+doz,0.21,Tennessee,1976
+dph,0.54,Alaska,1914
+dpj,0.49,Hawaii,1954
+dpk,0.18,Michigan,1962
+dpm,0.66,Delaware,2010
+dpu,0.0,Vermont,1949
+dpv,0.21,Pennsylvania,1919
+dpx,0.12,Wisconsin,1900
+dpy,0.36,Oklahoma,1951
+dpz,0.81,Alabama,1920
+dqa,0.75,New Mexico,1904
+dqb,0.83,Arkansas,1931
+dqk,0.69,Arkansas,1902
+dqn,0.83,Delaware,2001
+dqp,0.42,Illinois,1985
+dqs,0.03,Maine,1932
+dqt,0.18,Nevada,1956
+dqw,0.42,North Carolina,1946
+dqy,0.65,Nebraska,1904
+dra,0.56,Georgia,2001
+drb,0.86,Texas,1937
+drc,0.94,North Dakota,1953
+dri,0.16,Nevada,1932
+drj,0.35,Texas,1936
+drm,0.49,Georgia,2022
+dro,0.08,Illinois,1993
+drr,1.0,Iowa,1957
+drs,0.48,Alabama,1925
+drt,0.46,New York,1912
+dry,0.79,New York,1947
+drz,0.72,New Jersey,1940
+dsa,0.03,South Dakota,1924
+dsb,0.62,New Jersey,1905
+dse,0.99,Arizona,1959
+dsh,0.67,New Mexico,1912
+dsj,0.56,Tennessee,1939
+dso,0.89,Arizona,1949
+dss,0.7,Nebraska,1927
+dst,0.38,Nevada,1923
+dsv,0.95,Montana,1954
+dsw,0.86,Texas,2021
+dsy,0.77,Idaho,2021
+dti,0.26,Delaware,1951
+dtn,0.91,Maine,1971
+dts,0.64,Massachusetts,1922
+dtv,0.79,South Dakota,1975
+dtw,0.74,New Mexico,2016
+dub,0.94,West Virginia,1973
+duc,0.91,Delaware,1957
+dud,0.56,North Carolina,1955
+duf,0.29,Washington,1946
+dug,0.09,West Virginia,1958
+duh,0.19,Maryland,1962
+duj,0.0,Tennessee,1972
+duk,0.32,Rhode Island,1944
+duo,0.24,New Mexico,2021
+dur,0.78,West Virginia,1957
+duy,0.14,Ohio,1962
+dvb,0.0,Louisiana,1979
+dve,0.47,Connecticut,1973
+dvg,0.33,California,1950
+dvi,0.49,Texas,1932
+dvj,0.92,Oklahoma,1957
+dvk,0.99,Kansas,1962
+dvs,0.92,Iowa,1933
+dvt,0.29,Maryland,1982
+dvz,0.12,Colorado,1975
+dwa,0.9,South Carolina,1914
+dwd,0.71,Connecticut,2018
+dwe,0.13,Texas,1951
+dwh,0.76,Kansas,1916
+dwj,0.56,Illinois,1924
+dwk,0.36,Florida,1953
+dwp,0.3,Maine,1988
+dws,0.84,Arkansas,1962
+dww,0.87,Pennsylvania,2001
+dwx,0.05,Michigan,1949
+dwz,0.59,Illinois,2017
+dxd,0.66,Michigan,1914
+dxm,0.38,Massachusetts,1949
+dxp,0.24,Missouri,2018
+dxq,0.71,Michigan,1940
+dxr,0.04,Oregon,1913
+dxu,0.67,Illinois,1946
+dxw,0.1,New Mexico,1930
+dya,0.52,Montana,1923
+dyb,0.92,Georgia,1991
+dyd,0.25,New Jersey,1911
+dyh,0.71,Georgia,1920
+dyi,0.01,Idaho,2010
+dyj,0.77,Delaware,1952
+dyo,0.87,Delaware,2018
+dyx,0.82,Minnesota,1969
+dzc,0.93,North Carolina,1968
+dze,0.43,Michigan,1997
+dzh,0.17,Michigan,1998
+dzl,0.74,West Virginia,1918
+dzm,0.84,Alaska,1920
+dzt,0.15,Nebraska,1969
+dzv,0.5,Colorado,1937
+dzx,0.09,Utah,2000
+dzy,0.39,Tennessee,1911
+dzz,0.3,Virginia,1966
+eaa,0.76,Texas,2023
+eab,0.38,Louisiana,2021
+ead,0.38,Nebraska,1901
+eai,0.68,New Mexico,1984
+eal,0.91,Vermont,1900
+ean,0.56,Oregon,1997
+eat,0.33,Alabama,1971
+eav,0.91,New York,2018
+eax,0.18,Iowa,1932
+ebb,0.81,Georgia,2012
+ebf,0.27,Colorado,1905
+ebg,0.93,Delaware,1954
+ebh,0.76,California,1975
+ebm,0.08,Montana,1998
+ebn,0.22,Arizona,1974
+ebq,0.95,Washington,1975
+ebr,0.32,Kansas,1994
+ebt,0.14,West Virginia,2011
+ece,0.51,North Dakota,1981
+ecf,0.92,New Mexico,1939
+ecg,0.75,Minnesota,2018
+eci,0.88,Missouri,1920
+ecj,0.49,Nevada,1920
+eck,0.02,Nebraska,1965
+ecp,0.47,Michigan,1955
+ecq,0.19,Arkansas,1976
+ecr,0.84,New York,1933
+ect,0.07,Iowa,1937
+ecw,0.92,Arizona,1979
+ecy,0.9,Texas,1980
+edd,0.42,New York,1965
+ede,0.8,Utah,1997
+edf,0.15,Kansas,1959
+edp,0.64,Connecticut,1936
+edq,0.95,Michigan,1943
+edr,0.55,Rhode Island,1999
+edx,0.79,South Carolina,1984
+eeb,0.41,Vermont,1996
+eec,0.54,Alabama,2022
+eef,0.93,Washington,1998
+eeh,0.63,Alabama,2000
+eej,0.64,Ohio,1996
+eek,0.29,Colorado,1975
+een,0.05,Idaho,1930
+eeo,0.47,Oklahoma,2012
+eet,0.11,Mississippi,1969
+eew,0.5,Illinois,2004
+eez,0.33,Maine,1942
+efb,0.86,Maine,1931
+efc,0.41,Rhode Island,1930
+eff,0.83,West Virginia,1915
+efj,0.26,West Virginia,1980
+efk,0.04,Maine,1997
+efm,0.54,Alabama,1999
+efo,0.61,Utah,2011
+efu,0.68,Idaho,1955
+efv,0.31,Minnesota,1932
+efw,0.77,Arizona,1956
+efx,0.69,Alabama,1975
+efy,0.9,Pennsylvania,1951
+egh,1.0,Georgia,1914
+egj,0.37,Kansas,2022
+egm,0.87,Colorado,1996
+ego,0.55,Tennessee,1994
+egp,0.79,Virginia,1903
+egr,0.74,Massachusetts,1960
+egs,0.49,Virginia,1943
+egt,0.55,Minnesota,1995
+ehh,0.62,New Mexico,1973
+ehm,0.3,Illinois,1906
+ehn,0.91,Nebraska,1989
+eho,0.28,Alabama,1948
+ehr,0.0,Arkansas,2023
+ehs,0.46,Virginia,1980
+eht,0.23,New Hampshire,1924
+ehw,0.72,New York,1986
+ehx,0.64,Connecticut,2015
+eic,0.61,Pennsylvania,1903
+eie,0.9,Arkansas,2000
+eig,0.43,Texas,1917
+eii,0.28,Nevada,1918
+eil,1.0,Missouri,1953
+eim,0.36,Montana,1988
+ein,0.21,New Mexico,2004
+eis,0.31,Arizona,2005
+eix,0.22,Hawaii,1972
+eiy,0.49,California,1920
+eiz,0.38,Illinois,1915
+eja,0.24,Alabama,1930
+ejg,0.45,Delaware,2014
+ejh,0.76,Nevada,1942
+ejm,0.94,Oklahoma,1951
+ejo,0.75,Mississippi,1920
+ejr,0.12,Virginia,2005
+ejs,0.91,South Dakota,1985
+ekd,0.52,Oregon,1982
+ekf,0.25,Washington,1921
+ekn,0.34,Maine,1905
+ekp,0.27,North Carolina,1966
+ekw,0.0,Minnesota,2020
+ekx,0.97,Nebraska,1927
+eky,0.12,Iowa,1974
+ekz,0.11,Arkansas,2006
+elc,0.24,Tennessee,2000
+elf,0.19,New Mexico,1958
+elg,0.97,Pennsylvania,1997
+elh,0.76,New Mexico,1985
+ell,0.08,Utah,1992
+elt,0.16,North Dakota,1962
+elz,0.6,Michigan,1912
+emd,0.4,Louisiana,1900
+emg,0.42,Iowa,1961
+emi,0.04,Nevada,1931
+emo,1.0,West Virginia,1983
+emy,0.49,Delaware,1920
+emz,0.47,New Jersey,1979
+ena,0.69,New Hampshire,2022
+enc,0.98,Virginia,1980
+end,0.02,Oklahoma,1938
+eno,0.14,Maryland,1950
+enp,0.81,Wyoming,1903
+enu,0.02,South Carolina,1936
+env,0.5,Illinois,2020
+enx,0.63,Illinois,1900
+enz,0.54,Michigan,2017
+eog,0.87,Wyoming,1977
+eoi,0.16,Nevada,1960
+eom,0.58,South Carolina,1925
+eop,0.76,Wisconsin,2023
+eot,0.16,Alabama,1970
+eox,0.8,Wyoming,2008
+eoy,0.85,Alaska,1935
+epd,0.64,New Mexico,1990
+epe,0.09,South Carolina,1920
+epg,0.32,Kansas,2005
+eph,0.11,Pennsylvania,1988
+epn,0.77,Colorado,1944
+epr,0.53,Wisconsin,1966
+epw,0.33,West Virginia,1926
+epx,0.98,Wisconsin,1933
+epz,0.21,South Carolina,1928
+eqg,0.1,North Dakota,1997
+eqh,0.7,Tennessee,1905
+eqk,0.88,Massachusetts,1994
+eqo,0.48,North Dakota,1928
+eqr,0.18,New Jersey,1971
+eqs,0.29,Illinois,1914
+equ,0.72,Michigan,2011
+eqv,0.98,Colorado,1910
+eqw,0.57,Hawaii,1956
+eqx,0.55,Georgia,1917
+era,0.94,North Carolina,1911
+erc,0.62,Indiana,1943
+ere,0.56,Minnesota,1933
+erh,0.96,Montana,2019
+eri,0.79,Minnesota,1988
+erl,0.54,Georgia,1936
+ern,0.66,Maine,1950
+ero,0.74,New Hampshire,2011
+erq,0.94,Oklahoma,1948
+ers,0.84,Missouri,1986
+erw,0.32,New Hampshire,1908
+ery,0.97,Kentucky,1969
+erz,0.82,Indiana,2023
+esa,0.56,Nebraska,1925
+esd,0.63,North Carolina,1981
+ese,0.83,Montana,1934
+esf,0.84,South Dakota,2015
+esk,0.39,Vermont,1924
+esn,0.89,Iowa,1907
+esp,0.85,South Carolina,1960
+esq,0.74,Missouri,1990
+ess,0.59,Mississippi,1941
+est,0.65,Iowa,2011
+esu,0.16,South Carolina,1903
+esx,0.81,Indiana,1976
+etc,0.38,Delaware,1903
+etd,0.69,California,1980
+etf,0.61,New York,1962
+etj,0.33,Illinois,1916
+etm,0.12,Massachusetts,1932
+etr,0.8,Virginia,1991
+ets,0.68,Virginia,2002
+eue,0.39,New York,1981
+eug,0.58,Kansas,1991
+eui,0.25,Minnesota,1966
+euo,0.1,Missouri,1921
+eup,0.48,Nebraska,1991
+euv,0.9,Wyoming,1904
+euy,0.13,Maryland,1997
+euz,0.29,Missouri,1972
+eva,0.34,Virginia,1986
+evf,0.58,Alabama,1921
+evg,0.62,Washington,1983
+evh,0.73,Arizona,1949
+evl,0.26,Nebraska,2003
+evq,0.33,Montana,1974
+evr,0.92,New Mexico,1983
+evs,0.94,Mississippi,2007
+evw,0.45,New Jersey,1960
+evy,0.99,Vermont,2009
+ewa,0.85,Utah,1959
+ewc,0.2,Wisconsin,1994
+ewe,0.31,Tennessee,1920
+ewf,0.69,Oklahoma,2016
+ewg,0.18,Louisiana,1984
+ewk,0.03,Texas,1958
+ewn,0.48,Georgia,1921
+ewr,0.29,Alaska,1962
+ewt,0.95,Montana,1970
+ewv,0.2,Nevada,1989
+ewx,0.7,Alaska,1943
+exb,0.79,Mississippi,1919
+exd,0.49,California,1966
+exe,0.71,California,1953
+exh,0.63,Iowa,1936
+exi,0.92,Connecticut,1925
+exm,0.49,California,2008
+ext,0.3,West Virginia,1986
+exw,0.5,South Carolina,1974
+exy,0.91,North Carolina,1973
+exz,0.58,Alaska,2006
+eya,0.74,Hawaii,1938
+eyg,0.26,Maryland,1969
+eyi,0.06,California,2008
+eyl,0.7,Delaware,2001
+eyn,0.3,Wisconsin,1993
+eyq,0.77,North Dakota,1966
+eyw,0.92,Tennessee,1910
+ezb,0.9,Connecticut,1920
+ezd,0.37,Maine,1911
+eze,0.52,West Virginia,2006
+ezg,0.48,Ohio,1986
+ezj,0.32,New Mexico,1943
+ezn,0.46,Georgia,1968
+ezo,0.09,Rhode Island,1964
+ezq,0.07,Kentucky,1952
+ezw,0.84,Massachusetts,1991
+fab,0.23,Mississippi,1930
+fae,0.09,Michigan,1940
+fah,0.25,Connecticut,1919
+fak,0.7,Alabama,1995
+fao,0.51,New York,1980
+fat,0.02,South Dakota,2007
+faw,0.03,Kansas,2012
+faz,0.19,Hawaii,1938
+fbb,0.53,Illinois,1923
+fbd,0.42,California,1943
+fbg,0.58,Ohio,1918
+fbh,0.57,Oklahoma,1931
+fbm,0.13,Michigan,1976
+fbq,0.24,Wyoming,2011
+fbv,0.23,Tennessee,1974
+fbx,0.34,Florida,1999
+fby,0.19,Virginia,1942
+fbz,0.53,Oregon,1936
+fcd,0.29,Nebraska,2017
+fch,0.32,Washington,1965
+fck,0.36,South Dakota,1914
+fcl,0.87,Arkansas,1939
+fcq,0.23,Oklahoma,1903
+fcs,0.47,Massachusetts,1952
+fcx,0.69,Rhode Island,1992
+fcy,0.21,North Carolina,1990
+fdb,0.88,Ohio,1999
+fdf,0.46,Minnesota,1949
+fdg,0.64,Utah,2007
+fdj,0.25,Wisconsin,2011
+fdl,0.39,South Carolina,1959
+fdo,0.77,Kentucky,1967
+fds,0.26,Nebraska,1948
+fdt,0.15,California,1956
+fdy,0.32,Nebraska,1984
+fea,0.55,Alabama,1945
+feg,0.02,Idaho,1974
+fei,0.26,Mississippi,2000
+fej,0.87,Oklahoma,2021
+fek,0.49,Michigan,1979
+fen,0.69,South Dakota,1904
+feo,0.18,Pennsylvania,1954
+feq,0.32,Maryland,1907
+fer,0.95,Indiana,1946
+fes,0.64,New Hampshire,1933
+feu,0.09,Nevada,1922
+few,0.25,Montana,1919
+fex,0.3,Alaska,1930
+fey,0.84,South Dakota,1944
+fff,0.7,Missouri,1984
+ffi,0.45,West Virginia,1950
+ffj,0.15,Georgia,1924
+ffk,0.73,Nevada,1903
+ffn,0.08,West Virginia,1929
+ffo,0.63,Wisconsin,1964
+ffp,0.87,Pennsylvania,1963
+ffs,0.72,South Dakota,1989
+ffv,0.69,Nebraska,1946
+ffx,0.62,Nevada,2006
+ffy,0.86,Rhode Island,1992
+ffz,0.57,Massachusetts,1943
+fga,0.58,Hawaii,1924
+fgb,0.52,Tennessee,1942
+fge,0.32,California,1908
+fgf,0.36,Georgia,1904
+fgg,0.81,Connecticut,2014
+fgi,0.09,South Carolina,1903
+fgn,0.88,Rhode Island,1932
+fgo,0.48,Nebraska,1948
+fgp,0.2,West Virginia,1946
+fgq,0.24,Pennsylvania,1919
+fgx,0.16,Connecticut,1937
+fha,0.97,Arkansas,1957
+fhc,0.65,Georgia,1988
+fhe,0.95,Arkansas,1998
+fhi,0.42,Rhode Island,2015
+fhr,0.53,Nebraska,1998
+fhs,0.18,Maryland,2017
+fhz,0.62,South Carolina,1907
+fic,0.59,Nebraska,1903
+fii,0.08,Pennsylvania,1948
+fij,0.16,Nevada,2003
+fim,0.64,South Carolina,1908
+fio,0.96,Connecticut,2018
+fiq,0.18,Michigan,1958
+fja,0.47,Kansas,1910
+fjb,0.21,Illinois,1949
+fjc,0.74,Illinois,2008
+fjg,0.23,South Carolina,1916
+fji,0.23,Colorado,1929
+fjm,0.22,Hawaii,1947
+fjo,0.09,Utah,1931
+fjp,0.45,Pennsylvania,1956
+fjq,0.84,New York,1952
+fjt,0.01,Mississippi,2016
+fjx,0.2,Alabama,1909
+fkd,0.94,Oregon,1980
+fke,0.05,New Jersey,1966
+fkh,0.34,Arizona,2016
+fkj,0.57,Oregon,2006
+fkl,0.9,West Virginia,2022
+fko,0.71,Nebraska,1914
+fks,0.69,Minnesota,1942
+fky,0.59,Connecticut,1953
+fla,0.94,Maryland,2014
+flb,0.79,Idaho,1999
+fld,0.66,New Jersey,1996
+flf,0.74,Arkansas,1930
+flg,0.56,Delaware,1931
+flh,0.66,Minnesota,1990
+fll,0.75,South Dakota,1978
+flm,0.49,Nebraska,1919
+fln,0.27,Mississippi,1917
+flu,0.22,Iowa,1949
+flw,0.37,Hawaii,1922
+flx,0.09,Arkansas,1918
+fly,0.45,Iowa,1970
+flz,0.39,New Hampshire,1906
+fmc,0.61,Illinois,1922
+fme,0.79,Washington,1921
+fmf,0.54,Florida,1901
+fmk,0.54,South Carolina,2013
+fmn,0.91,Alaska,1990
+fmo,0.48,Iowa,1908
+fmt,0.59,Washington,1987
+fmx,0.81,Rhode Island,1914
+fnf,0.31,Mississippi,1965
+fnk,0.86,New Mexico,2005
+fnn,0.85,Hawaii,1996
+fnp,0.07,Illinois,1996
+fnq,0.98,North Dakota,1901
+fns,0.04,Texas,1961
+fnt,0.08,Oregon,2015
+fnv,0.51,Kentucky,1900
+fnw,0.65,West Virginia,1932
+fob,0.81,Ohio,1973
+fod,0.28,Kentucky,2012
+foi,0.14,Oregon,2015
+fok,0.02,Idaho,1929
+fot,0.19,Massachusetts,1994
+fow,0.38,New Jersey,1938
+foy,0.95,Wyoming,2009
+fpb,0.53,New York,1993
+fpe,0.78,Kansas,1950
+fpf,0.22,Delaware,1969
+fpg,0.17,Alabama,1949
+fpi,0.73,Colorado,1955
+fpk,0.91,Utah,1923
+fpm,0.32,Vermont,2020
+fpn,0.81,Maine,1998
+fpp,0.7,Kansas,1998
+fpr,0.46,Maryland,2008
+fpt,0.06,Minnesota,1909
+fqb,0.37,Pennsylvania,2004
+fqc,0.11,Illinois,1948
+fqd,0.07,Arkansas,1996
+fqf,0.84,Maryland,1949
+fql,0.96,Kansas,1975
+fqm,0.48,Arkansas,1989
+fqn,0.2,Delaware,1917
+fqx,0.01,Wisconsin,1971
+frh,0.36,New Jersey,1967
+fri,0.2,Indiana,1937
+frk,0.46,West Virginia,2019
+frp,0.3,Georgia,1969
+frq,0.98,Vermont,1950
+frt,0.52,Virginia,1976
+frx,0.64,North Dakota,1971
+fry,0.95,Hawaii,2016
+fsc,0.2,North Carolina,1942
+fsd,0.81,North Dakota,2001
+fsf,0.04,Hawaii,1975
+fsg,0.13,Minnesota,1986
+fsk,0.99,Utah,1930
+fsl,0.01,Minnesota,1944
+fso,0.23,Florida,1978
+fsq,0.68,Utah,1917
+fss,0.7,Tennessee,1933
+fsu,0.28,Maine,1982
+fsw,0.98,South Carolina,1926
+fsy,0.71,Tennessee,1904
+fsz,0.19,Tennessee,2007
+ftc,0.21,Louisiana,1925
+ftf,0.72,New Mexico,1901
+fth,0.82,Kentucky,1902
+fti,0.24,Nevada,2006
+ftm,0.7,Kansas,1923
+ftn,0.21,Texas,1978
+ftq,0.27,Delaware,1942
+ftr,0.89,Tennessee,2014
+fts,0.63,California,1940
+ftu,0.07,Wyoming,1960
+ftw,0.73,Alabama,1932
+fuc,0.49,Florida,1942
+fud,0.24,Oregon,2000
+fue,0.54,Mississippi,1979
+fuh,0.44,Missouri,1906
+fui,0.37,North Dakota,1937
+fuj,0.53,Michigan,1959
+fuk,0.47,New Hampshire,1909
+ful,0.35,Nebraska,2003
+fun,0.69,Texas,1930
+fuv,0.88,Vermont,1942
+fuw,0.13,Massachusetts,1971
+fva,0.0,Kansas,1939
+fvd,0.63,California,1968
+fve,0.08,Maryland,1936
+fvf,0.85,Kansas,1990
+fvg,0.22,Ohio,1949
+fvj,0.83,California,1937
+fvk,0.47,Illinois,1947
+fvl,0.61,Minnesota,1975
+fvm,0.98,Iowa,2005
+fvn,0.26,Maryland,1950
+fvo,0.9,Minnesota,1986
+fvq,0.03,Oklahoma,1988
+fvs,0.33,Illinois,1954
+fvu,0.91,Oklahoma,2013
+fvv,0.8,New York,1902
+fwb,0.12,Massachusetts,1930
+fwe,0.44,Delaware,1908
+fwg,0.03,Oregon,1908
+fwn,0.03,Ohio,1915
+fwo,0.82,Minnesota,1921
+fwr,0.71,Alabama,1992
+fws,0.24,West Virginia,1942
+fwt,0.7,Oklahoma,1927
+fwu,0.25,Delaware,1976
+fwv,0.93,North Dakota,1998
+fwy,0.99,Illinois,1918
+fxb,0.53,Georgia,1923
+fxc,0.76,South Carolina,2005
+fxf,0.35,West Virginia,2023
+fxg,0.99,Colorado,1950
+fxi,0.16,North Dakota,1949
+fxj,0.73,Delaware,1970
+fxl,0.87,Louisiana,1959
+fxp,0.03,Vermont,1984
+fxt,0.4,Florida,1990
+fxu,0.18,Hawaii,2006
+fxv,0.73,Colorado,1925
+fxw,0.35,Connecticut,1990
+fxy,0.04,Nevada,1977
+fya,0.92,Pennsylvania,1905
+fyc,0.05,Oklahoma,2022
+fyf,0.9,Alabama,1911
+fyg,0.43,New York,2011
+fyh,0.17,Wisconsin,1913
+fyi,0.62,Colorado,1990
+fyj,0.19,Michigan,1954
+fyk,0.28,Delaware,1913
+fym,0.43,Colorado,2020
+fyq,0.6,Texas,2004
+fys,0.98,Oklahoma,1923
+fyu,0.87,Illinois,1982
+fyv,0.68,Mississippi,1979
+fzd,0.2,Indiana,1907
+fze,0.37,Mississippi,1965
+fzf,0.18,Mississippi,1954
+fzg,0.23,Wyoming,1946
+fzi,0.66,North Carolina,1962
+fzk,0.98,Rhode Island,1927
+fzl,0.45,Arkansas,1901
+fzn,0.02,North Carolina,1967
+fzq,0.25,Delaware,2018
+fzr,0.17,Maine,1985
+fzv,0.74,Vermont,2002
+fzx,0.24,Texas,1929
+fzy,0.61,Utah,1931
+gab,0.9,Mississippi,1922
+gad,0.69,Washington,1990
+gae,0.82,Kentucky,1992
+gak,0.06,Kansas,1944
+gap,0.19,Hawaii,1958
+gaq,0.69,New Jersey,1971
+gav,0.27,West Virginia,1905
+gaw,0.26,Louisiana,1904
+gbb,0.18,North Carolina,2017
+gbe,0.5,Washington,1993
+gbh,0.56,Minnesota,1957
+gbi,0.86,Kentucky,2018
+gbk,0.24,Washington,1962
+gbl,0.36,Massachusetts,1961
+gbm,0.79,Mississippi,2008
+gbn,0.32,Iowa,1979
+gbq,0.79,Indiana,2023
+gbs,0.77,Nevada,1904
+gbt,0.79,Massachusetts,1902
+gbu,0.06,Oregon,1948
+gbv,0.66,Nevada,1987
+gbx,0.09,Wisconsin,2016
+gby,0.78,Oklahoma,1991
+gcc,0.84,Iowa,1979
+gcd,0.95,North Dakota,1901
+gch,0.81,Missouri,1984
+gci,0.76,Maryland,1994
+gck,0.79,Vermont,1934
+gcp,0.0,South Carolina,1958
+gcq,0.51,South Dakota,1935
+gcu,0.64,Florida,1940
+gcx,0.22,Pennsylvania,1943
+gdb,0.75,Massachusetts,1974
+gdc,0.09,Minnesota,1997
+gde,0.34,Alaska,1982
+gdj,0.95,Pennsylvania,1938
+gdk,0.27,Virginia,2001
+gdm,0.36,Minnesota,1998
+gdn,0.23,Hawaii,1935
+gdo,0.5,Maine,1999
+gdp,0.94,Minnesota,1961
+gdr,0.58,Massachusetts,1948
+gdy,0.71,Utah,1986
+gea,0.66,Alabama,1983
+geb,0.35,Massachusetts,1907
+ged,0.14,Nevada,1941
+gek,0.79,Alaska,1987
+gel,0.14,Oklahoma,1951
+gem,0.98,New Hampshire,1911
+gep,0.67,Kansas,1933
+geq,0.31,New Jersey,1918
+ger,0.06,Illinois,2004
+geu,0.65,Illinois,1962
+gev,0.3,Pennsylvania,1968
+gey,0.06,Pennsylvania,1915
+gez,0.96,Florida,2021
+gfb,0.47,Missouri,1985
+gfc,0.54,Arkansas,1943
+gfd,0.92,Illinois,1978
+gfe,0.28,Kansas,1940
+gfg,0.67,South Dakota,1981
+gfi,0.51,Montana,1980
+gfm,0.89,Rhode Island,1902
+gfv,0.68,Michigan,1983
+gfx,0.53,Minnesota,1929
+gfz,0.93,Florida,2014
+ggb,0.7,Colorado,2022
+ggh,0.47,New Jersey,1971
+ggn,0.2,Texas,1982
+ggo,0.6,Indiana,1986
+ggp,0.71,Illinois,1917
+ggs,0.18,Louisiana,1958
+ggt,0.13,Washington,1939
+ggu,0.21,Virginia,2022
+ggw,0.57,Arkansas,1966
+ggy,0.51,New Mexico,1952
+ggz,0.93,Ohio,1984
+gha,0.56,Kansas,1915
+ghm,0.99,Delaware,2004
+ghr,0.95,North Carolina,1949
+ght,0.83,Nevada,1955
+ghv,0.94,Florida,1919
+ghy,0.17,New York,2021
+ghz,0.58,North Carolina,2012
+gia,0.84,Mississippi,1994
+gic,1.0,Alaska,1980
+gid,0.49,West Virginia,2005
+gif,0.47,Washington,1929
+gig,0.32,California,1994
+gik,0.35,Idaho,1934
+gil,0.01,Indiana,1978
+gim,0.42,Vermont,1976
+gio,0.89,Wyoming,1945
+gis,0.44,Indiana,1997
+giw,0.21,Hawaii,2012
+giz,0.38,Massachusetts,2020
+gja,0.6,Louisiana,1900
+gjb,0.26,New Mexico,2004
+gjc,0.83,Mississippi,1905
+gje,0.64,Vermont,1972
+gji,0.85,Vermont,1996
+gjk,0.54,Kentucky,1975
+gjn,0.28,Oklahoma,2003
+gjo,0.76,Alabama,2000
+gjr,0.4,South Carolina,2010
+gjt,0.31,Missouri,1949
+gjx,0.18,Vermont,1942
+gjy,0.45,Washington,1938
+gkj,0.51,North Carolina,1936
+gkm,0.34,Oregon,1960
+gkt,0.02,Delaware,1929
+gku,0.39,New York,1954
+gkv,0.07,Montana,1900
+gkw,0.94,Michigan,1965
+gkx,0.81,Vermont,1925
+gkz,0.16,Texas,1959
+gla,0.39,North Carolina,1933
+gli,0.41,Massachusetts,1988
+glj,0.45,California,1907
+gll,0.09,Oregon,1959
+glm,0.58,West Virginia,1947
+glp,0.21,Wyoming,1950
+glr,0.9,Colorado,1998
+glt,0.89,Nebraska,2004
+glu,0.26,New York,1921
+glw,0.72,Mississippi,1995
+gma,0.41,West Virginia,1918
+gmb,0.77,Nebraska,2019
+gmd,0.79,Mississippi,1900
+gmn,0.37,Virginia,1907
+gmp,0.09,Florida,1954
+gmr,0.68,Oregon,1940
+gmv,0.78,Hawaii,1985
+gnc,0.62,Oklahoma,1991
+gnk,0.75,Minnesota,2009
+gnn,0.01,New Jersey,1983
+gnv,0.98,Michigan,1955
+gnw,0.22,Georgia,1952
+gnx,0.15,North Carolina,1939
+gnz,0.25,Idaho,1973
+gob,0.19,Rhode Island,1915
+gog,0.76,Nebraska,1987
+goi,0.18,Virginia,1950
+goj,0.29,Nevada,1921
+gom,0.1,Maine,1907
+goo,0.82,Pennsylvania,1958
+gop,0.38,Hawaii,1956
+gor,0.0,New Hampshire,1950
+goy,0.29,Illinois,1928
+gpa,0.35,Kentucky,1945
+gpb,0.27,Wyoming,1912
+gpd,0.64,Wyoming,1942
+gpe,0.1,California,2023
+gpg,0.53,Tennessee,1958
+gph,0.34,Michigan,1986
+gpj,0.09,California,1963
+gpm,0.48,Ohio,1960
+gpo,0.01,Indiana,1969
+gpq,0.79,Wyoming,1927
+gpr,0.96,Oregon,1999
+gpu,0.58,Washington,1938
+gpw,0.63,New Mexico,2021
+gqa,0.01,Kansas,1998
+gqi,0.67,North Carolina,2005
+gqq,0.69,Arkansas,1958
+gqt,0.29,New Mexico,2017
+gqu,0.83,New York,1905
+gqy,0.97,North Dakota,1943
+grb,0.61,Indiana,1901
+grd,0.08,Utah,1982
+grg,0.56,New Hampshire,2006
+grh,0.25,Utah,1926
+grn,0.56,Delaware,2002
+grs,0.07,New Mexico,1942
+grt,0.26,Vermont,1923
+grv,0.04,Wisconsin,1950
+gsa,0.85,New Jersey,1952
+gsd,0.76,Alabama,1907
+gsf,0.94,Maryland,2014
+gsj,0.66,Massachusetts,1930
+gsk,0.23,Maryland,1967
+gsm,0.75,Kentucky,1909
+gso,0.04,Arizona,1917
+gsq,0.68,Maine,1928
+gst,0.46,Arizona,1977
+gsv,0.98,Maryland,2015
+gsx,0.55,New York,1907
+gsy,0.53,Delaware,1927
+gsz,0.15,Colorado,1985
+gtc,0.33,Vermont,1911
+gtd,0.13,Wisconsin,1978
+gtl,0.7,Wyoming,1913
+gtq,0.29,Nebraska,1924
+gtt,0.64,Texas,1946
+gtx,0.62,Georgia,1944
+gtz,0.41,Vermont,1904
+guc,0.86,Arizona,1979
+gue,0.3,Kentucky,1960
+guf,0.79,Alabama,1951
+gug,0.81,North Dakota,1934
+guj,0.57,New Mexico,1995
+gul,0.93,Rhode Island,1904
+gum,0.21,Kansas,2015
+guv,0.81,Massachusetts,1973
+gvb,0.52,Nevada,1920
+gvf,0.62,Wisconsin,1926
+gvl,0.15,Nevada,1957
+gvm,0.2,Rhode Island,1942
+gvp,0.32,Indiana,2022
+gvs,0.96,Wyoming,1904
+gvv,0.17,North Dakota,1925
+gvw,0.96,Minnesota,1927
+gvx,0.2,New York,1975
+gvz,0.23,Massachusetts,1951
+gwe,0.9,New Hampshire,1954
+gwf,0.38,Vermont,1988
+gwi,0.3,Nevada,1968
+gwk,0.97,Michigan,1973
+gwm,0.6,Mississippi,2008
+gwn,0.89,Illinois,1976
+gwp,0.03,Mississippi,1940
+gwr,0.75,Virginia,2022
+gwt,0.74,Pennsylvania,1992
+gwx,0.12,Wisconsin,1961
+gxa,0.71,California,1936
+gxe,0.86,Maine,1934
+gxf,0.29,Tennessee,1918
+gxg,0.06,Nebraska,2003
+gxi,0.91,Pennsylvania,2005
+gxo,0.78,Utah,2007
+gxx,0.79,South Dakota,1930
+gye,0.76,Florida,1998
+gyf,0.96,Maine,1986
+gyi,0.33,Pennsylvania,1923
+gyo,0.23,Arizona,1990
+gyp,0.88,Colorado,1938
+gyq,0.81,Connecticut,1994
+gyr,0.01,South Carolina,1901
+gys,0.91,Oregon,1959
+gyx,0.94,Texas,2016
+gyy,0.35,Nevada,1990
+gza,0.06,South Dakota,2014
+gzb,0.23,Mississippi,1985
+gzf,0.66,Maine,1911
+gzh,0.86,New Mexico,1945
+gzk,0.87,Maine,1973
+gzo,0.12,Utah,2005
+gzr,0.74,Tennessee,1946
+gzu,0.0,Delaware,2012
+gzv,0.96,Alaska,2011
+gzw,0.85,Kansas,1976
+haa,0.91,Wyoming,2018
+hag,0.57,Kentucky,2011
+hah,0.04,Tennessee,1968
+hai,0.79,Tennessee,1971
+hak,0.18,Florida,1936
+ham,0.13,Indiana,1938
+han,0.04,New Mexico,1980
+hap,0.72,Oklahoma,1920
+haq,0.92,West Virginia,1982
+haw,0.34,Louisiana,1967
+hax,0.11,Alaska,1992
+hbb,0.61,New Hampshire,1905
+hbg,0.46,Arizona,1901
+hbj,0.09,Connecticut,1939
+hbp,0.67,Tennessee,1975
+hbr,0.06,Arizona,1974
+hbu,0.96,Connecticut,2017
+hbz,0.0,Oklahoma,2004
+hce,0.67,Mississippi,1935
+hcf,0.64,Utah,2013
+hcg,1.0,Nebraska,1904
+hch,0.41,Washington,1920
+hck,1.0,Colorado,1974
+hcn,0.81,Hawaii,1983
+hcq,0.41,Arizona,1973
+hcs,0.38,Tennessee,1919
+hcu,0.71,Missouri,1986
+hcv,0.82,Wyoming,1915
+hcx,0.57,Missouri,1963
+hda,0.21,South Carolina,2003
+hdb,0.55,Alabama,1922
+hde,0.43,Pennsylvania,2019
+hdf,0.07,Vermont,1935
+hdh,0.3,Alabama,1967
+hdi,0.71,Alaska,1994
+hdj,0.27,Nevada,1964
+hdk,0.01,Indiana,1900
+hdl,0.64,Louisiana,1984
+hdn,0.97,North Carolina,1933
+hds,0.01,Vermont,1927
+hea,0.53,Ohio,1908
+heb,0.38,Vermont,1939
+hed,0.2,Maryland,2020
+hee,0.02,Kentucky,1942
+hef,0.72,Delaware,1979
+heh,0.95,Michigan,2006
+hei,0.61,Mississippi,1974
+hek,0.24,Georgia,1910
+hem,0.4,Colorado,1966
+het,0.43,Missouri,1992
+hev,0.47,Maryland,1947
+hew,0.62,Arkansas,1902
+hez,0.54,Maryland,1966
+hfa,0.16,Hawaii,2021
+hfb,0.07,Wisconsin,1978
+hfc,0.77,Kentucky,1928
+hfd,0.94,Hawaii,1970
+hfh,0.35,Indiana,1913
+hfq,0.14,Iowa,1954
+hfr,0.15,Nebraska,2003
+hft,0.91,Tennessee,2008
+hfw,0.84,Wyoming,1909
+hfz,0.86,North Carolina,1931
+hga,0.81,Oklahoma,2018
+hge,0.05,Connecticut,1915
+hgj,0.96,Ohio,1905
+hgp,0.4,Mississippi,1976
+hgv,0.59,Tennessee,2001
+hgx,0.1,Delaware,1986
+hha,0.29,Louisiana,1919
+hhb,0.43,North Dakota,1984
+hhd,0.16,New Hampshire,1999
+hhh,0.11,Vermont,1964
+hhj,0.28,Mississippi,1959
+hhm,0.57,Washington,1959
+hhq,0.64,Massachusetts,1933
+hht,0.77,Florida,2017
+hhu,0.47,South Carolina,1952
+hhw,0.22,Virginia,1911
+hia,0.92,Wisconsin,1924
+hif,0.14,Maryland,1908
+hig,0.99,Maine,1949
+hik,0.33,Connecticut,1929
+hip,0.76,New Mexico,1932
+hir,0.52,Utah,1951
+his,0.74,California,1908
+hiv,0.14,California,1918
+hix,0.45,Louisiana,1974
+hiy,0.37,New Hampshire,1981
+hjb,0.67,Minnesota,1983
+hjh,0.64,Idaho,1960
+hji,0.74,Nebraska,1967
+hjn,0.86,Texas,1923
+hjo,0.82,Pennsylvania,1917
+hjr,0.03,Mississippi,1979
+hjt,0.55,South Dakota,2021
+hju,0.34,Arkansas,1935
+hkb,0.9,Texas,1915
+hkf,0.91,Maine,2003
+hki,0.78,Colorado,1972
+hkk,0.06,Michigan,2012
+hkq,0.85,Indiana,2003
+hkr,0.99,Rhode Island,1914
+hku,0.22,Minnesota,1918
+hky,0.28,Florida,1988
+hlc,0.24,Pennsylvania,1961
+hlf,0.81,West Virginia,1960
+hlj,0.57,Ohio,2009
+hlm,0.98,Montana,1959
+hlo,0.7,Wisconsin,2009
+hlp,0.1,Massachusetts,2019
+hlu,0.6,Delaware,1940
+hlv,0.72,North Dakota,1991
+hlw,0.49,South Carolina,2005
+hly,0.96,Ohio,1924
+hmc,0.08,Delaware,1933
+hmd,0.24,Maine,1916
+hmf,0.16,Mississippi,1995
+hmk,0.26,New York,1951
+hmn,0.36,Colorado,1962
+hmq,0.58,Maine,1939
+hms,0.74,Rhode Island,1936
+hmu,0.11,Arkansas,1975
+hmv,0.88,Nevada,2022
+hmx,0.52,Texas,2003
+hnd,0.73,Delaware,1967
+hne,0.91,Wyoming,2000
+hni,0.12,Vermont,1913
+hnn,1.0,Virginia,1904
+hnp,0.58,Ohio,1935
+hnq,0.71,Florida,2018
+hnr,0.54,Washington,1925
+hnv,0.35,Oklahoma,2022
+hod,0.37,Tennessee,2022
+hoe,0.82,Illinois,1965
+hoh,0.76,Delaware,2003
+hoj,0.07,Nebraska,1984
+hon,0.12,Indiana,1927
+hop,0.68,Rhode Island,1983
+hos,0.97,Oregon,1956
+hou,0.21,South Dakota,1947
+how,0.17,Pennsylvania,1906
+hoz,0.16,Vermont,1956
+hpa,0.24,Wisconsin,1905
+hpb,0.13,New Jersey,2012
+hph,0.92,Arkansas,1955
+hpi,0.38,Oregon,1985
+hpj,0.0,Iowa,2002
+hpl,0.31,Alaska,1973
+hpn,0.06,South Dakota,1949
+hpt,0.29,Mississippi,1949
+hpw,0.91,Florida,1900
+hpx,0.05,Florida,1984
+hqa,0.96,New York,1970
+hqe,0.27,Oklahoma,1953
+hqf,0.0,Arizona,1925
+hqi,0.4,Alaska,1940
+hqn,0.96,Pennsylvania,1967
+hqq,0.33,Rhode Island,1977
+hqr,0.35,Nevada,1958
+hqs,0.58,Maine,1967
+hqx,0.29,Tennessee,1954
+hqz,0.43,New York,1926
+hra,0.85,Oregon,1906
+hre,0.07,California,2003
+hrf,0.66,Florida,2008
+hrg,0.7,North Carolina,1943
+hrj,0.85,California,1925
+hrk,0.22,Georgia,1900
+hrp,0.52,Maine,1981
+hrq,0.44,Indiana,2003
+hrr,0.91,New Mexico,1975
+hrs,0.36,Missouri,1927
+hrt,0.65,Arizona,1968
+hrw,0.93,Colorado,1970
+hsd,0.25,Florida,2006
+hse,0.97,Tennessee,1959
+hsg,0.8,Arizona,2013
+hsh,0.36,South Carolina,2015
+hsj,0.66,Vermont,1989
+hsl,0.32,Louisiana,1945
+hsm,0.48,Pennsylvania,2003
+hsn,0.44,New Jersey,1993
+hsq,0.05,Kentucky,1929
+hst,0.59,Delaware,2003
+hsu,0.66,Florida,1989
+hsv,0.41,Illinois,1972
+htc,0.07,Iowa,2016
+hte,0.82,South Carolina,1925
+htj,0.14,Oregon,1948
+htk,0.9,Illinois,1900
+htm,0.08,Ohio,2009
+htn,0.36,Connecticut,1933
+htw,0.11,Hawaii,1986
+hty,0.92,West Virginia,1990
+hua,0.78,Virginia,1904
+huc,0.76,Arkansas,2009
+hug,0.54,Delaware,1943
+hum,0.99,Missouri,1995
+huq,0.33,South Dakota,1928
+hur,0.46,Nebraska,2007
+huu,0.93,Kansas,2009
+huz,0.3,Hawaii,1922
+hva,0.72,Minnesota,1965
+hvb,0.71,New Mexico,1945
+hvf,0.32,Delaware,1963
+hvg,0.83,Georgia,2010
+hvj,0.99,Florida,1974
+hvm,0.81,Massachusetts,1969
+hvx,0.02,Alabama,2003
+hwb,0.95,Nevada,2018
+hwe,0.36,Wisconsin,1922
+hwg,0.9,Texas,1975
+hwj,0.67,California,1943
+hwl,0.73,New Mexico,1964
+hwn,0.22,New Hampshire,1990
+hwo,0.66,Iowa,1922
+hws,0.5,Alabama,1999
+hwv,0.43,Nebraska,2021
+hww,0.77,Maine,1932
+hwx,0.8,Ohio,1961
+hwz,0.71,Arkansas,1923
+hxa,0.38,Massachusetts,1938
+hxf,0.63,Alabama,2014
+hxh,0.48,Colorado,1999
+hxi,0.54,Massachusetts,1992
+hxj,0.69,Rhode Island,1963
+hxk,0.14,Arizona,1959
+hxp,0.47,Alaska,1913
+hxq,0.12,South Dakota,1924
+hxt,0.88,Wisconsin,1951
+hxu,0.87,Nebraska,1941
+hxy,0.48,Maine,1965
+hya,0.42,Hawaii,1942
+hyd,0.15,Colorado,1939
+hyg,0.54,Washington,1903
+hyk,0.06,Pennsylvania,1951
+hym,0.4,Wisconsin,1922
+hyp,0.87,Kentucky,1910
+hyr,0.42,Minnesota,1964
+hyt,0.89,Colorado,1911
+hzc,0.14,Virginia,1927
+hzd,0.34,Connecticut,1907
+hze,0.8,Indiana,1900
+hzf,0.07,Mississippi,2004
+hzh,0.7,South Dakota,1941
+hzk,0.32,Alabama,1973
+hzl,0.16,West Virginia,2012
+hzq,0.22,Kentucky,1964
+hzr,0.27,Colorado,1962
+hzs,0.33,Rhode Island,1909
+hzv,0.13,Rhode Island,1908
+hzy,0.5,Iowa,1922
+hzz,0.72,New Mexico,1936
+iab,0.43,Oregon,1921
+iac,0.19,Arizona,1904
+iag,0.48,Tennessee,1961
+iai,0.89,Hawaii,1979
+ian,0.11,Vermont,1970
+iao,0.6,Arizona,1957
+iat,0.47,California,2011
+iau,0.96,Alabama,1969
+iav,0.38,Alabama,1944
+iax,0.33,Idaho,1957
+iba,0.25,Wyoming,1989
+ibi,0.63,Delaware,1984
+ibl,0.85,Vermont,1948
+ibo,0.79,Vermont,1927
+ibp,0.18,West Virginia,2023
+ibs,0.91,Utah,1997
+ibt,0.45,Oregon,1973
+ibv,0.5,Iowa,1972
+ibx,0.21,Oregon,2008
+iby,0.78,Oklahoma,1945
+ica,0.33,Alaska,1943
+icd,0.28,Vermont,2006
+ici,0.74,Missouri,1926
+icj,0.79,Michigan,1983
+icl,0.84,Kentucky,1926
+ics,0.21,Wyoming,1983
+ict,0.83,Tennessee,1912
+icu,0.39,Kentucky,2014
+icy,0.67,Vermont,1952
+idd,0.92,Oregon,1978
+ide,0.68,Delaware,2007
+idf,0.05,Iowa,2016
+idg,0.69,Wisconsin,1965
+idj,0.52,Oklahoma,1939
+idl,0.42,Rhode Island,1937
+idm,0.06,Massachusetts,1940
+idn,0.34,New Jersey,1926
+ido,0.24,Arkansas,2020
+idp,0.69,Texas,2022
+ids,0.13,Wisconsin,1954
+idu,0.11,Colorado,1979
+idv,0.53,Illinois,1951
+idw,0.12,Rhode Island,1993
+idy,0.24,Missouri,1919
+idz,0.64,Mississippi,1916
+ieb,0.9,South Dakota,1949
+iec,0.78,Florida,2018
+ied,0.96,New York,1964
+iee,0.37,South Dakota,1980
+ief,0.13,Kansas,1946
+ieh,0.68,South Dakota,2009
+iel,0.48,New Jersey,1922
+iem,0.06,Minnesota,2003
+iet,0.61,Nebraska,1922
+iev,0.75,Iowa,1941
+ifa,0.9,New Jersey,1986
+ifb,0.21,Nebraska,1946
+ifd,0.98,Massachusetts,1909
+ife,0.76,Massachusetts,2005
+ifm,0.79,California,1949
+ifs,0.96,Virginia,1922
+ift,0.26,Connecticut,1945
+ifx,0.13,Kansas,1991
+ify,0.02,Montana,1964
+iga,0.97,South Carolina,1950
+igb,0.87,Arkansas,1956
+igg,0.91,Kentucky,2017
+igh,0.45,Maryland,1969
+igi,0.05,Connecticut,1967
+igl,0.94,Maryland,1994
+ign,0.02,Hawaii,1910
+igp,0.38,Tennessee,2010
+igv,0.83,Mississippi,2017
+ihc,0.93,Arkansas,1910
+ihf,0.13,Pennsylvania,2006
+ihh,0.23,Nevada,1976
+ihn,0.4,Kansas,1956
+ihp,0.81,Delaware,1965
+ihr,0.18,Kentucky,1952
+ihs,0.06,Vermont,1954
+iht,0.57,Montana,2008
+ihu,0.02,Vermont,1921
+ihw,0.81,Tennessee,1995
+ihz,0.04,New Hampshire,1913
+iib,0.54,Delaware,1944
+iig,0.55,Oregon,1994
+iik,0.08,Idaho,1936
+iip,0.78,New York,2000
+iis,0.02,Maine,1976
+iix,0.42,Arizona,1934
+iiy,0.33,Alaska,1957
+iiz,0.46,Alaska,1962
+ija,0.14,North Dakota,1954
+ijd,0.03,Alaska,1934
+ijk,0.11,Louisiana,1931
+ijm,0.14,California,1936
+ijo,0.36,North Dakota,1973
+ijp,0.72,Wyoming,1956
+ijq,0.17,Missouri,1978
+ijr,0.21,Oklahoma,1963
+ijs,0.91,Kansas,1903
+ijt,0.22,Idaho,1940
+ijv,0.32,Wyoming,2011
+ijw,0.21,Alaska,1982
+ijz,0.04,Nebraska,1975
+ika,0.06,Virginia,1934
+ikc,0.78,North Carolina,2021
+ikd,0.78,Arkansas,1984
+ike,0.4,Mississippi,2012
+ikm,0.67,Indiana,1991
+ikn,0.03,Virginia,1965
+iko,0.79,Wyoming,1902
+ikq,0.16,Oregon,2019
+ikr,0.22,Idaho,1943
+ila,0.62,Ohio,1994
+ilc,0.81,California,2014
+ild,0.31,South Dakota,1900
+ilg,0.77,Massachusetts,1977
+ill,0.5,Arkansas,1932
+ilm,0.53,Connecticut,1906
+iln,0.03,Kentucky,1988
+ilu,0.47,Vermont,1914
+ilv,0.6,Colorado,1916
+imc,0.37,Colorado,1901
+imf,0.73,Massachusetts,1954
+img,0.16,Washington,1941
+imh,0.02,Utah,1926
+imi,0.41,South Dakota,1904
+imj,1.0,Mississippi,1954
+imk,0.29,New Hampshire,1997
+imo,0.71,Montana,1949
+imx,0.23,Virginia,1962
+imy,0.46,Arkansas,2021
+ina,0.7,Alabama,1951
+ind,0.25,California,1998
+ing,0.12,Utah,1900
+ini,0.29,Nevada,1919
+ink,0.78,California,1922
+inl,0.76,New Mexico,1902
+inn,0.3,Massachusetts,1987
+inq,0.76,Iowa,1961
+ins,0.42,Virginia,1943
+ioa,0.85,Hawaii,1960
+iob,0.86,Oregon,1966
+ioh,0.58,Wisconsin,1941
+ioj,0.66,Massachusetts,1923
+iol,0.98,Louisiana,1924
+ioo,0.62,North Carolina,2016
+ioq,0.13,Louisiana,1928
+iot,0.82,Illinois,2023
+ioy,0.21,Kentucky,1993
+ipa,0.18,West Virginia,1942
+ipb,0.19,Iowa,1999
+ipf,0.34,California,1931
+ipi,0.48,Montana,1992
+ipm,0.64,Maine,1968
+ips,0.99,Texas,2006
+ipz,0.36,Kansas,1908
+iqb,0.06,Maryland,1907
+iqc,0.75,Vermont,1959
+iqd,0.71,Idaho,2010
+iqe,0.86,California,1919
+iql,0.56,Pennsylvania,1939
+iqp,0.06,Missouri,1990
+iqu,0.18,Massachusetts,1943
+iqx,0.19,Nevada,1921
+ird,0.92,Arkansas,2011
+ire,0.92,California,2019
+irf,0.12,Missouri,1975
+irm,0.49,Tennessee,1954
+iru,0.97,Maine,2020
+irv,0.93,New York,2016
+irx,0.12,Pennsylvania,1991
+iry,0.56,Oregon,1959
+isb,0.8,South Dakota,1967
+isc,0.92,Maine,1933
+ise,0.42,Montana,1904
+isi,0.73,Washington,2022
+isq,0.14,Georgia,1947
+isv,0.71,Missouri,2017
+isy,0.89,Texas,1964
+isz,0.19,Vermont,2020
+itb,0.66,Illinois,1948
+itc,0.87,West Virginia,1923
+itf,0.09,Nevada,1917
+itg,0.72,Oregon,2019
+itj,0.99,Pennsylvania,1951
+ito,0.13,Utah,2011
+itp,0.88,Nevada,1985
+itq,0.44,New Jersey,1943
+itr,0.87,New York,1984
+itu,0.28,Georgia,1983
+itv,0.84,South Carolina,1993
+iua,0.1,Delaware,1960
+iud,0.76,Montana,2019
+iue,0.25,Hawaii,1944
+iui,0.98,Hawaii,1964
+ium,0.33,Iowa,1981
+iun,0.64,Wisconsin,1995
+iuu,0.43,West Virginia,1938
+iux,0.83,West Virginia,1915
+iuy,0.81,Hawaii,2021
+ivj,0.33,California,2006
+ivy,0.85,Kentucky,1978
+iwc,0.0,Ohio,2018
+iwd,0.97,Tennessee,2020
+iwe,0.48,Rhode Island,1954
+iwi,0.67,New Jersey,2002
+iwp,0.15,Montana,1911
+iwv,0.63,Ohio,1932
+iww,0.91,Michigan,2010
+iwz,0.77,Arkansas,1994
+ixa,0.85,North Carolina,1982
+ixb,0.73,Massachusetts,1933
+ixc,1.0,North Dakota,1999
+ixd,0.34,Utah,1935
+ixf,0.02,Oklahoma,1992
+ixh,0.12,Arkansas,2003
+ixm,0.53,Rhode Island,2006
+ixr,0.34,Colorado,1977
+ixt,0.74,Ohio,1956
+ixu,0.37,Alaska,1975
+ixw,0.49,Iowa,1915
+ixy,0.13,West Virginia,1954
+ixz,0.55,Kentucky,1924
+iyc,0.29,South Dakota,1943
+iyf,0.32,Pennsylvania,1920
+iyg,0.7,Michigan,1948
+iyh,0.05,Missouri,1929
+iyj,0.27,North Dakota,1930
+iyk,0.72,New Hampshire,1926
+iym,0.07,Ohio,1974
+iyp,0.0,Texas,1992
+iyq,0.64,Hawaii,1912
+iys,0.26,Montana,1903
+iza,0.74,South Carolina,1914
+izc,0.7,New Mexico,1908
+izd,0.08,New Hampshire,1945
+ize,0.63,Kansas,1989
+izk,0.04,Washington,1972
+izm,0.53,Indiana,2009
+izo,0.19,Utah,1965
+izq,0.58,Georgia,1950
+izr,0.14,North Dakota,1974
+izs,0.03,Montana,1962
+izu,0.39,Virginia,2010
+izv,0.79,Indiana,2021
+jaa,0.78,Mississippi,1982
+jab,0.49,Virginia,2004
+jae,0.01,Georgia,1907
+jai,0.84,Missouri,2008
+jal,0.08,Louisiana,1934
+jam,0.15,Oregon,1967
+jat,0.51,Delaware,1974
+jau,0.6,Mississippi,1901
+jax,0.65,Colorado,1994
+jaz,0.93,Ohio,2013
+jba,0.57,Idaho,2016
+jbi,0.0,Arkansas,1940
+jbw,0.25,Kansas,2016
+jby,0.72,Kansas,2019
+jca,0.72,Missouri,1955
+jcf,0.03,Arizona,1927
+jch,0.3,Washington,1922
+jcj,0.8,Minnesota,1949
+jck,0.1,Arizona,1957
+jcl,0.03,Rhode Island,1941
+jcm,0.07,South Dakota,1980
+jcr,0.69,Arizona,1902
+jcu,0.51,Mississippi,2010
+jcv,0.88,Florida,2016
+jcw,0.96,California,2010
+jcx,0.15,Alaska,1963
+jcy,0.67,Florida,1918
+jdc,0.14,Wisconsin,1952
+jdh,0.53,Ohio,1973
+jdj,0.76,Wisconsin,1964
+jdk,0.56,Pennsylvania,1985
+jdl,0.82,New York,1959
+jdn,0.29,Wyoming,1904
+jdo,0.69,Washington,1966
+jdq,1.0,Nebraska,1916
+jdr,0.64,Virginia,1906
+jds,0.72,Oklahoma,1951
+jdu,0.35,Washington,1980
+jdx,0.62,Massachusetts,1994
+jec,0.47,Wyoming,2016
+jeh,0.31,Alabama,2000
+jej,0.18,Oregon,1949
+jek,0.06,Maine,1951
+jem,0.19,New Hampshire,1966
+jeq,0.58,South Dakota,1944
+jev,0.11,Oregon,1941
+jfd,0.8,Hawaii,1964
+jfi,0.46,Georgia,1922
+jfl,0.47,Delaware,1965
+jfo,0.13,Pennsylvania,1970
+jfr,0.5,Maine,1918
+jft,0.13,West Virginia,1977
+jfu,0.4,North Dakota,1991
+jfv,0.17,Georgia,1971
+jfz,0.49,Iowa,1916
+jgb,0.21,Massachusetts,1980
+jgc,0.61,New Mexico,1933
+jge,0.72,South Dakota,1985
+jgf,0.98,Alaska,2004
+jgl,0.72,Massachusetts,1948
+jgm,0.7,Michigan,2011
+jgq,0.78,South Dakota,1955
+jgu,0.71,Louisiana,1991
+jgv,0.54,New York,2004
+jgx,0.85,Oregon,1925
+jgy,0.62,Alabama,1912
+jgz,0.55,New Hampshire,1942
+jha,0.77,Virginia,1914
+jhe,0.01,New Jersey,1909
+jhi,0.02,Texas,1929
+jhj,0.93,Washington,1993
+jhm,0.33,Massachusetts,2014
+jho,0.52,Iowa,1924
+jhq,0.24,Rhode Island,1955
+jhs,0.04,Kansas,1996
+jhu,0.41,Indiana,1955
+jhz,0.4,Kentucky,1957
+jia,0.3,North Dakota,1977
+jib,0.01,New Jersey,1932
+jic,0.37,Hawaii,1937
+jij,0.86,Colorado,1924
+jik,0.84,Washington,1974
+jin,0.42,North Carolina,1992
+jip,0.77,Alaska,2022
+jix,0.41,Nebraska,2006
+jiz,0.4,Montana,1936
+jja,0.04,Oklahoma,1952
+jje,0.04,Alaska,1904
+jjh,0.12,New Mexico,1998
+jjj,0.84,Maryland,2005
+jjk,0.46,Nebraska,1954
+jjn,0.13,New York,2014
+jjp,0.85,West Virginia,1914
+jjq,0.26,Arizona,2000
+jjt,0.84,Rhode Island,1975
+jju,0.91,Missouri,2008
+jjx,0.06,Arkansas,1924
+jjy,0.19,Maryland,1920
+jjz,0.43,New Jersey,1936
+jkf,0.62,Missouri,1918
+jkg,0.32,Oregon,2021
+jkh,0.65,Idaho,1954
+jki,0.72,South Dakota,1986
+jkj,0.05,Alabama,1916
+jkk,0.53,Connecticut,1928
+jko,0.21,Maryland,1996
+jkt,0.25,South Carolina,1928
+jkv,0.23,Nevada,1953
+jkx,0.22,Louisiana,1995
+jkz,0.3,New Mexico,2006
+jla,0.08,Louisiana,1918
+jlc,0.43,Alabama,1911
+jle,0.6,Arizona,1904
+jlf,0.28,Connecticut,2018
+jlg,0.93,Ohio,1995
+jli,0.86,Colorado,1933
+jlj,0.11,Florida,1937
+jln,0.74,Arkansas,1977
+jlr,0.28,Illinois,1956
+jlv,0.51,Vermont,1904
+jlx,0.71,Louisiana,1956
+jlz,0.67,North Carolina,1901
+jma,0.79,Louisiana,1943
+jmc,0.96,Texas,1983
+jmj,0.25,Massachusetts,1904
+jmk,0.11,Tennessee,1904
+jmm,0.83,Wisconsin,2022
+jmp,0.73,California,1942
+jmr,0.66,North Dakota,2014
+jmt,0.97,Illinois,1963
+jmw,0.29,Nevada,1950
+jmx,0.39,New Jersey,1991
+jnb,0.76,South Carolina,1996
+jnf,0.87,Utah,1908
+jni,0.5,Florida,2016
+jnl,0.66,Montana,1963
+jnn,0.91,Texas,1955
+jno,0.61,Washington,2000
+jnr,0.87,Missouri,1933
+jnt,0.46,West Virginia,1946
+jnx,0.31,New Jersey,2003
+joe,0.6,Mississippi,1954
+joh,0.72,Maryland,1919
+jok,0.44,Mississippi,1927
+jon,0.35,Alabama,1912
+jop,0.55,Illinois,1968
+jor,0.71,Massachusetts,1949
+jos,0.69,Nebraska,1929
+jow,0.45,Virginia,1946
+joz,0.97,North Dakota,1975
+jpb,0.73,Connecticut,2001
+jpd,0.0,Missouri,1967
+jpp,0.7,Arkansas,1958
+jpt,0.48,South Dakota,2003
+jpx,0.48,Kentucky,2018
+jpy,0.63,North Dakota,1974
+jpz,0.6,Massachusetts,1921
+jqc,0.48,Florida,2009
+jqk,0.74,Kentucky,2018
+jqm,0.07,Oregon,1943
+jqp,0.45,Nevada,1978
+jqr,0.72,Michigan,1973
+jqs,0.85,Alabama,2004
+jqu,0.12,Arizona,1993
+jqx,0.43,Alabama,2000
+jqy,0.87,Hawaii,1975
+jqz,0.91,Kansas,1991
+jra,0.66,Texas,1900
+jrb,0.87,Iowa,1985
+jre,0.64,Alaska,1968
+jrf,0.77,Georgia,1941
+jri,0.74,Montana,1953
+jrk,0.64,Mississippi,1937
+jrr,0.0,Nebraska,1962
+jru,0.48,New York,1904
+jsb,0.46,Minnesota,2004
+jsj,0.28,Montana,1910
+jso,0.24,Pennsylvania,1987
+jsw,0.83,Oklahoma,1999
+jta,0.25,Arkansas,1929
+jte,0.62,Maine,1973
+jtg,0.28,Louisiana,2014
+jth,0.12,New Hampshire,1980
+jtj,0.57,Maryland,1907
+jtl,0.8,California,1987
+jtv,0.01,Nevada,2007
+jtx,0.63,Vermont,1943
+juf,0.63,Kentucky,1980
+jug,0.06,Rhode Island,1944
+jui,0.83,Arkansas,2005
+jum,0.25,North Dakota,1975
+juo,0.88,New Hampshire,1984
+jur,0.59,Connecticut,2001
+jva,0.56,Alaska,1926
+jvc,0.04,Colorado,1982
+jve,0.45,Delaware,1982
+jvh,0.03,Virginia,2002
+jvk,0.98,Idaho,1975
+jvl,0.27,Maine,1917
+jvm,0.14,Illinois,1918
+jvo,0.31,Michigan,1952
+jvs,0.04,California,1951
+jvv,0.19,Georgia,1960
+jwa,0.28,Ohio,1902
+jwg,0.67,Minnesota,1991
+jwi,0.97,Idaho,1961
+jwk,0.21,Ohio,1907
+jwl,0.72,New Jersey,1934
+jwm,0.0,Illinois,1972
+jwo,0.2,Alaska,2003
+jwr,0.11,Utah,1939
+jwz,0.82,Pennsylvania,1929
+jxd,0.82,North Carolina,1907
+jxe,0.87,Wisconsin,2011
+jxl,0.93,Maryland,1924
+jxm,0.76,New Jersey,2021
+jxo,0.85,New Hampshire,1983
+jxq,0.94,Rhode Island,1920
+jxs,0.4,Maryland,1997
+jxt,0.36,Delaware,2020
+jxv,0.92,Tennessee,2016
+jxw,0.9,Florida,1933
+jxy,0.34,Delaware,1967
+jya,0.18,Alabama,1965
+jyl,0.06,Louisiana,1924
+jyo,0.84,Alaska,1926
+jyp,0.76,Idaho,1957
+jyu,0.98,Rhode Island,2019
+jyv,0.8,South Carolina,1940
+jyw,0.08,Delaware,1988
+jza,0.07,Arkansas,1914
+jzc,0.64,Maine,1935
+jzd,0.7,Wyoming,1954
+jzg,0.16,Arizona,2007
+jzh,0.99,Rhode Island,1998
+jzi,0.62,Kansas,1984
+jzl,0.43,Louisiana,1951
+jzn,0.05,Florida,1923
+jzq,0.86,Colorado,1918
+jzv,0.2,Oregon,1951
+jzx,0.77,Louisiana,1968
+jzy,0.77,Hawaii,1980
+kab,0.08,North Dakota,2003
+kaf,0.87,Wyoming,2004
+kah,0.02,Connecticut,2018
+kan,0.58,Georgia,1905
+kaq,0.87,Maryland,2017
+kbb,0.09,Delaware,1993
+kbc,0.81,Virginia,1974
+kbd,0.65,Arizona,1955
+kbe,0.53,Texas,1932
+kbj,0.08,Massachusetts,1961
+kbk,0.66,Connecticut,1964
+kbp,0.93,Alaska,1959
+kbs,0.82,New Jersey,1980
+kbx,0.57,New York,1922
+kbz,0.22,Ohio,1971
+kcb,0.74,Idaho,2022
+kcd,0.93,Tennessee,1934
+kcf,0.12,Washington,1926
+kci,0.0,Alaska,1904
+kcl,0.87,Georgia,2009
+kcm,0.72,Idaho,1905
+kct,0.66,Nebraska,1903
+kcw,0.01,Ohio,1940
+kcz,0.08,Colorado,1939
+kdb,0.27,Connecticut,1924
+kdh,0.56,South Carolina,1991
+kdi,0.85,Minnesota,1930
+kdm,0.02,North Carolina,1946
+kdq,0.5,Ohio,1965
+kdt,0.85,Maine,1967
+kdv,1.0,Indiana,1931
+kdy,0.5,Colorado,1934
+kea,0.42,Virginia,1902
+keb,0.21,South Carolina,2009
+kec,0.19,Illinois,2013
+kee,0.93,Illinois,2012
+kef,0.01,Louisiana,1985
+keh,0.14,Nevada,1933
+kej,0.57,Utah,2006
+ken,0.56,Minnesota,1968
+keo,0.52,Colorado,2008
+kep,0.72,North Carolina,1949
+kes,0.98,North Dakota,1960
+keu,0.82,North Carolina,1978
+kfb,0.54,Indiana,1969
+kfc,0.69,Kentucky,1919
+kfe,0.64,Illinois,1967
+kff,0.11,New Hampshire,1956
+kfg,0.15,Oregon,1916
+kfh,0.7,Oregon,1981
+kfm,0.05,Montana,1942
+kfn,0.63,Arkansas,1956
+kfr,0.34,Delaware,2012
+kfs,0.02,Rhode Island,2003
+kfu,0.26,South Dakota,1996
+kfv,0.35,South Dakota,1977
+kgc,0.21,Tennessee,1950
+kgd,0.03,Michigan,2002
+kge,0.57,West Virginia,1984
+kgf,0.06,California,1970
+kgl,0.09,West Virginia,1923
+kgm,0.88,Rhode Island,1964
+kgn,0.95,Georgia,1952
+kgo,0.31,Mississippi,1989
+kgq,0.77,Texas,1957
+kgs,0.61,New Hampshire,1961
+kgt,0.0,New York,1947
+kgw,0.49,California,1988
+kgx,0.62,New York,2018
+khg,0.06,Alaska,1959
+khn,0.19,Vermont,1929
+khv,0.58,Colorado,1901
+kia,0.08,Florida,1976
+kic,0.85,Maryland,1971
+kid,0.73,Delaware,1926
+kif,0.83,West Virginia,2009
+kig,0.09,Alaska,2000
+kil,0.45,North Dakota,1998
+kim,0.06,South Carolina,2006
+kis,0.94,Oklahoma,1985
+kit,0.59,Montana,1937
+kiu,0.34,California,1995
+kiv,0.78,Kansas,1934
+kiw,0.3,Massachusetts,2023
+kiz,0.18,New Jersey,1919
+kja,0.05,Nebraska,1941
+kjb,0.58,Delaware,1978
+kjc,0.43,Utah,1933
+kjd,0.88,Pennsylvania,1942
+kje,0.05,Kentucky,1970
+kjg,0.48,Mississippi,1940
+kjh,0.42,Mississippi,1923
+kjk,0.49,South Dakota,1901
+kjm,0.93,New Hampshire,2013
+kjr,0.31,Montana,1900
+kjs,0.58,Colorado,1962
+kju,0.26,South Dakota,1996
+kka,0.09,New Jersey,1961
+kkc,0.08,Arkansas,1944
+kkf,0.29,Texas,1977
+kkh,0.82,Arizona,1986
+kkk,0.69,Oregon,1945
+kkl,0.74,Illinois,2015
+kkm,0.23,Michigan,1908
+kkq,0.8,Michigan,1971
+kkr,0.49,Tennessee,1928
+kku,0.26,Illinois,2010
+kkv,0.7,Washington,1989
+kkx,0.54,Tennessee,2015
+klg,0.47,Louisiana,1965
+klh,0.46,Maine,2013
+klj,0.85,Alaska,1920
+klm,0.76,Oregon,1964
+klo,0.4,Maryland,1974
+klp,0.08,Mississippi,1903
+klq,0.83,Arkansas,2008
+klr,0.32,Massachusetts,1936
+klv,0.16,South Carolina,1911
+klw,0.66,Kansas,1982
+kly,0.2,Nebraska,1991
+kmc,0.74,Kentucky,1986
+kmd,0.34,Hawaii,1932
+kmf,0.33,South Carolina,1952
+kmi,0.89,Virginia,1970
+kmk,0.93,Florida,1977
+kmm,0.73,New Jersey,1932
+kmo,0.02,Nevada,2015
+kms,0.75,Montana,1948
+kmv,0.73,New Jersey,1905
+kmx,0.73,Wisconsin,2006
+kmy,0.53,Montana,1986
+kmz,0.99,California,2007
+kne,0.11,Alabama,1902
+knh,0.27,Indiana,1993
+kni,0.17,Indiana,1991
+knp,0.33,Mississippi,1990
+knq,0.06,Alabama,1906
+knr,0.88,Rhode Island,1986
+kns,0.27,California,1977
+knt,0.57,California,1910
+knu,0.8,Texas,2011
+knv,0.0,Pennsylvania,1964
+knw,0.46,Rhode Island,2016
+knx,0.31,Nebraska,1995
+kob,0.18,North Carolina,1962
+kod,0.27,Utah,1943
+koe,0.31,Virginia,1915
+kog,0.12,Nevada,1984
+koi,0.68,Virginia,1985
+koq,0.69,Rhode Island,1998
+kos,0.01,Illinois,2014
+kpb,0.07,Florida,1902
+kpd,0.97,Arkansas,1905
+kpe,0.64,Oregon,2004
+kpg,0.9,Minnesota,1935
+kph,0.97,New Hampshire,2010
+kpl,0.27,Utah,2015
+kpm,0.51,Massachusetts,1922
+kpn,0.61,Iowa,1920
+kpq,0.11,Washington,1938
+kpt,0.19,Georgia,1940
+kpy,0.82,Mississippi,1971
+kqc,0.4,Kentucky,1988
+kqe,0.36,Louisiana,1926
+kqf,0.76,Louisiana,1958
+kqg,0.74,Maryland,1932
+kqm,0.94,Arkansas,1922
+kqo,0.24,Massachusetts,1990
+kqs,0.39,Illinois,1978
+kqx,0.54,North Carolina,2019
+kqz,0.41,Texas,1984
+krd,0.27,Colorado,2013
+kri,0.86,Alaska,1906
+krk,0.67,Virginia,1967
+krm,0.03,Florida,1934
+krn,0.8,Idaho,1933
+krs,0.08,Indiana,1985
+krt,0.74,Nevada,2001
+kry,0.17,Nebraska,1932
+ksb,0.75,Nevada,1918
+ksc,0.67,Wisconsin,2023
+ksk,0.9,New York,1955
+ksl,0.73,North Carolina,2013
+ksn,0.06,Texas,1916
+ksq,1.0,Alabama,2000
+kss,0.1,Nebraska,1968
+ksu,0.04,Hawaii,1997
+ksv,0.7,Oklahoma,1993
+ktb,0.06,Illinois,1916
+ktj,0.28,Connecticut,1955
+ktp,0.37,Ohio,1948
+ktr,0.58,Alabama,1981
+ktx,0.77,Vermont,1957
+kuc,0.89,Wyoming,1946
+kug,0.13,Louisiana,1912
+kui,0.76,Maine,1941
+kuj,0.0,Texas,1924
+kur,0.51,Mississippi,1906
+kuu,0.27,Indiana,2000
+kuw,0.74,Louisiana,2021
+kux,0.82,Maryland,2008
+kve,0.38,Illinois,2004
+kvh,0.58,Washington,1969
+kvj,0.58,Oklahoma,2014
+kvl,0.03,Florida,1952
+kvm,0.48,Massachusetts,1997
+kvn,0.67,Colorado,1934
+kvq,0.31,California,1990
+kvs,0.56,Wisconsin,2001
+kvt,0.65,Nebraska,1900
+kvv,0.02,Nevada,1948
+kvw,0.92,North Carolina,1959
+kvx,0.38,Delaware,1961
+kwa,0.53,Alaska,1907
+kwd,0.16,Wisconsin,1923
+kwe,0.49,Delaware,1900
+kwg,0.08,Idaho,1921
+kwj,0.93,Texas,1932
+kwl,0.66,Rhode Island,1905
+kwn,0.64,North Dakota,1983
+kwp,0.43,New York,1963
+kwq,0.2,Georgia,1989
+kwt,0.34,Illinois,1969
+kwv,0.43,Rhode Island,1930
+kww,0.48,South Dakota,1927
+kwx,0.11,Iowa,2019
+kwy,0.08,Washington,1933
+kxa,0.8,Florida,2005
+kxb,0.13,Kentucky,2005
+kxe,0.3,New Jersey,1943
+kxf,0.56,Vermont,1940
+kxj,0.03,Montana,1955
+kxl,0.85,New Mexico,1940
+kxm,0.58,Tennessee,1931
+kxp,0.97,Mississippi,2001
+kxr,0.62,Wyoming,1939
+kxs,0.17,Oklahoma,1924
+kxu,0.25,Massachusetts,1933
+kxx,0.02,Maine,1975
+kyf,0.15,Arkansas,2007
+kyh,0.54,Pennsylvania,1969
+kyn,0.03,Maryland,1972
+kyo,0.99,Kansas,1963
+kyp,0.06,Alaska,1926
+kyt,0.06,Kentucky,1953
+kyv,0.58,New Jersey,1918
+kyx,0.62,Maryland,1913
+kzb,0.51,California,1920
+kzc,0.98,Arkansas,1904
+kzf,0.14,Nebraska,1992
+kzg,0.65,Arizona,1949
+kzh,0.41,Missouri,1956
+kzj,0.36,Alabama,1940
+kzl,0.45,Tennessee,2002
+kzo,0.27,Virginia,1931
+kzq,0.04,South Carolina,1912
+kzu,0.54,West Virginia,1931
+kzv,0.57,Nebraska,1979
+laa,0.29,Idaho,1988
+lah,0.01,Delaware,2023
+lak,0.42,Georgia,1989
+lam,0.63,Virginia,1919
+lap,0.92,Wisconsin,2003
+lat,0.34,Mississippi,2019
+lau,0.38,Wyoming,1911
+laz,0.28,Illinois,1949
+lba,0.06,Oregon,1900
+lbf,0.84,Wisconsin,1957
+lbg,0.96,Florida,1948
+lbh,0.04,Oregon,1977
+lbi,0.66,Texas,1973
+lbj,0.16,Texas,1916
+lbp,0.23,Alaska,1995
+lbr,0.41,Missouri,1988
+lbs,0.06,Missouri,2014
+lbt,0.63,West Virginia,1976
+lbu,0.21,Alaska,2016
+lbw,0.16,North Dakota,1983
+lbx,0.67,Kentucky,2002
+lby,0.53,Wyoming,1944
+lca,0.79,Virginia,1977
+lcd,0.87,New Jersey,1976
+lce,1.0,Rhode Island,1962
+lcf,0.51,Virginia,2000
+lch,0.81,North Dakota,1935
+lcq,0.55,Oregon,1988
+lcv,0.92,South Dakota,1903
+lcz,0.45,Indiana,1908
+lda,0.94,Maryland,1946
+lde,0.5,Arkansas,1922
+ldg,0.19,Maine,2013
+ldi,0.54,Texas,1950
+ldj,0.57,South Carolina,1944
+ldm,0.24,Tennessee,2017
+ldn,0.12,Ohio,1915
+ldv,0.52,Massachusetts,1987
+ldx,0.8,North Dakota,1991
+ldz,0.29,Texas,2010
+leh,0.16,Ohio,1991
+lel,0.51,Indiana,1919
+lem,0.2,Maine,2011
+len,0.63,Oregon,1905
+lep,0.11,Utah,2019
+leq,0.34,New Mexico,1935
+let,0.64,Iowa,1985
+leu,0.01,Michigan,1937
+lex,0.02,Nebraska,1953
+lfd,0.07,Oklahoma,1901
+lfg,0.92,Maine,1905
+lfl,0.9,California,1916
+lft,0.93,Maine,1929
+lfu,0.07,Louisiana,2011
+lfy,0.38,California,2012
+lga,0.22,Texas,1909
+lgb,0.77,Louisiana,2010
+lgc,0.4,Pennsylvania,1972
+lgd,0.21,Minnesota,1918
+lge,0.16,Wyoming,1964
+lgf,0.44,North Dakota,1952
+lgi,0.97,North Dakota,1912
+lgk,0.11,Kentucky,1969
+lgl,0.72,North Dakota,1981
+lgm,0.2,Alabama,1934
+lgn,0.79,New Mexico,1957
+lgq,0.61,Alaska,1906
+lgs,0.88,Oregon,2019
+lgu,0.07,Washington,1961
+lgv,0.67,Virginia,1901
+lgx,0.84,Vermont,1909
+lgy,0.04,Vermont,1974
+lhe,0.04,Indiana,1931
+lhg,0.61,North Carolina,2008
+lhm,0.07,Washington,1920
+lho,0.34,Georgia,1959
+lhq,0.53,North Dakota,1945
+lhs,0.94,Mississippi,1927
+lht,0.64,Oklahoma,1979
+lia,0.64,Georgia,1981
+lif,0.63,Virginia,1935
+lii,0.75,North Dakota,1924
+lil,0.21,Rhode Island,2005
+lim,0.69,Connecticut,1924
+lin,0.53,Oklahoma,1917
+liq,0.25,Arkansas,1910
+lir,0.45,Michigan,1999
+lix,0.04,New Jersey,1950
+liz,0.18,Nevada,1918
+ljb,0.66,Idaho,1942
+ljg,0.0,Arkansas,1978
+ljk,0.87,Iowa,1922
+ljl,0.17,Rhode Island,2008
+ljo,0.23,Oklahoma,2020
+ljq,0.94,New Mexico,1942
+ljr,0.48,Delaware,1998
+ljt,0.88,Washington,1971
+ljv,0.73,Maryland,1983
+ljx,0.49,Idaho,1967
+ljz,0.38,North Carolina,2002
+lkb,0.31,Wyoming,1986
+lkc,0.43,Montana,1913
+lkg,0.95,Utah,1957
+lkl,0.75,Mississippi,1906
+lkm,0.61,Minnesota,1901
+lkn,0.71,Montana,1962
+lkp,0.3,Rhode Island,1964
+lkq,0.33,Nebraska,1970
+lks,0.22,California,1935
+lkt,1.0,West Virginia,1982
+lkw,0.22,Maryland,1914
+lkx,0.48,Illinois,2023
+lky,0.46,Indiana,1933
+lld,0.98,Kansas,1942
+llg,0.52,Virginia,1980
+llj,0.67,Maryland,1994
+lll,0.06,North Dakota,2000
+llo,0.84,New York,2022
+lme,0.23,Utah,2006
+lmf,0.21,Alaska,1964
+lml,0.37,Vermont,1979
+lmn,0.96,Florida,1983
+lmo,0.83,Nevada,1925
+lmt,0.88,Wisconsin,1912
+lmu,0.33,Minnesota,1976
+lmz,0.68,Georgia,1961
+lnd,0.31,Idaho,2009
+lng,0.72,Texas,1950
+lni,0.66,Wyoming,1950
+lno,0.77,South Carolina,1950
+lnr,0.8,South Dakota,1998
+lns,0.74,Alaska,2011
+lnt,0.47,New Jersey,1965
+lnu,0.76,Arkansas,1912
+lnw,0.44,Pennsylvania,1965
+lny,0.48,Delaware,1975
+loa,0.51,Tennessee,1994
+lob,0.73,Maryland,1958
+loe,0.54,Washington,1993
+lof,0.42,Oklahoma,2009
+loh,0.42,West Virginia,1959
+loi,0.43,North Dakota,1990
+loj,0.08,Indiana,1914
+lol,0.52,West Virginia,1913
+lon,0.06,Delaware,1972
+lov,0.58,Kentucky,1994
+low,0.6,South Carolina,1950
+lpc,0.04,Delaware,2021
+lph,0.79,Montana,1952
+lpk,0.43,Nebraska,1990
+lpn,0.29,South Dakota,1986
+lps,0.71,Arizona,1946
+lpt,0.57,Michigan,1903
+lpw,0.77,Minnesota,1913
+lpy,0.89,Indiana,1933
+lqb,0.63,Georgia,2016
+lqc,0.46,Connecticut,1964
+lqg,0.91,Arkansas,1930
+lqh,0.4,South Carolina,1943
+lqi,0.08,Utah,1970
+lqj,0.39,Iowa,1990
+lqk,0.15,New Hampshire,2015
+lqm,0.24,Idaho,1928
+lqs,0.3,Vermont,1982
+lqz,0.87,Connecticut,1920
+lra,0.17,Georgia,1949
+lrc,0.57,Mississippi,1956
+lrd,0.86,Minnesota,1975
+lrh,0.04,Arkansas,1953
+lri,0.82,Michigan,2020
+lrl,0.44,New Hampshire,1999
+lrm,0.31,Kansas,1924
+lro,0.28,Tennessee,1959
+lrq,0.69,New Hampshire,2015
+lrr,0.63,Texas,1958
+lrw,0.27,Alabama,1947
+lsb,0.93,Nebraska,1906
+lsf,0.0,Pennsylvania,1912
+lsg,0.65,Pennsylvania,1932
+lsi,0.21,Virginia,1945
+lsl,0.88,New Mexico,1951
+lsm,0.85,Hawaii,1900
+lsn,0.57,Minnesota,1957
+lsv,0.02,Arizona,1974
+lsw,0.18,New Jersey,1960
+lsy,0.71,Mississippi,1921
+lsz,0.47,Missouri,2021
+lta,0.65,New Jersey,2022
+ltf,0.26,Indiana,1920
+ltg,0.81,Wyoming,1966
+ltj,0.47,Louisiana,1941
+ltk,0.89,Nebraska,1924
+ltq,0.53,Montana,2007
+ltr,0.63,Wisconsin,1932
+lts,0.33,Wisconsin,1993
+ltt,0.51,Montana,1960
+ltx,0.09,Rhode Island,1939
+lua,0.13,Nevada,1936
+luf,0.99,South Dakota,1942
+lug,0.68,Alaska,1927
+luj,0.86,California,2013
+lum,0.47,Illinois,2014
+lun,0.63,Oregon,1953
+luo,0.19,Massachusetts,1967
+luq,0.88,Nevada,1940
+lus,0.76,New Mexico,1920
+lux,0.37,Missouri,1958
+luz,0.46,Indiana,1939
+lva,0.38,Mississippi,1998
+lvb,0.31,New Jersey,1947
+lvj,0.86,Washington,1998
+lvl,0.54,Maryland,1933
+lwe,0.16,Mississippi,1931
+lwg,0.73,Washington,1949
+lwm,0.2,Oklahoma,1972
+lwn,0.93,Wyoming,2019
+lwr,0.4,New York,1963
+lwt,0.46,Texas,1917
+lwu,0.99,Nevada,2004
+lwx,0.11,Montana,1944
+lxb,0.02,Vermont,1929
+lxf,0.77,South Carolina,1988
+lxj,0.47,Ohio,2008
+lxm,0.33,Arkansas,1978
+lxt,0.21,Iowa,1990
+lxu,0.58,Washington,1911
+lxx,0.81,Michigan,2011
+lxz,0.21,Washington,1967
+lyb,0.08,Virginia,1994
+lyc,0.82,Georgia,1924
+lyf,0.21,Minnesota,1914
+lyh,0.37,North Dakota,1997
+lyn,0.93,Colorado,1996
+lyo,0.5,Louisiana,1900
+lyq,0.03,North Dakota,1935
+lyz,0.83,Virginia,1950
+lzd,0.16,Wisconsin,2000
+lzf,0.43,Maryland,2015
+lzg,0.46,Nebraska,1950
+lzj,0.36,Colorado,1990
+lzr,0.47,Maryland,1921
+lzu,0.26,Alabama,1990
+lzx,0.32,Illinois,1900
+maa,0.6,Ohio,1979
+mad,0.39,Nevada,1914
+mah,0.38,Virginia,1951
+mak,0.01,Wisconsin,1985
+mal,0.7,Maine,1969
+mam,0.77,Arkansas,1972
+maq,0.78,Tennessee,1970
+mat,0.68,California,1922
+maw,0.09,Hawaii,2011
+max,0.59,Montana,1921
+mbc,0.53,Colorado,1981
+mbe,0.5,Idaho,2001
+mbg,0.03,Massachusetts,2011
+mbj,0.25,South Dakota,1992
+mbk,0.8,Indiana,1929
+mbn,0.86,Missouri,1973
+mbr,0.92,Colorado,2010
+mbs,0.39,Tennessee,1997
+mbt,0.19,Oregon,2002
+mbx,0.55,Maine,1979
+mbz,0.3,Nebraska,1965
+mca,0.94,Michigan,2020
+mcg,0.09,South Carolina,1915
+mci,0.02,Washington,1902
+mcj,0.35,Wyoming,1986
+mcm,0.28,Michigan,1965
+mco,0.55,Arkansas,1971
+mcr,0.6,Connecticut,1987
+mcs,0.68,New Mexico,1938
+mcv,0.96,Delaware,2012
+mcw,0.16,North Dakota,1943
+mcx,0.63,Ohio,1904
+mcy,0.72,Mississippi,1909
+mcz,0.03,Kentucky,1997
+mdg,0.78,Mississippi,1904
+mdh,0.2,Colorado,1934
+mdl,0.43,Massachusetts,1948
+mdm,0.81,New Mexico,1991
+mdr,0.92,Ohio,1976
+mdt,0.05,Nevada,1939
+mdu,0.34,Vermont,1911
+meg,0.51,Hawaii,2021
+mei,0.48,Kansas,1931
+mek,0.21,North Dakota,1912
+meo,0.74,Nebraska,1962
+mep,0.79,North Carolina,2016
+mez,0.56,Oregon,1970
+mfa,0.85,Nevada,1933
+mfb,0.74,Oklahoma,1953
+mfe,0.79,Maine,1937
+mfg,0.42,Idaho,1915
+mfj,0.64,Rhode Island,1964
+mfk,0.46,West Virginia,2018
+mfn,0.5,South Dakota,1944
+mfq,0.0,Iowa,1905
+mfs,0.04,Iowa,1927
+mfv,0.31,Alaska,1962
+mfx,0.93,Indiana,1954
+mfy,0.24,Mississippi,1959
+mga,0.68,Kentucky,1940
+mgb,0.11,Idaho,1945
+mge,0.37,Rhode Island,2008
+mgl,0.55,California,1920
+mgs,0.55,Florida,1960
+mgt,0.34,Missouri,2004
+mgu,0.09,California,1948
+mgw,0.67,South Dakota,1957
+mgx,0.57,Montana,1915
+mha,0.99,Montana,1994
+mhb,0.76,Illinois,2006
+mhf,0.67,Indiana,1905
+mhj,0.52,New Hampshire,2007
+mhk,0.94,Massachusetts,2007
+mhm,0.98,Iowa,1981
+mho,0.47,Utah,1959
+mhu,0.57,Virginia,1975
+mhz,0.7,Kansas,2015
+mia,0.18,Michigan,1924
+mib,0.71,Mississippi,1969
+mic,0.15,Hawaii,1928
+mid,0.73,Georgia,1941
+mie,0.47,South Dakota,1947
+mig,0.46,New York,1975
+mih,0.48,Nevada,1964
+mip,0.18,Wyoming,1959
+miq,0.35,Arkansas,1995
+mis,0.24,Arkansas,1969
+mit,0.99,New Jersey,2015
+miv,0.34,Tennessee,1962
+mix,0.06,South Dakota,2017
+miy,0.53,Florida,1999
+mjc,0.14,Kentucky,1941
+mjh,0.21,Maine,1966
+mjj,0.52,Hawaii,1921
+mjv,0.94,Iowa,1930
+mka,0.9,Colorado,1957
+mkd,0.46,West Virginia,1981
+mkf,0.93,Missouri,1924
+mkh,0.02,Rhode Island,1960
+mki,0.84,Pennsylvania,2020
+mkk,0.22,Ohio,1931
+mkm,0.04,Iowa,1956
+mkp,0.74,West Virginia,1979
+mkt,0.1,Idaho,2002
+mla,0.91,Kansas,1989
+mlc,0.86,Connecticut,1907
+mlj,0.24,New Mexico,2023
+mlk,0.91,Rhode Island,1931
+mll,1.0,Tennessee,1993
+mlm,0.55,Alabama,1961
+mln,0.42,New Mexico,1919
+mls,0.51,Maine,1924
+mlt,0.37,Utah,1931
+mlu,0.13,Connecticut,1993
+mlw,0.88,Louisiana,1907
+mlz,0.93,Arkansas,1964
+mma,0.68,Kansas,1953
+mmc,0.43,Rhode Island,1973
+mme,0.94,Vermont,1974
+mmf,1.0,Maine,1946
+mmg,0.44,Texas,1974
+mmn,0.77,Virginia,1989
+mmp,0.93,South Carolina,1942
+mmq,0.79,Alaska,1912
+mmt,0.5,Minnesota,1929
+mmv,0.15,Alabama,1940
+mnb,0.0,New Jersey,1964
+mnd,0.7,Michigan,1906
+mne,0.75,Missouri,1942
+mnf,0.82,West Virginia,1911
+mnh,0.41,Ohio,1959
+mnq,0.58,Nevada,1973
+mnx,0.36,South Dakota,1961
+mnz,0.4,Hawaii,2018
+moa,0.15,Colorado,1944
+mod,0.2,Arizona,1921
+moe,0.13,New Hampshire,1982
+mog,0.25,Delaware,2003
+moj,0.9,Missouri,1962
+mol,0.53,Arkansas,1905
+mon,0.99,North Dakota,1999
+moo,0.17,Oklahoma,1978
+mos,0.57,North Dakota,1931
+mot,0.16,Oregon,2009
+mou,0.81,Kansas,1949
+mov,0.44,Nebraska,1921
+mow,0.24,Pennsylvania,1977
+mox,0.68,Wyoming,1956
+moy,0.8,Nebraska,1915
+mpa,0.64,Florida,1939
+mpd,0.64,Hawaii,1917
+mpg,0.37,Wisconsin,1940
+mpj,0.8,Pennsylvania,1983
+mpk,0.21,Wisconsin,1920
+mpm,0.32,Nebraska,1934
+mpn,0.53,Nebraska,1933
+mpo,0.21,Connecticut,1990
+mps,0.04,New Jersey,1900
+mpt,0.64,South Dakota,2014
+mpv,0.14,Texas,1967
+mpw,0.84,Illinois,1969
+mpz,0.35,Florida,1954
+mqe,0.17,Virginia,1942
+mqf,0.75,Delaware,1935
+mqi,0.75,South Carolina,1983
+mqj,0.28,New York,1951
+mqn,0.78,Connecticut,1986
+mqu,0.88,Missouri,1993
+mqy,0.04,West Virginia,2018
+mra,0.75,North Dakota,1923
+mrb,0.95,Oklahoma,1963
+mrd,0.15,Georgia,1970
+mri,0.3,Wyoming,1931
+mrk,0.99,New Jersey,1969
+mrl,0.18,New York,1900
+mro,0.48,Nevada,1990
+mrp,0.73,California,1970
+mrr,0.92,Alaska,1974
+mru,0.14,Louisiana,1976
+mrw,0.0,Georgia,1995
+mse,0.29,South Dakota,1911
+msk,0.15,Delaware,1909
+msn,0.64,South Dakota,1941
+mso,0.58,Connecticut,1922
+msv,0.51,Montana,1922
+msw,0.65,Idaho,2021
+msz,0.51,Georgia,1937
+mtc,0.68,Minnesota,1907
+mth,0.84,Tennessee,2020
+mti,0.75,Maine,1963
+mtk,0.67,New Hampshire,1998
+mtl,0.24,Nebraska,1915
+mtr,0.59,Georgia,1992
+mtt,0.22,Wisconsin,1969
+mtv,0.2,Wisconsin,2009
+mty,0.47,Arizona,1953
+mub,0.34,Tennessee,1952
+muc,0.15,Mississippi,1976
+mud,0.49,New Mexico,1964
+muf,0.7,Georgia,1991
+muj,0.35,Montana,2012
+muk,0.82,Virginia,1960
+muo,0.2,Arizona,2003
+mus,0.87,Tennessee,2006
+mux,0.84,New Hampshire,1936
+muz,0.78,Missouri,1937
+mva,0.09,Rhode Island,2014
+mvb,0.25,New Mexico,1911
+mvc,0.94,Arizona,1940
+mvf,0.66,Colorado,1955
+mvg,0.65,Alaska,1930
+mvh,0.3,Idaho,1969
+mvk,0.08,North Dakota,2014
+mvp,0.1,Minnesota,1957
+mvq,0.35,Tennessee,1983
+mwa,0.12,Nebraska,1967
+mwb,0.37,Louisiana,1941
+mwk,0.33,Alabama,1989
+mwo,0.76,Wisconsin,2015
+mwt,0.9,Indiana,1977
+mwx,0.55,Idaho,1915
+mwy,0.91,Delaware,2021
+mxa,0.01,Colorado,2011
+mxb,0.73,North Carolina,1943
+mxf,0.3,Ohio,1928
+mxh,0.72,Utah,1920
+mxl,0.13,Montana,1927
+mxm,0.02,Nebraska,1954
+mxn,0.28,North Dakota,2020
+mxw,0.75,Delaware,1986
+mxz,0.28,Virginia,2021
+myc,0.8,Hawaii,1927
+myd,0.02,Utah,1958
+myh,0.02,North Carolina,1909
+myi,0.72,Delaware,1950
+myj,0.1,Alabama,1917
+myk,0.52,Connecticut,1996
+myn,0.93,Florida,2012
+myq,0.12,Indiana,1935
+myt,0.65,New York,2008
+myu,0.95,Michigan,2002
+myv,0.17,Maine,1958
+myw,0.69,North Dakota,2007
+myy,0.99,Illinois,1934
+mzb,0.44,Nevada,2001
+mzn,0.42,Oklahoma,1908
+mzq,0.59,Georgia,1956
+mzr,0.8,Wisconsin,2022
+mzs,0.53,Virginia,1982
+mzt,0.95,Illinois,1911
+mzu,0.17,Tennessee,1954
+mzw,0.55,Maryland,1934
+mzx,0.95,Ohio,1945
+naj,0.62,Wyoming,2004
+nam,0.79,Hawaii,1905
+nan,0.79,New Hampshire,1956
+nao,0.66,Pennsylvania,1982
+nap,0.43,Alabama,2016
+nas,0.92,Indiana,1992
+nav,0.24,Nebraska,1984
+nax,0.43,Hawaii,1998
+nbq,0.62,Alaska,1998
+nbr,0.12,Kentucky,1989
+nbs,0.97,Massachusetts,2019
+nbz,0.77,Oklahoma,1905
+nce,0.88,Nevada,1997
+ncf,0.79,Iowa,1929
+nch,0.94,Nebraska,1953
+ncj,0.72,Nevada,1915
+ncl,0.66,Wisconsin,1976
+ncs,0.34,Delaware,1914
+ncv,0.51,Virginia,2007
+ncw,0.93,Washington,1903
+ncx,0.6,Montana,1949
+ndc,0.85,South Dakota,2017
+ndd,0.93,Mississippi,2015
+nde,0.44,Nebraska,1999
+ndf,0.74,Pennsylvania,1964
+ndi,0.31,Kansas,1978
+ndk,0.85,West Virginia,1990
+ndl,0.43,Rhode Island,1946
+ndr,0.59,Connecticut,1961
+ndx,0.58,Iowa,2012
+ndy,0.24,Rhode Island,1902
+ndz,0.7,Nevada,1989
+neg,0.4,Oklahoma,1906
+nel,0.83,Kansas,1919
+nem,0.11,Indiana,1963
+nen,0.18,South Carolina,1965
+net,0.75,West Virginia,1999
+neu,0.09,Minnesota,1957
+nev,0.42,West Virginia,2012
+nez,0.47,Arkansas,1930
+nfb,0.4,Michigan,1902
+nfc,0.78,Connecticut,1999
+nfe,0.36,Mississippi,1921
+nfg,0.63,Idaho,1907
+nfh,0.12,North Carolina,1999
+nfl,0.24,Tennessee,1999
+nfo,0.84,South Carolina,2007
+nfp,0.55,Georgia,1929
+nfr,0.92,Pennsylvania,1935
+nfs,0.1,Louisiana,1972
+nfv,0.19,Iowa,2013
+nfw,0.28,Montana,1990
+nfz,0.98,Montana,1902
+ngc,0.72,Texas,1929
+ngd,0.75,Massachusetts,1983
+ngi,0.47,Iowa,1973
+ngk,0.15,Florida,1999
+ngr,0.8,Georgia,2017
+ngs,0.97,Minnesota,1973
+ngt,0.22,Iowa,1939
+ngw,0.33,New York,1967
+ngx,0.85,Minnesota,1997
+nhd,0.66,Kansas,1958
+nhf,0.74,Missouri,1956
+nhg,0.36,South Dakota,2001
+nhh,0.46,Arizona,1907
+nhj,0.6,Maryland,1991
+nhk,0.96,Rhode Island,1951
+nhl,0.22,Utah,2020
+nhm,0.78,Montana,1949
+nhq,0.13,Delaware,1968
+nhw,0.51,Maryland,1966
+nhy,0.23,Maryland,1917
+nia,0.03,Kentucky,1929
+nib,0.36,West Virginia,1919
+nic,0.02,Mississippi,1989
+nig,0.75,Louisiana,1914
+nij,0.73,Georgia,2005
+nil,0.87,Nebraska,1912
+nip,0.89,Oregon,1900
+nis,0.64,Oregon,1904
+nit,0.48,Nebraska,1930
+niv,0.36,Massachusetts,1991
+niw,0.39,Oklahoma,1937
+niz,0.85,Oklahoma,1944
+njd,0.11,Alabama,2019
+njm,0.31,Washington,1949
+njr,0.4,Texas,1971
+njs,0.42,West Virginia,2007
+njv,0.43,Hawaii,1977
+nkf,0.82,Ohio,1971
+nki,0.86,North Carolina,1923
+nks,0.1,Nebraska,1994
+nku,0.61,Vermont,1958
+nkw,0.15,Tennessee,1939
+nkx,0.95,Montana,1989
+nld,0.11,New Jersey,1971
+nlj,0.51,Wisconsin,1953
+nlm,0.14,Wyoming,2015
+nln,0.94,Michigan,1970
+nlp,0.24,West Virginia,1927
+nlr,0.35,Wisconsin,1929
+nlt,0.51,South Dakota,1958
+nlv,0.14,Missouri,1982
+nlx,0.77,Ohio,1916
+nly,0.07,Virginia,1955
+nmb,0.23,Idaho,1974
+nmc,0.89,Nevada,1900
+nmf,0.45,North Carolina,1924
+nmj,0.98,Oregon,1974
+nml,0.49,Nevada,1929
+nmm,0.19,Missouri,1928
+nmt,0.75,Alabama,2006
+nmu,0.37,Maryland,1947
+nmx,0.22,Alaska,1954
+nna,0.78,Tennessee,2020
+nnb,0.48,Delaware,1956
+nnm,0.36,Alaska,2003
+nnu,0.66,Connecticut,1923
+nnw,0.36,West Virginia,1976
+nny,0.91,Georgia,1951
+noa,0.9,North Dakota,2019
+nod,0.07,New Hampshire,1998
+noe,0.83,South Carolina,1959
+nol,0.98,Connecticut,1903
+noq,0.86,Idaho,2010
+nor,0.67,Colorado,2018
+npb,0.91,Utah,1910
+npi,0.84,Oklahoma,1904
+npj,0.31,Utah,1970
+npo,0.34,Wisconsin,1970
+nps,0.92,New York,1987
+npt,0.27,Kansas,2015
+npw,0.75,Missouri,1912
+npy,0.9,Minnesota,1951
+nqa,0.6,North Carolina,2021
+nqc,0.21,Mississippi,1932
+nqf,0.29,North Carolina,1971
+nqg,0.93,Minnesota,1990
+nqh,0.4,Iowa,1980
+nqk,0.51,New Jersey,1909
+nql,0.54,Missouri,1990
+nqm,0.97,New Hampshire,1912
+nqo,0.23,Idaho,1931
+nqp,0.07,Ohio,1971
+nqr,0.43,Kentucky,1918
+nqt,0.48,Maryland,1998
+nqu,0.87,New York,2023
+nqz,0.38,California,1997
+nra,0.18,West Virginia,1908
+nrd,0.75,Oregon,2016
+nrf,0.49,Rhode Island,1945
+nrk,0.34,Massachusetts,2019
+nrn,0.2,Iowa,1970
+nro,0.39,Wyoming,1942
+nrr,0.22,South Dakota,1960
+nrs,0.89,Wisconsin,1927
+nsf,0.01,Massachusetts,1924
+nsk,0.23,Wisconsin,1968
+nsl,0.85,New York,2017
+nsm,0.64,North Carolina,1915
+nsp,0.2,Montana,2005
+nsv,0.68,Kentucky,1990
+nsz,0.15,Hawaii,1928
+ntc,0.24,Oregon,1979
+nti,0.62,California,1964
+ntl,0.65,Indiana,1915
+ntm,0.93,Oklahoma,2011
+nto,0.43,Maine,1908
+ntq,0.61,Indiana,1974
+nts,0.54,North Carolina,1938
+ntw,0.1,Nebraska,1985
+ntx,0.91,Oregon,1992
+nua,0.44,Maryland,1964
+nuc,0.08,Colorado,1989
+nud,0.99,Arizona,1972
+nuh,0.36,Kansas,1991
+nul,0.76,Oklahoma,2018
+nuo,0.11,North Dakota,1910
+nuu,0.17,New Mexico,1918
+nuw,0.06,South Carolina,1987
+nux,0.0,Wisconsin,1964
+nvg,0.98,New Hampshire,1949
+nvl,0.02,Arkansas,1909
+nvn,0.05,Alaska,2012
+nvs,0.05,Massachusetts,1921
+nvt,0.28,Utah,1985
+nvu,0.26,Florida,1919
+nvv,0.93,Louisiana,2010
+nvy,0.77,West Virginia,1912
+nwb,0.73,Connecticut,2006
+nwc,0.17,Kentucky,1929
+nwe,0.22,Texas,1900
+nwf,0.87,Louisiana,1930
+nwg,0.76,New Hampshire,1983
+nwh,1.0,West Virginia,1925
+nwi,0.89,California,1924
+nwj,0.86,Oklahoma,1962
+nwk,0.69,Nebraska,1981
+nwn,0.69,Delaware,2020
+nws,0.15,Oklahoma,1978
+nww,0.92,Iowa,1932
+nxc,0.82,Alaska,2020
+nxd,0.18,Michigan,1963
+nxg,0.44,Missouri,1918
+nxl,0.83,Utah,1906
+nxm,0.83,North Dakota,1974
+nxn,0.32,Minnesota,1929
+nxq,0.58,South Carolina,1997
+nyg,0.94,North Carolina,1987
+nyh,0.5,South Carolina,2018
+nyk,0.01,New York,2008
+nyn,0.46,Oklahoma,1925
+nyo,0.51,California,2020
+nyr,0.55,Hawaii,2006
+nyt,0.82,Rhode Island,1912
+nyu,0.38,Oregon,1936
+nyw,0.2,Maine,1916
+nyy,0.91,Massachusetts,2009
+nza,0.4,Wyoming,1919
+nzb,0.26,South Dakota,1913
+nzi,0.49,Illinois,2021
+nzj,0.4,Maine,1968
+nzk,0.8,Pennsylvania,1994
+nzs,0.11,Texas,1911
+nzt,0.99,Wyoming,1933
+nzv,0.78,New Jersey,1933
+nzz,0.67,Rhode Island,1920
+oac,0.77,Utah,1949
+oad,0.35,Idaho,1917
+oag,0.1,Nebraska,1936
+oah,0.82,Indiana,1969
+oaj,0.31,Illinois,1928
+oak,0.24,Oregon,1999
+oao,0.97,Montana,1979
+oar,0.21,Alabama,1937
+oat,0.11,Nebraska,1900
+oav,0.6,Kentucky,1911
+oay,0.2,Missouri,1963
+obb,0.23,California,1991
+obc,0.96,New Mexico,2009
+obe,0.25,Mississippi,1901
+obg,0.31,Ohio,2007
+obj,0.91,Wisconsin,1955
+obk,0.12,Massachusetts,1980
+obn,0.26,Mississippi,1911
+obs,0.8,California,1933
+obu,0.18,North Carolina,1912
+obw,0.01,Indiana,1961
+obx,0.41,Utah,1991
+oby,0.98,Montana,2015
+oca,0.99,Arkansas,1983
+ocf,0.11,Oklahoma,1984
+och,0.75,Ohio,1906
+ocm,0.81,Massachusetts,1944
+ocn,0.43,New Mexico,1982
+ocq,0.79,New Mexico,1914
+ocr,0.38,Arizona,1900
+oct,0.09,Massachusetts,1927
+ocu,0.52,South Dakota,1915
+odf,0.49,Florida,1992
+odn,0.31,New Jersey,1923
+odq,0.84,Alaska,2009
+ods,0.98,Oklahoma,1975
+odt,0.11,South Dakota,1997
+odu,0.88,Mississippi,1947
+oee,0.92,Maine,1996
+oef,0.81,New Jersey,1972
+oeg,0.87,Colorado,1930
+oeh,0.82,Connecticut,2003
+oei,0.18,Wisconsin,1969
+oej,0.71,Delaware,1912
+oel,0.78,Wisconsin,1919
+oem,0.27,Alabama,1950
+oeq,0.98,Wyoming,1917
+oes,0.93,Washington,1976
+oet,0.37,Missouri,2011
+oeu,0.38,Delaware,1931
+oew,0.45,Colorado,1942
+oez,0.44,New Mexico,2013
+ofa,0.36,South Dakota,1915
+ofb,0.17,Kansas,1984
+ofd,0.96,Indiana,1969
+ofe,0.84,Oklahoma,1933
+ofh,0.91,Maryland,1939
+ofi,0.53,California,1906
+ofj,0.71,Oklahoma,2003
+ofl,0.92,Oregon,1981
+ofo,0.73,North Carolina,1976
+ofr,0.65,Michigan,1924
+oft,0.86,New Jersey,2001
+ofy,0.2,Iowa,2011
+ofz,0.98,Minnesota,1951
+oga,0.07,Maryland,2005
+oge,0.05,South Carolina,2008
+ogg,0.19,Texas,1923
+ogh,0.65,California,2023
+ogi,0.48,New York,1904
+ogo,0.65,North Carolina,1900
+ogp,0.25,Pennsylvania,2003
+ogz,0.09,Iowa,1930
+oha,0.26,Missouri,1975
+ohe,0.32,South Carolina,2018
+ohg,0.75,New York,1927
+ohj,0.54,South Dakota,1927
+ohk,0.09,Mississippi,2012
+ohl,0.17,Iowa,1904
+oho,0.87,Kentucky,1966
+ohq,0.99,Kentucky,1983
+ohr,0.43,Washington,1955
+ohs,0.36,Vermont,1974
+ohx,0.03,New Hampshire,1951
+ohz,0.32,New Mexico,1933
+oic,0.26,North Dakota,1939
+oif,0.08,Montana,1952
+oin,0.63,Ohio,2015
+oip,0.12,North Carolina,1946
+oit,0.06,Colorado,1922
+oiw,0.34,Utah,1974
+oiy,0.0,Washington,1968
+oja,0.25,Michigan,1912
+ojj,0.93,Colorado,1912
+ojk,0.24,New Jersey,1996
+ojq,0.81,Kentucky,1941
+ojr,0.26,Montana,1949
+ojw,0.34,Maine,1941
+ojy,0.85,Illinois,1975
+oka,0.46,California,1931
+okh,0.24,Ohio,1985
+oki,0.87,Kentucky,1938
+okj,0.03,Montana,1992
+okm,0.9,Delaware,1968
+okp,0.21,Virginia,1977
+oks,1.0,Michigan,1900
+oky,0.02,New Mexico,1964
+okz,0.79,Texas,1945
+olb,0.04,Texas,2008
+olg,0.2,North Carolina,1960
+olh,0.77,Kansas,2001
+olj,0.39,Maryland,1999
+olm,0.29,Georgia,1955
+oln,0.42,Maine,1970
+olo,0.75,West Virginia,1966
+olp,0.91,Michigan,1998
+olq,0.45,Virginia,1965
+ols,0.18,Delaware,1944
+oly,1.0,Tennessee,1907
+olz,0.49,North Dakota,1981
+omd,0.01,Ohio,1922
+omj,0.91,New Jersey,1905
+omn,0.19,North Carolina,1959
+omt,0.58,Georgia,1916
+omw,0.36,Utah,1989
+omy,0.01,Massachusetts,2008
+omz,0.35,Alaska,1938
+ond,0.05,Delaware,2012
+onf,0.57,Idaho,1945
+ong,0.33,Texas,1905
+onk,0.23,Idaho,1951
+onl,0.58,Georgia,1945
+ono,0.6,Virginia,1991
+onr,0.97,Arkansas,1962
+ont,0.94,Colorado,1968
+onu,0.12,Hawaii,1990
+onv,0.88,Nevada,1922
+onz,0.26,Louisiana,1982
+ood,0.13,Hawaii,1960
+oof,0.2,Arizona,1947
+oog,0.46,Rhode Island,1992
+ooj,0.56,Wyoming,1977
+ool,0.09,North Dakota,1904
+oom,0.72,Virginia,1975
+oot,0.89,Arkansas,1989
+oou,0.5,Rhode Island,1999
+ooy,0.77,Florida,1976
+opb,0.15,Washington,1950
+opc,0.09,Washington,2016
+opd,0.51,Missouri,1943
+ope,0.57,Florida,2018
+opk,0.27,Mississippi,1914
+opl,0.77,Rhode Island,1933
+opm,0.7,Louisiana,2020
+opo,0.97,Iowa,1907
+opp,0.06,Kansas,2002
+opu,0.08,Kentucky,1905
+opv,0.46,Illinois,2007
+opw,0.33,Maryland,1946
+opx,0.08,Oklahoma,1959
+opy,0.88,Kentucky,1910
+oqa,0.96,Oregon,1994
+oqd,0.92,Virginia,1982
+oqg,0.39,Tennessee,1970
+oqh,0.19,Kansas,2010
+oqk,0.59,Maine,1960
+oqq,0.29,Indiana,1952
+oqr,0.09,South Dakota,1926
+oqv,0.68,Arizona,1987
+oqy,0.93,Arkansas,1957
+ora,0.65,Rhode Island,1975
+ore,0.56,North Dakota,1966
+orf,0.43,Washington,1995
+org,0.18,Idaho,1927
+ork,0.73,California,1999
+orl,0.29,Kansas,1968
+orm,0.64,Arkansas,1985
+orp,0.41,Maryland,1946
+orr,0.34,Pennsylvania,1977
+ort,0.44,New York,1919
+orw,0.54,Connecticut,1998
+osc,0.81,Oregon,2000
+osd,0.18,Michigan,2001
+ose,0.56,Oklahoma,1926
+osf,0.41,South Dakota,1913
+osg,0.35,South Carolina,1908
+osh,0.81,North Dakota,1904
+osj,0.85,Rhode Island,1939
+osm,0.19,New Mexico,1963
+osn,0.83,New Mexico,1978
+oso,0.03,Connecticut,2001
+osy,0.8,Alabama,2015
+otc,0.31,Texas,2006
+ote,0.03,West Virginia,1958
+otf,0.7,Pennsylvania,2011
+oth,0.52,Nevada,1905
+oti,0.65,South Dakota,1944
+otm,0.95,New Jersey,1947
+otq,0.97,Idaho,1915
+otz,0.99,West Virginia,2015
+oub,0.54,New Hampshire,1928
+ouf,0.63,Maryland,1956
+oug,0.19,South Dakota,1970
+oui,0.82,Illinois,2006
+ouk,0.5,Texas,1957
+oum,0.87,Nevada,1968
+ouo,0.61,Alabama,1977
+ous,0.22,Ohio,1941
+out,0.82,Vermont,1944
+ouv,0.07,Montana,1970
+ouw,0.62,Vermont,1904
+ouy,0.16,Texas,1904
+ouz,0.29,Ohio,2013
+ova,0.55,Maine,1928
+ovf,0.64,Maryland,1994
+ovh,0.94,Delaware,1994
+ovi,0.97,New Jersey,1942
+ovo,0.08,Texas,2006
+ovt,0.63,Wisconsin,1905
+ovy,0.56,Connecticut,1930
+owa,0.64,Georgia,1965
+owb,0.32,Minnesota,1982
+owe,0.4,Utah,1958
+owf,0.34,Tennessee,2000
+owg,0.89,Illinois,2004
+owi,0.57,Wyoming,1926
+owj,0.33,Colorado,1985
+owk,0.42,Colorado,2022
+owm,0.38,New Hampshire,1926
+owr,0.17,Ohio,1958
+owt,0.79,South Dakota,2021
+oxb,0.09,Colorado,1988
+oxe,0.3,New Jersey,1901
+oxf,0.28,Idaho,1901
+oxi,0.26,Wyoming,1907
+oxj,0.79,New Mexico,1962
+oxk,0.81,Louisiana,1994
+oxl,0.67,Alabama,2003
+oxn,0.09,Wyoming,1989
+oxo,0.85,Maryland,2015
+oxq,0.18,North Dakota,2009
+oxs,0.7,Delaware,1947
+oxu,0.12,Vermont,1984
+oxx,0.88,Georgia,1953
+oxy,0.61,Connecticut,1991
+oxz,0.43,Oklahoma,1909
+oyb,0.56,Minnesota,1933
+oyc,0.9,Rhode Island,1901
+oyj,0.26,New Hampshire,1988
+oyn,0.04,New York,1946
+oyr,0.32,Texas,1945
+oys,0.97,Vermont,1903
+oyt,0.54,Maine,1947
+oyv,0.33,Virginia,1993
+oyz,0.34,Iowa,1911
+oza,0.66,South Carolina,1927
+ozc,0.07,Indiana,1916
+oze,0.06,Washington,1935
+ozf,0.58,North Carolina,1954
+ozg,0.67,Montana,1943
+ozr,0.92,Arkansas,1936
+ozy,0.96,Rhode Island,1967
+paa,0.58,Oregon,1921
+pab,0.77,New Jersey,1990
+pac,0.97,Massachusetts,2003
+paf,0.74,Arkansas,1950
+pak,0.33,Arizona,1957
+pao,0.64,Michigan,1951
+paq,0.79,South Dakota,1976
+par,0.17,Maine,1944
+pat,0.54,Michigan,1974
+paw,0.86,Alaska,1933
+pay,0.76,Washington,2008
+paz,0.13,Mississippi,1915
+pba,0.85,Massachusetts,1902
+pbb,0.23,Alaska,1939
+pbc,0.39,Wyoming,1947
+pbd,0.7,New Mexico,1961
+pbf,0.74,Michigan,1922
+pbg,0.12,Indiana,1946
+pbi,0.73,Wyoming,1905
+pbj,0.74,Colorado,1903
+pbk,0.68,Florida,1987
+pbo,0.96,Minnesota,1919
+pbp,0.51,California,1968
+pbr,0.83,Wyoming,1928
+pca,0.59,Nevada,1974
+pcd,0.79,Utah,1908
+pch,0.03,Minnesota,1905
+pcj,0.59,Virginia,1987
+pco,0.18,Washington,1995
+pcp,0.19,Arkansas,1977
+pcq,0.84,Alabama,1964
+pct,1.0,North Carolina,1976
+pcy,0.64,Nebraska,1991
+pda,0.49,Pennsylvania,1937
+pdc,0.97,New York,1971
+pdd,0.69,North Carolina,1982
+pdn,0.46,Arkansas,1944
+pdr,0.17,Wisconsin,2009
+pds,0.01,Indiana,2020
+pdt,0.04,South Dakota,1917
+pdu,0.28,Vermont,2022
+pdv,0.68,Arkansas,2007
+pdw,0.27,Louisiana,1927
+pdy,0.1,New York,2011
+pei,0.14,Idaho,1950
+pej,0.88,South Carolina,1992
+pel,0.11,Alabama,1929
+pem,0.13,Washington,1954
+pep,0.67,Mississippi,1923
+pev,0.55,Alabama,1961
+pew,0.55,Massachusetts,2021
+pey,0.15,Kentucky,1943
+pez,0.15,Illinois,1986
+pfa,0.6,Pennsylvania,2006
+pfb,0.4,Michigan,2016
+pfe,0.22,Vermont,1938
+pfh,0.47,Arizona,1929
+pfi,0.62,Alabama,1957
+pfm,0.15,Oregon,1937
+pfo,0.44,Maine,1973
+pfs,0.92,Louisiana,2022
+pfy,0.24,Missouri,1998
+pga,0.37,Louisiana,1900
+pgb,0.47,New Jersey,1975
+pgc,0.43,Mississippi,2008
+pge,0.71,Texas,2001
+pgf,0.77,Kentucky,1912
+pgg,0.1,Arkansas,1993
+pgl,0.05,Hawaii,2018
+pgp,0.17,Maryland,1900
+pgt,0.97,Iowa,1942
+pgv,0.37,Kansas,1987
+pgw,0.26,Vermont,1920
+pgx,0.76,Oregon,1959
+pgy,0.7,Minnesota,1935
+pha,0.62,Maine,1977
+phb,0.74,Alabama,2003
+phc,0.87,Virginia,1988
+phd,0.27,Maine,2002
+phm,0.97,South Dakota,1956
+phr,0.69,Arkansas,1995
+phy,0.46,North Dakota,2015
+pid,0.54,Alabama,1968
+pin,0.57,Missouri,2012
+pip,0.8,West Virginia,1939
+pix,0.46,Michigan,1995
+pja,0.32,Texas,1924
+pjc,0.82,Montana,1978
+pjd,0.57,California,1989
+pje,0.1,New Hampshire,1978
+pjk,0.46,Hawaii,1978
+pjn,0.95,Maine,1978
+pjr,0.48,Arizona,1978
+pjv,0.53,Connecticut,1959
+pjy,0.53,Montana,1901
+pka,0.41,Wisconsin,1918
+pkb,0.34,Missouri,1954
+pki,0.62,Iowa,1901
+pkj,1.0,Oklahoma,1982
+pkl,0.92,Arizona,2016
+pko,0.22,Nebraska,1959
+pkr,0.63,Alabama,1964
+pkt,0.96,Hawaii,1984
+pkx,0.2,Iowa,2009
+pkz,0.36,New York,1983
+pla,0.19,Nevada,2005
+ple,0.62,Delaware,1982
+plg,0.98,Missouri,2017
+plh,0.01,Maine,1955
+pln,0.27,Montana,2000
+plp,0.34,Georgia,1963
+plu,0.78,Tennessee,1988
+plv,0.65,Nebraska,2003
+plz,0.73,Wyoming,2019
+pma,0.14,Kansas,1903
+pmd,0.09,West Virginia,1994
+pme,0.56,Minnesota,1944
+pmg,0.29,Montana,2020
+pmh,0.58,Kentucky,2020
+pmj,0.61,Wisconsin,1955
+pmo,0.79,Kansas,1960
+pmr,0.67,Massachusetts,1963
+pmu,0.63,West Virginia,2001
+pmy,0.11,Illinois,2008
+pmz,0.78,Indiana,2005
+pna,0.89,Oregon,1969
+pnb,0.56,Wyoming,1925
+pnd,0.99,West Virginia,1984
+pnf,0.18,Illinois,1902
+png,0.11,Illinois,1961
+pnh,0.43,Connecticut,1926
+pnj,0.8,Delaware,2017
+pnk,0.0,New Jersey,1951
+pnm,0.95,Virginia,2017
+pno,0.28,Nevada,1983
+pnq,0.84,Colorado,1953
+pns,0.37,Utah,2003
+pnu,0.51,Alaska,1941
+pob,0.94,Minnesota,2014
+pod,0.03,California,1907
+pof,0.53,Washington,1931
+pog,0.74,Oklahoma,2022
+poh,0.87,Indiana,1984
+poj,0.01,Nebraska,1935
+pom,0.47,California,1937
+pon,0.09,Wisconsin,1973
+por,0.78,Montana,1955
+pos,0.59,Washington,1915
+pov,0.57,California,1993
+ppd,0.78,New Mexico,1969
+ppg,0.81,Connecticut,2017
+ppj,0.39,Virginia,1934
+ppm,0.98,Ohio,1938
+ppn,0.51,Arkansas,1986
+ppo,0.29,Washington,1960
+ppr,0.51,Alaska,2004
+ppt,0.27,Pennsylvania,2021
+ppx,0.0,New York,1983
+pqa,0.37,Nebraska,1960
+pqf,0.15,Delaware,1910
+pqh,0.41,North Carolina,1991
+pqi,0.41,Illinois,1909
+pqn,0.5,Rhode Island,1998
+pqp,0.17,Indiana,1912
+pqr,0.79,Delaware,1928
+pqt,0.57,Texas,1927
+pqx,0.37,Indiana,1952
+pra,0.84,South Dakota,1953
+prb,0.51,Ohio,1982
+prc,0.08,Idaho,2017
+pre,0.42,West Virginia,1978
+prf,0.85,North Carolina,1990
+prh,0.35,Maine,1958
+prm,0.94,New York,2012
+prs,0.33,New Mexico,1995
+prv,0.94,Iowa,1953
+prw,0.02,Montana,2010
+psa,0.68,Pennsylvania,1947
+psb,0.32,Minnesota,1928
+psd,0.74,Florida,1908
+pse,0.31,Missouri,1940
+psg,0.94,Pennsylvania,2002
+psi,0.62,Rhode Island,1905
+psu,0.69,South Carolina,1995
+psw,0.29,Virginia,2019
+pth,0.0,Tennessee,1937
+pti,0.18,North Carolina,1909
+ptk,0.11,Pennsylvania,2017
+ptm,0.33,Virginia,1946
+pto,0.2,West Virginia,2016
+pts,0.74,Vermont,2013
+ptz,0.82,Arkansas,1955
+pud,0.75,Florida,1968
+puj,0.66,Oklahoma,1996
+pul,0.37,Illinois,2007
+pun,0.46,New York,1922
+pup,0.41,New Jersey,1908
+puq,0.88,Hawaii,2002
+pur,0.91,South Carolina,1931
+pus,0.0,Utah,1917
+puu,0.62,Delaware,1940
+pvb,0.57,Mississippi,1986
+pvd,0.18,Alabama,1904
+pve,0.07,Connecticut,1911
+pvg,0.49,Missouri,2000
+pvi,0.29,Oregon,1959
+pvk,0.15,Minnesota,1978
+pvn,0.11,Alabama,1982
+pvr,0.13,Nebraska,1989
+pvs,0.53,New Jersey,1972
+pvv,0.95,California,1928
+pvw,0.75,California,1972
+pvy,0.41,Wyoming,1902
+pwi,0.74,Tennessee,1901
+pwj,0.45,New Hampshire,1921
+pwl,0.97,Maine,1962
+pwm,0.8,North Carolina,1941
+pwn,0.4,North Dakota,1964
+pwo,0.6,South Dakota,1933
+pwz,0.14,Nevada,2002
+pxb,0.54,Washington,1971
+pxe,0.77,Idaho,1950
+pxi,0.35,Montana,1933
+pxj,0.63,Texas,2016
+pxk,0.48,Indiana,1906
+pxn,0.5,Rhode Island,1975
+pxo,1.0,New Jersey,1992
+pxp,0.24,Kansas,1996
+pxr,0.7,Iowa,2017
+pxx,0.02,Kentucky,1974
+pxy,0.91,Hawaii,1953
+pyc,0.75,Nevada,1937
+pyh,0.07,Tennessee,1973
+pym,0.12,Hawaii,2020
+pyp,0.69,South Dakota,2007
+pyt,0.23,Utah,1945
+pyx,0.5,Wisconsin,1928
+pyy,0.58,Kentucky,1982
+pyz,0.32,New Hampshire,1903
+pzb,1.0,Kentucky,1980
+pzc,0.94,New Jersey,1954
+pzg,0.05,Connecticut,1903
+pzk,0.51,North Dakota,1954
+pzl,0.67,Pennsylvania,1972
+pzm,0.22,Georgia,1987
+pzq,0.79,Nebraska,1900
+pzr,0.83,Nevada,1952
+pzv,0.65,Wyoming,1912
+pzx,0.12,Nebraska,1995
+pzz,0.42,Mississippi,1912
+qab,0.12,Kansas,2008
+qae,0.06,Texas,1977
+qaf,0.67,Florida,2018
+qan,0.52,Hawaii,1965
+qay,0.96,Montana,1955
+qba,0.39,North Dakota,1921
+qbg,0.4,Kentucky,1967
+qbh,0.09,West Virginia,2010
+qbi,0.58,Colorado,1977
+qbm,0.68,North Carolina,1929
+qbn,0.26,Nevada,1905
+qbo,0.86,Louisiana,1957
+qbs,0.09,California,1928
+qbt,0.32,Rhode Island,1995
+qbw,0.99,Alaska,2006
+qbz,0.18,Oklahoma,1988
+qce,0.96,Tennessee,1917
+qcf,0.81,Vermont,2011
+qcj,0.07,Maine,1912
+qck,0.65,Kentucky,1930
+qcl,0.75,Pennsylvania,1965
+qco,0.63,Mississippi,1904
+qcp,0.14,Mississippi,2019
+qcs,0.76,Texas,1949
+qcz,0.28,Washington,2010
+qdb,0.86,New York,1965
+qde,0.67,Tennessee,1958
+qdf,0.78,Connecticut,1970
+qdi,0.62,Michigan,2004
+qdj,0.01,Mississippi,1968
+qdo,0.92,Maryland,1960
+qds,1.0,Florida,1957
+qdu,0.45,Massachusetts,1951
+qea,0.15,New York,2009
+qeb,0.8,North Carolina,1932
+qec,0.84,New Jersey,1912
+qej,0.42,Michigan,1943
+qek,0.65,Arkansas,1904
+qem,0.58,New Jersey,1966
+qen,0.56,Idaho,1925
+qeo,0.55,Nevada,1948
+qeq,0.22,North Dakota,1987
+qev,0.71,New York,1951
+qex,0.17,Colorado,1901
+qfb,0.16,Alaska,1938
+qfe,0.11,Indiana,1941
+qfh,0.93,Florida,1941
+qfm,0.61,Oklahoma,1909
+qfn,0.48,Oregon,1929
+qfo,0.06,Arizona,1941
+qfp,0.39,Kentucky,1910
+qfr,0.44,New York,1946
+qfx,0.44,Ohio,1950
+qga,0.31,Hawaii,1980
+qgb,0.33,Michigan,2008
+qgc,0.82,Alaska,1994
+qgd,0.29,Missouri,1902
+qgg,0.0,Colorado,1991
+qgk,0.16,Nebraska,2001
+qgn,0.96,Connecticut,1975
+qgr,0.83,Delaware,1928
+qgt,0.32,Colorado,1974
+qgu,0.03,Kansas,1970
+qgv,0.19,Arkansas,1907
+qgx,0.67,Oregon,1974
+qhb,0.96,Oklahoma,1910
+qhd,0.35,South Dakota,1971
+qhf,0.02,Kentucky,1947
+qhi,0.74,Connecticut,1995
+qhj,0.96,New Mexico,1936
+qhl,0.1,Kentucky,1908
+qhn,0.95,Michigan,1970
+qho,0.67,Maine,1994
+qhs,0.27,Kansas,1930
+qhu,0.55,Georgia,1954
+qhv,0.18,Kansas,1920
+qhx,0.11,New York,1987
+qib,0.24,Nebraska,1997
+qic,0.69,Delaware,1965
+qid,0.01,New Mexico,1996
+qif,0.88,Minnesota,1922
+qih,0.24,Iowa,1966
+qii,0.84,Florida,2017
+qij,0.36,Missouri,1998
+qin,0.45,Maryland,1921
+qis,0.2,Missouri,1909
+qiw,0.48,North Carolina,1940
+qje,0.42,Iowa,1951
+qjg,0.25,Hawaii,1946
+qji,0.16,Washington,1915
+qjj,0.59,Alabama,1967
+qjl,0.41,Georgia,2005
+qjp,0.67,North Carolina,1981
+qju,0.68,Ohio,1992
+qkb,0.69,Colorado,1905
+qkc,0.52,Kansas,1906
+qkd,0.2,Nevada,2021
+qke,0.66,Ohio,1923
+qkh,0.34,Maine,1972
+qki,0.38,Maine,1966
+qkk,0.42,North Dakota,1907
+qkl,0.77,Nebraska,1994
+qko,0.03,Ohio,1984
+qkp,0.43,California,2000
+qkt,0.37,Wyoming,1920
+qkw,0.9,Alaska,1923
+qky,0.08,New Jersey,1976
+qkz,0.25,Delaware,1959
+qla,0.75,Georgia,1967
+qlb,0.38,Massachusetts,1984
+qle,0.75,Arkansas,1930
+qlh,0.72,Maine,1955
+qll,0.01,Idaho,1997
+qlm,0.98,Wyoming,1924
+qlo,0.08,Utah,1987
+qlp,0.5,Nevada,1922
+qlt,0.3,Kansas,1940
+qlu,0.88,Alabama,2009
+qlv,0.13,Ohio,1914
+qlw,0.73,New York,2011
+qly,0.0,Idaho,1972
+qma,0.08,North Carolina,2022
+qmd,0.97,Montana,1940
+qmg,0.21,New Jersey,1977
+qmk,0.54,Oregon,2015
+qmq,0.06,Pennsylvania,1928
+qmr,0.42,North Dakota,1901
+qms,0.0,Minnesota,1925
+qmu,0.93,Illinois,1937
+qmv,0.16,Alaska,2015
+qna,0.01,South Dakota,1919
+qnc,0.07,New Mexico,1958
+qne,0.89,Wyoming,1998
+qnk,0.66,New York,1958
+qnl,0.6,Arizona,1906
+qnp,0.68,Virginia,1904
+qnu,0.04,Alabama,1991
+qnx,0.97,Massachusetts,1968
+qoa,0.17,Maine,1955
+qod,0.46,Georgia,2023
+qof,0.98,Missouri,1966
+qog,0.07,Delaware,2004
+qoh,0.41,Texas,1922
+qoi,0.68,Arizona,2001
+qok,0.33,New York,1989
+qom,0.93,New Mexico,1953
+qon,0.59,New Jersey,1910
+qoo,0.14,Texas,1959
+qor,0.6,Virginia,1989
+qpf,0.54,Alaska,2022
+qpk,0.18,Maryland,1927
+qpl,0.05,Michigan,1917
+qpu,0.93,Washington,1911
+qpv,0.55,North Carolina,1954
+qpx,0.99,Michigan,1946
+qpy,0.36,Illinois,1954
+qqd,0.06,Maine,1992
+qqf,0.91,Maine,1980
+qqh,0.19,West Virginia,1918
+qql,0.49,Ohio,1993
+qqn,0.16,North Carolina,1920
+qqo,0.69,Washington,1930
+qqp,0.89,Maine,1931
+qqr,0.19,Maryland,1931
+qqv,0.02,California,1975
+qqz,0.06,New Hampshire,1933
+qrb,0.55,Utah,1927
+qrc,0.98,Pennsylvania,1981
+qrh,0.79,Minnesota,1933
+qrk,0.66,Alaska,2019
+qro,0.3,South Carolina,2007
+qrr,0.68,Kansas,2009
+qrv,0.81,Iowa,2003
+qrw,0.13,New Mexico,2005
+qry,0.95,Maryland,1992
+qsa,0.84,Louisiana,1945
+qsh,0.78,Oklahoma,1913
+qsi,0.45,South Carolina,2023
+qsk,0.46,Iowa,1913
+qsn,0.4,Mississippi,1940
+qss,0.47,North Dakota,2016
+qsw,0.14,Maine,2011
+qta,0.65,Arkansas,2006
+qtb,0.42,Iowa,1917
+qtc,0.56,Vermont,1944
+qti,0.08,Iowa,2011
+qtm,0.29,Texas,1985
+qtn,0.2,Kentucky,1997
+qto,0.06,Washington,1977
+qtt,0.48,New Jersey,2008
+qtu,0.56,North Carolina,1992
+qtw,0.33,Vermont,2023
+qtz,0.12,Hawaii,2006
+qud,0.24,California,1900
+quf,0.82,Delaware,1966
+qug,0.96,New Hampshire,2023
+qui,0.7,Texas,1983
+quj,0.47,California,1940
+qur,0.13,Vermont,2021
+quu,0.7,Arkansas,1997
+quw,0.34,Colorado,2012
+qux,0.06,Hawaii,1942
+quy,0.16,California,1928
+qvc,0.38,New Hampshire,1937
+qvd,0.95,Washington,1969
+qve,0.82,Washington,1992
+qvf,0.28,Colorado,1910
+qvi,0.22,Nebraska,1996
+qvj,1.0,Idaho,1919
+qvm,0.68,Massachusetts,1970
+qvn,0.23,Utah,1901
+qvo,0.03,Hawaii,1916
+qvp,0.81,Delaware,1980
+qvt,0.84,Alabama,1917
+qvx,0.87,Tennessee,1993
+qvz,0.57,Washington,1960
+qwb,0.95,Massachusetts,2005
+qwc,0.44,Indiana,1955
+qwf,0.6,Ohio,1941
+qwh,0.94,Texas,2002
+qwk,0.11,Colorado,1964
+qwp,0.31,North Dakota,1934
+qws,0.46,Arkansas,1946
+qwx,0.68,Utah,1970
+qwy,0.78,New York,2022
+qxb,0.59,Florida,1949
+qxf,0.09,Nebraska,1933
+qxg,0.83,Connecticut,2009
+qxj,0.7,Arizona,1900
+qxk,0.34,Nebraska,2010
+qxl,0.58,Massachusetts,1903
+qxm,0.31,North Carolina,1918
+qxn,0.06,Michigan,1977
+qxp,0.59,South Carolina,1981
+qxs,0.3,Nebraska,1980
+qxx,0.06,Arizona,1915
+qxz,0.6,Nevada,1965
+qya,0.42,Kansas,1998
+qyb,0.37,Washington,1903
+qyk,0.01,Oklahoma,1997
+qyl,0.72,Nebraska,1952
+qyr,0.27,Iowa,1914
+qys,0.83,Arizona,1910
+qza,0.36,Kentucky,2002
+qzc,0.98,Kentucky,1913
+qzd,0.67,Connecticut,1944
+qzv,0.5,Idaho,1934
+qzz,0.0,Delaware,1932
+rab,0.1,Pennsylvania,1924
+raf,0.48,Virginia,1933
+rah,0.24,Georgia,1947
+rai,0.42,Washington,1918
+ral,0.98,Vermont,2015
+ran,0.13,Montana,1961
+rao,0.84,Tennessee,1992
+ras,0.1,Kentucky,2000
+rau,0.43,Pennsylvania,1940
+rax,0.49,Illinois,1927
+ray,0.33,New Hampshire,2012
+raz,0.81,Missouri,1911
+rba,0.15,North Dakota,1932
+rbb,0.37,New Hampshire,1954
+rbd,0.7,Missouri,2000
+rbe,0.92,New Mexico,1954
+rbf,0.83,Idaho,1948
+rbg,0.21,Minnesota,2007
+rbh,0.21,Kansas,1953
+rbj,0.14,Arkansas,1972
+rbk,0.46,Missouri,1911
+rbn,0.0,Utah,2010
+rbr,0.15,Kentucky,2014
+rbt,0.57,Iowa,2013
+rbu,0.42,Kentucky,1980
+rbv,0.07,Florida,1949
+rbw,0.02,Mississippi,1917
+rbx,0.17,Kentucky,2023
+rby,0.7,Nebraska,1919
+rcc,0.33,Indiana,1956
+rcd,0.25,New York,2014
+rce,0.3,North Carolina,2010
+rci,0.76,Vermont,1949
+rcj,0.02,Virginia,1949
+rcn,0.2,New York,1930
+rcu,0.48,Illinois,2006
+rcw,0.64,North Carolina,1926
+rcy,0.39,Texas,1937
+rcz,0.0,California,1983
+rde,0.55,Alaska,1974
+rdj,0.76,Florida,1944
+rdn,0.99,Rhode Island,1951
+rdq,0.46,California,1972
+rds,0.78,New York,1951
+rdv,0.5,North Dakota,1963
+rdy,0.09,Montana,1954
+rdz,0.04,Vermont,1956
+rea,0.78,Vermont,1925
+reh,0.65,Tennessee,1955
+rej,0.04,Hawaii,1958
+rel,0.28,Nebraska,1960
+reo,0.68,New York,1906
+req,0.79,Missouri,1932
+rer,0.11,Pennsylvania,1902
+reu,0.63,Nebraska,1963
+rev,0.78,Kansas,1968
+rey,0.7,Nebraska,1991
+rez,0.79,Utah,2005
+rfa,0.97,Virginia,2019
+rfc,0.38,Colorado,1959
+rfh,0.53,Michigan,1987
+rfl,0.44,Florida,1938
+rfm,0.4,North Carolina,2005
+rfq,0.84,Oregon,2012
+rfw,0.86,Mississippi,2001
+rfx,0.99,Virginia,1925
+rgb,0.18,Washington,1901
+rgc,1.0,Connecticut,2003
+rgd,0.54,Georgia,1936
+rgf,0.99,Connecticut,2007
+rgk,0.76,Nevada,1962
+rgl,0.93,Indiana,1953
+rgq,0.49,Washington,2014
+rgt,0.7,West Virginia,2014
+rgu,0.48,Hawaii,1942
+rgw,0.52,Indiana,1962
+rha,0.39,New Jersey,1917
+rhb,0.9,Georgia,1980
+rhf,0.59,New Hampshire,1990
+rhi,0.83,Ohio,1973
+rhm,0.59,Colorado,2023
+rhr,0.66,Utah,1991
+rhv,0.19,Missouri,2009
+ria,0.96,North Carolina,2023
+rie,0.58,Illinois,2002
+rif,0.46,North Carolina,1922
+rig,0.96,Kentucky,2007
+rii,0.46,Virginia,1926
+rio,0.21,Michigan,1950
+rip,0.01,Tennessee,1918
+rit,1.0,Louisiana,2017
+riu,0.59,South Carolina,1968
+rix,0.09,California,1993
+riz,0.18,Alaska,1969
+rjc,0.78,West Virginia,2023
+rje,0.75,Oregon,1915
+rjl,0.31,Arizona,1995
+rjn,0.74,California,1923
+rjs,0.96,West Virginia,1930
+rjt,0.2,Maine,1923
+rjx,0.35,Louisiana,2020
+rjy,0.54,Georgia,1995
+rka,0.3,Connecticut,1971
+rkc,0.84,Wyoming,2018
+rki,0.27,Oklahoma,1988
+rkk,0.86,California,1938
+rkl,0.53,Maine,1931
+rkn,0.36,Indiana,1941
+rkr,0.36,Arizona,1986
+rks,0.71,Montana,1959
+rld,0.59,Utah,1969
+rli,0.11,Florida,1978
+rlj,0.2,Alabama,1998
+rlk,0.98,Colorado,1900
+rll,0.48,New Hampshire,1912
+rlp,0.28,Florida,1918
+rlr,0.59,Georgia,1955
+rls,0.06,Maine,1917
+rlt,0.55,Georgia,1929
+rlu,0.84,Michigan,2019
+rlw,0.92,Arkansas,2014
+rma,0.18,Illinois,2009
+rmb,0.86,Nebraska,1910
+rmd,0.16,New York,1976
+rmh,0.03,Oregon,1970
+rml,0.84,Wisconsin,1924
+rmm,0.42,Nevada,1956
+rmn,0.42,Delaware,2000
+rmq,0.35,Kansas,2014
+rmr,0.82,Virginia,1974
+rmw,0.86,Vermont,1965
+rmy,0.96,Arizona,1934
+rna,0.77,Arizona,1915
+rnd,0.84,Ohio,1926
+rnf,0.7,Minnesota,1973
+rnh,0.89,Maine,2013
+rnk,0.14,Pennsylvania,1948
+rnm,0.72,Maine,1957
+rnz,0.45,Maryland,1923
+rob,0.35,Oregon,1977
+rof,0.4,Texas,1956
+rol,0.22,Wisconsin,1920
+rop,0.41,Delaware,1923
+rot,0.67,Pennsylvania,1947
+rov,0.0,Massachusetts,2000
+rpd,0.26,North Dakota,1919
+rpf,0.7,Maryland,1961
+rpg,0.74,Maryland,1942
+rpk,0.04,Idaho,1920
+rpr,1.0,New Mexico,1917
+rpt,0.47,New Hampshire,1979
+rpx,0.55,Alabama,1902
+rqc,0.28,Virginia,1923
+rqd,0.4,Delaware,1904
+rqg,0.84,Virginia,2013
+rqn,0.36,Illinois,1943
+rqs,0.87,Mississippi,1925
+rqv,0.98,Alaska,1942
+rra,0.47,West Virginia,1973
+rrb,0.97,Delaware,1998
+rrc,0.54,Michigan,1935
+rrh,0.53,Indiana,1975
+rrj,0.92,Alabama,2003
+rrm,0.68,Ohio,1957
+rrp,0.91,South Dakota,1920
+rrq,0.78,Missouri,1903
+rrt,0.53,Alaska,1992
+rrw,0.29,Vermont,1998
+rrx,0.46,Georgia,2018
+rry,0.13,Washington,1926
+rsd,0.29,Missouri,2016
+rsg,0.74,Idaho,1916
+rsk,0.11,Mississippi,1998
+rsm,0.77,South Dakota,1937
+rso,0.43,North Dakota,1967
+rss,0.07,Colorado,1963
+rst,0.83,Vermont,1919
+rsu,0.85,Illinois,1967
+rsw,0.36,California,1964
+rtc,0.6,Wisconsin,1931
+rtd,0.02,Hawaii,1964
+rte,0.73,South Dakota,2021
+rtf,0.34,Pennsylvania,1904
+rtg,0.77,South Carolina,1915
+rtj,0.49,Massachusetts,1945
+rtk,0.54,Maine,1916
+rtl,0.64,California,1928
+rtm,0.83,Louisiana,1935
+rtn,0.06,Michigan,1920
+rto,0.11,Wisconsin,2003
+rtp,0.56,Idaho,1936
+rtq,0.92,Connecticut,1967
+rtv,0.57,New Hampshire,1997
+rua,0.8,Louisiana,1963
+ruc,0.56,Alabama,1977
+rue,0.65,New York,1965
+ruf,0.86,Rhode Island,1981
+rul,0.09,North Carolina,1934
+run,0.33,Idaho,2010
+ruo,0.46,Nebraska,1923
+rup,0.21,South Dakota,1923
+rut,0.06,Oklahoma,1951
+ruv,0.13,Rhode Island,1920
+ruw,0.58,North Carolina,1943
+ruy,0.31,Indiana,1943
+rva,0.52,Wisconsin,1901
+rvh,0.55,New York,1935
+rvi,0.72,South Dakota,1984
+rvj,0.62,Nevada,2008
+rvm,0.76,Tennessee,2003
+rvn,0.67,New York,2012
+rvt,0.77,Ohio,2020
+rvu,0.64,Wyoming,2012
+rwa,0.59,Montana,2014
+rwh,0.92,West Virginia,1961
+rwi,0.87,Michigan,1954
+rwk,0.5,Maine,1971
+rwl,0.13,Hawaii,1981
+rwx,0.98,Alabama,1943
+rxd,0.49,Vermont,1921
+rxf,0.77,Alabama,2014
+rxg,0.49,Illinois,1990
+rxh,0.42,California,1945
+rxl,0.0,Maine,1960
+rxq,0.43,Vermont,1908
+rxu,0.84,Connecticut,1931
+rxw,0.88,Idaho,1957
+ryc,0.5,Connecticut,1982
+ryd,0.95,Minnesota,1914
+ryk,0.18,Nebraska,1905
+ryl,0.5,New Hampshire,1928
+rym,0.29,Missouri,2008
+ryo,0.3,Tennessee,1935
+ryr,0.06,California,1963
+ryv,0.14,Washington,1998
+ryx,0.1,Hawaii,1982
+ryz,0.3,Hawaii,1987
+rza,0.55,New Hampshire,1984
+rzc,0.09,Iowa,1953
+rzf,0.96,Wisconsin,1938
+rzn,0.48,Montana,2010
+sac,0.06,Nevada,1936
+sad,0.3,New Hampshire,1939
+sai,0.99,Minnesota,2001
+saj,0.24,Oregon,1917
+sam,0.1,Alabama,1900
+sap,0.89,Indiana,1956
+saq,0.09,West Virginia,1974
+sar,0.21,New York,2010
+sas,0.64,New Jersey,1993
+sau,0.65,Pennsylvania,1906
+sav,0.51,Texas,1912
+say,0.62,Delaware,1910
+saz,0.9,Delaware,1958
+sbb,0.75,Delaware,2005
+sbd,0.88,Oregon,1986
+sbe,0.31,West Virginia,1923
+sbg,0.53,Hawaii,1900
+sbh,0.21,Ohio,1959
+sbn,0.76,California,1966
+sbo,0.74,Wisconsin,1902
+sbr,0.02,Alaska,1947
+sbt,0.91,Mississippi,1930
+sbu,0.23,Alabama,1909
+sbv,0.16,Wisconsin,1950
+sbw,0.3,Montana,1996
+sbz,0.75,Oklahoma,1913
+scb,0.29,Alaska,1974
+scd,0.06,New Hampshire,2002
+scj,0.16,Montana,1937
+scl,0.74,Idaho,1924
+scn,0.45,Massachusetts,2006
+scr,0.62,Oregon,1939
+scs,0.32,California,1970
+scu,0.82,Indiana,1910
+sdd,0.95,Nevada,1943
+sde,0.63,Delaware,1960
+sdg,0.07,Georgia,1965
+sdi,0.68,Ohio,1960
+sdk,0.04,Colorado,1993
+sdm,0.11,Missouri,1914
+sdo,0.03,Vermont,1904
+sdp,0.91,Vermont,2015
+sdq,0.36,Delaware,1991
+sdu,0.4,Nebraska,1904
+sdx,0.08,South Carolina,1999
+sed,0.69,Nevada,1954
+sei,1.0,Alaska,2000
+sep,0.93,Maine,1978
+seu,0.72,Wisconsin,1964
+sev,0.86,Alaska,1967
+sew,0.58,Colorado,1971
+sey,0.79,New Mexico,1901
+sfa,0.53,Montana,2012
+sfe,0.35,New Hampshire,1995
+sff,0.62,Hawaii,1933
+sfg,0.48,Georgia,2016
+sfm,0.32,Louisiana,1969
+sfn,0.77,Nebraska,1929
+sfo,0.87,New Hampshire,2022
+sfp,0.56,Hawaii,1907
+sfr,0.05,Massachusetts,1972
+sfs,0.05,Louisiana,1916
+sfw,0.53,Michigan,1930
+sfy,0.61,Colorado,1993
+sga,0.25,Missouri,1908
+sgc,0.6,Montana,2003
+sgd,0.22,Montana,1999
+sgg,0.52,Minnesota,1903
+sgj,0.76,Florida,1929
+sgp,0.69,Virginia,1986
+sgx,0.46,Oregon,1983
+sha,0.68,Arizona,1931
+shb,0.37,Washington,1999
+shg,0.2,Washington,1902
+shn,0.55,Arkansas,1971
+shv,0.17,Wyoming,2020
+sid,0.08,Hawaii,1919
+sie,0.2,Washington,1933
+sih,0.98,Alabama,1944
+sij,0.1,Virginia,1942
+sik,0.74,Michigan,2002
+sin,0.15,Idaho,1956
+siq,0.52,North Carolina,1927
+sis,0.17,Missouri,1927
+siv,0.74,Massachusetts,1936
+siy,1.0,Utah,1955
+sjc,0.96,Utah,1905
+sje,0.61,Ohio,1987
+sjk,0.69,Alabama,1914
+sjl,0.02,Iowa,1951
+sjp,0.58,Indiana,1979
+sju,0.14,Iowa,1925
+sjx,0.36,Illinois,1929
+sjy,0.88,Minnesota,2009
+sjz,0.57,New Jersey,1990
+skf,0.28,Missouri,1991
+ski,0.7,Connecticut,2014
+skj,0.42,Pennsylvania,1950
+skl,0.68,Massachusetts,1932
+skn,0.69,Hawaii,2013
+skr,0.34,South Dakota,1901
+sks,0.06,Maryland,1941
+skt,0.39,Michigan,1913
+skw,0.05,Virginia,1907
+skx,0.5,Georgia,1943
+sky,0.95,Kentucky,2006
+skz,0.63,New Hampshire,1990
+slb,0.79,Illinois,1989
+sle,0.62,Washington,1958
+slf,0.26,Connecticut,1912
+slh,0.27,Oregon,1956
+slk,0.71,South Carolina,1926
+sll,0.73,Utah,2010
+sls,0.07,North Dakota,1922
+slu,0.05,Indiana,1937
+slv,0.89,Virginia,2013
+slx,0.02,Mississippi,1919
+sly,0.0,Washington,2018
+slz,0.94,New Mexico,1992
+smd,0.76,Utah,2023
+sme,0.12,Louisiana,2023
+smf,0.11,New York,1904
+smh,0.33,Utah,1959
+smi,0.36,Tennessee,1995
+smk,0.12,Arizona,1953
+smn,0.92,New Jersey,1916
+sms,0.23,West Virginia,1999
+smx,0.49,Utah,1904
+snb,0.11,North Dakota,1914
+snc,0.74,Utah,1971
+sng,0.52,New Mexico,1999
+snk,0.17,New Hampshire,1904
+snn,0.19,Colorado,1943
+sns,0.16,Oklahoma,1995
+snt,0.32,Hawaii,1919
+snu,0.1,New Hampshire,1967
+snv,0.8,Massachusetts,1957
+snw,0.54,South Dakota,1960
+soc,0.05,Iowa,2014
+sog,0.95,West Virginia,1950
+sol,0.02,Hawaii,1965
+som,0.87,Georgia,1979
+son,0.13,West Virginia,1914
+soo,0.19,Oregon,2022
+sop,0.26,Washington,1953
+soq,0.8,Alabama,2014
+sot,0.92,Missouri,1971
+sov,0.84,Idaho,1904
+sox,0.88,Utah,1967
+spc,0.21,Georgia,1927
+spe,0.53,Ohio,2021
+sph,0.8,Delaware,1933
+spk,0.62,Maine,1944
+spm,0.43,Indiana,1961
+spn,0.05,Kansas,1943
+spo,0.35,Massachusetts,1945
+spp,0.46,West Virginia,1992
+spq,0.82,New Mexico,1909
+spx,0.5,Maryland,1919
+sqa,0.9,Alabama,1938
+sqb,0.98,Louisiana,1915
+sqd,0.9,Connecticut,2023
+sqf,1.0,Georgia,1910
+sqh,0.03,Massachusetts,1908
+sqk,0.18,Colorado,1986
+sql,0.31,Delaware,1967
+sqn,0.52,Minnesota,1912
+sqv,0.54,Louisiana,1924
+src,0.52,Alaska,1971
+srh,0.53,Rhode Island,1928
+srj,0.52,Vermont,1906
+srm,0.43,Alaska,1902
+srp,0.12,Oklahoma,2014
+srs,0.06,Texas,1969
+srv,0.7,Florida,1996
+srw,0.12,Missouri,1984
+srx,0.2,Kentucky,1942
+srz,0.3,South Dakota,1988
+ssc,0.95,South Carolina,1951
+sse,0.83,Florida,1994
+ssk,0.43,Maryland,1912
+ssm,0.77,Virginia,1904
+ssp,0.98,Illinois,1960
+sst,0.4,Louisiana,1928
+ssx,0.68,Iowa,1983
+ssy,0.4,Missouri,2013
+stb,0.44,Texas,1935
+stc,0.26,North Carolina,1959
+std,0.38,Washington,1929
+stg,0.52,New Jersey,2004
+stl,0.17,Illinois,1935
+stm,0.91,Maine,1904
+stn,0.91,Nevada,1906
+stp,0.08,Illinois,1933
+str,0.4,Kansas,1925
+stt,0.46,Alabama,1971
+sua,0.2,Alaska,1987
+sub,0.46,Nebraska,1908
+suf,0.13,Minnesota,1980
+suh,0.04,Ohio,1961
+suk,0.63,Arkansas,1945
+sus,0.31,West Virginia,1951
+sux,0.15,Delaware,1913
+suz,0.63,Illinois,1995
+svb,0.08,Oregon,1985
+svc,0.16,Alabama,1929
+svf,0.48,Alabama,1932
+svk,0.11,Wyoming,2011
+svm,0.62,Arizona,2021
+svo,0.07,Maryland,1916
+svq,0.07,Hawaii,1992
+svz,0.38,Arizona,2021
+swc,0.79,West Virginia,1973
+swd,0.31,Alabama,1927
+swf,0.34,California,1922
+swg,0.49,Nevada,1925
+swm,0.05,Tennessee,1934
+swq,0.66,Florida,1984
+swv,0.59,Montana,1936
+sxb,0.12,Utah,1930
+sxc,0.35,Pennsylvania,1997
+sxh,0.68,Connecticut,2007
+sxi,0.41,Florida,1939
+sxj,0.57,Delaware,1995
+sxq,0.46,Georgia,1902
+sxr,0.67,Colorado,1918
+sxv,0.74,South Dakota,1999
+sxw,0.58,Florida,1987
+sxx,0.63,Vermont,1973
+sya,0.82,Georgia,2022
+syb,0.34,New Mexico,1917
+syf,0.64,Alabama,1932
+syh,0.91,Mississippi,1991
+syj,0.74,Arkansas,2011
+syk,0.91,North Dakota,1986
+syl,0.53,New Mexico,1983
+syn,0.89,California,1976
+syt,0.1,North Dakota,1934
+syv,0.41,Connecticut,1900
+syw,0.21,Alabama,1984
+syy,0.23,South Carolina,2009
+sza,0.64,Nebraska,1942
+sze,0.41,Georgia,1963
+szf,0.47,Missouri,1918
+szg,0.92,New Mexico,2004
+szj,0.44,Wyoming,1961
+szl,0.39,Georgia,1938
+szo,0.77,Arkansas,2022
+szp,0.06,Florida,2001
+szt,0.83,New York,1934
+szu,0.96,Nebraska,1919
+szw,0.74,South Carolina,1949
+szx,0.63,Nevada,1952
+szz,0.08,North Dakota,2020
+taa,0.9,New York,1983
+tab,0.81,California,1958
+tad,0.8,Connecticut,1954
+taf,0.82,Virginia,1915
+taj,0.33,Georgia,1936
+tam,0.59,Iowa,1950
+tan,0.79,Connecticut,1914
+taq,0.8,Oregon,1927
+tas,0.15,Iowa,1974
+tat,0.67,Mississippi,1992
+tav,0.49,New Mexico,1998
+taz,0.44,Washington,1977
+tbd,0.28,Vermont,2018
+tbe,0.42,South Carolina,1940
+tbf,0.42,Minnesota,1951
+tbg,0.28,Ohio,1997
+tbi,0.87,Florida,1999
+tbj,0.65,Georgia,1991
+tbk,0.37,Hawaii,1998
+tbl,0.72,North Dakota,1921
+tbn,0.68,Montana,1902
+tbo,0.35,North Carolina,1958
+tbs,0.87,New Jersey,1976
+tbw,0.81,Oregon,1938
+tbx,0.67,Illinois,1919
+tbz,0.16,Louisiana,1991
+tcb,0.88,South Dakota,1912
+tce,0.48,Kentucky,1956
+tcg,0.92,Delaware,1988
+tco,0.92,Michigan,1927
+tcr,0.23,New Hampshire,2012
+tcw,0.75,Wyoming,1971
+tdd,0.3,South Dakota,2001
+tdj,0.11,Ohio,1910
+tdl,0.34,Connecticut,2007
+tdq,0.42,Florida,1934
+tds,0.85,West Virginia,1912
+tdt,0.52,Alabama,1976
+tdw,0.96,Maryland,1925
+teb,0.38,Tennessee,1985
+ted,0.12,Missouri,1909
+tee,0.89,Alaska,1994
+tef,0.25,Vermont,1975
+teg,0.53,Mississippi,1930
+teh,0.3,Indiana,2018
+tek,0.31,Oregon,1912
+ten,0.52,South Carolina,1990
+ter,0.13,South Dakota,1940
+tet,0.09,South Carolina,1989
+tez,0.01,New Jersey,1928
+tfe,0.16,New Hampshire,2023
+tfi,0.2,Massachusetts,1930
+tfj,0.74,Texas,1908
+tfp,0.49,Idaho,1902
+tfq,0.65,North Dakota,1976
+tfr,0.36,Oklahoma,1910
+tft,0.08,North Dakota,1941
+tfu,0.5,Illinois,1989
+tfv,0.62,Texas,2021
+tfw,0.34,Alabama,1992
+tfx,0.61,Nevada,1902
+tfy,0.57,Virginia,1941
+tfz,0.62,New Hampshire,1933
+tgc,0.86,Virginia,1932
+tgd,0.85,Massachusetts,1927
+tge,0.83,Arizona,2022
+tgf,0.19,Arizona,1951
+tgj,0.74,Massachusetts,1990
+tgo,0.9,Missouri,1988
+tgq,0.7,California,2019
+tgu,0.23,Hawaii,1964
+tgv,0.5,Kentucky,1960
+tgw,0.57,Utah,1917
+thb,0.53,Oklahoma,1970
+thf,0.01,New Mexico,1932
+thg,0.0,Texas,1931
+thq,0.68,Nebraska,2004
+thu,0.71,Florida,1930
+thv,0.38,Pennsylvania,2020
+thx,0.82,Arkansas,2003
+tif,0.72,Tennessee,1997
+tig,0.4,South Dakota,1991
+tin,0.17,Oregon,1918
+tio,0.89,Pennsylvania,1968
+tiq,0.42,Missouri,1905
+tir,0.78,Montana,1956
+tit,0.66,Maryland,1936
+tiv,0.79,Vermont,2014
+tiy,0.23,Wisconsin,1985
+tjb,0.35,Arizona,1999
+tjg,0.26,Illinois,1911
+tjk,0.2,Missouri,1975
+tjl,0.17,Utah,1996
+tjs,0.77,South Carolina,1976
+tjt,0.53,Alabama,2017
+tju,1.0,Maine,1903
+tjz,0.81,Wisconsin,2018
+tka,0.52,Hawaii,1908
+tkb,0.62,Massachusetts,1973
+tkc,0.43,Texas,1920
+tkm,0.92,New York,1967
+tku,0.92,Kansas,1943
+tkv,0.26,North Dakota,2021
+tle,0.06,Illinois,2008
+tlf,0.29,Colorado,1935
+tli,0.65,Missouri,1975
+tlk,0.79,Mississippi,2012
+tll,0.44,Arkansas,1991
+tlm,0.06,Texas,1943
+tlo,0.87,Alabama,1991
+tlp,0.6,New York,1918
+tlr,0.81,Washington,1997
+tlu,0.58,New Mexico,1969
+tlv,0.34,Tennessee,1952
+tly,0.2,Oklahoma,1917
+tmb,0.18,Wyoming,1947
+tmh,0.95,New York,1964
+tmi,0.12,Michigan,2000
+tmm,0.27,Utah,2016
+tmo,0.43,South Carolina,2023
+tmr,0.78,Maine,1924
+tms,0.24,New Hampshire,1922
+tmu,0.63,Mississippi,1925
+tnb,0.75,Iowa,1989
+tnc,0.89,Michigan,1915
+tnd,0.7,Arizona,1902
+tnh,0.87,Oregon,1981
+tno,0.56,South Dakota,1986
+tnp,0.85,Wisconsin,1914
+tns,0.95,California,2011
+tnu,0.76,Missouri,1903
+tnx,0.5,Hawaii,1930
+toc,0.38,Minnesota,1993
+tod,0.3,Oklahoma,1937
+toe,0.22,Indiana,1909
+tof,0.18,Oregon,1993
+tol,0.98,South Dakota,2022
+too,0.01,Arizona,2009
+toq,0.95,Vermont,1901
+tos,0.39,Vermont,1913
+tot,0.14,New York,2018
+tou,0.91,New Mexico,2022
+tox,0.91,Minnesota,1974
+tpg,0.73,Nevada,1907
+tph,0.1,Montana,1929
+tpk,0.52,Maryland,1974
+tpo,0.64,Alabama,1915
+tpv,0.18,Kansas,1918
+tpx,0.82,Minnesota,1978
+tpy,0.26,Nebraska,1924
+tqa,0.94,Ohio,1971
+tqc,0.65,Nebraska,1990
+tqh,0.89,New York,1970
+tqn,0.1,Pennsylvania,1967
+tqo,0.21,Oklahoma,2009
+tqp,0.31,New Jersey,2020
+tqq,0.65,Hawaii,1943
+tqr,0.9,Missouri,1947
+tqt,0.13,Kansas,1992
+tqu,0.57,New Mexico,1965
+tqx,0.39,Hawaii,1913
+tra,0.37,Indiana,1918
+trb,0.09,Massachusetts,1975
+trc,0.72,Arizona,1921
+tre,0.15,Massachusetts,1953
+trg,0.8,Nevada,1948
+tri,0.72,Texas,1943
+trj,0.75,New Hampshire,1926
+trk,0.82,Colorado,2001
+trl,0.91,Oregon,1927
+trm,0.1,Louisiana,1986
+tro,0.82,Oregon,1941
+trq,0.23,Kentucky,1906
+trt,0.1,New Jersey,1913
+trv,0.65,Iowa,1912
+trx,0.64,Oregon,1924
+try,0.59,Arizona,1961
+tsd,0.28,Hawaii,1996
+tsf,0.53,Kansas,1913
+tsj,0.55,Ohio,1999
+tsm,0.12,Kentucky,1952
+tss,1.0,Massachusetts,2006
+tsy,0.2,Illinois,2005
+ttf,0.96,Idaho,1958
+ttg,0.32,Minnesota,1917
+tti,0.12,South Carolina,1965
+ttk,0.89,Indiana,1971
+tto,0.27,Connecticut,1940
+ttq,0.23,Massachusetts,1934
+ttr,0.52,Minnesota,1913
+ttw,0.44,Virginia,1976
+tua,0.56,Alabama,2016
+tuf,0.29,Mississippi,1958
+tuj,0.07,South Dakota,1905
+tuk,0.57,Kansas,1921
+tum,0.36,Delaware,1976
+tun,0.75,New Mexico,1912
+tuo,0.37,Arizona,1959
+tut,0.31,Iowa,1914
+tuy,0.81,Montana,1988
+tuz,0.93,Washington,1953
+tve,0.0,Utah,2000
+tvh,0.78,Illinois,1900
+tvi,0.78,Illinois,1933
+tvl,0.39,Rhode Island,1945
+tvn,0.8,Washington,1936
+tvq,0.89,Mississippi,2001
+tvs,0.25,Pennsylvania,1975
+tvt,0.83,North Carolina,1978
+tvx,0.34,Kentucky,1993
+twa,0.96,Indiana,1907
+twb,0.82,North Dakota,1986
+twg,0.07,Delaware,1951
+twi,0.79,Oklahoma,1990
+twj,0.44,Nebraska,1982
+twl,0.19,Maryland,1992
+twm,0.38,Wyoming,1965
+two,0.83,New Jersey,2009
+tws,0.68,Montana,1940
+twy,0.9,Indiana,1981
+txj,0.96,Colorado,1979
+txp,0.78,Washington,1953
+txq,0.73,Rhode Island,1989
+txv,0.72,Connecticut,2001
+txw,0.93,New Mexico,1959
+txx,0.6,Maryland,2006
+txz,0.88,Indiana,2002
+tya,0.31,South Dakota,2008
+tyc,0.86,Wisconsin,2005
+tyj,0.53,Iowa,1945
+tyk,0.01,Georgia,1983
+tys,0.83,Indiana,1918
+tyu,0.45,Maine,1908
+tyv,0.32,Hawaii,1990
+tyw,0.01,South Dakota,1902
+tyy,0.58,Alabama,1975
+tzb,0.39,Massachusetts,1997
+tzh,0.04,Oregon,1981
+tzm,0.97,Washington,2009
+tzo,0.26,Nevada,1900
+tzr,0.46,New Mexico,1920
+tzt,0.01,Missouri,1969
+tzy,0.58,Oklahoma,2010
+uaf,0.43,South Carolina,1923
+uah,0.59,Hawaii,1971
+uai,0.4,Nevada,1938
+uam,0.56,South Carolina,1966
+uan,0.58,Alaska,1931
+uap,0.63,Colorado,1977
+uau,0.79,Maryland,1940
+uax,0.01,Delaware,1980
+uba,0.37,Louisiana,1918
+ubc,0.83,Alaska,1963
+ube,0.19,Wyoming,1972
+ubf,0.23,South Dakota,1954
+ubm,0.09,Washington,1975
+ubq,0.8,Mississippi,1975
+ubt,0.52,Alabama,1974
+ubw,0.1,Wisconsin,1969
+ucd,0.98,Arkansas,1978
+uce,0.15,South Dakota,2000
+ucf,0.35,North Carolina,1967
+uch,0.93,Montana,1902
+ucj,1.0,Michigan,1996
+uck,0.38,Indiana,2007
+ucq,0.55,Alabama,1977
+uct,0.83,Iowa,2009
+ucu,0.05,Alabama,1934
+ucw,0.93,New Jersey,2000
+ucx,0.62,Utah,2007
+ude,0.14,Missouri,1902
+udf,0.25,Connecticut,1985
+udk,0.59,Maryland,1955
+udo,0.73,Minnesota,1919
+udu,0.7,Minnesota,1961
+ueh,0.01,Michigan,1918
+uek,0.59,South Dakota,1933
+uev,0.79,Missouri,1989
+uew,0.08,Missouri,1900
+uey,0.25,Missouri,2000
+ufa,0.97,Georgia,1994
+uff,0.5,Nebraska,1900
+ufg,0.4,Illinois,2003
+ufi,0.94,Indiana,1982
+ufl,0.5,Virginia,1977
+ufn,0.92,Montana,1938
+ufq,0.85,Wyoming,1904
+ufs,0.66,Indiana,1934
+ufv,0.97,New York,1928
+ugj,0.87,Connecticut,1913
+ugk,0.45,Michigan,2013
+ugl,0.46,Arkansas,1968
+ugn,0.93,New Jersey,1951
+ugq,0.21,Montana,2021
+ugt,0.99,Pennsylvania,1932
+ugu,0.6,Minnesota,1917
+ugw,0.64,Wisconsin,2022
+ugx,0.54,Georgia,1951
+uhb,0.1,Pennsylvania,1951
+uhc,0.79,Oregon,1910
+uhe,0.04,Montana,1930
+uhh,0.53,Utah,1910
+uhm,0.78,Oklahoma,1977
+uhn,0.03,Missouri,2015
+uhs,0.83,Idaho,1902
+uht,0.49,Ohio,1999
+uhw,0.51,New Mexico,1980
+uhz,0.5,Arkansas,1999
+uib,0.38,Pennsylvania,1974
+uid,0.42,Vermont,1935
+uig,0.45,Nevada,1950
+uih,0.51,Kansas,2015
+uii,0.42,Maryland,1925
+uij,0.25,Washington,1966
+uio,0.2,North Carolina,1964
+uiq,0.19,Alaska,2005
+uis,0.67,Michigan,2006
+uiv,0.21,Pennsylvania,1978
+uiw,0.15,Vermont,1937
+uix,0.08,Tennessee,2005
+uiz,0.62,Ohio,1902
+uja,0.4,California,1910
+ujb,0.95,New Jersey,1948
+ujc,1.0,Tennessee,2012
+ujf,0.16,Rhode Island,1925
+uji,0.1,Oregon,1953
+ujn,0.38,Georgia,1946
+ujp,0.66,Colorado,1959
+ujr,0.38,Georgia,2009
+ujs,0.66,Colorado,1941
+ujw,0.86,Nevada,1974
+ujy,0.71,Colorado,1921
+ujz,0.55,North Carolina,2012
+uka,0.43,Colorado,1994
+uke,0.98,Wyoming,1978
+ukf,0.55,Utah,1945
+ukg,0.54,Utah,1926
+ukj,0.01,Arizona,2004
+ukn,0.74,Tennessee,1934
+uko,0.18,Maine,1965
+ukp,0.78,Missouri,1944
+uku,0.77,Washington,2004
+ukv,0.3,South Dakota,2020
+ula,0.52,Connecticut,1928
+ulc,0.11,Michigan,1981
+ulf,0.3,Alaska,1950
+ulg,0.84,Arizona,1952
+ulh,0.15,Oregon,1962
+uli,0.15,Wisconsin,1982
+ulj,0.57,Michigan,1962
+ull,0.95,Idaho,1942
+ulm,0.19,New York,1949
+uln,0.98,Maryland,1949
+uls,0.58,Wisconsin,2022
+ulu,0.31,Alabama,2016
+ulx,0.61,Nebraska,1923
+uly,0.13,Kansas,1929
+ulz,0.29,Ohio,1948
+ume,0.32,Massachusetts,1981
+umg,0.6,Arizona,1916
+umh,0.1,California,1942
+umk,0.66,Virginia,2018
+umm,0.25,Wyoming,1980
+ump,0.39,Nebraska,1992
+ums,0.45,Mississippi,2008
+umw,0.45,New Mexico,1922
+umx,0.83,Pennsylvania,2012
+unb,0.56,Louisiana,1916
+und,0.61,Indiana,1997
+une,0.66,Washington,1994
+unf,0.02,Utah,2002
+ung,0.3,Illinois,1910
+unh,0.35,Hawaii,1973
+uni,0.86,Rhode Island,1994
+unj,0.69,Oregon,1965
+unr,0.78,North Carolina,2011
+unu,0.82,Mississippi,1909
+unv,0.04,Massachusetts,1912
+unx,0.78,Utah,1994
+uoc,0.83,New Mexico,1943
+uoe,0.73,Iowa,1973
+uof,0.42,Alabama,1952
+uoj,0.75,Massachusetts,1920
+uok,0.13,Vermont,1954
+uop,0.51,Nevada,1906
+uoq,0.41,Iowa,1952
+uos,0.46,California,2014
+uot,0.26,North Dakota,1941
+uou,0.64,West Virginia,1995
+upe,0.1,Alabama,1967
+upi,0.28,Vermont,2002
+upj,0.75,Illinois,1993
+upm,0.23,Pennsylvania,1989
+upn,0.77,Iowa,1928
+upo,0.56,Iowa,2000
+upp,0.26,Kentucky,1992
+upq,0.08,Colorado,1956
+upr,0.93,Delaware,2012
+upw,0.62,South Carolina,1922
+upx,0.15,New Mexico,1910
+uqn,0.18,Connecticut,1995
+uqr,0.3,Florida,1901
+uqy,0.69,New York,1975
+ura,0.05,Montana,1934
+urb,0.4,Pennsylvania,1983
+urd,0.0,Texas,1938
+ure,0.96,Montana,1952
+urf,0.47,Vermont,1914
+urg,0.74,Alabama,1970
+urk,0.63,Hawaii,1986
+urp,0.71,Tennessee,1926
+uru,0.34,Montana,1962
+urx,0.65,Florida,1919
+usb,0.94,Virginia,2022
+usc,0.94,Kentucky,1962
+use,0.87,Montana,2003
+usf,0.26,Ohio,1906
+usk,0.68,Delaware,1981
+uso,0.79,Georgia,1915
+usq,0.89,California,1954
+ust,0.68,Florida,1985
+usw,0.98,Massachusetts,1962
+usx,0.74,Connecticut,1906
+utb,0.03,Rhode Island,1936
+utc,0.55,Washington,1904
+ute,0.48,Ohio,1989
+uti,0.24,Illinois,2016
+utl,0.72,Maryland,1928
+utn,0.39,Tennessee,1912
+utq,0.56,Oregon,1926
+uts,0.14,New York,1928
+uty,0.04,New York,1968
+uub,0.84,Wyoming,1993
+uue,0.83,Missouri,1961
+uuf,0.29,Wisconsin,2014
+uuh,0.88,Georgia,1977
+uui,0.21,Nebraska,1917
+uuk,0.79,Michigan,1917
+uuo,0.84,Rhode Island,1936
+uus,0.41,North Carolina,2003
+uva,0.19,Colorado,1926
+uvb,0.15,Washington,2014
+uvd,0.37,Maine,1976
+uvf,0.61,Nevada,1917
+uvh,0.68,West Virginia,1945
+uvo,0.24,Kansas,1976
+uvp,0.66,Minnesota,2000
+uvt,0.18,Kansas,1974
+uvv,0.33,New Jersey,1949
+uvw,0.15,Idaho,2008
+uvz,0.05,Washington,1957
+uwb,0.95,Pennsylvania,1910
+uwd,0.96,Illinois,1950
+uwg,0.2,Vermont,2017
+uwh,0.06,Vermont,1992
+uwk,0.31,New Mexico,2017
+uwm,0.18,Louisiana,1955
+uwp,0.39,California,1918
+uwu,0.01,New York,1900
+uww,0.05,Wisconsin,1952
+uwx,0.11,Iowa,2007
+uxb,0.07,Rhode Island,1969
+uxg,0.58,Colorado,1920
+uxh,0.45,Nevada,1963
+uxl,0.31,Wisconsin,1918
+uxn,0.79,Washington,1998
+uxo,0.61,South Carolina,1939
+uxp,0.59,Montana,1915
+uxq,0.53,Iowa,2007
+uxs,1.0,New Hampshire,2008
+uxt,0.88,South Dakota,1941
+uxu,0.83,Washington,1956
+uxx,0.31,New Mexico,1986
+uya,0.84,North Dakota,1936
+uyb,0.44,Nebraska,2003
+uyc,0.86,Vermont,2011
+uye,0.87,New Jersey,2015
+uyf,0.84,Alaska,1908
+uyg,0.21,Florida,2017
+uyi,0.67,New Mexico,1952
+uyp,0.52,Texas,1983
+uyu,0.05,Minnesota,2011
+uyw,0.21,Pennsylvania,1963
+uyz,0.67,Mississippi,1941
+uza,0.42,Maine,1961
+uzb,0.95,Alabama,1999
+uzc,0.61,North Carolina,1916
+uzd,0.53,Missouri,1968
+uzi,0.86,Kansas,2002
+uzj,0.87,Rhode Island,1934
+uzk,0.57,Florida,1983
+uzl,0.34,Louisiana,1911
+uzr,0.52,Florida,1919
+vaf,0.29,Louisiana,1931
+vaj,0.17,Indiana,1965
+vak,0.95,Georgia,1974
+vap,0.01,South Dakota,1946
+vav,0.33,Alabama,1998
+vax,0.99,Connecticut,1979
+vay,0.44,Mississippi,2008
+vaz,0.81,Louisiana,1999
+vba,0.97,Pennsylvania,1953
+vbd,0.18,Tennessee,1957
+vbi,0.22,Maryland,1953
+vbk,0.11,Connecticut,1961
+vbm,0.07,Massachusetts,1960
+vbo,0.48,Illinois,1958
+vbu,0.09,Vermont,1989
+vbx,0.91,Texas,2023
+vca,0.06,Kansas,1943
+vce,0.45,Vermont,1961
+vcf,0.7,Maryland,1986
+vch,0.0,Idaho,1934
+vco,0.69,Minnesota,2018
+vcq,0.22,Kentucky,2004
+vcs,0.72,North Dakota,1945
+vcv,0.01,Rhode Island,2021
+vcw,0.94,New Jersey,1900
+vcx,0.83,Hawaii,1935
+vcy,0.06,Connecticut,1963
+vdb,0.23,Kentucky,1962
+vdd,0.52,Maryland,1919
+vdj,0.71,Kentucky,2001
+vdt,0.34,New Hampshire,2004
+vdw,0.33,Texas,1994
+vdx,0.0,North Dakota,1942
+vdz,0.3,North Dakota,2011
+vea,0.49,Alaska,1991
+ved,0.76,Maine,1984
+vee,0.54,Wisconsin,1997
+veh,0.55,Utah,1946
+vel,0.94,Iowa,2004
+ven,0.81,California,2002
+veu,0.83,Delaware,1946
+vey,0.71,Arkansas,1916
+vfa,0.31,Connecticut,1972
+vfb,0.58,Kansas,1979
+vfk,0.14,Arkansas,1922
+vfm,0.9,Illinois,1965
+vfq,0.31,Kansas,1947
+vfr,0.5,Ohio,1955
+vfs,0.05,Mississippi,1924
+vfv,0.63,Indiana,1912
+vgd,0.93,Oregon,1980
+vge,0.71,Delaware,1914
+vgh,0.44,Wyoming,1948
+vgi,0.76,Massachusetts,1949
+vgn,0.46,Minnesota,1908
+vgr,0.63,Minnesota,1922
+vgu,0.29,Arkansas,1952
+vgv,0.79,New York,1968
+vha,0.33,New Mexico,1967
+vhe,0.95,Washington,1929
+vhg,0.78,Texas,1976
+vhh,0.8,Virginia,2000
+vhn,0.31,North Carolina,1927
+vho,0.62,South Carolina,2004
+vhp,0.66,Colorado,1942
+vhq,0.85,California,2010
+vhx,0.01,Wisconsin,1929
+vhy,0.87,Utah,2021
+vib,0.47,South Carolina,1906
+vid,0.72,Pennsylvania,2023
+vie,0.49,Montana,1991
+vij,0.48,Alaska,1973
+vik,0.72,Wyoming,1951
+vil,0.59,Idaho,1916
+vin,0.27,Louisiana,1980
+vio,0.38,Ohio,1938
+vis,0.89,Oklahoma,1940
+viv,0.14,Pennsylvania,1907
+vjc,0.16,Indiana,1964
+vjd,0.93,Wyoming,1988
+vjg,0.05,Oklahoma,2021
+vjh,0.84,Mississippi,1933
+vjk,0.7,Pennsylvania,1948
+vjo,0.5,Arkansas,1958
+vjq,0.1,Indiana,1904
+vjs,0.86,Texas,1969
+vjt,0.31,Vermont,2022
+vjw,0.89,South Carolina,1942
+vka,0.47,Maine,1911
+vkd,0.18,Kentucky,1988
+vkg,0.82,Tennessee,1902
+vkk,0.18,Louisiana,2000
+vko,0.79,Idaho,1932
+vkp,0.82,Tennessee,1975
+vkv,0.91,Ohio,1931
+vkx,0.21,Ohio,1992
+vle,0.08,Alabama,2016
+vli,0.87,Vermont,1975
+vlm,0.75,New Mexico,1953
+vlo,0.98,Kansas,1987
+vlr,1.0,New York,1960
+vlw,0.08,South Dakota,1985
+vlx,0.77,Colorado,1938
+vma,0.13,Virginia,2023
+vmb,0.19,South Dakota,2018
+vmf,0.14,Pennsylvania,1957
+vmj,0.27,Indiana,1941
+vml,0.59,Wisconsin,1926
+vmo,0.88,West Virginia,1976
+vmt,0.07,California,2002
+vna,0.46,Maine,2019
+vnc,0.87,Illinois,1992
+vne,0.1,North Carolina,2012
+vng,0.67,Pennsylvania,1946
+vnj,0.86,Virginia,1936
+vnl,0.33,Montana,1996
+vnn,0.08,Illinois,1985
+vno,0.66,Kansas,1988
+vnq,0.45,Alabama,1992
+vns,0.61,Colorado,1921
+vnt,0.46,Rhode Island,1944
+vnu,0.61,Alaska,1950
+vnw,0.29,Pennsylvania,1980
+vnx,0.6,Indiana,2006
+voc,0.3,North Carolina,1966
+vok,0.28,Delaware,1904
+vop,0.94,Iowa,2021
+vos,0.29,Maine,1973
+vot,0.3,Hawaii,1993
+vou,0.69,Arkansas,1928
+vpd,0.22,New York,1950
+vpj,0.07,California,1942
+vpl,0.76,Texas,2000
+vpm,0.5,Nebraska,1950
+vpn,0.84,Delaware,2007
+vpo,0.47,Kentucky,2000
+vps,0.24,Texas,1956
+vpt,0.24,New Mexico,1902
+vpz,0.72,South Dakota,1980
+vqb,0.48,Kansas,1928
+vqf,0.79,North Carolina,1949
+vqg,0.06,Colorado,2015
+vqh,0.59,South Dakota,2003
+vqi,0.63,Utah,1900
+vqj,0.89,South Carolina,1989
+vqm,0.86,New York,1932
+vqq,0.34,Kansas,2008
+vqs,0.95,Nebraska,2003
+vqu,0.57,Mississippi,1965
+vqw,0.66,Oklahoma,1969
+vqx,0.33,Virginia,1919
+vqy,0.97,Utah,2009
+vrd,0.26,Oregon,2009
+vre,0.46,Utah,1901
+vrj,0.78,Idaho,2004
+vrq,0.03,Minnesota,1955
+vrs,0.9,New Hampshire,2018
+vrt,0.78,North Carolina,1945
+vry,0.57,New York,1903
+vrz,0.09,North Dakota,1947
+vsc,0.72,Pennsylvania,1974
+vsd,0.92,Wyoming,1905
+vsj,0.48,Utah,1981
+vsl,0.32,Texas,1986
+vsq,0.11,Georgia,2020
+vss,0.3,Maryland,2019
+vsu,0.28,Arkansas,1963
+vsv,0.53,Iowa,1916
+vsx,0.72,South Dakota,1927
+vtg,0.14,Hawaii,2020
+vtm,0.34,Kentucky,1980
+vtn,0.04,Wyoming,1931
+vtp,0.13,Washington,1960
+vtu,0.29,North Carolina,1930
+vtv,0.87,New York,1988
+vtw,0.46,Kansas,1927
+vub,0.59,Colorado,2021
+vuc,0.04,North Dakota,1980
+vug,0.0,South Carolina,1993
+vuh,0.98,Oklahoma,1944
+vui,0.88,Delaware,2021
+vuo,0.36,Wyoming,1960
+vuq,0.56,North Dakota,1951
+vur,0.85,New York,1909
+vus,0.25,Massachusetts,1901
+vut,0.64,Minnesota,1939
+vux,0.41,Wyoming,1913
+vuy,0.16,Colorado,2016
+vuz,0.13,Missouri,1931
+vvd,0.19,Maryland,1945
+vvh,0.14,Alaska,1979
+vvm,0.06,Kansas,1980
+vvq,0.75,Arizona,1963
+vvs,0.96,Mississippi,1991
+vvv,0.22,California,1983
+vwb,0.13,Florida,1944
+vwp,0.07,Vermont,1923
+vwy,0.02,Washington,2002
+vxb,0.45,Utah,1927
+vxc,0.1,Texas,1923
+vxd,0.48,Ohio,1931
+vxh,0.55,Minnesota,2000
+vxl,0.61,Tennessee,2011
+vxm,0.91,Hawaii,1913
+vxo,0.76,Georgia,1901
+vxp,0.98,Arizona,2006
+vxu,0.94,Colorado,1995
+vxv,0.47,Iowa,2014
+vxw,0.81,Kansas,1984
+vxy,0.09,Alaska,1901
+vyg,0.55,New York,1984
+vyi,0.92,Minnesota,2006
+vyj,0.72,Pennsylvania,2016
+vym,0.86,Maine,1971
+vyo,0.5,New Mexico,1955
+vyq,0.1,North Dakota,2020
+vyu,0.37,Alabama,1903
+vza,0.57,Louisiana,2022
+vzb,0.48,Delaware,2014
+vzh,0.78,New Mexico,2011
+vzi,0.02,Illinois,1926
+vzj,0.82,Nebraska,1901
+vzl,0.44,Delaware,1944
+vzn,0.17,Connecticut,1947
+vzr,0.3,Michigan,1955
+vzs,0.66,Vermont,1936
+vzt,0.89,Delaware,1989
+vzv,0.43,Iowa,1977
+vzw,0.2,Massachusetts,1917
+vzx,0.12,Maryland,1976
+vzz,0.08,Texas,1978
+waa,0.13,Connecticut,1998
+wac,0.45,California,1906
+wad,0.48,Colorado,2010
+waf,0.34,Florida,1975
+wah,0.89,Alabama,1930
+wai,0.01,Virginia,1913
+wak,0.13,California,1917
+wal,0.24,Maine,1972
+wam,0.39,Minnesota,2003
+wan,0.64,Montana,1909
+wao,0.6,Kentucky,1987
+war,0.93,Mississippi,1981
+was,0.07,Mississippi,1989
+wat,0.12,South Dakota,1988
+wau,0.09,North Carolina,1928
+waw,0.61,Connecticut,1954
+wax,0.17,California,1955
+wbf,0.5,Georgia,1956
+wbg,0.29,Missouri,1970
+wbi,0.65,Mississippi,1982
+wbk,0.87,Alaska,1934
+wbl,0.29,Alaska,1907
+wbn,0.93,Missouri,1952
+wbo,0.93,South Dakota,1900
+wbw,0.65,South Carolina,1903
+wbx,0.03,Tennessee,2005
+wby,0.3,Kansas,1952
+wcb,0.43,Pennsylvania,1900
+wcc,0.51,Tennessee,1937
+wce,0.94,Wyoming,1925
+wcs,0.24,Nebraska,2000
+wcu,0.21,Rhode Island,1994
+wcw,0.12,Vermont,2023
+wcy,0.04,Maine,1997
+wdb,0.02,New Mexico,1936
+wdc,0.17,Michigan,1938
+wdd,0.09,Montana,1924
+wdf,0.65,North Dakota,1990
+wdg,0.93,South Dakota,1974
+wdm,0.18,Texas,1912
+wdo,0.42,Michigan,1909
+wdp,0.6,New Mexico,1961
+wdq,0.69,Connecticut,1911
+wdr,0.16,Ohio,1954
+wdu,0.25,New Mexico,2009
+wdy,0.65,Arizona,1962
+wen,0.59,South Dakota,1939
+weo,0.34,Georgia,2020
+wer,0.55,Michigan,1926
+wes,0.5,Georgia,1919
+weu,0.55,Louisiana,1921
+wez,0.57,North Dakota,1986
+wfa,0.99,North Dakota,1989
+wfb,0.35,Minnesota,2008
+wff,0.55,Kentucky,2009
+wfl,0.78,Mississippi,1928
+wfm,0.32,West Virginia,1969
+wfn,0.41,New Mexico,1950
+wfo,0.31,Delaware,1901
+wfp,0.78,Maine,1915
+wft,0.38,Iowa,1983
+wfu,0.86,Delaware,1950
+wfv,0.05,Wyoming,1970
+wga,0.94,South Dakota,1934
+wgd,0.32,Oregon,1903
+wgf,0.63,Vermont,1922
+wgh,0.04,North Carolina,1902
+wgk,0.39,New Hampshire,1988
+wgl,0.18,New Mexico,1923
+wgo,0.59,Florida,1985
+wgq,0.43,Rhode Island,1941
+wgs,0.75,Delaware,1989
+wgt,0.55,Nevada,2003
+wgu,0.69,New Jersey,1971
+wgx,0.17,North Carolina,1908
+wgy,0.46,Virginia,1931
+whc,0.24,Tennessee,1942
+whh,0.62,North Carolina,1921
+who,0.58,Vermont,1900
+whv,0.99,Arkansas,1944
+whw,0.1,Michigan,1951
+whx,0.97,Oklahoma,2021
+why,0.03,Vermont,1939
+wic,0.5,Idaho,2009
+wio,0.36,Ohio,1980
+wir,0.69,Connecticut,1911
+wis,0.8,Massachusetts,1919
+wit,0.78,New Mexico,2014
+wiu,0.87,Massachusetts,1962
+wja,0.77,New Hampshire,1925
+wjb,0.25,Maine,1907
+wjd,0.55,Kentucky,1944
+wjg,0.66,Mississippi,1906
+wjh,0.49,Montana,2020
+wjj,0.0,Connecticut,1981
+wjk,0.35,Wyoming,1924
+wjn,1.0,Rhode Island,1925
+wjs,0.47,Arizona,2006
+wjw,0.15,Wisconsin,1908
+wjx,0.31,California,2013
+wka,0.22,Maryland,1972
+wkb,0.16,Nevada,1955
+wkc,0.38,Washington,1938
+wkd,0.67,New Mexico,1930
+wke,0.06,Washington,1902
+wkg,0.48,Virginia,2011
+wkm,0.59,Louisiana,1916
+wkq,0.92,Missouri,1945
+wky,0.51,Washington,2014
+wlb,0.91,Hawaii,1957
+wlg,0.16,Iowa,1993
+wli,0.64,New York,1957
+wlk,0.72,West Virginia,1909
+wll,0.25,Florida,1956
+wlm,0.42,Washington,1953
+wln,0.89,Virginia,1989
+wlr,0.22,Texas,1991
+wls,0.34,Florida,2015
+wlt,0.56,South Carolina,1974
+wlu,0.14,Alabama,1949
+wmb,0.44,Maryland,1977
+wmd,0.7,Maine,1927
+wme,0.33,Kentucky,2021
+wmf,0.81,Arkansas,2016
+wmh,0.99,Michigan,2011
+wmi,0.17,Delaware,1973
+wmj,0.8,Arizona,1969
+wmk,0.98,Georgia,1981
+wmn,0.85,Nebraska,1919
+wmo,0.68,Maine,1944
+wmt,0.97,Indiana,1934
+wmu,0.3,Connecticut,1931
+wmv,0.66,Washington,1984
+wmw,0.72,Pennsylvania,1992
+wmx,0.53,Delaware,1909
+wna,0.59,South Carolina,1946
+wnc,0.66,Tennessee,1941
+wnd,0.98,Oregon,1905
+wnj,0.85,South Carolina,1937
+wnk,0.28,New York,1909
+wnl,0.69,Indiana,1928
+wnn,0.54,Iowa,2004
+wnp,0.66,Florida,1984
+wnq,0.0,Missouri,1933
+wnr,0.49,Virginia,1921
+wns,0.57,Arkansas,2009
+wnt,0.41,Florida,1906
+wnv,0.42,California,2023
+wny,0.68,Louisiana,1977
+woa,0.57,Georgia,1936
+wof,0.55,Kansas,1985
+wog,0.59,Virginia,1934
+woi,0.07,Nevada,1955
+woj,0.05,Mississippi,1955
+won,0.49,Alabama,1991
+wor,0.31,Montana,2012
+wou,0.63,West Virginia,1950
+wox,0.73,North Carolina,1990
+woy,0.15,Vermont,1996
+wpc,0.76,Colorado,1935
+wpe,0.32,New Mexico,1945
+wpl,0.97,Mississippi,1916
+wpw,0.09,South Dakota,1980
+wqf,0.17,West Virginia,1926
+wqg,0.83,New Mexico,2023
+wqm,0.99,Oregon,1944
+wqn,0.73,Idaho,1911
+wqr,0.25,North Dakota,1989
+wqs,0.84,Rhode Island,1904
+wqu,1.0,Michigan,1922
+wqx,0.72,Vermont,1956
+wqy,0.76,South Carolina,1959
+wra,0.57,Vermont,2003
+wre,0.79,Arkansas,1958
+wrf,0.8,Iowa,1927
+wrg,0.86,California,1960
+wrh,0.31,New Mexico,1977
+wro,0.65,Arizona,1914
+wrp,0.12,Minnesota,1912
+wrr,0.53,Michigan,1991
+wru,0.3,Mississippi,1971
+wry,0.2,Mississippi,1922
+wsa,0.52,Colorado,2001
+wsf,0.16,North Dakota,2006
+wsg,0.04,Texas,1944
+wsm,0.56,North Carolina,1960
+wso,0.54,New York,1959
+wss,0.27,Virginia,1989
+wst,0.14,Nebraska,1966
+wsv,0.62,Kansas,1918
+wsx,0.22,Kentucky,1916
+wsy,0.37,Missouri,1934
+wtc,0.15,Maryland,1940
+wtd,0.35,Arizona,1926
+wtf,0.04,Georgia,1942
+wtn,0.48,Vermont,1963
+wtp,0.66,Oregon,1991
+wtq,0.75,Utah,1946
+wts,0.22,Connecticut,1929
+wtu,0.04,New Jersey,2013
+wtv,0.5,Hawaii,1988
+wty,0.63,New Mexico,1990
+wua,0.91,Mississippi,1956
+wub,0.45,South Carolina,1941
+wuc,0.47,Texas,2017
+wuf,0.47,Colorado,1931
+wuh,0.9,Florida,1976
+wui,0.88,Mississippi,1989
+wuo,0.31,Iowa,1957
+wus,0.64,Virginia,1922
+wux,0.81,Louisiana,1990
+wuz,0.33,Louisiana,2006
+wvb,0.89,Nebraska,1993
+wvc,0.08,North Dakota,2023
+wvf,0.48,Delaware,2013
+wvg,0.97,Georgia,1909
+wvh,0.78,Kansas,1984
+wvo,0.77,Arizona,1906
+wvp,0.21,Kansas,1942
+wvu,0.98,Tennessee,2022
+wvx,0.7,New York,1935
+wvz,0.7,Texas,1923
+wwe,0.29,Illinois,1986
+wwf,0.72,Mississippi,1903
+wwi,0.47,Connecticut,1903
+wwo,0.72,Indiana,1994
+wwq,0.56,North Carolina,1971
+wwr,0.15,Hawaii,1938
+wwu,0.67,West Virginia,1966
+wwv,0.9,Illinois,1966
+wwx,0.96,Ohio,1970
+wwy,0.28,New Mexico,1945
+wxd,0.94,Mississippi,1968
+wxe,0.41,West Virginia,1945
+wxl,0.8,Massachusetts,1974
+wxm,0.59,Oklahoma,1907
+wxn,0.9,Tennessee,1914
+wxo,0.09,Virginia,1924
+wxq,0.21,Mississippi,1912
+wxr,0.56,Hawaii,1962
+wxz,0.19,Minnesota,1950
+wyj,0.89,Idaho,2012
+wyk,0.57,Wisconsin,1903
+wyp,0.89,Alaska,2008
+wyr,0.73,Rhode Island,1973
+wys,0.58,Hawaii,1999
+wyu,0.77,Tennessee,1996
+wyy,0.45,North Dakota,1995
+wyz,0.31,Rhode Island,1916
+wza,0.71,Alaska,1967
+wzb,0.96,Alabama,1940
+wzc,0.84,Texas,1973
+wze,0.73,Texas,1944
+wzf,0.76,North Carolina,1933
+wzj,0.99,Arkansas,1993
+wzn,0.15,New Hampshire,1926
+wzo,0.22,Nevada,2002
+wzr,0.29,Minnesota,1902
+wzw,0.39,Wyoming,1956
+xaa,0.3,Iowa,1935
+xab,0.72,Pennsylvania,1996
+xac,0.69,Wisconsin,1975
+xad,0.85,Virginia,1951
+xah,0.65,Connecticut,2021
+xal,0.19,Louisiana,1944
+xar,0.56,Kentucky,1914
+xas,0.74,Washington,2005
+xau,0.55,Indiana,1900
+xav,0.47,Wyoming,1952
+xax,0.15,Montana,1919
+xay,0.54,Illinois,1944
+xaz,0.04,North Dakota,1940
+xbd,0.67,Illinois,1965
+xbe,0.99,Vermont,1978
+xbg,0.51,Massachusetts,1997
+xbj,0.33,Virginia,1997
+xbm,0.2,New Jersey,1902
+xbo,0.49,Vermont,1966
+xbt,1.0,Kansas,1937
+xbu,0.25,Arizona,1950
+xbw,0.46,New York,1964
+xby,0.02,New Hampshire,2014
+xbz,0.54,New York,1950
+xcd,0.75,Missouri,1958
+xch,0.2,Hawaii,1972
+xck,0.99,Wisconsin,1947
+xcr,0.7,Delaware,1961
+xcu,0.58,South Dakota,2009
+xcv,0.51,New Mexico,2006
+xcw,0.91,Nevada,1950
+xcy,0.56,New Hampshire,1981
+xda,0.62,North Dakota,1982
+xdb,0.77,New Mexico,1932
+xdi,0.98,Nebraska,2007
+xdl,0.03,Massachusetts,1976
+xdm,0.32,Montana,2005
+xdq,0.29,Oregon,1966
+xds,0.46,Virginia,1900
+xdw,0.19,Utah,1947
+xeb,0.78,Idaho,1959
+xec,0.37,Delaware,1901
+xed,0.4,Tennessee,1994
+xef,0.91,New Jersey,1906
+xek,0.87,Minnesota,1947
+xel,0.55,Wisconsin,1940
+xem,0.65,Utah,2008
+xep,0.49,South Carolina,2022
+xer,0.53,Kentucky,1953
+xet,0.62,Utah,2021
+xey,0.17,Arkansas,2006
+xez,0.13,Idaho,1927
+xfb,0.58,Alaska,1929
+xfc,0.75,Louisiana,1994
+xfe,0.47,Kansas,2001
+xff,0.58,Kentucky,1925
+xfg,0.28,Wyoming,1910
+xfi,0.32,Ohio,1983
+xfk,0.98,Mississippi,1957
+xfv,0.41,Connecticut,1963
+xfw,0.67,Iowa,1978
+xfx,0.16,New Jersey,1944
+xfy,0.97,North Dakota,1901
+xgd,0.4,South Carolina,1937
+xgf,0.52,South Dakota,1915
+xgg,0.61,Georgia,1902
+xgm,0.93,Nevada,1922
+xgn,0.96,Michigan,1935
+xgo,0.34,Arizona,1915
+xgp,0.19,Massachusetts,1923
+xgt,0.61,Wisconsin,1922
+xgu,0.85,Alabama,1983
+xhb,0.76,New Hampshire,1924
+xhd,0.11,Utah,1904
+xhg,0.6,Colorado,1961
+xho,0.29,Minnesota,1953
+xhq,0.88,Arkansas,2002
+xhw,0.49,Ohio,1991
+xhx,0.78,Arkansas,2022
+xib,0.73,Tennessee,1902
+xic,0.79,Maryland,1982
+xig,0.41,Illinois,2011
+xin,0.88,Virginia,1969
+xio,0.48,Vermont,1934
+xiq,0.98,New York,2007
+xiw,0.39,Nebraska,1995
+xjj,0.05,Vermont,1994
+xjn,0.96,Mississippi,1935
+xjo,0.3,Oklahoma,1901
+xjp,0.27,Maine,1939
+xjr,0.25,Wisconsin,1956
+xjv,0.11,Delaware,1920
+xjw,0.16,Mississippi,1994
+xka,0.99,Utah,2003
+xkg,0.35,California,2017
+xki,0.94,Maryland,1910
+xkj,0.69,Arizona,2023
+xkk,0.51,Georgia,2022
+xkl,0.9,Oregon,2020
+xkn,0.58,Nevada,1997
+xko,0.72,Idaho,1985
+xks,0.76,Pennsylvania,1997
+xkv,0.48,Iowa,1958
+xle,0.58,West Virginia,1986
+xlf,0.71,Montana,1919
+xlg,0.13,Wisconsin,1904
+xlh,0.52,Rhode Island,2002
+xlm,0.48,Rhode Island,1948
+xlr,0.43,Montana,1984
+xls,0.55,Wyoming,1985
+xlv,0.87,Louisiana,1938
+xlz,0.23,Idaho,1986
+xmd,0.88,Michigan,1987
+xme,0.97,Indiana,1993
+xmg,0.03,Maine,1926
+xmh,0.38,Missouri,1994
+xmj,0.49,Illinois,1971
+xmp,0.85,West Virginia,1965
+xmq,0.18,Wyoming,1983
+xmu,0.08,Virginia,1901
+xmv,0.9,Alaska,1941
+xmx,0.46,Oklahoma,1984
+xnb,0.14,Vermont,2017
+xnc,0.29,Illinois,1976
+xng,0.55,Pennsylvania,1950
+xnh,0.82,Virginia,1978
+xni,0.11,Idaho,1943
+xnl,0.64,Missouri,1958
+xnm,0.61,Louisiana,1918
+xno,0.06,South Carolina,1990
+xnp,0.67,Ohio,1978
+xnq,0.61,Massachusetts,1982
+xnt,0.0,West Virginia,1913
+xnw,0.72,New Mexico,1921
+xoa,0.25,Kansas,1999
+xoc,0.16,New Mexico,1980
+xoe,0.5,Maryland,1958
+xof,0.95,Utah,1937
+xoh,0.3,Tennessee,1912
+xoi,0.64,Virginia,1917
+xok,0.09,Rhode Island,1908
+xoo,0.32,Mississippi,2009
+xot,0.52,Indiana,1983
+xow,0.8,Delaware,1924
+xpa,0.26,Ohio,1921
+xpd,0.77,Alabama,2021
+xpe,0.64,New Hampshire,1909
+xph,0.26,Indiana,1964
+xpj,0.17,Wisconsin,1940
+xpp,0.74,Florida,2008
+xpq,0.76,Washington,1980
+xps,0.95,Iowa,1970
+xpv,0.91,Delaware,1996
+xqa,1.0,Alaska,1911
+xqb,0.56,Tennessee,1976
+xqf,0.88,Arkansas,1999
+xqi,0.7,Arkansas,1928
+xqk,0.13,Vermont,1913
+xqs,0.16,Texas,1956
+xqx,0.18,Nevada,1963
+xqy,0.83,Montana,1993
+xqz,0.89,Arizona,1928
+xrd,0.71,Washington,1938
+xrh,0.09,Minnesota,2022
+xri,0.62,New York,1946
+xrq,0.95,Connecticut,1900
+xry,0.28,Missouri,1945
+xrz,0.61,Iowa,2020
+xsa,0.62,Texas,1978
+xsc,0.95,Ohio,1909
+xsd,0.24,Alabama,1992
+xsj,0.68,Michigan,1924
+xsz,0.92,Louisiana,2021
+xta,0.09,Washington,1967
+xtc,0.1,Michigan,1985
+xtf,0.75,California,1951
+xtj,0.17,Missouri,1939
+xtk,0.03,Connecticut,1921
+xtm,0.68,Colorado,1935
+xtn,0.37,Colorado,2017
+xtq,0.52,Minnesota,1985
+xts,0.73,West Virginia,1949
+xtu,0.04,Georgia,1994
+xtw,0.89,Iowa,1922
+xuf,0.38,Pennsylvania,1915
+xui,0.67,Vermont,1978
+xum,0.66,Tennessee,1940
+xuo,0.92,Delaware,1924
+xur,0.32,Colorado,1906
+xut,0.39,Hawaii,1929
+xuv,0.46,North Carolina,1946
+xuw,0.54,Pennsylvania,1954
+xux,0.02,Florida,1913
+xuz,0.4,Oregon,1902
+xva,0.23,Colorado,1914
+xvc,0.63,New York,1955
+xvf,0.68,Tennessee,1946
+xvg,0.25,Washington,1995
+xvh,0.29,Delaware,1904
+xvk,0.3,South Carolina,1957
+xvn,0.53,North Dakota,1965
+xvq,0.18,Nebraska,1963
+xvt,0.2,Tennessee,1916
+xvv,0.87,Ohio,1922
+xvz,0.54,Alaska,1994
+xwa,0.68,Minnesota,1942
+xwd,0.44,Kentucky,1958
+xwg,0.73,Virginia,2007
+xwk,0.01,Massachusetts,1922
+xwm,0.9,Alabama,2001
+xwn,0.89,Mississippi,1940
+xwp,0.71,Missouri,2014
+xwz,0.66,Washington,1942
+xxb,0.83,Arizona,1914
+xxg,0.08,Rhode Island,1920
+xxi,0.52,Louisiana,1945
+xxp,0.63,Alaska,1939
+xxq,0.43,Minnesota,2006
+xyf,0.01,South Carolina,2006
+xyj,0.37,New Mexico,1978
+xyn,0.94,Georgia,2013
+xyq,0.58,Kentucky,1902
+xyt,0.96,Connecticut,1900
+xza,0.48,Massachusetts,1934
+xzc,0.52,Florida,1975
+xzd,0.64,Ohio,1959
+xze,0.45,Oregon,1986
+xzj,0.66,Georgia,1977
+xzl,0.61,Massachusetts,1960
+xzo,0.35,New York,1986
+xzr,0.54,Florida,1906
+xzz,0.91,South Dakota,1901
+yag,0.27,Minnesota,1965
+yah,0.27,Hawaii,1959
+yal,0.35,Alabama,1975
+yar,0.05,Tennessee,2017
+yat,0.34,New York,1905
+yau,0.52,Louisiana,1934
+yaw,0.54,North Dakota,1943
+yaz,0.46,Massachusetts,1919
+yba,0.36,Louisiana,1997
+ybb,0.61,Rhode Island,1923
+ybe,0.48,Tennessee,1979
+ybh,0.96,Virginia,1992
+ybj,0.95,Illinois,1952
+ybm,0.84,New Jersey,1910
+ybn,0.47,Washington,1902
+ybr,0.54,Connecticut,1937
+ybs,0.99,Kansas,2014
+ybu,0.74,Delaware,1960
+ybw,0.4,Tennessee,1961
+yby,0.95,Hawaii,2009
+ybz,0.55,Alaska,1942
+ycb,0.98,Oregon,1998
+ycf,0.04,Rhode Island,1949
+ycg,0.69,Delaware,2008
+ych,0.34,Missouri,2022
+yck,0.5,North Carolina,1939
+ycl,0.56,Virginia,1966
+ycq,0.54,Idaho,1909
+ycs,0.91,Montana,2003
+ycu,0.72,South Dakota,1962
+ycv,0.01,Kansas,2012
+ycy,0.4,Nebraska,1914
+yda,0.52,Pennsylvania,1913
+ydf,0.72,Minnesota,1931
+ydh,0.88,Ohio,1937
+ydi,0.3,California,1962
+ydk,0.89,Mississippi,1958
+ydl,0.62,Indiana,2000
+yds,0.26,Ohio,1907
+ydu,0.11,Maine,2012
+ydv,0.58,Alaska,1990
+ydx,0.9,Arkansas,1945
+yeb,0.68,Texas,1954
+yed,0.6,Maine,1985
+yee,0.03,Florida,1930
+yef,0.17,Maine,1999
+yej,0.56,Colorado,1943
+yep,0.73,Oregon,2001
+yex,0.09,Vermont,1952
+yfd,0.35,Tennessee,1925
+yff,0.32,Alabama,1940
+yfg,0.36,New York,1921
+yfi,0.96,Florida,1969
+yfl,0.64,Arkansas,1985
+yfm,0.96,Maine,1908
+yfo,0.48,Missouri,1985
+yfp,0.76,Virginia,1994
+yfq,0.85,Nevada,2008
+yfw,0.2,Pennsylvania,1939
+ygj,0.56,Texas,1911
+ygl,0.06,Oklahoma,1932
+ygo,0.28,New Hampshire,1974
+ygq,0.8,Vermont,1905
+ygr,0.4,Pennsylvania,1989
+ygt,0.81,Missouri,1991
+ygu,0.33,North Dakota,1970
+ygz,0.99,Wyoming,1929
+yha,0.6,Iowa,1922
+yhi,0.65,Texas,1909
+yhn,0.98,Vermont,1958
+yhu,0.87,South Dakota,1950
+yhv,0.07,New Mexico,1909
+yhw,0.65,Hawaii,1900
+yhy,0.9,New Mexico,2019
+yia,0.95,Alaska,1959
+yib,0.45,Montana,1988
+yic,0.64,Pennsylvania,2007
+yii,0.72,New Mexico,1965
+yij,0.46,Illinois,1911
+yik,0.49,Colorado,2021
+yip,0.65,Oregon,1902
+yiu,0.44,South Carolina,1916
+yix,0.79,Florida,2016
+yiy,0.09,Nebraska,1903
+yja,0.76,New Mexico,1939
+yjd,0.12,South Carolina,2018
+yje,0.33,Arizona,1985
+yjh,0.87,Mississippi,1951
+yji,0.49,New Mexico,1972
+yjn,0.82,Nevada,1912
+yjo,0.31,Arizona,1986
+yjp,0.95,Illinois,1979
+yjv,0.52,Mississippi,1915
+yjw,0.97,Kentucky,1982
+yjx,0.28,Mississippi,1924
+yka,0.95,Texas,1973
+ykh,0.87,South Dakota,1993
+yki,0.45,Texas,1911
+ykk,0.85,California,1935
+ykl,0.19,Wyoming,1940
+yks,0.95,Wisconsin,1912
+ykw,0.97,North Carolina,1949
+yky,0.48,New Hampshire,1934
+ykz,0.4,Montana,1975
+yla,0.49,West Virginia,1980
+ylc,0.5,New York,1900
+yld,0.15,New Mexico,2010
+ylj,0.36,New Mexico,1964
+yll,0.29,Nebraska,2005
+ylp,0.0,Texas,1950
+ylr,0.21,New York,1906
+ylt,0.08,Utah,1919
+ylu,0.78,Pennsylvania,1945
+ylv,0.28,New Mexico,1999
+ylw,0.05,Georgia,1915
+yma,0.59,New Jersey,1905
+ymc,0.15,Colorado,1971
+ymd,0.72,Rhode Island,1982
+ymh,0.36,Kansas,1942
+ymk,0.93,Texas,1910
+yml,0.46,West Virginia,1985
+ymo,0.31,Kansas,1943
+ymp,0.91,Oregon,1985
+ymq,0.41,Kentucky,1935
+yms,0.16,New Mexico,1971
+ymt,0.04,New Hampshire,1990
+ymu,0.43,Maryland,1975
+ymw,0.58,South Dakota,1990
+ymx,0.36,Wyoming,2018
+ynb,0.68,Wyoming,1901
+ynf,0.3,Montana,1974
+ynh,0.66,Wyoming,1953
+yni,0.51,Colorado,1918
+ynm,0.41,Maine,1994
+yno,0.76,Iowa,1944
+ynq,0.7,Colorado,1963
+ynr,0.02,Hawaii,1995
+ynw,0.2,South Dakota,1960
+yny,0.95,Wisconsin,1931
+ynz,0.14,Colorado,1907
+yod,0.03,Virginia,1900
+yoe,0.63,Nevada,1900
+yog,0.94,Mississippi,1949
+yoh,0.52,New Mexico,1947
+yoi,0.36,Idaho,1955
+yoj,0.92,Louisiana,1974
+yol,0.72,Arizona,1929
+yop,0.8,North Dakota,2018
+yoq,0.18,Colorado,1931
+yor,0.87,Idaho,1917
+yot,0.18,South Dakota,1937
+yow,0.52,Pennsylvania,1929
+ypa,0.67,South Dakota,2014
+ypc,0.68,Vermont,2007
+ypd,0.47,Illinois,1981
+yph,0.88,Kentucky,1945
+ypn,0.35,Utah,2021
+ypp,0.01,Connecticut,1928
+ypq,0.08,Nebraska,2015
+yqb,0.42,Pennsylvania,1988
+yqc,0.88,Texas,1951
+yqi,0.23,Indiana,1990
+yqm,0.87,Nebraska,1963
+yqp,0.98,Mississippi,1992
+yqq,0.03,Iowa,1917
+yqs,0.12,Tennessee,1945
+yqw,0.39,Kansas,1909
+yqz,0.35,Oregon,1917
+yra,0.91,Virginia,1974
+yrf,0.1,Florida,1908
+yrh,0.36,New York,1931
+yrj,0.73,North Carolina,1905
+yrp,0.74,South Dakota,1991
+yrq,0.88,New Hampshire,1904
+yrr,0.89,Oregon,2022
+yrs,0.45,Montana,1982
+yru,0.53,Arizona,1988
+yrv,0.07,Arkansas,2013
+ysc,0.25,Georgia,1915
+ysh,0.9,Michigan,1992
+ysj,0.36,Georgia,2017
+ysm,0.59,Michigan,1984
+yst,0.39,Vermont,1955
+ysv,0.37,Colorado,1978
+ysy,0.8,Alabama,1979
+ysz,0.66,Arizona,1955
+yta,0.55,Wisconsin,2001
+ytb,0.73,Texas,1960
+yte,0.06,Iowa,1966
+yti,0.2,South Dakota,1977
+ytj,0.1,Washington,1977
+ytm,0.58,Alaska,2005
+ytt,0.24,Vermont,1981
+ytu,0.83,Idaho,1910
+ytx,0.29,Indiana,1916
+yty,0.32,Texas,1927
+yud,0.92,Massachusetts,1927
+yuf,0.84,Pennsylvania,2002
+yuh,0.57,Montana,1942
+yui,0.47,Alaska,1994
+yum,0.53,Indiana,1995
+yus,0.14,Nevada,1906
+yuy,0.17,Arizona,1993
+yuz,0.32,Alabama,1984
+yvb,0.4,Indiana,1942
+yvi,0.75,Montana,1996
+yvk,0.66,Arizona,2005
+yvl,0.26,Florida,2001
+yvo,0.68,Alaska,2014
+yvp,0.46,Florida,2005
+yvs,0.56,Oregon,2004
+yvt,0.71,Michigan,1979
+yvu,0.07,South Dakota,2000
+yvw,0.32,Kentucky,1931
+yvx,0.83,Illinois,1957
+ywe,0.32,Missouri,2023
+ywg,0.04,North Dakota,1960
+ywi,0.54,Hawaii,1955
+ywl,0.93,Kentucky,1997
+ywo,0.55,North Carolina,2017
+ywp,0.68,California,2020
+ywq,0.23,Indiana,1966
+yws,0.5,New Hampshire,1946
+ywt,0.52,Maryland,1955
+ywu,0.65,Florida,1989
+yww,0.0,Delaware,1964
+ywx,0.59,Connecticut,1945
+yxa,0.83,Alaska,1916
+yxb,0.7,Michigan,1900
+yxe,0.92,Florida,1994
+yxg,0.14,Kentucky,1987
+yxh,0.26,Missouri,1931
+yxi,0.71,Mississippi,1948
+yxj,0.94,North Dakota,1991
+yxl,0.24,Minnesota,1923
+yxp,0.06,South Carolina,1931
+yxq,0.18,North Dakota,2019
+yxs,0.45,North Dakota,2010
+yxx,0.39,North Carolina,1951
+yxy,0.86,Indiana,1952
+yya,0.43,Arkansas,1961
+yyb,0.41,Rhode Island,1983
+yyd,0.78,Washington,1934
+yye,0.29,Hawaii,1938
+yyk,0.7,North Carolina,1949
+yyp,0.58,Idaho,1930
+yyq,0.06,Delaware,1917
+yyr,0.8,Kentucky,1958
+yyt,0.46,California,1976
+yyu,0.25,South Dakota,2003
+yyy,0.27,South Carolina,1967
+yyz,0.36,North Dakota,1958
+yza,0.65,Connecticut,1955
+yzd,0.29,Nevada,1985
+yzf,0.28,Wisconsin,1936
+yzg,0.58,Montana,2017
+yzh,0.04,Hawaii,2011
+yzi,0.53,Mississippi,2022
+yzj,0.99,South Dakota,1989
+yzk,0.19,Utah,1937
+yzm,0.31,Louisiana,2005
+yzn,0.71,Arizona,1990
+yzo,0.99,Louisiana,1965
+yzp,0.72,Colorado,1982
+yzr,0.46,Illinois,1966
+yzv,0.63,Delaware,1992
+yzy,0.62,West Virginia,1936
+yzz,0.8,South Dakota,1996
+zad,0.48,Connecticut,2017
+zaf,0.36,California,1967
+zai,0.16,North Dakota,1957
+zap,0.94,Tennessee,2020
+zaw,0.55,Illinois,2003
+zax,0.45,Alabama,1959
+zbg,0.24,Louisiana,1982
+zbo,0.69,Ohio,1952
+zbp,0.73,Kentucky,1948
+zbq,0.02,New Hampshire,1943
+zbr,0.91,Arkansas,1987
+zbs,0.53,Tennessee,1956
+zbv,0.38,Florida,1989
+zby,0.71,Oklahoma,1987
+zca,0.9,New Mexico,2016
+zcc,0.74,Colorado,1937
+zcf,0.52,Pennsylvania,1942
+zci,0.45,Vermont,1941
+zcq,0.85,Michigan,1940
+zcr,0.9,Iowa,1954
+zct,0.4,New Mexico,1993
+zcw,0.71,Mississippi,1992
+zdb,0.01,Alabama,2004
+zdc,0.34,Massachusetts,1919
+zdd,0.55,Indiana,1921
+zde,0.66,Maine,1946
+zdf,0.48,New Jersey,1994
+zdh,0.87,Maine,2008
+zdi,0.4,Indiana,1997
+zdj,0.92,Wyoming,1912
+zdk,0.24,North Dakota,2018
+zdm,0.64,Montana,1965
+zdp,0.68,Arkansas,1937
+zdq,0.97,Washington,2019
+zec,0.73,Kansas,1983
+zed,0.57,North Carolina,1942
+zee,0.65,New Jersey,1939
+zeg,0.84,Arizona,1966
+zei,0.15,Alabama,1944
+zeo,0.01,Texas,1979
+zes,0.31,Mississippi,1900
+zey,0.89,Indiana,1992
+zez,0.09,Virginia,1964
+zfb,0.23,Ohio,1988
+zfd,0.78,South Dakota,2004
+zff,0.56,Iowa,1996
+zfg,0.66,Utah,1931
+zfi,0.1,Louisiana,1959
+zfj,0.81,Mississippi,1998
+zfk,0.13,Louisiana,1955
+zfl,0.26,Nebraska,1917
+zfn,0.25,Florida,1924
+zfp,0.16,West Virginia,1909
+zfr,0.6,West Virginia,1979
+zfx,0.6,Nevada,2012
+zga,0.07,North Carolina,1936
+zgb,0.58,Arkansas,1954
+zgc,0.33,Hawaii,2019
+zgd,0.4,Kentucky,1978
+zge,0.82,Oregon,1956
+zgi,0.73,New York,1924
+zgm,0.51,Hawaii,1996
+zgo,0.51,Michigan,1914
+zgt,0.97,Virginia,1934
+zgy,0.81,Virginia,1945
+zgz,0.99,Colorado,2001
+zha,0.88,Delaware,1966
+zhd,0.35,Iowa,1921
+zhf,0.4,Pennsylvania,1954
+zhl,0.27,Maryland,1928
+zhm,0.58,Kentucky,2008
+zho,0.11,New York,1941
+zhq,0.61,Wyoming,2010
+zhu,0.63,Wisconsin,2000
+zhx,0.34,Maine,1963
+zhy,0.07,Wisconsin,1922
+zia,0.0,Idaho,1954
+zic,0.42,Hawaii,1996
+zid,0.51,New York,1999
+zin,0.6,Mississippi,2005
+zio,0.82,New Hampshire,1995
+zis,0.16,Montana,1948
+ziw,0.86,New Mexico,1973
+ziz,0.08,Mississippi,2001
+zja,1.0,Vermont,2012
+zje,0.54,Nevada,1905
+zjh,0.8,Arizona,1932
+zjp,0.74,Nevada,1940
+zjq,0.84,Connecticut,1955
+zjw,0.42,Texas,1961
+zjx,0.91,Colorado,1968
+zjy,0.04,Ohio,1915
+zkd,0.14,Iowa,1992
+zke,0.62,New Jersey,2020
+zkf,0.96,Indiana,1960
+zkm,0.53,New Jersey,1907
+zkn,0.91,North Carolina,1985
+zkp,0.74,Florida,1914
+zks,0.97,Ohio,1992
+zkv,0.18,Nebraska,1921
+zla,0.25,Minnesota,1970
+zlb,0.62,Washington,2001
+zld,0.07,Iowa,1942
+zlg,0.66,Delaware,1917
+zlh,0.29,Utah,1918
+zli,0.66,California,1940
+zlj,0.51,Idaho,1903
+zln,0.73,Tennessee,1928
+zlq,0.66,Wisconsin,1993
+zls,0.91,New Mexico,1968
+zlv,0.93,Arkansas,1937
+zlx,0.42,Minnesota,1978
+zly,0.95,Oklahoma,2010
+zmc,0.89,New Jersey,1963
+zmd,0.97,Maine,1986
+zme,0.79,Kentucky,1922
+zmh,0.08,Maryland,2003
+zmi,0.04,Illinois,2012
+zmp,0.54,Oklahoma,1959
+zms,0.01,Massachusetts,1976
+zmt,0.24,North Carolina,2014
+zmw,0.67,Oklahoma,1908
+zmy,0.94,North Carolina,1979
+zna,0.94,Iowa,1945
+znb,0.51,Michigan,1939
+znc,0.48,Illinois,1956
+zne,0.39,Ohio,1943
+znf,0.17,Missouri,1903
+zng,0.98,New York,1944
+znk,0.01,Utah,1969
+znl,0.65,Georgia,1915
+zns,0.67,Pennsylvania,1978
+znt,0.48,Maryland,1907
+zoa,0.33,Washington,1953
+zoc,0.81,Missouri,1974
+zod,0.56,Vermont,2006
+zoe,0.08,Nevada,1952
+zon,0.69,Minnesota,1984
+zoo,0.3,Hawaii,1903
+zor,0.26,Michigan,1953
+zpa,0.17,Indiana,1910
+zpb,0.33,West Virginia,1910
+zpc,0.99,Illinois,1980
+zpd,0.03,Louisiana,1902
+zpe,0.36,New Mexico,2018
+zpi,0.97,Nebraska,2002
+zpj,0.74,Alaska,1994
+zpk,0.43,Nevada,2022
+zpo,0.65,North Dakota,1905
+zpq,0.62,Indiana,1986
+zps,0.7,Idaho,1905
+zpv,0.46,Iowa,2011
+zpw,0.95,Kentucky,2015
+zqa,0.02,Maryland,1912
+zqd,0.56,Minnesota,1920
+zqi,0.27,Montana,1960
+zqj,0.25,Tennessee,1977
+zql,0.32,Louisiana,1988
+zqp,0.39,Illinois,2018
+zqt,0.37,Ohio,2008
+zqu,0.56,Arizona,1930
+zqv,0.34,Arizona,1904
+zra,0.01,Colorado,2006
+zrk,0.83,New Jersey,1914
+zro,0.01,Colorado,2014
+zrw,0.48,New York,1953
+zrx,0.58,Missouri,1959
+zry,0.79,Arizona,1931
+zsd,0.98,Connecticut,1998
+zsg,0.07,Idaho,1900
+zsi,0.59,Montana,1965
+zsl,0.44,Maryland,2007
+zso,0.02,Minnesota,1905
+zss,0.16,Massachusetts,1982
+zst,0.71,Georgia,1953
+zsv,0.02,Maryland,1959
+zta,0.79,California,1998
+ztb,0.48,South Carolina,1904
+zte,0.79,Massachusetts,1905
+ztj,0.68,Wisconsin,1954
+ztk,0.17,Georgia,1957
+zto,0.27,Vermont,2015
+ztr,0.68,Texas,1962
+ztx,0.46,Ohio,1979
+zty,0.83,Arizona,1974
+ztz,0.02,Arkansas,1976
+zub,0.77,Mississippi,2008
+zud,0.82,Nevada,1962
+zue,0.07,South Carolina,2023
+zuh,0.1,Iowa,2005
+zuj,0.73,Georgia,1975
+zup,0.88,New Mexico,1902
+zuq,0.98,Maine,1979
+zuw,0.55,Florida,1994
+zux,0.49,Delaware,1979
+zvd,0.99,Kansas,1978
+zvg,0.09,Utah,1904
+zvk,0.98,Ohio,1928
+zvr,0.13,West Virginia,1900
+zvv,0.79,Tennessee,1986
+zvw,0.93,Mississippi,1958
+zvx,0.53,Oklahoma,1937
+zwa,0.71,Massachusetts,1918
+zwe,0.16,New Hampshire,1902
+zwi,0.5,Ohio,1983
+zwl,0.69,Georgia,1934
+zwp,0.18,Kansas,2021
+zwq,0.72,Washington,1929
+zwr,0.58,Hawaii,1984
+zwt,0.91,Idaho,1952
+zwu,0.69,Alabama,1975
+zww,0.65,Florida,1929
+zwy,0.08,Virginia,2002
+zxe,0.15,Arizona,1942
+zxf,0.43,Tennessee,1957
+zxg,0.45,Pennsylvania,1927
+zxm,0.27,Rhode Island,1939
+zxn,0.38,Colorado,1932
+zxs,0.98,Iowa,1904
+zxz,0.62,Vermont,1974
+zya,0.96,Mississippi,1982
+zyb,0.92,North Carolina,1906
+zyc,0.13,Georgia,1963
+zyf,0.77,Maryland,1971
+zyl,0.25,Montana,2012
+zym,0.41,Nevada,1904
+zyn,0.97,New Jersey,1965
+zyp,0.53,Ohio,2004
+zyr,0.53,Missouri,2017
+zys,0.92,Washington,1979
+zyt,0.97,South Carolina,1919
+zza,0.69,North Carolina,1982
+zzc,0.54,Tennessee,1965
+zzf,0.61,Vermont,1957
+zzp,0.76,Massachusetts,1982
+zzr,0.63,Nevada,1954
+zzu,0.4,Alaska,1964
