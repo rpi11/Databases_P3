@@ -171,7 +171,6 @@ def create_table(cmd):
     return name, Table(name, columns, primary_key, foreigns)
 
 def process_input(cmd_list):
-
     def first_x(tokens, x):
         return [t.lower() for t in tokens[:x]]
 
@@ -208,6 +207,47 @@ def process_input(cmd_list):
                     print("ERROR: number of insert columns does not match number of insert values")
                 else:
                     TABLES[name].insert({c:v for c,v in zip(columns, vals)})
+        elif first_x(tokens, 1) == ["select"]:
+            process_select(cmd_list)
+
+def process_select(cmd_list):
+    print("entered process_select")
+    def from_x_tokens(tokens, x):
+        return [t.lower() for t in tokens[x:]]
+    for cmd in cmd_list:
+        tokens = cmd.split()
+        index = 0
+        #basically just making a list of the elements of the query
+        columns_list = []
+        database_list = []
+        #create columns_list
+        for token in tokens[1:]:
+            if token == "from":
+                break
+            columns_list.append(token)
+        for i in range(len(columns_list) - 1):
+            if columns_list[i].endswith(","):
+                columns_list[i] = columns_list[i][:-1]
+            else:
+                print("ERROR IN SYNTAX: Column names must be comma separated.")
+        index = len(columns_list) + 2
+        #create database_list
+        for token in tokens[index:]:
+            if token == "where":
+                break
+            database_list.append(token)
+        for i in range(len(database_list) - 1):
+            if database_list[i].endswith(","):
+                database_list[i] = database_list[i][:-1]
+            else:
+                print("ERROR IN SYNTAX: Database names must be comma separated.")
+        for x in database_list:
+            if x not in TABLES:
+                print("ERROR: Database name not found.")
+        print(columns_list)
+        print(database_list)
+        
+    
 
 def get_input():
     command = ""
@@ -225,12 +265,14 @@ def main():
         #        "LOAD DATA LOCAL INFILE 'data/emissions.csv' INTO TABLE emissions FIELDS TERMINATED BY ',' IGNORE 1 ROWS"]
 
         # 
-        cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
-               "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
-               "create table df2 (decimal float, state varchar(10), year int, name varchar(3), foreign key (name) references df1(Letter), primary key(name))",
-               "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)",
-               "insert into df1 (Letter, Number, ) values (aaa,1,Gray)"]
-        process_input(cmd)
+        #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+        #       "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
+        #       "create table df2 (decimal float, state varchar(10), year int, name varchar(3), foreign key (name) references df1(Letter), primary key(name))",
+        #       "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)",
+        #       "insert into df1 (Letter, Number, ) values (aaa,1,Gray)"]
+        #process_input(cmd)
+        cmd2 = ["select test1, test2, test3 from test4, test5 where"]
+        process_input(cmd2)
         break
         # break
 
