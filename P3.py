@@ -298,6 +298,9 @@ def get_input():
         command += " "+input("> ")
     return [c.strip() for c in command.split(";") if c]
 
+def which_join(data1, data2, col1, col2):
+    print("no code yet")
+
 def nested_loop(data1, data2, col1, col2):
     #tuples should return KEYS associated w/ whatever 
     keys1 = []
@@ -340,6 +343,8 @@ def merge_scan(data1, data2, col1, col2):
     keys2 = []
     i = 0
     j = 0
+    #TABLES[data1].sort_table(by=col1)
+    #TABLES[data2].sort_table(by=col2)
     while i < len(data1.table[col1]) and j < len(data2.table[col2]):
         if values1[i] < values2[j]:
             i = i + 1
