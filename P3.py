@@ -31,7 +31,6 @@ class Table:
         return
 
     def insert(self, row_dict):
-
         if len(row_dict) != self.ncol:
             print(f"ERROR: row insert of length {len(row_dict)} does not match {self.name} column number of {self.ncol}")
             return 1
@@ -59,7 +58,6 @@ class Table:
                 self.table[col][row_dict[col]] = {k:v for k,v in row_dict.items() if k != col}
 
         self.nrow += 1
-
         return 0
 
     def import_file(self, tkns):
@@ -96,6 +94,7 @@ class Table:
                         new_row[col] = add
                     if self.insert(new_row) == 1:
                         break
+        return
 
     def print_table(self, rows = float("inf")):
         output = []
@@ -123,26 +122,14 @@ class Table:
 
     def sort_table(self, by = ""):
         by = self.key if by == "" else by
-
         if by in self.table:
-            
-            col_names = list(self.table.keys())
-            
             new_key_order = []
             for key in sorted(list(self.table[by].keys())):
                 new_key_order += self.table[by][key]
             self.table[self.key] = {k:self.table[self.key][k] for k in new_key_order}
-
-
-            # self.table[by] = dict(sorted(self.table[by].items))
-
-            # combine = [tuple(self.table[c][i] for c in col_names) for i in range(self.nrow)]
-            # sort = sorted(combine, key = lambda x: x[col_names.index(by)])
-        
-            # for i, c in enumerate(self.table):
-            #     self.table[c] = [t[i] for t in list(sort)]
         else:
             print("ERROR: specified column to sort by is not in table")
+        return
 
 def create_table(cmd):
     cmd = " ".join(cmd)
@@ -229,44 +216,80 @@ def process_input(cmd_list):
                 else:
                     TABLES[name].insert({c:v for c,v in zip(columns, vals)})
         elif first_x(tokens, 1) == ["select"]:
-            process_select(cmd_list)
+            process_select(cmd)
 
-def process_select(cmd_list):
+def process_select(cmd):
     print("entered process_select")
-    def from_x_tokens(tokens, x):
-        return [t.lower() for t in tokens[x:]]
-    for cmd in cmd_list:
-        tokens = cmd.split()
-        index = 0
-        #basically just making a list of the elements of the query
-        columns_list = []
-        database_list = []
-        #create columns_list
-        for token in tokens[1:]:
-            if token == "from":
+    
+    tokens = cmd.split()
+
+    index = 0
+    #basically just making a list of the elements of the query
+    columns_list = []
+    database_list = []
+    #create columns_list
+
+    cols_dfs = [""]
+    for tkn in tokens[1:]:
+        if tkn == "from":
+            cols_dfs.append("")
+        else:
+            cols_dfs[-1] += tkn+" "
+
+    col_list = [v.strip() for v in cols_dfs[0].split(",")]
+    dfs_list = [v.strip() for v in cols_dfs[1].split(",")]
+
+    col_funcs = {}
+    for col in col_list:
+        name = col
+        agg = ""
+        alias = name
+        if "(" in col:
+            print("aggregation operator")
+            agg = col.split("(")[0].lower().strip()
+            name = col.split("(")[1].split(")")[0].strip()
+        
+        for tp in ["as","AS","As"]:
+            if tp in col:
+                alias = col.split(tp)[-1].strip()
                 break
-            columns_list.append(token)
-        for i in range(len(columns_list) - 1):
-            if columns_list[i].endswith(","):
-                columns_list[i] = columns_list[i][:-1]
-            else:
-                print("ERROR IN SYNTAX: Column names must be comma separated.")
-        index = len(columns_list) + 2
-        #create database_list
-        for token in tokens[index:]:
-            if token == "where":
-                break
-            database_list.append(token)
-        for i in range(len(database_list) - 1):
-            if database_list[i].endswith(","):
-                database_list[i] = database_list[i][:-1]
-            else:
-                print("ERROR IN SYNTAX: Database names must be comma separated.")
-        for x in database_list:
-            if x not in TABLES:
-                print("ERROR: Database name not found.")
-        print(columns_list)
-        print(database_list)
+        
+        col_funcs[name] = {
+            "agg":agg,
+            "alias":alias
+        }
+        
+
+    print(json.dumps(col_funcs, indent = 4))
+    exit()
+
+    for col in col_list:
+        print(col)
+    exit()
+
+    if any(len(l)>1 for l in dfs_list):
+        print("aliases")
+
+    print([v.split(".") for v in col_list])
+    print([v.split() for v in dfs_list])
+    exit()
+    
+    index = len(columns_list) + 2
+    #create database_list
+    for token in tokens[index:]:
+        if token == "where":
+            break
+        database_list.append(token)
+    for i in range(len(database_list) - 1):
+        if database_list[i].endswith(","):
+            database_list[i] = database_list[i][:-1]
+        else:
+            print("ERROR IN SYNTAX: Database names must be comma separated.")
+    for x in database_list:
+        if x not in TABLES:
+            print("ERROR: Database name not found.")
+    print(columns_list)
+    print(database_list)
 
 
 def get_input():
@@ -279,7 +302,8 @@ def nested_loop(data1, data2, col1, col2):
     #tuples should return KEYS associated w/ whatever 
     keys1 = []
     keys2 = []
-    if data1.ncol < data2.ncol:
+
+    if data1.nrow < data2.nrow:
         for i in data1.table[col1]:
             for j in data2.table[col2]:
                 if i == j:
@@ -348,6 +372,11 @@ def main():
               "insert into df3 (name,Color) values (aab,Red)",
               "insert into df3 (name,Color) values (aad,Red)",
               "insert into df3 (name,Color) values (aac,Orange)"]
+        cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+              "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
+              "create table df2 (name varchar(3),decimal float, state varchar(10), year int,  foreign key (name) references df1(Letter), primary key(name))",
+              "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
+              "select min(a.Letter) as minimum, b.state from df1 a, df2 as b"]
               #"insert into df1 (Letter, Number, ) values (aaa,1,Gray)"
         process_input(cmd)
 
