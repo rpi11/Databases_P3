@@ -223,12 +223,6 @@ def process_select(cmd):
     
     tokens = cmd.split()
 
-    index = 0
-    #basically just making a list of the elements of the query
-    columns_list = []
-    database_list = []
-    #create columns_list
-
     cols_dfs = [""]
     for tkn in tokens[1:]:
         if tkn == "from":
@@ -245,12 +239,14 @@ def process_select(cmd):
         agg = ""
         alias = name
         if "(" in col:
-            print("aggregation operator")
             agg = col.split("(")[0].lower().strip()
+            if agg not in ["min","max","sum","average","mode"]:
+                print(f"ERROR: aggregation method {agg} not supported")
+                return 1
             name = col.split("(")[1].split(")")[0].strip()
         
         for tp in ["as","AS","As"]:
-            if tp in col:
+            if f" {tp} " in col:
                 alias = col.split(tp)[-1].strip()
                 break
         
@@ -258,38 +254,57 @@ def process_select(cmd):
             "agg":agg,
             "alias":alias
         }
-        
-
-    print(json.dumps(col_funcs, indent = 4))
-    exit()
-
-    for col in col_list:
-        print(col)
-    exit()
-
-    if any(len(l)>1 for l in dfs_list):
-        print("aliases")
-
-    print([v.split(".") for v in col_list])
-    print([v.split() for v in dfs_list])
-    exit()
     
-    index = len(columns_list) + 2
-    #create database_list
-    for token in tokens[index:]:
-        if token == "where":
-            break
-        database_list.append(token)
-    for i in range(len(database_list) - 1):
-        if database_list[i].endswith(","):
-            database_list[i] = database_list[i][:-1]
+    df_aliases = {}
+    if len(dfs_list) > 1:
+        for df in dfs_list:
+            alias = ""
+            if any(f" {tp} " in df for tp in ["as","AS","As"]):
+                for tp in ["as","AS","As"]:
+                    if f" {tp} " in df:
+                        alias = df.split(tp)[-1].strip()
+                        name = "".join(df.split(tp)[:-1]).strip()
+                        break
+            else:
+                alias = df.split()[-1].strip()
+                if len(df.split()) > 1:
+                    name = "".join(df.split()[:-1]).strip()
+                else:
+                    name = "".join(df.split()[0]).strip()
+            df_aliases[alias] = name
+    else:
+        df_aliases[""] = dfs_list[0].strip()
+
+    which_columns = {}
+    for col in col_funcs:
+        if "." in col:
+            alias = col.split(".")[0]
+            if alias in df_aliases:
+                if df_aliases[alias] not in which_columns:
+                    which_columns[df_aliases[alias]] = {}
+                which_columns[df_aliases[alias]][col.split(".")[1]] = col_funcs[col]
+            else:
+                print(f"ERROR: alias {alias} not assigned to a table")
+                return 1
         else:
-            print("ERROR IN SYNTAX: Database names must be comma separated.")
-    for x in database_list:
-        if x not in TABLES:
-            print("ERROR: Database name not found.")
-    print(columns_list)
-    print(database_list)
+            if dfs_list[0] not in which_columns:
+                which_columns[dfs_list[0]] = {}
+            which_columns[dfs_list[0]][col] = col_funcs[col]
+
+    for df in which_columns:
+        if df not in TABLES:
+            print(f"ERROR: table {df} does not exist")
+            return 1
+        else:
+            for col in which_columns[df]:
+                if col not in TABLES[df].columns:
+                    print(f"ERROR: column {col} does not exist in table {df}")
+                    return 1
+
+
+
+    print(json.dumps(which_columns, indent = 4))
+    exit()
 
 
 def get_input():
@@ -384,18 +399,19 @@ def main():
               "insert into df3 (name,Color) values (aab,Red)",
               "insert into df3 (name,Color) values (aad,Red)",
               "insert into df3 (name,Color) values (aac,Orange)"]
-        #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
-        #      "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
-        #      "create table df2 (name varchar(3),decimal float, state varchar(10), year int,  foreign key (name) references df1(Letter), primary key(name))",
-        #      "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
-        #      "select min(a.Letter) as minimum, b.state from df1 a, df2 as b"]
-        #      "insert into df1 (Letter, Number, ) values (aaa,1,Gray)"
+        cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+             "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
+             "create table df2 (name varchar(3),decimal float, state varchar(10), year int,  foreign key (name) references df1(Letter), primary key(name))",
+             "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
+             "select * from df1",
+             "select Letter from df1 where Color = 'orange'",
+             "select min(a.Letter) as minimum, b.state from df1 a, df2 as b"]
         process_input(cmd)
 
         #print(nested_loop(TABLES["df1"], TABLES["df3"], "Color", "Color"))
         #print(nested_loop(TABLES["df1"], TABLES["df2"], "Letter", "name"))
         #print(merge_scan(TABLES["df1"], TABLES["df2"], "Letter", "name"))
-        print(merge_scan(TABLES["df1"], TABLES["df3"], "Color", "Color"))
+        # print(merge_scan(TABLES["df1"], TABLES["df3"], "Color", "Color"))
         # cmd2 = ["select test1, test2, test3 from test4, test5 where"]
         # process_input(cmd2)
         break
