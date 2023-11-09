@@ -267,14 +267,67 @@ def process_select(cmd_list):
                 print("ERROR: Database name not found.")
         print(columns_list)
         print(database_list)
-        
-    
+
 
 def get_input():
     command = ""
     while ";" not in command:
         command += " "+input("> ")
     return [c.strip() for c in command.split(";") if c]
+
+def nested_loop(data1, data2, col1, col2):
+    #tuples should return KEYS associated w/ whatever 
+    keys1 = []
+    keys2 = []
+    if data1.ncol < data2.ncol:
+        for i in data1.table[col1]:
+            for j in data2.table[col2]:
+                if i == j:
+                    if col1 == data1.key:
+                        keys1.append(i)
+                    else:
+                        temp = data1.table[col1]
+                        keys1.append(temp[i])
+                    if col2 == data2.key:
+                        keys2.append(j)
+                    else:
+                        temp = data2.table[col2]
+                        keys2.append(temp[i])
+    else:
+        for j in data2.table[col2]:
+            for i in data1.table[col1]:
+                if i == j:
+                    if col1 == data1.key:
+                        keys1.append(i)
+                    else:
+                        temp = data1.table[col1]
+                        keys1.append(temp[i])
+                    if col2 == data2.key:
+                        keys2.append(j)
+                    else:
+                        temp = data2.table[col2]
+                        keys2.append(temp[i])
+    return [keys1, keys2]
+
+def merge_scan(data1, data2, col1, col2):
+    values1 = list(data1.table[col1].keys())
+    values2 = list(data2.table[col2].keys())
+    keys1 = []
+    keys2 = []
+    i = 0
+    j = 0
+    while i < len(data1.table[col1]) and j < len(data2.table[col2]):
+        if values1[i] < values2[j]:
+            i = i + 1
+        elif values1[i] > values2[j]:
+            j = j + 1
+        else:
+            keys1.append(values1[i])
+            keys2.append(values2[j])
+            i = i + 1
+            j = j + 1
+    print(keys1)
+    print(keys2)
 
 def main():
 
@@ -289,20 +342,30 @@ def main():
         cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
               "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
               "create table df2 (decimal float, state varchar(10), year int, name varchar(3), foreign key (name) references df1(Letter), primary key(name))",
-              "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)"]
-        # "insert into df1 (Letter, Number, ) values (aaa,1,Gray)"
+              "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)",
+              "insert into df2 (name,decimal,state,year) values (aao,0.4,Minnesota,2004)", 
+              "create table df3 (name varchar(3), Color VARCHAR(6), primary key (name))",
+              "insert into df3 (name,Color) values (aab,Red)",
+              "insert into df3 (name,Color) values (aad,Red)",
+              "insert into df3 (name,Color) values (aac,Orange)"]
+              #"insert into df1 (Letter, Number, ) values (aaa,1,Gray)"
         process_input(cmd)
 
-
+        #print(nested_loop(TABLES["df1"], TABLES["df3"], "Color", "Color"))
+        #print(nested_loop(TABLES["df1"], TABLES["df2"], "Letter", "name"))
+        merge_scan(TABLES["df1"], TABLES["df2"], "Letter", "name")
         # cmd2 = ["select test1, test2, test3 from test4, test5 where"]
         # process_input(cmd2)
         break
         # break
+    #TABLES["df2"].sort_table(by="name")
+    #TABLES["df1"].print_table()
+    #TABLES["df3"].print_table()
 
-    for name in TABLES:
-        TABLES[name].sort_table(by="Number")
-        TABLES[name].print_table()
-        break
+    #for name in TABLES:
+    #    TABLES[name].sort_table(by="Number")
+    #    TABLES[name].print_table()
+    #    break
 
     # print("goodbye")
     return 
