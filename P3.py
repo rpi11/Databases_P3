@@ -15,7 +15,7 @@ dtypes = {
 }
 
 class Table:
-    def __init__(self, name, col_dtype_dict, key = "", foreign_keys = {"table":"","col":""}):
+    def __init__(self, name, col_dtype_dict, key = "", foreign_keys = {"":{"table":"","col":""}}):
         
         self.__dtypes = col_dtype_dict
         self.key = key
@@ -27,7 +27,7 @@ class Table:
         
         self.table = {}
         for col in self.__dtypes:
-            self.table[col] = []
+            self.table[col] = {}
         return
 
     def insert(self, row_dict):
@@ -35,7 +35,7 @@ class Table:
         if len(row_dict) != self.ncol:
             print(f"ERROR: row insert of length {len(row_dict)} does not match {self.name} column number of {self.ncol}")
             return 1
-        
+
         for col in row_dict:
             if col in self.f_keys:
                 if row_dict[col] not in TABLES[self.f_keys[col]["table"]].table[self.f_keys[col]["col"]]:
@@ -49,9 +49,17 @@ class Table:
             if col == self.key and row_dict[col] in self.table[col]:
                 print(f"ERROR: trying to insert duplicate value {row_dict[col]} into column {col}")
                 return 1
-                
-            self.table[col].append(row_dict[col])
-        
+            
+            if col != self.key:
+                if row_dict[col] not in self.table[col]:
+                    self.table[col][row_dict[col]] = []
+                self.table[col][row_dict[col]].append(row_dict[self.key])
+
+            else:
+                self.table[col][row_dict[col]] = {k:v for k,v in row_dict.items() if k != col}
+
+        self.nrow += 1
+
         return 0
 
     def import_file(self, tkns):
@@ -88,9 +96,8 @@ class Table:
                         new_row[col] = add
                     if self.insert(new_row) == 1:
                         break
-            self.nrow = i - ignore - 1
 
-    def print_table(self, rows = 0):
+    def print_table(self, rows = float("inf")):
         output = []
         for i in range(self.ncol):
             output.append([])
@@ -98,14 +105,18 @@ class Table:
         for i, col in enumerate(self.columns):
             output[i].append(f"<{col}>" if col == self.key else col)
             output[i].append("" if col not in self.f_keys else f"{self.f_keys[col]['table']}({self.f_keys[col]['col']})")
-            output[i] += self.table[col]
+            
+            if col == self.key:
+                output[i] += list(self.table[self.key].keys())
+            else:
+                output[i] += [self.table[self.key][k][col] for k in self.table[self.key]]
         
         output = [[" "," "]+list(range(self.nrow))] + output
         max_w = [max(len(str(item)) for item in col) for col in output]
 
         print(self.name)
-        for i in range(self.nrow + 1):
-            if i < rows+2:
+        for i in range(self.nrow + 2):
+            if i < rows+1:
                 print("  ".join(f"{output[j][i]:<{max_w[j]}}" for j in range(self.ncol+1)))
         print()
         return
@@ -114,12 +125,22 @@ class Table:
         by = self.key if by == "" else by
 
         if by in self.table:
+            
             col_names = list(self.table.keys())
-            combine = [tuple(self.table[c][i] for c in col_names) for i in range(self.nrow)]
-            sort = sorted(combine, key = lambda x: x[col_names.index(by)])
+            
+            new_key_order = []
+            for key in sorted(list(self.table[by].keys())):
+                new_key_order += self.table[by][key]
+            self.table[self.key] = {k:self.table[self.key][k] for k in new_key_order}
+
+
+            # self.table[by] = dict(sorted(self.table[by].items))
+
+            # combine = [tuple(self.table[c][i] for c in col_names) for i in range(self.nrow)]
+            # sort = sorted(combine, key = lambda x: x[col_names.index(by)])
         
-            for i, c in enumerate(self.table):
-                self.table[c] = [t[i] for t in list(sort)]
+            # for i, c in enumerate(self.table):
+            #     self.table[c] = [t[i] for t in list(sort)]
         else:
             print("ERROR: specified column to sort by is not in table")
 
@@ -265,19 +286,23 @@ def main():
         #        "LOAD DATA LOCAL INFILE 'data/emissions.csv' INTO TABLE emissions FIELDS TERMINATED BY ',' IGNORE 1 ROWS"]
 
         # 
-        #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
-        #       "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
-        #       "create table df2 (decimal float, state varchar(10), year int, name varchar(3), foreign key (name) references df1(Letter), primary key(name))",
-        #       "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)",
-        #       "insert into df1 (Letter, Number, ) values (aaa,1,Gray)"]
-        #process_input(cmd)
-        cmd2 = ["select test1, test2, test3 from test4, test5 where"]
-        process_input(cmd2)
+        cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+              "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
+              "create table df2 (decimal float, state varchar(10), year int, name varchar(3), foreign key (name) references df1(Letter), primary key(name))",
+              "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)"]
+        # "insert into df1 (Letter, Number, ) values (aaa,1,Gray)"
+        process_input(cmd)
+
+
+        # cmd2 = ["select test1, test2, test3 from test4, test5 where"]
+        # process_input(cmd2)
         break
         # break
 
     for name in TABLES:
-        TABLES[name].print_table(10)
+        TABLES[name].sort_table(by="Number")
+        TABLES[name].print_table()
+        break
 
     # print("goodbye")
     return 
