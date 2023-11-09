@@ -346,12 +346,19 @@ def merge_scan(data1, data2, col1, col2):
         elif values1[i] > values2[j]:
             j = j + 1
         else:
-            keys1.append(values1[i])
-            keys2.append(values2[j])
+            if col1 == data1.key:
+                keys1.append(values1[i])
+            else:
+                temp = data1.table[col1]
+                keys1.append(temp[values1[i]])
+            if col2 == data2.key:
+                keys2.append(values2[j])
+            else:
+                temp = data2.table[col2]
+                keys2.append(temp[values2[j]])
             i = i + 1
             j = j + 1
-    print(keys1)
-    print(keys2)
+    return [keys1, keys2]
 
 def main():
 
@@ -372,17 +379,18 @@ def main():
               "insert into df3 (name,Color) values (aab,Red)",
               "insert into df3 (name,Color) values (aad,Red)",
               "insert into df3 (name,Color) values (aac,Orange)"]
-        cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
-              "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
-              "create table df2 (name varchar(3),decimal float, state varchar(10), year int,  foreign key (name) references df1(Letter), primary key(name))",
-              "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
-              "select min(a.Letter) as minimum, b.state from df1 a, df2 as b"]
-              #"insert into df1 (Letter, Number, ) values (aaa,1,Gray)"
+        #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+        #      "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
+        #      "create table df2 (name varchar(3),decimal float, state varchar(10), year int,  foreign key (name) references df1(Letter), primary key(name))",
+        #      "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
+        #      "select min(a.Letter) as minimum, b.state from df1 a, df2 as b"]
+        #      "insert into df1 (Letter, Number, ) values (aaa,1,Gray)"
         process_input(cmd)
 
         #print(nested_loop(TABLES["df1"], TABLES["df3"], "Color", "Color"))
         #print(nested_loop(TABLES["df1"], TABLES["df2"], "Letter", "name"))
-        merge_scan(TABLES["df1"], TABLES["df2"], "Letter", "name")
+        #print(merge_scan(TABLES["df1"], TABLES["df2"], "Letter", "name"))
+        print(merge_scan(TABLES["df1"], TABLES["df3"], "Color", "Color"))
         # cmd2 = ["select test1, test2, test3 from test4, test5 where"]
         # process_input(cmd2)
         break
