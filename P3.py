@@ -1,4 +1,4 @@
-import csv, json
+import csv, json, time
 
 TABLES = {}
 dtypes = {
@@ -183,11 +183,15 @@ def process_input(cmd_list):
         return [t.lower() for t in tokens[:x]]
 
     for cmd in cmd_list:
+        start_time = time.time()
         tokens = cmd.split()
         if first_x(tokens, 2) == ["create","table"]:
             name, tbl = create_table(tokens[2:])
             if name:
                 TABLES[name] = tbl
+        elif first_x(tokens, 2) == ["drop","table"]:
+            name = tokens[2]
+            TABLES.pop(name)
         elif first_x(tokens, 2) == ["load","data"]:
             for i in range(len(tokens[2:])-2):
                 if tokens[2:][i].lower() == "into" and tokens[2:][i+1].lower() == "table":
@@ -217,6 +221,27 @@ def process_input(cmd_list):
                     TABLES[name].insert({c:v for c,v in zip(columns, vals)})
         elif first_x(tokens, 1) == ["select"]:
             process_select(cmd)
+        print("Time for", cmd, ": %s nanoseconds" % round(1000000000*(time.time() - start_time)))
+
+def and_optimizer(dfs_list, col_list, which_list):
+    # not thinking about not in, like, or not like for now
+    print(col_list)
+    print(which_list)
+    selectivity = [[]]
+    selectivity[0] = which_list
+    for condition in selectivity[0]:
+        temp = []
+        for word in condition.split(" "):
+            temp.append(word.lower())
+        # if temp[0] not in :
+        #     print("column does not exist")
+    # for i in range(0, len(which_list), 3):
+    #     selectivity += (which_list[i],)
+
+
+def query_tree(cmd):
+    print("no code yet")         
+
 
 def process_select(cmd):
     print("entered process_select")
@@ -315,7 +340,11 @@ def process_select(cmd):
             for string in which_list:
                 temp += string.split(f" {delim} ")
             which_list = [e.strip() for e in temp]
-        
+
+        for word in cols_dfs_where[2].split():
+            if word in ands:
+                which_list = and_optimizer(dfs_list, col_list, which_list)
+
         arithmetic = ["<=", ">=", "!=", "=", "<", ">"]
         other_conditions = ["not in","in","not like","like"]
         
@@ -411,15 +440,15 @@ def main():
         #        "LOAD DATA LOCAL INFILE 'data/emissions.csv' INTO TABLE emissions FIELDS TERMINATED BY ',' IGNORE 1 ROWS"]
 
         # 
-        cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
-              "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
-              "create table df2 (decimal float, state varchar(10), year int, name varchar(3), foreign key (name) references df1(Letter), primary key(name))",
-              "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)",
-              "insert into df2 (name,decimal,state,year) values (aao,0.4,Minnesota,2004)", 
-              "create table df3 (name varchar(3), Color VARCHAR(6), primary key (name))",
-              "insert into df3 (name,Color) values (aab,Red)",
-              "insert into df3 (name,Color) values (aad,Red)",
-              "insert into df3 (name,Color) values (aac,Orange)"]
+        # cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+        #       "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
+        #       "create table df2 (decimal float, state varchar(10), year int, name varchar(3), foreign key (name) references df1(Letter), primary key(name))",
+        #       "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)",
+        #       "insert into df2 (name,decimal,state,year) values (aao,0.4,Minnesota,2004)", 
+        #       "create table df3 (name varchar(3), Color VARCHAR(6), primary key (name))",
+        #       "insert into df3 (name,Color) values (aab,Red)",
+        #       "insert into df3 (name,Color) values (aad,Red)",
+        #       "insert into df3 (name,Color) values (aac,Orange)"]
         cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
              "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
              "create table df2 (name varchar(3),decimal float, state varchar(10), year int,  foreign key (name) references df1(Letter), primary key(name))",
