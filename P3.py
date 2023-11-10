@@ -364,13 +364,35 @@ def get_input():
     return [c.strip() for c in command.split(";") if c]
 
 def which_join(data1, data2, col1, col2):
-    print("no code yet")
+    #if (both tables sorted: add sorted attribute later):
+    #    return merge_scan(data1, data2, col1, col2)
+    if len(data1.table[col1]) > len(data2.table[col2]):
+        d1 = data1
+        d2 = data2
+        c1 = col1
+        c2 = col2
+    else:
+        d1 = data2
+        d2 = data1
+        c1 = col2
+        c2 = col1
+    if len(d1.table[c1]) > 10000:
+        if len(d2.table[c2]) > 100:
+            d1.sort_table(by=c1)
+            d2.sort_table(by=c2)
+            return merge_scan(d1, d2, c1, c2)
+        else:
+            #if longer table is sorted:
+            #    d2.sort_table(by=c2)
+            #    return merge_scan(d1, d2, c1, c2)
+            #else:
+            return nested_loop(d1, d2, c1, c2)
+    
 
 def nested_loop(data1, data2, col1, col2):
     #tuples should return KEYS associated w/ whatever 
     keys1 = []
     keys2 = []
-
     if data1.nrow < data2.nrow:
         for i in data1.table[col1]:
             for j in data2.table[col2]:
@@ -408,8 +430,8 @@ def merge_scan(data1, data2, col1, col2):
     keys2 = []
     i = 0
     j = 0
-    #TABLES[data1].sort_table(by=col1)
-    #TABLES[data2].sort_table(by=col2)
+    #data1.sort_table(by=col1)
+    #data2.sort_table(by=col2)
     while i < len(data1.table[col1]) and j < len(data2.table[col2]):
         if values1[i] < values2[j]:
             i = i + 1
@@ -440,26 +462,27 @@ def main():
         #        "LOAD DATA LOCAL INFILE 'data/emissions.csv' INTO TABLE emissions FIELDS TERMINATED BY ',' IGNORE 1 ROWS"]
 
         # 
-        # cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
-        #       "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
-        #       "create table df2 (decimal float, state varchar(10), year int, name varchar(3), foreign key (name) references df1(Letter), primary key(name))",
-        #       "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)",
-        #       "insert into df2 (name,decimal,state,year) values (aao,0.4,Minnesota,2004)", 
-        #       "create table df3 (name varchar(3), Color VARCHAR(6), primary key (name))",
-        #       "insert into df3 (name,Color) values (aab,Red)",
-        #       "insert into df3 (name,Color) values (aad,Red)",
-        #       "insert into df3 (name,Color) values (aac,Orange)"]
         cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
-             "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
-             "create table df2 (name varchar(3),decimal float, state varchar(10), year int,  foreign key (name) references df1(Letter), primary key(name))",
-             "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
-             "select Letter from df1 where Color = 'orange' and Number < 20",
-             "select min(a.Letter) as minimum, b.state from df1 a, df2 as b"]
+               "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
+               "create table df2 (decimal float, state varchar(10), year int, name varchar(3), foreign key (name) references df1(Letter), primary key(name))",
+               "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)",
+               "insert into df2 (name,decimal,state,year) values (aao,0.4,Minnesota,2004)", 
+               "create table df3 (name varchar(3), Color VARCHAR(6), primary key (name))",
+               "insert into df3 (name,Color) values (aab,Red)",
+               "insert into df3 (name,Color) values (aad,Red)",
+               "insert into df3 (name,Color) values (aac,Orange)"]
+        #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+        #     "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
+        #     "create table df2 (name varchar(3),decimal float, state varchar(10), year int,  foreign key (name) references df1(Letter), primary key(name))",
+        #     "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
+        #     "select Letter from df1 where Color = 'orange' and Number < 20",
+        #     "select min(a.Letter) as minimum, b.state from df1 a, df2 as b"]
         process_input(cmd)
 
         #print(nested_loop(TABLES["df1"], TABLES["df3"], "Color", "Color"))
         #print(nested_loop(TABLES["df1"], TABLES["df2"], "Letter", "name"))
         #print(merge_scan(TABLES["df1"], TABLES["df2"], "Letter", "name"))
+        print(which_join(TABLES["df1"], TABLES["df2"], "Letter", "name"))
         # print(merge_scan(TABLES["df1"], TABLES["df3"], "Color", "Color"))
         # cmd2 = ["select test1, test2, test3 from test4, test5 where"]
         # process_input(cmd2)
