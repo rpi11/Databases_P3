@@ -223,15 +223,15 @@ def process_select(cmd):
     
     tokens = cmd.split()
 
-    cols_dfs = [""]
+    cols_dfs_where = [""]
     for tkn in tokens[1:]:
-        if tkn == "from":
-            cols_dfs.append("")
+        if tkn == "from" or tkn == "where":
+            cols_dfs_where.append("")
         else:
-            cols_dfs[-1] += tkn+" "
+            cols_dfs_where[-1] += tkn+" "
 
-    col_list = [v.strip() for v in cols_dfs[0].split(",")]
-    dfs_list = [v.strip() for v in cols_dfs[1].split(",")]
+    col_list = [v.strip() for v in cols_dfs_where[0].split(",")]
+    dfs_list = [v.strip() for v in cols_dfs_where[1].split(",")]
 
     col_funcs = {}
     for col in col_list:
@@ -259,8 +259,8 @@ def process_select(cmd):
     if len(dfs_list) > 1:
         for df in dfs_list:
             alias = ""
-            if any(f" {tp} " in df for tp in ["as","AS","As"]):
-                for tp in ["as","AS","As"]:
+            if any(f" {tp} " in df for tp in ["as","AS"]):
+                for tp in ["as","AS"]:
                     if f" {tp} " in df:
                         alias = df.split(tp)[-1].strip()
                         name = "".join(df.split(tp)[:-1]).strip()
@@ -296,10 +296,31 @@ def process_select(cmd):
             print(f"ERROR: table {df} does not exist")
             return 1
         else:
-            for col in which_columns[df]:
-                if col not in TABLES[df].columns:
-                    print(f"ERROR: column {col} does not exist in table {df}")
-                    return 1
+            if "*" in which_columns[df]:
+                which_columns[df] = {c:{"agg":"","alias":c} for c in TABLES[df].columns}
+            else:
+                for col in which_columns[df]:
+                    if col not in TABLES[df].columns:
+                        print(f"ERROR: column {col} does not exist in table {df}")
+                        return 1
+
+    if len(cols_dfs_where) > 2:
+        which_list = [cols_dfs_where[2]]
+
+        ands = ["and","AND"]
+        ors = ["or","OR"]
+
+        for delim in ands+ors:
+            temp = []
+            for string in which_list:
+                temp += string.split(f" {delim} ")
+            which_list = [e.strip() for e in temp]
+        
+        arithmetic = ["<=", ">=", "!=", "=", "<", ">"]
+        other_conditions = ["not in","in","not like","like"]
+        
+        print(which_list)
+
 
 
 
@@ -403,8 +424,7 @@ def main():
              "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
              "create table df2 (name varchar(3),decimal float, state varchar(10), year int,  foreign key (name) references df1(Letter), primary key(name))",
              "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
-             "select * from df1",
-             "select Letter from df1 where Color = 'orange'",
+             "select Letter from df1 where Color = 'orange' and Number < 20",
              "select min(a.Letter) as minimum, b.state from df1 a, df2 as b"]
         process_input(cmd)
 
