@@ -1,4 +1,4 @@
-import csv, json, time
+import csv, json, time, ast
 
 TABLES = {}
 dtypes = {
@@ -17,7 +17,7 @@ dtypes = {
 class Table:
     def __init__(self, name, col_dtype_dict, key = "", foreign_keys = {"":{"table":"","col":""}}):
         
-        self.__dtypes = col_dtype_dict
+        self.dtypes = col_dtype_dict
         self.key = key
         self.f_keys = foreign_keys
         self.columns = list(col_dtype_dict.keys())
@@ -26,7 +26,7 @@ class Table:
         self.name = name
         
         self.table = {}
-        for col in self.__dtypes:
+        for col in self.dtypes:
             self.table[col] = {}
         return
 
@@ -88,9 +88,9 @@ class Table:
                 if i > ignore:
                     new_row = {}
                     for col, data in zip(self.columns, line):
-                        add = self.__dtypes[col]["cast"](data)
-                        if "size" in self.__dtypes[col]:
-                            add = add[:self.__dtypes[col]["size"]]
+                        add = self.dtypes[col]["cast"](data)
+                        if "size" in self.dtypes[col]:
+                            add = add[:self.dtypes[col]["size"]]
                         new_row[col] = add
                     if self.insert(new_row) == 1:
                         break
@@ -242,10 +242,41 @@ def and_optimizer(dfs_list, col_list, which_list):
 def query_tree(cmd):
     print("no code yet")         
 
-
+# region SELECT ########################################################################
 def process_select(cmd):
-    print("entered process_select")
+    # get columns, dfs, and where condition
+    col_list, dfs_list, where = get_df_col_and_where_list(cmd)
+
+    # get aggregation methods for columns to be gotten
+    col_funcs = get_col_funcs(col_list)
+    if col_funcs == 1:
+        return 1
+
+    # get df alias names
+    df_aliases = get_df_aliases(dfs_list)
+    if df_aliases == 1:
+        return 1
+
     
+    # create column dict that connects aliases
+    which_columns = get_which_columns(col_funcs, df_aliases, dfs_list)
+    if which_columns == 1:
+        return 1
+
+    if len(where)>0:
+        condition_dict = get_cond_dict(where, df_aliases)
+        if condition_dict == 1:
+            return 1
+        
+        get_cond_columns(condition_dict, df_aliases)
+    else:
+        condition_dict = {}
+
+    print(json.dumps(condition_dict, indent = 4))
+    exit()
+
+
+def get_df_col_and_where_list(cmd):
     tokens = cmd.split()
 
     cols_dfs_where = [""]
@@ -258,6 +289,14 @@ def process_select(cmd):
     col_list = [v.strip() for v in cols_dfs_where[0].split(",")]
     dfs_list = [v.strip() for v in cols_dfs_where[1].split(",")]
 
+    if len(cols_dfs_where) > 2:
+        where_list = [cols_dfs_where[2].strip()]
+    else:
+        where_list = []
+
+    return col_list, dfs_list, where_list
+
+def get_col_funcs(col_list):
     col_funcs = {}
     for col in col_list:
         name = col
@@ -279,27 +318,29 @@ def process_select(cmd):
             "agg":agg,
             "alias":alias
         }
-    
-    df_aliases = {}
-    if len(dfs_list) > 1:
-        for df in dfs_list:
-            alias = ""
-            if any(f" {tp} " in df for tp in ["as","AS"]):
-                for tp in ["as","AS"]:
-                    if f" {tp} " in df:
-                        alias = df.split(tp)[-1].strip()
-                        name = "".join(df.split(tp)[:-1]).strip()
-                        break
-            else:
-                alias = df.split()[-1].strip()
-                if len(df.split()) > 1:
-                    name = "".join(df.split()[:-1]).strip()
-                else:
-                    name = "".join(df.split()[0]).strip()
-            df_aliases[alias] = name
-    else:
-        df_aliases[""] = dfs_list[0].strip()
+    return col_funcs
 
+def get_df_aliases(dfs_list):
+    df_aliases = {}
+    for df in dfs_list:
+        alias = ""
+        if any(f" {tp} " in df for tp in ["as","AS"]):
+            for tp in ["as","AS"]:
+                if f" {tp} " in df:
+                    alias = df.split(tp)[-1].strip()
+                    name = "".join(df.split(tp)[:-1]).strip()
+                    break
+        else:
+            alias = df.split()[-1].strip()
+            if len(df.split()) > 1:
+                name = "".join(df.split()[:-1]).strip()
+            else:
+                name = "".join(df.split()[0]).strip()
+        df_aliases[alias] = name
+
+    return df_aliases
+
+def get_which_columns(col_funcs, df_aliases, dfs_list):
     which_columns = {}
     for col in col_funcs:
         if "." in col:
@@ -328,34 +369,175 @@ def process_select(cmd):
                     if col not in TABLES[df].columns:
                         print(f"ERROR: column {col} does not exist in table {df}")
                         return 1
+    return which_columns 
 
-    if len(cols_dfs_where) > 2:
-        which_list = [cols_dfs_where[2]]
+def get_cond_dict(where, df_aliases):
+    condition_dict = {
+        "logic":"",
+        "arithmetic":{},
+        "string":{
+            "ins":{},
+            "likes":{}
+        }
+    }
 
-        ands = ["and","AND"]
-        ors = ["or","OR"]
+    ands = ["and","AND"]
+    ors = ["or","OR"]
 
-        for delim in ands+ors:
-            temp = []
-            for string in which_list:
-                temp += string.split(f" {delim} ")
-            which_list = [e.strip() for e in temp]
+    for delim in ands+ors:
+        temp = []
+        for string in where:
+            if f" {delim} " in string:
+                condition_dict["logic"] = delim.lower()
+            temp += string.split(f" {delim} ")
+        where = [e.strip() for e in temp]
 
-        for word in cols_dfs_where[2].split():
-            if word in ands:
-                which_list = and_optimizer(dfs_list, col_list, which_list)
+    def def_col_error(df_col):
+        if df_col[0] not in df_aliases:
+            if df_col == "":
+                print(f"ERROR: no dataframe referenced with variable {df_col[1]}")
+            else:
+                print(f"ERROR: df alias {df_col[0]} does not exist")
+            return True
+        elif df_col[1] not in TABLES[df_aliases[df_col[0]]].columns:
+            print(f"ERROR: column {df_col[1]} not in df {df_aliases[df_col[0]]}")
+            return True
+        return False
 
-        arithmetic = ["<=", ">=", "!=", "=", "<", ">"]
-        other_conditions = ["not in","in","not like","like"]
+    arithmetic = ["<=", ">=", "!=", "==", "<", ">"]
+    ins = ["not in","in"]
+    likes = ["not like","like"]
+    for cond in where:
+        if any([a in cond for a in arithmetic]):
+            for a in arithmetic:
+                if a in cond:
+                    # Too hard without regex to deal with decimals on left
+                    # side of operator so we just assume integers on left
+                    modified_cond = cond.split(a)
+                    modified_cond = modified_cond[0].replace(".","___")+a+modified_cond[1]
+                    condition_dict["arithmetic"][modified_cond] = {}
+
+                    parsed = ast.parse(modified_cond, mode = "exec")
+                    variable_names = [n.id for n in ast.walk(parsed) if isinstance(n, ast.Name)]
+                    for v in variable_names:
+                        
+                        if "___" in v:
+                            df_col = v.split("___")
+                        else:
+                            df_col = ["",v]
+                        
+                        if def_col_error(df_col):
+                            return 1
+
+                        condition_dict["arithmetic"][modified_cond][v] = {
+                            "df_alias":df_col[0],
+                            "column":df_col[1]
+                        }
+                    break
+        elif any([f" {s} " in cond for s in ins+[e.upper() for e in ins]]):
+            for s in ins+[e.upper() for e in ins]:
+                if f" {s} " in cond:
+                    col_list = [e.strip() for e in cond.split(f" {s} ")]
+
+                    if "." in col_list[0]:
+                        df_col = col_list[0].split(".")
+                    else:
+                        df_col = ["",col_list[0]]
+                    if def_col_error(df_col):
+                        return 1
+
+                    dtp = TABLES[df_aliases[df_col[0]]].dtypes[df_col[1]]["cast"]
+                    try:
+                        check_list = [dtp(e.strip()) for e in col_list[1].\
+                                        replace("(","").replace(")","").replace("'","").replace('"',"").split(",")]
+                    except ValueError:
+                        print(f"ERROR: cannot convert values in list {col_list[1]} to type {dtp}")
+                        return 1
+
+                    condition_dict["string"]["ins"][cond] = {
+                        "df_alias":df_col[0],
+                        "columns":df_col[1],
+                        "eval":s.lower() == "in",
+                        "list":check_list
+                    }
+                    break
+        elif any([s in cond for s in likes+[e.upper() for e in likes]]):
+            for s in likes+[e.upper() for e in likes]:
+                if f" {s} " in cond:
+                    col_string = [e.strip() for e in cond.split(f" {s} ")]
+                    compare = col_string[1].replace("'","").replace('"',"")
+                    
+                    if "." in col_string[0]:
+                        df_col = col_string[0].split(".")
+                    else:
+                        df_col = ["",col_string[0]]
+                    if def_col_error(df_col):
+                        return 1
+                    
+                    condition_dict["string"]["likes"][cond] = {
+                        "df_alias":df_col[0],
+                        "columns":df_col[1],
+                        "eval":s.lower() == "like",
+                    }
+
+                    comp_str = compare
+                    if compare[0] == "%" and compare[1] == "%":
+                        condition_dict["string"]["likes"][cond]["type"] = "within"
+                        comp_str = comp_str[1:-1]
+                    elif compare[1] == "%":
+                        condition_dict["string"]["likes"][cond]["type"] = "start"
+                        comp_str = comp_str[1:]
+                    else:
+                        condition_dict["string"]["likes"][cond]["type"] = "end"
+                        comp_str = comp_str[:-1]
+                    condition_dict["string"]["likes"][cond]["compare"] = comp_str
+                    break
+        else:
+            print(f"ERROR: invalid conditional statement in {cond}")
+            return 1
         
-        print(which_list)
+    return condition_dict
 
+def get_cond_columns(c, df_aliases):
+    # print(json.dumps(c["arithmetic"], indent = 4))
 
+    # arithmetic
+    cond_list = {}
+    for cond in c["arithmetic"]:
+        df = ""
+        for var in c["arithmetic"][cond]:
+            if df and df != df_aliases[c["arithmetic"][cond][var]["df_alias"]]:
+                print(f"ERROR: trying to perform subsetting with condition that references multiple tables")
+            elif not df:
+                df = df_aliases[c["arithmetic"][cond][var]["df_alias"]]
 
+        if df not in cond_list:
+            cond_list[df] = {}
+        cond_back = cond.replace("___",".")
+        cond_list[df][cond_back] = []
 
-    print(json.dumps(which_columns, indent = 4))
+        parsed = ast.parse(cond, mode='eval')
+        if len(c["arithmetic"][cond]) == 1: # Can just condition if only one variable is considered
+            var = list(c["arithmetic"][cond].keys())[0]
+            column = c["arithmetic"][cond][var]["column"]
+            vals = list(TABLES[df].table[column].keys())
+
+            for val in vals:
+                if eval(compile(parsed, filename='<string>', mode='eval'), {}, {var:val}):
+                    cond_list[df][cond_back].extend(TABLES[df].table[column][val])
+            cond_list[df][cond_back] = list(set(cond_list[df][cond_back]))
+        else: # Otherwise we need to actually just scan each value
+            var_col_dict = {var:c["arithmetic"][cond][var]["column"] for var in c["arithmetic"][cond]}
+            
+            for key in TABLES[df].table[TABLES[df].key]:
+                params = {var:TABLES[df].table[TABLES[df].key][key][var_col_dict[var]] for var in var_col_dict}
+                if eval(compile(parsed, filename='<string>', mode='eval'), {}, params):
+                    cond_list[df][cond_back].append(key)
+
+    with open("explain.json","w+") as o:
+        json.dump(cond_list, o, indent = 4)
     exit()
-
+# endregion SELECT #####################################################################
 
 def get_input():
     command = ""
@@ -471,18 +653,20 @@ def main():
                "insert into df3 (name,Color) values (aab,Red)",
                "insert into df3 (name,Color) values (aad,Red)",
                "insert into df3 (name,Color) values (aac,Orange)"]
-        #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
-        #     "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
-        #     "create table df2 (name varchar(3),decimal float, state varchar(10), year int,  foreign key (name) references df1(Letter), primary key(name))",
-        #     "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
-        #     "select Letter from df1 where Color = 'orange' and Number < 20",
-        #     "select min(a.Letter) as minimum, b.state from df1 a, df2 as b"]
+        cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+            "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
+            "create table df2 (name varchar(3),decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
+            "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
+            "select b.name, min(b.decimal) from df2 as b where b.name not like 'aa%' and b.decimal*2<.05 and (b.decimal*800) + b.year < 1910 and b.state in ('Iowa','Minnesota','Indiana')",
+            "select a.Letter, max(a.Number) from df1 as a where a.Letter not like 'aa%' and a.Number*2 < 20 and a.Number + a.Number < 30 and a.Color in ('Orange','Yellow','Blue')",
+            # "select min(a.Letter) as minimum, b.state from df1 a, df2 as b where a.Letter == b.name and b.decimal in (1,2,3,4)"
+            ]
         process_input(cmd)
 
         #print(nested_loop(TABLES["df1"], TABLES["df3"], "Color", "Color"))
         #print(nested_loop(TABLES["df1"], TABLES["df2"], "Letter", "name"))
         #print(merge_scan(TABLES["df1"], TABLES["df2"], "Letter", "name"))
-        print(which_join(TABLES["df1"], TABLES["df2"], "Letter", "name"))
+        # print(which_join(TABLES["df1"], TABLES["df2"], "Letter", "name"))
         # print(merge_scan(TABLES["df1"], TABLES["df3"], "Color", "Color"))
         # cmd2 = ["select test1, test2, test3 from test4, test5 where"]
         # process_input(cmd2)
