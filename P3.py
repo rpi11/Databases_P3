@@ -657,7 +657,7 @@ def main():
             "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
             "create table df2 (name varchar(3),decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
             "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
-            "select b.name, min(b.decimal) from df2 as b where b.name not like 'aa%' and b.decimal*2<.05 and (b.decimal*800) + b.year < 1910 and b.state in ('Iowa','Minnesota','Indiana')",
+            "select b.name, min(b.decimal) from df2 as b where b.name not like 'aa%' and b.decimal*2<.05 and b.state <= 'Alabama' and (b.decimal*800) + b.year < 1910 and b.state in ('Iowa','Minnesota','Indiana')",
             "select a.Letter, max(a.Number) from df1 as a where a.Letter not like 'aa%' and a.Number*2 < 20 and a.Number + a.Number < 30 and a.Color in ('Orange','Yellow','Blue')",
             # "select min(a.Letter) as minimum, b.state from df1 a, df2 as b where a.Letter == b.name and b.decimal in (1,2,3,4)"
             ]
