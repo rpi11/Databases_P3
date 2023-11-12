@@ -239,8 +239,9 @@ def process_input(cmd_list):
 
 # region SELECT ########################################################################
 def process_select(cmd):
+    print(cmd)
     # get columns, dfs, and where condition
-    col_list, dfs_list, where = get_df_col_and_where_list(cmd)
+    col_list, dfs_list, where, join_list = get_df_col_and_where_list(cmd)
 
     # get aggregation methods for columns to be gotten
     col_funcs = get_col_funcs(col_list)
@@ -258,17 +259,36 @@ def process_select(cmd):
     if which_columns == 1:
         return 1
 
+    logic = ""
+    cond_columns = {}
     if len(where)>0:
         condition_dict = get_cond_dict(where, df_aliases)
         if condition_dict == 1:
             return 1
-        
-        get_cond_columns(condition_dict, df_aliases)
-    else:
-        condition_dict = {}
+        logic = condition_dict["logic"]
+        cond_columns = get_cond_columns(condition_dict, df_aliases)
 
-    print(json.dumps(condition_dict, indent = 4))
-    exit()
+    dfs = list(which_columns.keys())
+    if cond_columns:
+        dfs += list(cond_columns.keys())
+    dfs = list(set(dfs))
+
+    outDict = {}
+    for df in dfs:
+        outDict[df] = {
+            "logic":logic,
+            "columns to get":{},
+            "subset lists":[]
+        }
+        if df in which_columns:
+            outDict[df]["columns to get"] = which_columns[df]
+        
+        if df in cond_columns:
+            outDict[df]["subset lists"] = [cond_columns[df][cond] for cond in cond_columns[df]]
+
+    # PROCESS JOINS
+
+    return outDict
 
 
 def get_df_col_and_where_list(cmd):
@@ -276,20 +296,24 @@ def get_df_col_and_where_list(cmd):
 
     cols_dfs_where = [""]
     for tkn in tokens[1:]:
-        if tkn == "from" or tkn == "where":
+        if tkn == "from" or tkn == "join" or tkn == "where":
             cols_dfs_where.append("")
         else:
             cols_dfs_where[-1] += tkn+" "
 
     col_list = [v.strip() for v in cols_dfs_where[0].split(",")]
     dfs_list = [v.strip() for v in cols_dfs_where[1].split(",")]
-
     if len(cols_dfs_where) > 2:
-        where_list = [cols_dfs_where[2].strip()]
+        join_list = [cols_dfs_where[2].strip()]
+    else:
+        join_list = []
+
+    if len(cols_dfs_where) > 3:
+        where_list = [cols_dfs_where[3].strip()]
     else:
         where_list = []
 
-    return col_list, dfs_list, where_list
+    return col_list, dfs_list, where_list, join_list
 
 def get_col_funcs(col_list):
     col_funcs = {}
@@ -589,11 +613,7 @@ def get_cond_columns(c, df_aliases):
                     else:    
                         cond_list[df][cond].extend(TABLES[df].table[column][val])
 
-    with open("explain.json","w+") as o:
-        json.dump(cond_list, o, indent = 4)
-    # print(json.dumps(cond_list, indent = 4))
-
-    exit()
+    return cond_list
 # endregion SELECT #####################################################################
 
 # region OPTIMIZATION ########################################################################
@@ -736,17 +756,17 @@ def main():
                "insert into df3 (name,Color) values (aad,Red)",
                "insert into df3 (name,Color) values (aac,Orange)"]
         cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
-            "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
-            "create table df2 (name varchar(3),decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
-            "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
-            "select b.name, min(b.decimal) from df2 as b where b.name not like 'aa%' and b.decimal*2<.05 and b.state <= 'Alabama' and (b.decimal*800) + b.year < 1910 and b.state in ('Iowa','Minnesota','Indiana')",
-            "select a.Letter, max(a.Number) from df1 as a where a.Letter not like 'aa%' and a.Number*2 < 20 and a.Number + a.Number < 30 and a.Color in ('Orange','Yellow','Blue')",
-            # "select min(a.Letter) as minimum, b.state from df1 a, df2 as b where a.Letter == b.name and b.decimal in (1,2,3,4)"
+           "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
+           "create table df2 (name varchar(3),decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
+           "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
+           "select b.name, min(b.decimal) from df2 as b where b.name not like 'aa%' and b.decimal*2<.05 and b.state <= 'Alabama' and (b.decimal*800) + b.year < 1910 and b.state in ('Iowa','Minnesota','Indiana')",
+           "select a.Letter, max(a.Number) from df1 as a where a.Letter not like 'aa%' and a.Number*2 < 20 and a.Number + a.Number < 30 and a.Color in ('Orange','Yellow','Blue')",
+            "select min(a.Letter) as minimum, b.state from df1 a, df2 as b where a.Letter == b.name and b.decimal in (1,2,3,4)"
             ]
         process_input(cmd)
 
         #print(nested_loop(TABLES["df1"], TABLES["df3"], "Color", "Color"))
-        #print(nested_loop(TABLES["df1"], TABLES["df2"], "Letter", "name"))
+        print(nested_loop(TABLES["df1"], TABLES["df2"], "Letter", "name"))
         #print(merge_scan(TABLES["df1"], TABLES["df2"], "Letter", "name"))
         # print(which_join(TABLES["df1"], TABLES["df2"], "Letter", "name"))
         # print(merge_scan(TABLES["df1"], TABLES["df3"], "Color", "Color"))
