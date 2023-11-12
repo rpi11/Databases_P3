@@ -476,15 +476,15 @@ def get_cond_dict(where, df_aliases):
                     }
 
                     comp_str = compare
-                    if compare[0] == "%" and compare[1] == "%":
+                    if compare[0] == "%" and compare[-1] == "%":
                         condition_dict["string"]["likes"][cond]["type"] = "within"
                         comp_str = comp_str[1:-1]
-                    elif compare[1] == "%":
+                    elif compare[-1] == "%":
                         condition_dict["string"]["likes"][cond]["type"] = "start"
-                        comp_str = comp_str[1:]
+                        comp_str = comp_str[:-1]
                     else:
                         condition_dict["string"]["likes"][cond]["type"] = "end"
-                        comp_str = comp_str[:-1]
+                        comp_str = comp_str[1:]
                     condition_dict["string"]["likes"][cond]["compare"] = comp_str
                     break
         else:
@@ -494,7 +494,6 @@ def get_cond_dict(where, df_aliases):
     return condition_dict
 
 def get_cond_columns(c, df_aliases):
-    # print(json.dumps(c["arithmetic"], indent = 4))
 
     # arithmetic
     cond_list = {}
@@ -515,11 +514,14 @@ def get_cond_columns(c, df_aliases):
         if len(c["arithmetic"][cond]) == 1: # Can just condition if only one variable is considered
             var = list(c["arithmetic"][cond].keys())[0]
             column = c["arithmetic"][cond][var]["column"]
-            vals = list(TABLES[df].table[column].keys())
+            isKey = (column == TABLES[df].key)
 
-            for val in vals:
+            for val in TABLES[df].table[column]:
                 if eval(compile(parsed, filename='<string>', mode='eval'), {}, {var:val}):
-                    cond_list[df][cond_back].extend(TABLES[df].table[column][val])
+                    if isKey:
+                        cond_list[df][cond_back].append(val)
+                    else:
+                        cond_list[df][cond_back].extend(TABLES[df].table[column][val])
             cond_list[df][cond_back] = list(set(cond_list[df][cond_back]))
         else: # Otherwise we need to actually just scan each value
             var_col_dict = {var:c["arithmetic"][cond][var]["column"] for var in c["arithmetic"][cond]}
@@ -529,8 +531,68 @@ def get_cond_columns(c, df_aliases):
                 if eval(compile(parsed, filename='<string>', mode='eval'), {}, params):
                     cond_list[df][cond_back].append(key)
 
+    # ins
+    for cond in c["string"]["ins"]:
+        df = df_aliases[c["string"]["ins"][cond]["df_alias"]]
+        if df not in cond_list:
+            cond_list[df] = {}
+        cond_list[df][cond] = []
+
+        column = c["string"]["ins"][cond]["columns"]
+        isKey = (column == TABLES[df].key)
+        if c["string"]["ins"][cond]["eval"]:
+            for val in c["string"]["ins"][cond]["list"]:
+                if val in TABLES[df].table[column]:
+                    if isKey:
+                        cond_list[df][cond].append(val)
+                    else:
+                        cond_list[df][cond].extend(TABLES[df].table[column][val])
+        else:
+            for val in TABLES[df].table[column]:
+                if val not in c["string"]["ins"][cond]["list"]:
+                    if isKey:
+                        cond_list[df][cond].append(val)
+                    else:
+                        cond_list[df][cond].extend(TABLES[df].table[column][val])
+
+        cond_list[df][cond] = list(set(cond_list[df][cond]))
+
+    # likes
+    for cond in c["string"]["likes"]:
+        df = df_aliases[c["string"]["likes"][cond]["df_alias"]]
+        column = c["string"]["likes"][cond]["columns"]
+        isKey = (column == TABLES[df].key)
+        cond_list[df][cond] = []
+
+        compare = c["string"]["likes"][cond]["compare"]
+        tp = c["string"]["likes"][cond]["type"]
+
+        if tp == "within":
+            for val in TABLES[df].table[column]:
+                if (compare in val) == c["string"]["likes"][cond]["eval"]:
+                    if isKey:
+                        cond_list[df][cond].append(val)
+                    else:
+                        cond_list[df][cond].extend(TABLES[df].table[column][val])
+        elif tp == "end":
+            for val in TABLES[df].table[column]:
+                if val.endswith(compare) == c["string"]["likes"][cond]["eval"]:
+                    if isKey:
+                        cond_list[df][cond].append(val)
+                    else:
+                        cond_list[df][cond].extend(TABLES[df].table[column][val])
+        elif tp == "start":
+            for val in TABLES[df].table[column]:
+                if val.startswith(compare) == c["string"]["likes"][cond]["eval"]:
+                    if isKey:
+                        cond_list[df][cond].append(val)
+                    else:    
+                        cond_list[df][cond].extend(TABLES[df].table[column][val])
+
     with open("explain.json","w+") as o:
         json.dump(cond_list, o, indent = 4)
+    # print(json.dumps(cond_list, indent = 4))
+
     exit()
 # endregion SELECT #####################################################################
 
