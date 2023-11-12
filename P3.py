@@ -235,7 +235,7 @@ def process_input(cmd_list):
                     TABLES[name].insert({c:v for c,v in zip(columns, vals)})
         elif first_x(tokens, 1) == ["select"]:
             process_select(cmd)
-        print("Time for", cmd, ": %s nanoseconds" % round(1000000000*(time.time() - start_time)))       
+        #print("Time for", cmd, ": %s nanoseconds" % round(1000000000*(time.time() - start_time)))       
 
 # region SELECT ########################################################################
 def process_select(cmd):
@@ -286,7 +286,20 @@ def process_select(cmd):
         if df in cond_columns:
             outDict[df]["subset lists"] = [cond_columns[df][cond] for cond in cond_columns[df]]
 
-    # PROCESS JOINS
+    #PROCESS JOINS
+    #and/or combination here
+
+    #code to join tables
+    #will definitely need to be edited based on above but this is the gist for now
+    which_join_cols = get_join_cols(join_list, df_aliases)
+    if len(dfs_list) > 1:
+        #NOTE: something funky w/ sort_tables, will need to look at but for now we'll just do nested
+        final_keys = nested_loop(TABLES[dfs[0]], TABLES[dfs[1]], which_join_cols[dfs[0]], which_join_cols[dfs[1]])
+        print(final_keys)
+    else:
+        print("no code yet: see commented note")
+        #final_keys = whatever form it'll take after going through 'where' statements, not sure what that will be yet
+        #but I'll probably end up formatting it to look like the output for join statements
 
     return outDict
 
@@ -304,9 +317,11 @@ def get_df_col_and_where_list(cmd):
     col_list = [v.strip() for v in cols_dfs_where[0].split(",")]
     dfs_list = [v.strip() for v in cols_dfs_where[1].split(",")]
     if len(cols_dfs_where) > 2:
-        join_list = [cols_dfs_where[2].strip()]
+        #join_list = [cols_dfs_where[2].strip()]
+        join_list = [v.strip() for v in cols_dfs_where[2].split(" ")]
     else:
         join_list = []
+    print(join_list)
 
     if len(cols_dfs_where) > 3:
         where_list = [cols_dfs_where[3].strip()]
@@ -389,6 +404,23 @@ def get_which_columns(col_funcs, df_aliases, dfs_list):
                         print(f"ERROR: column {col} does not exist in table {df}")
                         return 1
     return which_columns 
+
+def get_join_cols(join_list, df_aliases):
+    which_join_cols = {}
+    for x in join_list:
+        if "." in x:
+            alias = x.split(".")[0]
+            print("alias: " + alias)
+            if alias in df_aliases:
+                if df_aliases[alias] not in which_join_cols:
+                    which_join_cols[df_aliases[alias]] = {}
+                temp = x.split(".")[1]
+                which_join_cols[df_aliases[alias]] = temp.split(" ")[0]
+            else:
+                print(f"ERROR: alias {alias} not assigned to a table")
+                return 1
+
+    return which_join_cols
 
 def get_cond_dict(where, df_aliases):
     condition_dict = {
@@ -614,6 +646,10 @@ def get_cond_columns(c, df_aliases):
                         cond_list[df][cond].extend(TABLES[df].table[column][val])
 
     return cond_list
+
+
+
+
 # endregion SELECT #####################################################################
 
 # region OPTIMIZATION ########################################################################
@@ -637,7 +673,7 @@ def which_join(data1, data2, col1, col2):
         c1 = col2
         c2 = col1
     if len(d1.table[c1]) > 10000:
-        if len(d2.table[c2]) > 100:
+        if len(d2.table[c2]) > 50:
             d1.sort_table(by=c1)
             d2.sort_table(by=c2)
             return merge_scan(d1, d2, c1, c2)
@@ -650,7 +686,6 @@ def which_join(data1, data2, col1, col2):
     
 
 def nested_loop(data1, data2, col1, col2):
-    #tuples should return KEYS associated w/ whatever 
     keys1 = []
     keys2 = []
     if data1.nrow < data2.nrow:
@@ -732,7 +767,7 @@ def and_optimizer(dfs_list, col_list, which_list):
 
 
 def query_tree(cmd):
-    print("no code yet")  
+    print("no code yet")
 
 # endregion OPTIMIZATIONS #####################################################################
 
@@ -754,19 +789,24 @@ def main():
                "create table df3 (name varchar(3), Color VARCHAR(6), primary key (name))",
                "insert into df3 (name,Color) values (aab,Red)",
                "insert into df3 (name,Color) values (aad,Red)",
-               "insert into df3 (name,Color) values (aac,Orange)"]
-        cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
-           "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
-           "create table df2 (name varchar(3),decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
-           "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
-           "select b.name, min(b.decimal) from df2 as b where b.name not like 'aa%' and b.decimal*2<.05 and b.state <= 'Alabama' and (b.decimal*800) + b.year < 1910 and b.state in ('Iowa','Minnesota','Indiana')",
-           "select a.Letter, max(a.Number) from df1 as a where a.Letter not like 'aa%' and a.Number*2 < 20 and a.Number + a.Number < 30 and a.Color in ('Orange','Yellow','Blue')",
-            "select min(a.Letter) as minimum, b.state from df1 a, df2 as b where a.Letter == b.name and b.decimal in (1,2,3,4)"
-            ]
+               "insert into df3 (name,Color) values (aac,Orange)",
+               "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
+            "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50"]
+        #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+        #   "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
+        #   "create table df2 (name varchar(3),decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
+        #   "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
+           #"select b.name, min(b.decimal) from df2 as b where b.name not like 'aa%' and b.decimal*2<.05 and b.state <= 'Alabama' and (b.decimal*800) + b.year < 1910 and b.state in ('Iowa','Minnesota','Indiana')",
+           #"select a.Letter, max(a.Number) from df1 as a where a.Letter not like 'aa%' and a.Number*2 < 20 and a.Number + a.Number < 30 and a.Color in ('Orange','Yellow','Blue')",
+           # "select min(a.Letter) as minimum, b.state from df1 a, df2 as b where a.Letter == b.name and b.decimal in (1,2,3,4)",
+           # "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
+           # "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50",
+           # ]
         process_input(cmd)
 
-        #print(nested_loop(TABLES["df1"], TABLES["df3"], "Color", "Color"))
-        print(nested_loop(TABLES["df1"], TABLES["df2"], "Letter", "name"))
+        #x = nested_loop(TABLES["df1"], TABLES["df3"], "Color", "Color")
+        #output(TABLES["df1"], TABLES["df3"], x)
+        #nested_loop(TABLES["df1"], TABLES["df2"], "Letter", "name")
         #print(merge_scan(TABLES["df1"], TABLES["df2"], "Letter", "name"))
         # print(which_join(TABLES["df1"], TABLES["df2"], "Letter", "name"))
         # print(merge_scan(TABLES["df1"], TABLES["df3"], "Color", "Color"))
