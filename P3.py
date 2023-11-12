@@ -1,4 +1,4 @@
-import csv, json, time, ast
+import csv, json, time, ast, pandas
 
 TABLES = {}
 dtypes = {
@@ -60,6 +60,9 @@ class Table:
         self.nrow += 1
         return 0
 
+    def get_cols(self):
+        return self.columns
+    
     def import_file(self, tkns):
 
         file = ""
@@ -201,6 +204,17 @@ def process_input(cmd_list):
                 TABLES[name].import_file(tokens[2:])
             else:
                 print("ERROR: the table you are trying to load into does not exist")
+        elif first_x(tokens, 2) == ["create","index"]:
+            index = tokens[2]
+            if tokens[3].lower() == "on":
+                name = tokens[4]
+                attribute = tokens[5]
+            if name not in TABLES:
+                print("ERROR: the table you are trying to create an index on does not exist")
+            attribute = attribute[1:-1]
+            if attribute not in TABLES[name].columns:
+                print("ERROR: the column you are trying to create an index on does not exist")
+            # now the actual setting of the index
         elif first_x(tokens, 2) == ["insert","into"]:
             name = tokens[2]
             if name not in TABLES:
@@ -221,26 +235,7 @@ def process_input(cmd_list):
                     TABLES[name].insert({c:v for c,v in zip(columns, vals)})
         elif first_x(tokens, 1) == ["select"]:
             process_select(cmd)
-        print("Time for", cmd, ": %s nanoseconds" % round(1000000000*(time.time() - start_time)))
-
-def and_optimizer(dfs_list, col_list, which_list):
-    # not thinking about not in, like, or not like for now
-    print(col_list)
-    print(which_list)
-    selectivity = [[]]
-    selectivity[0] = which_list
-    for condition in selectivity[0]:
-        temp = []
-        for word in condition.split(" "):
-            temp.append(word.lower())
-        # if temp[0] not in :
-        #     print("column does not exist")
-    # for i in range(0, len(which_list), 3):
-    #     selectivity += (which_list[i],)
-
-
-def query_tree(cmd):
-    print("no code yet")         
+        print("Time for", cmd, ": %s nanoseconds" % round(1000000000*(time.time() - start_time)))       
 
 # region SELECT ########################################################################
 def process_select(cmd):
@@ -539,6 +534,7 @@ def get_cond_columns(c, df_aliases):
     exit()
 # endregion SELECT #####################################################################
 
+# region OPTIMIZATION ########################################################################
 def get_input():
     command = ""
     while ";" not in command:
@@ -633,6 +629,30 @@ def merge_scan(data1, data2, col1, col2):
             i = i + 1
             j = j + 1
     return [keys1, keys2]
+
+def and_optimizer(dfs_list, col_list, which_list):
+    selectivity = [[]]
+    selectivity[0] = which_list
+    for condition, i in selectivity[0]:
+        # run text as conditioning and calculate selectivity index
+        # how is each condition being processed -- final form of sorted list?
+        temp = []
+        for word in condition.split(" "):
+            temp.append(word.lower())
+        if temp[0] in TABLES[dfs_list].columns:
+            selectivity_index = TABLES[dfs_list].loc[temp[0] == some_value, 'col2'].sum()/sum(TABLES[dfs_list].loc[temp[0]])
+            selectivity[1][i] = selectivity_index
+        else:
+            print("column conditioning on does not exist")
+
+    selectivity_sorted = selectivity[0].sort(key = lambda x: x[1], reverse = True)
+    return selectivity_sorted
+
+
+def query_tree(cmd):
+    print("no code yet")  
+
+# endregion OPTIMIZATIONS #####################################################################
 
 def main():
 
