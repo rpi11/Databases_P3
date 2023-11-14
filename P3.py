@@ -1,4 +1,4 @@
-import csv, json, time, ast, pandas
+import csv, json, time, ast
 
 TABLES = {}
 dtypes = {
@@ -59,9 +59,6 @@ class Table:
 
         self.nrow += 1
         return 0
-
-    def get_cols(self):
-        return self.columns
     
     def import_file(self, tkns):
 
@@ -204,17 +201,6 @@ def process_input(cmd_list):
                 TABLES[name].import_file(tokens[2:])
             else:
                 print("ERROR: the table you are trying to load into does not exist")
-        elif first_x(tokens, 2) == ["create","index"]:
-            index = tokens[2]
-            if tokens[3].lower() == "on":
-                name = tokens[4]
-                attribute = tokens[5]
-            if name not in TABLES:
-                print("ERROR: the table you are trying to create an index on does not exist")
-            attribute = attribute[1:-1]
-            if attribute not in TABLES[name].columns:
-                print("ERROR: the column you are trying to create an index on does not exist")
-            # now the actual setting of the index
         elif first_x(tokens, 2) == ["insert","into"]:
             name = tokens[2]
             if name not in TABLES:
@@ -242,7 +228,6 @@ def process_select(cmd):
     print(cmd)
     # get columns, dfs, and where condition
     col_list, dfs_list, where, join_list = get_df_col_and_where_list(cmd)
-
     # get aggregation methods for columns to be gotten
     col_funcs = get_col_funcs(col_list)
     if col_funcs == 1:
@@ -267,7 +252,6 @@ def process_select(cmd):
             return 1
         logic = condition_dict["logic"]
         cond_columns = get_cond_columns(condition_dict, df_aliases)
-
     dfs = list(which_columns.keys())
     if cond_columns:
         dfs += list(cond_columns.keys())
@@ -285,10 +269,12 @@ def process_select(cmd):
         
         if df in cond_columns:
             outDict[df]["subset lists"] = [cond_columns[df][cond] for cond in cond_columns[df]]
-
     #PROCESS JOINS
     #and/or combination here
-
+    if logic == "and" or logic == "AND":
+        sorted_cond_columns = and_optimizer(condition_dict, df_aliases)
+    elif logic == "or" or logic == "OR":
+        sorted_cond_columns = or_optimizer(condition_dict, df_aliases)
     #code to join tables
     #will definitely need to be edited based on above but this is the gist for now
     which_join_cols = get_join_cols(join_list, df_aliases)
@@ -296,8 +282,8 @@ def process_select(cmd):
         #NOTE: something funky w/ sort_tables, will need to look at but for now we'll just do nested
         final_keys = nested_loop(TABLES[dfs[0]], TABLES[dfs[1]], which_join_cols[dfs[0]], which_join_cols[dfs[1]])
         print(final_keys)
-    else:
-        print("no code yet: see commented note")
+    # else:
+        # print("no code yet: see commented note")
         #final_keys = whatever form it'll take after going through 'where' statements, not sure what that will be yet
         #but I'll probably end up formatting it to look like the output for join statements
 
@@ -306,28 +292,33 @@ def process_select(cmd):
 
 def get_df_col_and_where_list(cmd):
     tokens = cmd.split()
-
+    join = False
+    where = False
     cols_dfs_where = [""]
     for tkn in tokens[1:]:
-        if tkn == "from" or tkn == "join" or tkn == "where":
+        if tkn == "from":
             cols_dfs_where.append("")
+        elif tkn == "join":
+            cols_dfs_where.append("")
+            join = True
+        elif tkn == "where":
+            cols_dfs_where.append("")
+            where = True
         else:
             cols_dfs_where[-1] += tkn+" "
-
     col_list = [v.strip() for v in cols_dfs_where[0].split(",")]
     dfs_list = [v.strip() for v in cols_dfs_where[1].split(",")]
-    if len(cols_dfs_where) > 2:
-        #join_list = [cols_dfs_where[2].strip()]
+    if join == True:
+        join_list = [cols_dfs_where[2].strip()]
         join_list = [v.strip() for v in cols_dfs_where[2].split(" ")]
     else:
         join_list = []
-    print(join_list)
-
-    if len(cols_dfs_where) > 3:
+    if where == True and join == True:
         where_list = [cols_dfs_where[3].strip()]
+    elif where == True and join == False:
+        where_list = [cols_dfs_where[2].strip()]
     else:
         where_list = []
-
     return col_list, dfs_list, where_list, join_list
 
 def get_col_funcs(col_list):
@@ -410,7 +401,7 @@ def get_join_cols(join_list, df_aliases):
     for x in join_list:
         if "." in x:
             alias = x.split(".")[0]
-            print("alias: " + alias)
+            # print("alias: " + alias)
             if alias in df_aliases:
                 if df_aliases[alias] not in which_join_cols:
                     which_join_cols[df_aliases[alias]] = {}
@@ -546,7 +537,6 @@ def get_cond_dict(where, df_aliases):
         else:
             print(f"ERROR: invalid conditional statement in {cond}")
             return 1
-        
     return condition_dict
 
 def get_cond_columns(c, df_aliases):
@@ -747,27 +737,32 @@ def merge_scan(data1, data2, col1, col2):
             j = j + 1
     return [keys1, keys2]
 
-def and_optimizer(dfs_list, col_list, which_list):
-    selectivity = [[]]
-    selectivity[0] = which_list
-    for condition, i in selectivity[0]:
-        # run text as conditioning and calculate selectivity index
-        # how is each condition being processed -- final form of sorted list?
-        temp = []
-        for word in condition.split(" "):
-            temp.append(word.lower())
-        if temp[0] in TABLES[dfs_list].columns:
-            selectivity_index = TABLES[dfs_list].loc[temp[0] == some_value, 'col2'].sum()/sum(TABLES[dfs_list].loc[temp[0]])
-            selectivity[1][i] = selectivity_index
-        else:
-            print("column conditioning on does not exist")
-
-    selectivity_sorted = selectivity[0].sort(key = lambda x: x[1], reverse = True)
-    return selectivity_sorted
+def and_optimizer(condition_dict, df_aliases):
+    cond_columns = {}
+    cond_columns = get_cond_columns(condition_dict, df_aliases)
+    dfs = []
+    if cond_columns:
+        dfs += list(cond_columns.keys())
+    dfs = list(set(dfs))
+    for df in dfs:
+        if df in cond_columns:
+            subset = [cond_columns[df][cond] for cond in cond_columns[df]]
+    sorted_cond_columns = sorted(subset, key = len)
+    return sorted_cond_columns
 
 
-def query_tree(cmd):
-    print("no code yet")
+def or_optimizer(condition_dict, df_aliases):
+    cond_columns = {}
+    cond_columns = get_cond_columns(condition_dict, df_aliases)
+    dfs = []
+    if cond_columns:
+        dfs += list(cond_columns.keys())
+    dfs = list(set(dfs))
+    for df in dfs:
+        if df in cond_columns:
+            subset = [cond_columns[df][cond] for cond in cond_columns[df]]
+    sorted_cond_columns = sorted(subset, key = len, reverse = True)
+    return sorted_cond_columns
 
 # endregion OPTIMIZATIONS #####################################################################
 
@@ -791,17 +786,17 @@ def main():
                "insert into df3 (name,Color) values (aad,Red)",
                "insert into df3 (name,Color) values (aac,Orange)",
                "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
-            "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50"]
-        #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+                "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50"]
+        # cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
         #   "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
         #   "create table df2 (name varchar(3),decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
         #   "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
-           #"select b.name, min(b.decimal) from df2 as b where b.name not like 'aa%' and b.decimal*2<.05 and b.state <= 'Alabama' and (b.decimal*800) + b.year < 1910 and b.state in ('Iowa','Minnesota','Indiana')",
-           #"select a.Letter, max(a.Number) from df1 as a where a.Letter not like 'aa%' and a.Number*2 < 20 and a.Number + a.Number < 30 and a.Color in ('Orange','Yellow','Blue')",
-           # "select min(a.Letter) as minimum, b.state from df1 a, df2 as b where a.Letter == b.name and b.decimal in (1,2,3,4)",
-           # "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
-           # "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50",
-           # ]
+        #    "select b.name, min(b.decimal) from df2 as b where b.name not like 'aa%' and b.decimal*2<.05 and b.state <= 'Alabama' and b.decimal*800 + b.year < 1910 and b.state in ('Iowa','Minnesota','Indiana')",
+         #   "select a.Letter, max(a.Number) from df1 as a where a.Letter not like 'aa%' and a.Number*2 < 20 and a.Number + a.Number < 30 and a.Color in ('Orange','Yellow','Blue')",
+         #   "select min(a.Letter) as minimum, b.state from df1 a, df2 as b where a.Letter == b.name and b.decimal in (1,2,3,4)",
+        #    "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
+        #    "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50",
+        #    ]
         process_input(cmd)
 
         #x = nested_loop(TABLES["df1"], TABLES["df3"], "Color", "Color")
