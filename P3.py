@@ -271,6 +271,7 @@ def process_select(cmd):
         if df in which_columns:
             outDict[df]["columns to get"] = which_columns[df]
         
+        #move and optimizer here
         if df in cond_columns:
             outDict[df]["subset lists"] = [cond_columns[df][cond] for cond in cond_columns[df]]
             
@@ -291,7 +292,9 @@ def process_select(cmd):
     if logic != "":
         for df in dfs:
             if len(outDict[df]["subset lists"]) > 0:
-                joined_cond_lists = which_join(df, outDict[df]["subset lists"][0], outDict[df]["subset lists"][1], TABLES[df].key, TABLES[df].key)
+                #CHANGE TO WHICH JOIN LATER
+                joined_cond_lists = nested_loop(df, df, outDict[df]["subset lists"][0], outDict[df]["subset lists"][1], TABLES[df].key, TABLES[df].key)
+                outDict[df]["subset lists"] = joined_cond_lists[0]
 
     #code to join tables
     #will definitely need to be edited based on above but this is the gist for now
@@ -301,11 +304,64 @@ def process_select(cmd):
         #NOTE: something funky w/ sort_tables, will need to look at but for now we'll just do nested
         #final_keys = nested_loop(TABLES[dfs[0]], TABLES[dfs[1]], which_join_cols[dfs[0]], which_join_cols[dfs[1]])
         #print(final_keys)
-        print("tbd")
+        for df in dfs:
+            print(df)
+            print(outDict[df]["subset lists"])
+        if len(outDict[dfs[0]]["subset lists"]) > 0:
+            temp1 = outDict[dfs[0]]["subset lists"]
+        else:
+            temp1 = list(TABLES[dfs[0]].table[(TABLES[dfs[0]].key)].keys())
+            #temp1b = temp1.keys()
+            #temp1 = TABLES[dfs[0]].table
+        if len(outDict[dfs[1]]["subset lists"]) > 0:
+            temp2 = outDict[dfs[1]]["subset lists"]
+        else:
+            temp2 = list(TABLES[dfs[1]].table[(TABLES[dfs[1]].key)].keys())
+            #temp2b = temp1.keys()
+            #temp2 = TABLES[dfs[1]].table
+        print(dfs[0])
+        print(dfs[1])
+        print(temp1)
+        print(temp2)
+        final_keys = nested_loop(dfs[0], dfs[1], temp1, temp2, TABLES[dfs[0]].key, TABLES[dfs[1]].key)[0]
+        print(final_keys)
     else:
         subset1 = False
         subset2 = False
         #final_keys = nested_loop()
+    #FINAL OUTPUT!
+    final_output = {}
+    if len(dfs_list) > 1:
+        print(final_keys)
+        #print(dfs[0])
+        #print(dfs[1])
+        #print(outDict[dfs[0]]["columns to get"])
+        #print(outDict[dfs[1]]["columns to get"])
+        #print(TABLES[dfs[0]].table[TABLES[dfs[0]].key])
+        for df in dfs:
+            #print(TABLES[dfs[1]].table)
+            for column in TABLES[df].columns:
+                if column in list(outDict[df]["columns to get"].keys()):
+                    if column == TABLES[df].key:
+                        for k in final_keys:
+                            if column not in final_output:
+                                final_output[column] = []
+                            final_output[column].append(k)
+                    else:
+                        for k in final_keys:
+                            #print(key)
+                            temp = TABLES[df].table[TABLES[df].key]
+                            temp2 = temp[k]
+                            #print(TABLES[df].key)
+                            #print(temp2)
+                            #print(df)
+                            #print(temp2.keys())
+                            if column not in final_output:
+                                final_output[column] = []
+                            final_output[column].append(temp2[column])
+    else:
+        print("tbd")
+    print(final_output)
     return outDict
 
 
@@ -668,7 +724,7 @@ def get_input():
         command += " "+input("> ")
     return [c.strip() for c in command.split(";") if c]
 
-def which_join(df, data1, data2, col1, col2):
+def which_join(df1, df2, data1, data2, col1, col2):
     #if (both tables sorted: add sorted attribute later):
     #    return merge_scan(data1, data2, col1, col2)
     #if len(data1.table[col1]) > len(data2.table[col2]):
@@ -693,18 +749,18 @@ def which_join(df, data1, data2, col1, col2):
             #d2.sort_table(by=c2)
             
             #***** INSERT SORTING MECHANISM HERE
-            return merge_scan(df, d1, d2, c1, c2)
+            return merge_scan(df1, df2, d1, d2, c1, c2)
         else:
             #if longer table is sorted:
             #    d2.sort_table(by=c2)
             #    return merge_scan(d1, d2, c1, c2)
             #else:
-            return nested_loop(df, d2, d1, c2, c1)
+            return nested_loop(df2, df1, d2, d1, c2, c1)
     else:
-        return nested_loop(df, d2, d1, c2, c1)
+        return nested_loop(df1, df2, d2, d1, c2, c1)
     
 
-def nested_loop(df, data1, data2, col1, col2):
+def nested_loop(df1, df2, data1, data2, col1, col2):
     #will need to rework else statements
     keys1 = []
     keys2 = []
@@ -716,13 +772,13 @@ def nested_loop(df, data1, data2, col1, col2):
         #for j in data2.table[col2]:
         for j in data2:
             if i == j:
-                if col1 == TABLES[df].key:
+                if col1 == TABLES[df1].key:
                     keys1.append(i)
                 else:
                     print("need to update")
                     #temp = data1.table[col1]
                     #keys1.append(temp[i])
-                if col2 == TABLES[df].key:
+                if col2 == TABLES[df2].key:
                     keys2.append(j)
                 else:
                     print("need to update")
@@ -746,7 +802,7 @@ def nested_loop(df, data1, data2, col1, col2):
     print(keys1, keys2)
     return [keys1, keys2]
 
-def merge_scan(df, data1, data2, col1, col2):
+def merge_scan(df1, df2, data1, data2, col1, col2):
     #HAS NOT BEEN UPDATED YET PLEASE GOD HARD I WILL CRY
     values1 = list(data1.table[col1].keys())
     values2 = list(data2.table[col2].keys())
@@ -825,7 +881,7 @@ def main():
                "insert into df3 (name,Color) values (aab,Red)",
                "insert into df3 (name,Color) values (aad,Red)",
                "insert into df3 (name,Color) values (aac,Orange)",
-               "select a.Letter, b.year from df1 a, df2 b join a.Letter = b.name where a.Number > 50 and a.Number < 52"]
+               "select a.Letter, b.year from df1 a, df2 b join a.Letter = b.name where a.Number > 14 and a.Number < 47"]
                #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
                 #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50"]
         #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
