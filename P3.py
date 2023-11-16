@@ -1,4 +1,4 @@
-import csv, json, time, ast
+import csv, json, time, ast, math
 
 TABLES = {}
 dtypes = {
@@ -251,10 +251,6 @@ def process_select(cmd):
         if condition_dict == 1:
             return 1
         logic = condition_dict["logic"]
-        print("dict")
-        print(condition_dict)
-        print("aliases")
-        print(df_aliases)
         cond_columns = get_cond_columns(condition_dict, df_aliases)
     dfs = list(which_columns.keys())
     if cond_columns:
@@ -289,57 +285,29 @@ def process_select(cmd):
     #    sorted_cond_columns = or_optimizer(condition_dict, df_aliases)
 
     #okay, so we've outputted data from both of the tables, now I want to join what we've printed above:
-    if logic != "":
+    if logic == "and" or logic == "AND":
         for df in dfs:
             if len(outDict[df]["subset lists"]) > 0:
                 #CHANGE TO WHICH JOIN LATER
-                joined_cond_lists = nested_loop(df, df, outDict[df]["subset lists"][0], outDict[df]["subset lists"][1], TABLES[df].key, TABLES[df].key)
+                joined_cond_lists = which_join(df, df, outDict[df]["subset lists"][0], outDict[df]["subset lists"][1], TABLES[df].key, TABLES[df].key)
                 outDict[df]["subset lists"] = joined_cond_lists[0]
 
-    #code to join tables
-    #will definitely need to be edited based on above but this is the gist for now
-    which_join_cols = get_join_cols(join_list, df_aliases)
-    print(join_list)
+    #code to join tables (if necessary)
     if len(dfs_list) > 1:
-        #NOTE: something funky w/ sort_tables, will need to look at but for now we'll just do nested
-        #final_keys = nested_loop(TABLES[dfs[0]], TABLES[dfs[1]], which_join_cols[dfs[0]], which_join_cols[dfs[1]])
-        #print(final_keys)
-        for df in dfs:
-            print(df)
-            print(outDict[df]["subset lists"])
         if len(outDict[dfs[0]]["subset lists"]) > 0:
             temp1 = outDict[dfs[0]]["subset lists"]
         else:
             temp1 = list(TABLES[dfs[0]].table[(TABLES[dfs[0]].key)].keys())
-            #temp1b = temp1.keys()
-            #temp1 = TABLES[dfs[0]].table
         if len(outDict[dfs[1]]["subset lists"]) > 0:
             temp2 = outDict[dfs[1]]["subset lists"]
         else:
             temp2 = list(TABLES[dfs[1]].table[(TABLES[dfs[1]].key)].keys())
-            #temp2b = temp1.keys()
-            #temp2 = TABLES[dfs[1]].table
-        print(dfs[0])
-        print(dfs[1])
-        print(temp1)
-        print(temp2)
-        final_keys = nested_loop(dfs[0], dfs[1], temp1, temp2, TABLES[dfs[0]].key, TABLES[dfs[1]].key)[0]
-        print(final_keys)
-    else:
-        subset1 = False
-        subset2 = False
-        #final_keys = nested_loop()
+        final_keys = which_join(dfs[0], dfs[1], temp1, temp2, TABLES[dfs[0]].key, TABLES[dfs[1]].key)[0]
+
     #FINAL OUTPUT!
     final_output = {}
     if len(dfs_list) > 1:
-        print(final_keys)
-        #print(dfs[0])
-        #print(dfs[1])
-        #print(outDict[dfs[0]]["columns to get"])
-        #print(outDict[dfs[1]]["columns to get"])
-        #print(TABLES[dfs[0]].table[TABLES[dfs[0]].key])
         for df in dfs:
-            #print(TABLES[dfs[1]].table)
             for column in TABLES[df].columns:
                 if column in list(outDict[df]["columns to get"].keys()):
                     if column == TABLES[df].key:
@@ -349,13 +317,8 @@ def process_select(cmd):
                             final_output[column].append(k)
                     else:
                         for k in final_keys:
-                            #print(key)
                             temp = TABLES[df].table[TABLES[df].key]
                             temp2 = temp[k]
-                            #print(TABLES[df].key)
-                            #print(temp2)
-                            #print(df)
-                            #print(temp2.keys())
                             if column not in final_output:
                                 final_output[column] = []
                             final_output[column].append(temp2[column])
@@ -476,7 +439,6 @@ def get_join_cols(join_list, df_aliases):
     for x in join_list:
         if "." in x:
             alias = x.split(".")[0]
-            # print("alias: " + alias)
             if alias in df_aliases:
                 if df_aliases[alias] not in which_join_cols:
                     which_join_cols[df_aliases[alias]] = {}
@@ -725,110 +687,56 @@ def get_input():
     return [c.strip() for c in command.split(";") if c]
 
 def which_join(df1, df2, data1, data2, col1, col2):
-    #if (both tables sorted: add sorted attribute later):
-    #    return merge_scan(data1, data2, col1, col2)
-    #if len(data1.table[col1]) > len(data2.table[col2]):
-    print("in which_join")
-    if len(data1) > len(data2):
-        d1 = data1
-        d2 = data2
-        c1 = col1
-        c2 = col2
-    else:
-        d1 = data2
-        d2 = data1
-        c1 = col2
-        c2 = col1
-    print(len(d1))
-    print(len(d2))
-    #if len(d1.table[c1]) > 10000:
-    if len(d1) > 10000:
-        #if len(d2.table[c2]) > 50:
-        if len(d2) > 50:
-            #d1.sort_table(by=c1)
-            #d2.sort_table(by=c2)
-            
-            #***** INSERT SORTING MECHANISM HERE
-            return merge_scan(df1, df2, d1, d2, c1, c2)
-        else:
-            #if longer table is sorted:
-            #    d2.sort_table(by=c2)
-            #    return merge_scan(d1, d2, c1, c2)
-            #else:
-            return nested_loop(df2, df1, d2, d1, c2, c1)
-    else:
-        return nested_loop(df1, df2, d2, d1, c2, c1)
-    
+    #note: else statements in nested and merge SHOULD work, but I haven't tested them yet, so who's to say.
+    merge_cost = len(data1) * math.log(len(data1), 2) + len(data2) * math.log(len(data2), 2) + len(data1) + len(data2)
+    nested_cost = len(data1) * len(data2)
+    if merge_cost < nested_cost:
+        return merge_scan(df1, df2, data1, data2, col1, col2)
+    if len(data1) < len(data2):
+        return nested_loop(df1, df2, data1, data2, col1, col2)
+    return nested_loop(df2, df1, data2, data1, col2, col1)
 
 def nested_loop(df1, df2, data1, data2, col1, col2):
-    #will need to rework else statements
     keys1 = []
     keys2 = []
-    print("nested loop")
-    print(col1)
-    #if data1.nrow < data2.nrow:
-    #for i in data1.table[col1]:
     for i in data1:
-        #for j in data2.table[col2]:
         for j in data2:
             if i == j:
                 if col1 == TABLES[df1].key:
                     keys1.append(i)
                 else:
-                    print("need to update")
-                    #temp = data1.table[col1]
-                    #keys1.append(temp[i])
+                    temp = TABLES[df1].table[col1]
+                    keys1.append(temp[i])
                 if col2 == TABLES[df2].key:
                     keys2.append(j)
                 else:
-                    print("need to update")
-                    #temp = data2.table[col2]
-                    #keys2.append(temp[i])
-    #else:
-    #    for j in data2.table[col2]:
-    #        for i in data1.table[col1]:
-    #            if i == j:
-    #               if col1 == data1.key:
-    #                    keys1.append(i)
-    #                else:
-    #                    temp = data1.table[col1]
-    #                    keys1.append(temp[i])
-    #                if col2 == data2.key:
-    #                    keys2.append(j)
-    #                else:
-    #                    temp = data2.table[col2]
-    #                    keys2.append(temp[i])
-    print("printing")
-    print(keys1, keys2)
+                    temp = TABLES[df2].table[col2]
+                    keys2.append(temp[i])
     return [keys1, keys2]
 
 def merge_scan(df1, df2, data1, data2, col1, col2):
-    #HAS NOT BEEN UPDATED YET PLEASE GOD HARD I WILL CRY
-    values1 = list(data1.table[col1].keys())
-    values2 = list(data2.table[col2].keys())
     keys1 = []
     keys2 = []
     i = 0
     j = 0
-    print("merge scan")
-    #data1.sort_table(by=col1)
-    #data2.sort_table(by=col2)
-    while i < len(data1.table[col1]) and j < len(data2.table[col2]):
-        if values1[i] < values2[j]:
+    data1 = sorted(data1)
+    data2 = sorted(data2)
+    while i < len(data1) and j < len(data2):
+        if data1[i] < data2[j]:
             i = i + 1
-        elif values1[i] > values2[j]:
+        elif data1[i] > data2[j]:
             j = j + 1
         else:
-            if col1 == data1.key:
-                keys1.append(values1[i])
+            if col1 == TABLES[df1].key:
+                keys1.append(data1[i])
             else:
-                temp = data1.table[col1]
-                keys1.append(temp[values1[i]])
-            if col2 == data2.key:
-                keys2.append(values2[j])
+                temp = TABLES[df1].table[col1]
+                keys1.append(temp[i])
+            if col2 == TABLES[df2].key:
+                keys2.append(data2[j])
             else:
-                temp = data2.table[col2]
-                keys2.append(temp[values2[j]])
+                temp = TABLES[df2].table[col2]
+                keys1.append(temp[i])
             i = i + 1
             j = j + 1
     return [keys1, keys2]
