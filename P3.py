@@ -251,6 +251,10 @@ def process_select(cmd):
         if condition_dict == 1:
             return 1
         logic = condition_dict["logic"]
+        print("dict")
+        print(condition_dict)
+        print("aliases")
+        print(df_aliases)
         cond_columns = get_cond_columns(condition_dict, df_aliases)
     dfs = list(which_columns.keys())
     if cond_columns:
@@ -269,24 +273,39 @@ def process_select(cmd):
         
         if df in cond_columns:
             outDict[df]["subset lists"] = [cond_columns[df][cond] for cond in cond_columns[df]]
+            
     #PROCESS JOINS
     #and/or combination here
     if logic == "and" or logic == "AND":
-        sorted_cond_columns = and_optimizer(condition_dict, df_aliases)
+        for df in dfs:
+            outDict[df]["subset lists"] = sorted(outDict[df]["subset lists"], key = len)
     elif logic == "or" or logic == "OR":
-        sorted_cond_columns = or_optimizer(condition_dict, df_aliases)
+        for df in dfs:
+            outDict[df]["subset lists"] = sorted(outDict[df]["subset lists"], key = len, reverse = True)
+    #if logic == "and" or logic == "AND":
+    #    sorted_cond_columns = and_optimizer(condition_dict, df_aliases)
+    #elif logic == "or" or logic == "OR":
+    #    sorted_cond_columns = or_optimizer(condition_dict, df_aliases)
+
+    #okay, so we've outputted data from both of the tables, now I want to join what we've printed above:
+    if logic != "":
+        for df in dfs:
+            if len(outDict[df]["subset lists"]) > 0:
+                joined_cond_lists = which_join(df, outDict[df]["subset lists"][0], outDict[df]["subset lists"][1], TABLES[df].key, TABLES[df].key)
+
     #code to join tables
     #will definitely need to be edited based on above but this is the gist for now
     which_join_cols = get_join_cols(join_list, df_aliases)
+    print(join_list)
     if len(dfs_list) > 1:
         #NOTE: something funky w/ sort_tables, will need to look at but for now we'll just do nested
-        final_keys = nested_loop(TABLES[dfs[0]], TABLES[dfs[1]], which_join_cols[dfs[0]], which_join_cols[dfs[1]])
-        print(final_keys)
-    # else:
-        # print("no code yet: see commented note")
-        #final_keys = whatever form it'll take after going through 'where' statements, not sure what that will be yet
-        #but I'll probably end up formatting it to look like the output for join statements
-
+        #final_keys = nested_loop(TABLES[dfs[0]], TABLES[dfs[1]], which_join_cols[dfs[0]], which_join_cols[dfs[1]])
+        #print(final_keys)
+        print("tbd")
+    else:
+        subset1 = False
+        subset2 = False
+        #final_keys = nested_loop()
     return outDict
 
 
@@ -649,10 +668,12 @@ def get_input():
         command += " "+input("> ")
     return [c.strip() for c in command.split(";") if c]
 
-def which_join(data1, data2, col1, col2):
+def which_join(df, data1, data2, col1, col2):
     #if (both tables sorted: add sorted attribute later):
     #    return merge_scan(data1, data2, col1, col2)
-    if len(data1.table[col1]) > len(data2.table[col2]):
+    #if len(data1.table[col1]) > len(data2.table[col2]):
+    print("in which_join")
+    if len(data1) > len(data2):
         d1 = data1
         d2 = data2
         c1 = col1
@@ -662,59 +683,78 @@ def which_join(data1, data2, col1, col2):
         d2 = data1
         c1 = col2
         c2 = col1
-    if len(d1.table[c1]) > 10000:
-        if len(d2.table[c2]) > 50:
-            d1.sort_table(by=c1)
-            d2.sort_table(by=c2)
-            return merge_scan(d1, d2, c1, c2)
+    print(len(d1))
+    print(len(d2))
+    #if len(d1.table[c1]) > 10000:
+    if len(d1) > 10000:
+        #if len(d2.table[c2]) > 50:
+        if len(d2) > 50:
+            #d1.sort_table(by=c1)
+            #d2.sort_table(by=c2)
+            
+            #***** INSERT SORTING MECHANISM HERE
+            return merge_scan(df, d1, d2, c1, c2)
         else:
             #if longer table is sorted:
             #    d2.sort_table(by=c2)
             #    return merge_scan(d1, d2, c1, c2)
             #else:
-            return nested_loop(d1, d2, c1, c2)
+            return nested_loop(df, d2, d1, c2, c1)
+    else:
+        return nested_loop(df, d2, d1, c2, c1)
     
 
-def nested_loop(data1, data2, col1, col2):
+def nested_loop(df, data1, data2, col1, col2):
+    #will need to rework else statements
     keys1 = []
     keys2 = []
-    if data1.nrow < data2.nrow:
-        for i in data1.table[col1]:
-            for j in data2.table[col2]:
-                if i == j:
-                    if col1 == data1.key:
-                        keys1.append(i)
-                    else:
-                        temp = data1.table[col1]
-                        keys1.append(temp[i])
-                    if col2 == data2.key:
-                        keys2.append(j)
-                    else:
-                        temp = data2.table[col2]
-                        keys2.append(temp[i])
-    else:
-        for j in data2.table[col2]:
-            for i in data1.table[col1]:
-                if i == j:
-                    if col1 == data1.key:
-                        keys1.append(i)
-                    else:
-                        temp = data1.table[col1]
-                        keys1.append(temp[i])
-                    if col2 == data2.key:
-                        keys2.append(j)
-                    else:
-                        temp = data2.table[col2]
-                        keys2.append(temp[i])
+    print("nested loop")
+    print(col1)
+    #if data1.nrow < data2.nrow:
+    #for i in data1.table[col1]:
+    for i in data1:
+        #for j in data2.table[col2]:
+        for j in data2:
+            if i == j:
+                if col1 == TABLES[df].key:
+                    keys1.append(i)
+                else:
+                    print("need to update")
+                    #temp = data1.table[col1]
+                    #keys1.append(temp[i])
+                if col2 == TABLES[df].key:
+                    keys2.append(j)
+                else:
+                    print("need to update")
+                    #temp = data2.table[col2]
+                    #keys2.append(temp[i])
+    #else:
+    #    for j in data2.table[col2]:
+    #        for i in data1.table[col1]:
+    #            if i == j:
+    #               if col1 == data1.key:
+    #                    keys1.append(i)
+    #                else:
+    #                    temp = data1.table[col1]
+    #                    keys1.append(temp[i])
+    #                if col2 == data2.key:
+    #                    keys2.append(j)
+    #                else:
+    #                    temp = data2.table[col2]
+    #                    keys2.append(temp[i])
+    print("printing")
+    print(keys1, keys2)
     return [keys1, keys2]
 
-def merge_scan(data1, data2, col1, col2):
+def merge_scan(df, data1, data2, col1, col2):
+    #HAS NOT BEEN UPDATED YET PLEASE GOD HARD I WILL CRY
     values1 = list(data1.table[col1].keys())
     values2 = list(data2.table[col2].keys())
     keys1 = []
     keys2 = []
     i = 0
     j = 0
+    print("merge scan")
     #data1.sort_table(by=col1)
     #data2.sort_table(by=col2)
     while i < len(data1.table[col1]) and j < len(data2.table[col2]):
@@ -785,17 +825,18 @@ def main():
                "insert into df3 (name,Color) values (aab,Red)",
                "insert into df3 (name,Color) values (aad,Red)",
                "insert into df3 (name,Color) values (aac,Orange)",
-               "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
-                "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50"]
-        # cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+               "select a.Letter, b.year from df1 a, df2 b join a.Letter = b.name where a.Number > 50 and a.Number < 52"]
+               #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
+                #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50"]
+        #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
         #   "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
         #   "create table df2 (name varchar(3),decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
         #   "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
         #    "select b.name, min(b.decimal) from df2 as b where b.name not like 'aa%' and b.decimal*2<.05 and b.state <= 'Alabama' and b.decimal*800 + b.year < 1910 and b.state in ('Iowa','Minnesota','Indiana')",
-         #   "select a.Letter, max(a.Number) from df1 as a where a.Letter not like 'aa%' and a.Number*2 < 20 and a.Number + a.Number < 30 and a.Color in ('Orange','Yellow','Blue')",
-         #   "select min(a.Letter) as minimum, b.state from df1 a, df2 as b where a.Letter == b.name and b.decimal in (1,2,3,4)",
+        #    "select a.Letter, max(a.Number) from df1 as a where a.Letter not like 'aa%' and a.Number*2 < 20 and a.Number + a.Number < 30 and a.Color in ('Orange','Yellow','Blue')",
+        #    "select min(a.Letter) as minimum, b.state from df1 a, df2 as b where a.Letter == b.name and b.decimal in (1,2,3,4)",
         #    "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
-        #    "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50",
+        #    "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 99",
         #    ]
         process_input(cmd)
 
