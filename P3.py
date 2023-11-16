@@ -303,6 +303,12 @@ def process_select(cmd):
         else:
             temp2 = list(TABLES[dfs[1]].table[(TABLES[dfs[1]].key)].keys())
         final_keys = which_join(dfs[0], dfs[1], temp1, temp2, TABLES[dfs[0]].key, TABLES[dfs[1]].key)[0]
+    else:
+        if len(outDict[dfs[0]]["subset lists"]) > 0:
+            final_keys = outDict[dfs[0]]["subset lists"]
+        else:
+            print("tbd")
+            #final_keys = TABLES[dfs[0]]
 
     #FINAL OUTPUT!
     final_output = {}
@@ -310,20 +316,31 @@ def process_select(cmd):
         for df in dfs:
             for column in TABLES[df].columns:
                 if column in list(outDict[df]["columns to get"].keys()):
-                    if column == TABLES[df].key:
-                        for k in final_keys:
+                    for k in final_keys:
+                        if column == TABLES[df].key:
                             if column not in final_output:
                                 final_output[column] = []
                             final_output[column].append(k)
-                    else:
-                        for k in final_keys:
+                        else:
                             temp = TABLES[df].table[TABLES[df].key]
                             temp2 = temp[k]
                             if column not in final_output:
                                 final_output[column] = []
                             final_output[column].append(temp2[column])
     else:
-        print("tbd")
+        #this part not working, will come back to and fix
+        for column in TABLES[dfs[0]].columns:
+            for k in final_keys:
+                if column == TABLES[df].key:
+                    if column not in final_output:
+                        final_output[column] = []
+                    final_output[column].append(k)
+                else:
+                    temp = TABLES[df].table[TABLES[df].key]
+                    temp2 = temp[k]
+                    if column not in final_output:
+                        final_output[column] = []
+                    final_output[column].append(temp2[column])
     print(final_output)
     return outDict
 
@@ -789,7 +806,8 @@ def main():
                "insert into df3 (name,Color) values (aab,Red)",
                "insert into df3 (name,Color) values (aad,Red)",
                "insert into df3 (name,Color) values (aac,Orange)",
-               "select a.Letter, b.year from df1 a, df2 b join a.Letter = b.name where a.Number > 14 and a.Number < 47"]
+               "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 14 and a.Number < 47",
+               "select a.Letter from df1 a where a.Number > 50"]
                #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
                 #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50"]
         #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
