@@ -1,4 +1,4 @@
-import csv, json, time, ast, math
+import csv, json, time, ast, math, sys
 
 TABLES = {}
 dtypes = {
@@ -288,7 +288,6 @@ def process_select(cmd):
     if logic == "and" or logic == "AND":
         for df in dfs:
             if len(outDict[df]["subset lists"]) > 0:
-                #CHANGE TO WHICH JOIN LATER
                 joined_cond_lists = which_join(df, df, outDict[df]["subset lists"][0], outDict[df]["subset lists"][1], TABLES[df].key, TABLES[df].key)
                 outDict[df]["subset lists"] = joined_cond_lists[0]
 
@@ -311,39 +310,87 @@ def process_select(cmd):
             #final_keys = TABLES[dfs[0]]
 
     #FINAL OUTPUT!
+    #NOTE: THIS CODE ASSUMES THAT THE AGGREGATION FUNCTIONS WORK CORRECTLY AND HAVE BEEN ERROR CHECKED PREVIOUSLY WHICH I DON'T THINK IT TRUE RN
+    #WILL FIX LATER
     final_output = {}
-    if len(dfs_list) > 1:
-        for df in dfs:
-            for column in TABLES[df].columns:
-                if column in list(outDict[df]["columns to get"].keys()):
+    agg = False
+    for x in col_funcs.values():
+        if x['agg'] is not "":
+            agg = True
+            df = dfs[0]
+            column = list(outDict[df]["columns to get"].keys())[0]
+            final_output[TABLES[dfs[0]].columns[0]] = []
+            if x['agg'].lower() == "min":
+                if column == TABLES[dfs[0]].key:
+                    minimum = min(final_keys[0])
+                else:
+                    minimum = find_data_type(dfs[0], column, "min")
                     for k in final_keys:
-                        if column == TABLES[df].key:
+                        #code here to for if we're trying to find the minimum of something that ISNT the key
+                        print("tbd")
+            elif x['agg'].lower() == "max":
+                maximum = find_data_type(dfs[0], column, "max")
+                print("tbd2")
+            elif x['agg'].lower() == "avg":
+                average = find_data_type(dfs[0], column, "avg")
+                print("tbd3")
+            elif x['agg'].lower() == "sum":
+                sum = find_data_type(dfs[0], column, "sum")
+                print("tbd4")
+    if agg is False:
+        if len(dfs_list) > 1:
+            for df in dfs:
+                for column in TABLES[df].columns:
+                    if column in list(outDict[df]["columns to get"].keys()):
+                        for k in final_keys:
+                            if column == TABLES[df].key:
+                                if column not in final_output:
+                                    final_output[column] = []
+                                final_output[column].append(k)
+                            else:
+                                temp = TABLES[df].table[TABLES[df].key]
+                                temp2 = temp[k]
+                                if column not in final_output:
+                                    final_output[column] = []
+                                final_output[column].append(temp2[column])
+        else:
+            for column in TABLES[dfs[0]].columns:
+                if column in list(outDict[dfs[0]]["columns to get"].keys()):
+                    for k in final_keys:
+                        if column == TABLES[dfs[0]].key:
                             if column not in final_output:
                                 final_output[column] = []
                             final_output[column].append(k)
                         else:
-                            temp = TABLES[df].table[TABLES[df].key]
+                            temp = TABLES[dfs[0]].table[TABLES[dfs[0]].key]
                             temp2 = temp[k]
                             if column not in final_output:
                                 final_output[column] = []
                             final_output[column].append(temp2[column])
-    else:
-        #this part not working, will come back to and fix
-        for column in TABLES[dfs[0]].columns:
-            for k in final_keys:
-                if column == TABLES[df].key:
-                    if column not in final_output:
-                        final_output[column] = []
-                    final_output[column].append(k)
-                else:
-                    temp = TABLES[df].table[TABLES[df].key]
-                    temp2 = temp[k]
-                    if column not in final_output:
-                        final_output[column] = []
-                    final_output[column].append(temp2[column])
-    print(final_output)
+    #print(final_output)
     return outDict
 
+def find_data_type(df, c, string):
+    for column in TABLES[df].dtypes:
+        if c == column:
+            print(column)
+            print(TABLES[df].dtypes)
+            if TABLES[df].dtypes[column]['cast'] == str:
+                if string == "min":
+                    dtype = "ZZZZZZZZZZZ"
+                else:
+                    dtype = ""
+            elif TABLES[df].dtypes[column]['cast'] == int:
+                if string == "min":
+                    dtype = 999999999999
+                else:
+                    dtype = 0
+            elif TABLES[df].dtypes[column]['cast'] == float:
+                if string == "min":
+                    dtype = sys.float_info.max
+                else:
+                    dtype = 0.0
+    return dtype
 
 def get_df_col_and_where_list(cmd):
     tokens = cmd.split()
@@ -384,7 +431,7 @@ def get_col_funcs(col_list):
         alias = name
         if "(" in col:
             agg = col.split("(")[0].lower().strip()
-            if agg not in ["min","max","sum","average","mode"]:
+            if agg not in ["min","max","sum","avg","mode"]:
                 print(f"ERROR: aggregation method {agg} not supported")
                 return 1
             name = col.split("(")[1].split(")")[0].strip()
@@ -691,9 +738,6 @@ def get_cond_columns(c, df_aliases):
 
     return cond_list
 
-
-
-
 # endregion SELECT #####################################################################
 
 # region OPTIMIZATION ########################################################################
@@ -807,7 +851,8 @@ def main():
                "insert into df3 (name,Color) values (aad,Red)",
                "insert into df3 (name,Color) values (aac,Orange)",
                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 14 and a.Number < 47",
-               "select a.Letter from df1 a where a.Number > 50"]
+               "select a.Letter from df1 a where a.Number > 99",
+               "select min(a.Number) from df1 a where a.Number < 5"]
                #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
                 #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50"]
         #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
