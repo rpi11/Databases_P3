@@ -353,11 +353,17 @@ def process_select(cmd):
                     average = average / j
                     print(average)
             elif x['agg'].lower() == "sum":
-                sum = find_data_type(dfs[0], column, "sum")
-                if sum is not 1:
+                sum_ = find_data_type(dfs[0], column, "sum")
+                if sum_ is not 1:
                     for k in final_keys[0]:
-                        sum = sum + TABLES[df].table[TABLES[df].key][k][column]
-                    print(sum)
+                        sum_ = sum_ + TABLES[df].table[TABLES[df].key][k][column]
+                    print(sum_)
+            elif x['agg'].lower() == "mode":
+                if column == TABLES[df].key:
+                    print("ERROR: Key values are unique mode does not exist.")
+                else:
+                    mode = find_data_type(dfs[0], column, "mode")
+                
     if agg is False:
         if len(dfs_list) > 1:
             for df in dfs:
