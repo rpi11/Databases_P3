@@ -237,7 +237,6 @@ def process_select(cmd):
     df_aliases = get_df_aliases(dfs_list)
     if df_aliases == 1:
         return 1
-
     
     # create column dict that connects aliases
     which_columns = get_which_columns(col_funcs, df_aliases, dfs_list)
@@ -333,7 +332,7 @@ def process_select(cmd):
                     for k in final_keys[0]:
                         if TABLES[df].table[TABLES[df].key][k][column] < minimum:
                             minimum = TABLES[df].table[TABLES[df].key][k][column]
-                print(minimum)
+                final_output[column] = minimum
             elif x['agg'].lower() == "max":
                 if column == TABLES[dfs[0]].key:
                     maximum = max(final_keys[0])
@@ -342,7 +341,7 @@ def process_select(cmd):
                     for k in final_keys[0]:
                         if TABLES[df].table[TABLES[df].key][k][column] > maximum:
                             maximum = TABLES[df].table[TABLES[df].key][k][column]
-                print(maximum)
+                final_output[column] = maximum
             elif x['agg'].lower() == "avg":
                 average = find_data_type(dfs[0], column, "avg")
                 if average is not 1:
@@ -351,13 +350,13 @@ def process_select(cmd):
                         average = average + TABLES[df].table[TABLES[df].key][k][column]
                         j = j + 1
                     average = average / j
-                    print(average)
+                    final_output[column] = average
             elif x['agg'].lower() == "sum":
                 sum_ = find_data_type(dfs[0], column, "sum")
                 if sum_ is not 1:
                     for k in final_keys[0]:
                         sum_ = sum_ + TABLES[df].table[TABLES[df].key][k][column]
-                    print(sum_)
+                    final_output[column] = sum_
             elif x['agg'].lower() == "mode":
                 if column == TABLES[df].key:
                     print("ERROR: Key values are unique mode does not exist.")
@@ -394,7 +393,7 @@ def process_select(cmd):
                             if column not in final_output:
                                 final_output[column] = []
                             final_output[column].append(temp2[column])
-    #print(final_output)
+    print(final_output)
     return outDict
 
 def find_data_type(df, c, string):
@@ -492,7 +491,6 @@ def get_df_aliases(dfs_list):
             else:
                 name = "".join(df.split()[0]).strip()
         df_aliases[alias] = name
-
     return df_aliases
 
 def get_which_columns(col_funcs, df_aliases, dfs_list):
@@ -565,6 +563,7 @@ def get_cond_dict(where, df_aliases):
 
     def def_col_error(df_col):
         if df_col[0] not in df_aliases:
+            print(df_col[0])
             if df_col == "":
                 print(f"ERROR: no dataframe referenced with variable {df_col[1]}")
             else:
@@ -590,12 +589,13 @@ def get_cond_dict(where, df_aliases):
 
                     parsed = ast.parse(modified_cond, mode = "exec")
                     variable_names = [n.id for n in ast.walk(parsed) if isinstance(n, ast.Name)]
+                    print(variable_names)
                     for v in variable_names:
                         
                         if "___" in v:
                             df_col = v.split("___")
                         else:
-                            df_col = ["",v]
+                            df_col = [list(df_aliases.keys())[0],v]
                         
                         if def_col_error(df_col):
                             return 1
@@ -880,7 +880,8 @@ def main():
                "insert into df3 (name,Color) values (aac,Orange)",
                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 14 and a.Number < 47",
                "select a.Letter from df1 a where a.Number > 99",
-               "select sum(a.Number) from df1 a where a.Number < 5"]
+               "select sum(a.Number) from df1 a where a.Number < 5",
+               "select Letter from df1 where Number > 99"]
                #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
                 #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50"]
         #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
