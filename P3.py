@@ -345,10 +345,19 @@ def process_select(cmd):
                 print(maximum)
             elif x['agg'].lower() == "avg":
                 average = find_data_type(dfs[0], column, "avg")
-                print("tbd3")
+                if average is not 1:
+                    j = 0
+                    for k in final_keys[0]:
+                        average = average + TABLES[df].table[TABLES[df].key][k][column]
+                        j = j + 1
+                    average = average / j
+                    print(average)
             elif x['agg'].lower() == "sum":
                 sum = find_data_type(dfs[0], column, "sum")
-                print("tbd4")
+                if sum is not 1:
+                    for k in final_keys[0]:
+                        sum = sum + TABLES[df].table[TABLES[df].key][k][column]
+                    print(sum)
     if agg is False:
         if len(dfs_list) > 1:
             for df in dfs:
@@ -388,6 +397,9 @@ def find_data_type(df, c, string):
             if TABLES[df].dtypes[column]['cast'] == str:
                 if string == "min":
                     dtype = "ZZZZZZZZZZZ"
+                elif string == "sum" or string == "avg":
+                    print("ERROR: Aggregation type not supported.")
+                    return 1
                 else:
                     dtype = ""
             elif TABLES[df].dtypes[column]['cast'] == int:
@@ -862,7 +874,7 @@ def main():
                "insert into df3 (name,Color) values (aac,Orange)",
                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 14 and a.Number < 47",
                "select a.Letter from df1 a where a.Number > 99",
-               "select min(a.Number) from df1 a where a.Number < 5"]
+               "select sum(a.Number) from df1 a where a.Number < 5"]
                #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
                 #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50"]
         #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
