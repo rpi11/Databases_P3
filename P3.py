@@ -316,21 +316,33 @@ def process_select(cmd):
     agg = False
     for x in col_funcs.values():
         if x['agg'] is not "":
+            i = 0
             agg = True
             df = dfs[0]
             column = list(outDict[df]["columns to get"].keys())[0]
-            final_output[TABLES[dfs[0]].columns[0]] = []
+            final_output[column] = []
+            for c in TABLES[df].columns:
+                if c == column:
+                    break
+                i = i + 1
             if x['agg'].lower() == "min":
                 if column == TABLES[dfs[0]].key:
                     minimum = min(final_keys[0])
                 else:
                     minimum = find_data_type(dfs[0], column, "min")
-                    for k in final_keys:
-                        #code here to for if we're trying to find the minimum of something that ISNT the key
-                        print("tbd")
+                    for k in final_keys[0]:
+                        if TABLES[df].table[TABLES[df].key][k][column] < minimum:
+                            minimum = TABLES[df].table[TABLES[df].key][k][column]
+                print(minimum)
             elif x['agg'].lower() == "max":
-                maximum = find_data_type(dfs[0], column, "max")
-                print("tbd2")
+                if column == TABLES[dfs[0]].key:
+                    maximum = max(final_keys[0])
+                else:
+                    maximum = find_data_type(dfs[0], column, "max")
+                    for k in final_keys[0]:
+                        if TABLES[df].table[TABLES[df].key][k][column] > maximum:
+                            maximum = TABLES[df].table[TABLES[df].key][k][column]
+                print(maximum)
             elif x['agg'].lower() == "avg":
                 average = find_data_type(dfs[0], column, "avg")
                 print("tbd3")
@@ -373,8 +385,6 @@ def process_select(cmd):
 def find_data_type(df, c, string):
     for column in TABLES[df].dtypes:
         if c == column:
-            print(column)
-            print(TABLES[df].dtypes)
             if TABLES[df].dtypes[column]['cast'] == str:
                 if string == "min":
                     dtype = "ZZZZZZZZZZZ"
