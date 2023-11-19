@@ -274,14 +274,10 @@ def process_select(cmd):
     #and/or combination here
     if logic == "and" or logic == "AND":
         for df in dfs:
-            outDict[df]["subset lists"] = sorted(outDict[df]["subset lists"], key = len)
+            outDict[df]["subset lists"] = and_optimizer(condition_dict, df_aliases)
     elif logic == "or" or logic == "OR":
         for df in dfs:
-            outDict[df]["subset lists"] = sorted(outDict[df]["subset lists"], key = len, reverse = True)
-    #if logic == "and" or logic == "AND":
-    #    sorted_cond_columns = and_optimizer(condition_dict, df_aliases)
-    #elif logic == "or" or logic == "OR":
-    #    sorted_cond_columns = or_optimizer(condition_dict, df_aliases)
+            outDict[df]["subset lists"] = or_optimizer(condition_dict, df_aliases)
 
     #okay, so we've outputted data from both of the tables, now I want to join what we've printed above:
     if logic == "and" or logic == "AND":
@@ -314,7 +310,7 @@ def process_select(cmd):
     final_output = {}
     agg = False
     for x in col_funcs.values():
-        if x['agg'] is not "":
+        if x['agg'] != "":
             i = 0
             agg = True
             df = dfs[0]
@@ -344,7 +340,7 @@ def process_select(cmd):
                 final_output[column] = maximum
             elif x['agg'].lower() == "avg":
                 average = find_data_type(dfs[0], column, "avg")
-                if average is not 1:
+                if average != 1:
                     j = 0
                     for k in final_keys[0]:
                         average = average + TABLES[df].table[TABLES[df].key][k][column]
@@ -353,7 +349,7 @@ def process_select(cmd):
                     final_output[column] = average
             elif x['agg'].lower() == "sum":
                 sum_ = find_data_type(dfs[0], column, "sum")
-                if sum_ is not 1:
+                if sum_ != 1:
                     for k in final_keys[0]:
                         sum_ = sum_ + TABLES[df].table[TABLES[df].key][k][column]
                     final_output[column] = sum_
@@ -854,8 +850,12 @@ def or_optimizer(condition_dict, df_aliases):
     for df in dfs:
         if df in cond_columns:
             subset = [cond_columns[df][cond] for cond in cond_columns[df]]
-    sorted_cond_columns = sorted(subset, key = len, reverse = True)
-    return sorted_cond_columns
+    or_keys = []
+    for sublist in subset:
+        for item in sublist:
+            if item not in or_keys:
+                or_keys.append(item)
+    return or_keys
 
 # endregion OPTIMIZATIONS #####################################################################
 
@@ -878,12 +878,13 @@ def main():
                "insert into df3 (name,Color) values (aab,Red)",
                "insert into df3 (name,Color) values (aad,Red)",
                "insert into df3 (name,Color) values (aac,Orange)",
-               "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 14 and a.Number < 47",
-               "select a.Letter from df1 a where a.Number > 99",
-               "select sum(a.Number) from df1 a where a.Number < 5",
-               "select Letter from df1 where Number > 99"]
-               #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
-                #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50"]
+                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 14 and a.Number < 47",
+            #    "select a.Letter from df1 a where a.Number > 99",
+            #    "select sum(a.Number) from df1 a where a.Number < 5",
+            #    "select Letter from df1 where Number > 99"]
+            #    "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
+                #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50"
+                ]
         #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
         #   "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
         #   "create table df2 (name varchar(3),decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
