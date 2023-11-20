@@ -48,11 +48,12 @@ class Table:
             if col == self.key and row_dict[col] in self.table[col]:
                 print(f"ERROR: trying to insert duplicate value {row_dict[col]} into column {col}")
                 return 1
-            
+
             if col != self.key:
-                if row_dict[col] not in self.table[col]:
-                    self.table[col][row_dict[col]] = []
-                self.table[col][row_dict[col]].append(row_dict[self.key])
+                val = self.dtypes[col]["cast"](row_dict[col])
+                if val not in self.table[col]:
+                    self.table[col][val] = []
+                self.table[col][val].append(row_dict[self.key])
 
             else:
                 self.table[col][row_dict[col]] = {k:v for k,v in row_dict.items() if k != col}
@@ -275,19 +276,20 @@ def process_select(cmd):
         if df in cond_columns:
             outDict[df]["subset lists"] = [cond_columns[df][cond] for cond in cond_columns[df]]
             outDict[df]["subsetted"] = True
-            
+    # print(json.dumps(cond_columns, indent = 4))
     #PROCESS JOINS
     #and/or combination here
-    if logic == "and" or logic == "AND":
-        for df in dfs:
-            if len(outDict[df]["subset lists"]) > 1:
-                outDict[df]["subset lists"] = and_optimizer(cond_columns)
-    elif logic == "or" or logic == "OR":
-        for df in dfs:
-            if len(outDict[df]["subset lists"]) > 1:
-                outDict[df]["subset lists"] = or_optimizer(cond_columns)
 
 
+    for df in dfs:
+        if len(outDict[df]["subset lists"]) > 1:
+            outDict[df]["subset lists"] = and_optimizer(cond_columns) if logic=="and" else or_optimizer(cond_columns)
+        elif len(outDict[df]["subset lists"]) == 1:
+            new_subset_lists = []
+            for l in outDict[df]["subset lists"]:
+                new_subset_lists.extend(l)
+            outDict[df]["subset lists"] = new_subset_lists
+            
     #okay, so we've outputted data from both of the tables, now I want to join what we've printed above:
     if logic == "and" or logic == "AND":
         for df in dfs:
@@ -305,6 +307,7 @@ def process_select(cmd):
             temp1 = outDict[dfs[0]]["subset lists"]
         else:
             temp1 = list(TABLES[dfs[0]].table[(TABLES[dfs[0]].key)].keys())
+        
         if outDict[dfs[1]]["subsetted"] is True:
             temp2 = outDict[dfs[1]]["subset lists"]
         else:
@@ -315,7 +318,7 @@ def process_select(cmd):
             final_keys = outDict[dfs[0]]["subset lists"]
         else:
             final_keys = list(TABLES[dfs[0]].table[(TABLES[dfs[1]].key)].keys())
-
+    
     #FINAL OUTPUT!
     #NOTE: THIS CODE ASSUMES THAT THE AGGREGATION FUNCTIONS WORK CORRECTLY AND HAVE BEEN ERROR CHECKED PREVIOUSLY WHICH I DON'T THINK IT TRUE RN
     #WILL FIX LATER
@@ -691,7 +694,7 @@ def get_cond_columns(c, df_aliases):
             var = list(c["arithmetic"][cond].keys())[0]
             column = c["arithmetic"][cond][var]["column"]
             isKey = (column == TABLES[df].key)
-
+            
             for val in TABLES[df].table[column]:
                 if eval(compile(parsed, filename='<string>', mode='eval'), {}, {var:val}):
                     if isKey:
@@ -701,12 +704,10 @@ def get_cond_columns(c, df_aliases):
             cond_list[df][cond_back] = list(set(cond_list[df][cond_back]))
         else: # Otherwise we need to actually just scan each value
             var_col_dict = {var:c["arithmetic"][cond][var]["column"] for var in c["arithmetic"][cond]}
-            
             for key in TABLES[df].table[TABLES[df].key]:
                 params = {var:TABLES[df].table[TABLES[df].key][key][var_col_dict[var]] for var in var_col_dict}
                 if eval(compile(parsed, filename='<string>', mode='eval'), {}, params):
                     cond_list[df][cond_back].append(key)
-
     # ins
     for cond in c["string"]["ins"]:
         df = df_aliases[c["string"]["ins"][cond]["df_alias"]]
@@ -764,7 +765,6 @@ def get_cond_columns(c, df_aliases):
                         cond_list[df][cond].append(val)
                     else:    
                         cond_list[df][cond].extend(TABLES[df].table[column][val])
-
     return cond_list
 
 # endregion SELECT #####################################################################
@@ -884,7 +884,7 @@ def main():
                 "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number < 20 and a.Number > 3",
                 "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 99 and a.Letter in ('abt')",
                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 90",
-               "select a.Letter from df1 a, df2 b join on a.Letter = b.name where a.Number > 90"
+               "select a.Letter from df1 a, df2 b join on a.Letter = b.name where b.year == 2004"
             #    "select sum(a.Number) from df1 a where a.Number < 5",
             #    "select Letter from df1 where Number > 99"]
             #    "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
