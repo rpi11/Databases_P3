@@ -277,11 +277,11 @@ def process_select(cmd):
     if logic == "and" or logic == "AND":
         for df in dfs:
             if len(outDict[df]["subset lists"]) > 1:
-                outDict[df]["subset lists"] = and_optimizer(condition_dict, df_aliases)
+                outDict[df]["subset lists"] = and_optimizer(cond_columns)
     elif logic == "or" or logic == "OR":
         for df in dfs:
             if len(outDict[df]["subset lists"]) > 1:
-                outDict[df]["subset lists"] = or_optimizer(condition_dict, df_aliases)
+                outDict[df]["subset lists"] = or_optimizer(cond_columns)
 
 
     #okay, so we've outputted data from both of the tables, now I want to join what we've printed above:
@@ -770,7 +770,7 @@ def get_input():
 
 def which_join(df1, df2, data1, data2, col1, col2):
     #note: else statements in nested and merge SHOULD work, but I haven't tested them yet, so who's to say.
-    if len(data1) is 0 or len(data2) is 0:
+    if len(data1) == 0 or len(data2) == 0:
         return [[],[]]
     merge_cost = len(data1) * math.log(len(data1), 2) + len(data2) * math.log(len(data2), 2) + len(data1) + len(data2)
     nested_cost = len(data1) * len(data2)
@@ -825,9 +825,7 @@ def merge_scan(df1, df2, data1, data2, col1, col2):
             j = j + 1
     return [keys1, keys2]
 
-def and_optimizer(condition_dict, df_aliases):
-    cond_columns = {}
-    cond_columns = get_cond_columns(condition_dict, df_aliases)
+def and_optimizer(cond_columns):
     dfs = []
     if cond_columns:
         dfs += list(cond_columns.keys())
@@ -839,9 +837,7 @@ def and_optimizer(condition_dict, df_aliases):
     return sorted_cond_columns
 
 
-def or_optimizer(condition_dict, df_aliases):
-    cond_columns = {}
-    cond_columns = get_cond_columns(condition_dict, df_aliases)
+def or_optimizer(cond_columns):
     dfs = []
     if cond_columns:
         dfs += list(cond_columns.keys())
@@ -878,8 +874,8 @@ def main():
                "insert into df3 (name,Color) values (aad,Red)",
                "insert into df3 (name,Color) values (aac,Orange)",
                 "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number < 20 and a.Number > 3",
-                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 99 and a.Letter in ('abt')"
-            #    "select a.Letter from df1 a where a.Number > 99",
+                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 99 and a.Letter in ('abt')",
+               "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 90",
             #    "select sum(a.Number) from df1 a where a.Number < 5",
             #    "select Letter from df1 where Number > 99"]
             #    "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",

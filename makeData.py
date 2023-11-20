@@ -27,7 +27,33 @@ with open("data/df2.csv", "w+") as o:
         if random.randint(0,10) < 4:
             writer.writerow(["".join(list(key)), random.randint(0,100)/100,random.choice(states),random.randint(1900,2023)])
 
+with open("data/rel_i_i_1000", "w+") as o:
+    writer = csv.writer(o)
+    writer.writerow(["x1","x2"])
+    relation = [(i, i) for i in range(1, 1001)]
+    for pair in relation:
+        writer.writerow(pair)
 
+with open("data/rel_i_1_1000", "w+") as o:
+    writer = csv.writer(o)
+    writer.writerow(["x1","x2"])
+    relation = [(i, 1) for i in range(1, 1001)]
+    for pair in relation:
+        writer.writerow(pair)
+
+with open("data/rel_i_i_10000", "w+") as o:
+    writer = csv.writer(o)
+    writer.writerow(["x1","x2"])
+    relation = [(i, i) for i in range(1, 10001)]
+    for pair in relation:
+        writer.writerow(pair)
+
+with open("data/rel_i_1_10000", "w+") as o:
+    writer = csv.writer(o)
+    writer.writerow(["x1","x2"])
+    relation = [(i, 1) for i in range(1, 10001)]
+    for pair in relation:
+        writer.writerow(pair)
 
 
 
