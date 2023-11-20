@@ -251,10 +251,14 @@ def process_select(cmd):
             return 1
         logic = condition_dict["logic"]
         cond_columns = get_cond_columns(condition_dict, df_aliases)
-    dfs = list(which_columns.keys())
-    if cond_columns:
-        dfs += list(cond_columns.keys())
-    dfs = list(set(dfs))
+    dfs = []
+    for x in dfs_list:
+        dfs.append(x.split()[0])
+    #print(dfs)
+    #dfs = list(which_columns.keys())
+    #if cond_columns:
+    #    dfs += list(cond_columns.keys())
+    #dfs = list(set(dfs))
 
     outDict = {}
     for df in dfs:
@@ -287,6 +291,10 @@ def process_select(cmd):
     #okay, so we've outputted data from both of the tables, now I want to join what we've printed above:
     if logic == "and" or logic == "AND":
         for df in dfs:
+            #while len(outDict[df]["subset lists"]) > 1:
+            #    joined_cond_lists = which_join(df, df, outDict[df]["subset lists"][0], outDict[df]["subset lists"][1], TABLES[df].key, TABLES[df].key)
+            #    outDict[df]["subset lists"][0] = joined_cond_lists[0]
+            #    del outDict[df]["subset lists"][1]
             if len(outDict[df]["subset lists"]) > 0:
                 joined_cond_lists = which_join(df, df, outDict[df]["subset lists"][0], outDict[df]["subset lists"][1], TABLES[df].key, TABLES[df].key)
                 outDict[df]["subset lists"] = joined_cond_lists[0]
@@ -876,6 +884,7 @@ def main():
                 "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number < 20 and a.Number > 3",
                 "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 99 and a.Letter in ('abt')",
                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 90",
+               "select a.Letter from df1 a, df2 b join on a.Letter = b.name where a.Number > 90"
             #    "select sum(a.Number) from df1 a where a.Number < 5",
             #    "select Letter from df1 where Number > 99"]
             #    "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
