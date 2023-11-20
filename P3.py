@@ -1,4 +1,5 @@
 import csv, json, time, ast, math, sys
+from prettytable import PrettyTable
 
 TABLES = {}
 dtypes = {
@@ -403,8 +404,18 @@ def process_select(cmd):
                             if column not in final_output:
                                 final_output[column] = []
                             final_output[column].append(temp2[column])
-    print(final_output)
+    print_output(final_output)
     return outDict
+
+def print_output(final_output):
+    table = PrettyTable()
+    table.field_names = list(final_output.keys())
+
+    final_rows = list(map(list, zip(*final_output.values())))
+
+    for row in final_rows:
+        table.add_row(row)
+    print(table)
 
 def find_data_type(df, c, string):
     for column in TABLES[df].dtypes:
@@ -885,7 +896,7 @@ def main():
                "insert into df3 (name,Color) values (aab,Red)",
                "insert into df3 (name,Color) values (aad,Red)",
                "insert into df3 (name,Color) values (aac,Orange)",
-                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number < 15 and a.Number > 5 and a.Number < 13",
+                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number < 15 and a.Number > 5",
                 "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 99 and a.Letter in ('abt')",
                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 90",
                "select a.Letter from df1 a, df2 b join on a.Letter = b.name where b.year == 2004"
@@ -917,7 +928,7 @@ def main():
         break
         # break
     #TABLES["df2"].sort_table(by="name")
-    #TABLES["df1"].print_table()
+    #TABLES["df2"].print_table()
     #TABLES["df3"].print_table()
 
     #for name in TABLES:
