@@ -274,10 +274,13 @@ def process_select(cmd):
     #and/or combination here
     if logic == "and" or logic == "AND":
         for df in dfs:
-            outDict[df]["subset lists"] = and_optimizer(condition_dict, df_aliases)
+            if len(outDict[df]["subset lists"]) > 1:
+                outDict[df]["subset lists"] = and_optimizer(condition_dict, df_aliases)
     elif logic == "or" or logic == "OR":
         for df in dfs:
-            outDict[df]["subset lists"] = or_optimizer(condition_dict, df_aliases)
+            if len(outDict[df]["subset lists"]) > 1:
+                outDict[df]["subset lists"] = or_optimizer(condition_dict, df_aliases)
+
 
     #okay, so we've outputted data from both of the tables, now I want to join what we've printed above:
     if logic == "and" or logic == "AND":
@@ -289,6 +292,7 @@ def process_select(cmd):
     #code to join tables (if necessary)
     if len(dfs_list) > 1:
         if len(outDict[dfs[0]]["subset lists"]) > 0:
+            print(outDict[dfs[0]])
             temp1 = outDict[dfs[0]]["subset lists"]
         else:
             temp1 = list(TABLES[dfs[0]].table[(TABLES[dfs[0]].key)].keys())
@@ -559,7 +563,6 @@ def get_cond_dict(where, df_aliases):
 
     def def_col_error(df_col):
         if df_col[0] not in df_aliases:
-            print(df_col[0])
             if df_col == "":
                 print(f"ERROR: no dataframe referenced with variable {df_col[1]}")
             else:
@@ -878,7 +881,8 @@ def main():
                "insert into df3 (name,Color) values (aab,Red)",
                "insert into df3 (name,Color) values (aad,Red)",
                "insert into df3 (name,Color) values (aac,Orange)",
-                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 14 and a.Number < 47",
+                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number < 20 and a.Number > 3",
+                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 99 and a.Letter in ('abt')"
             #    "select a.Letter from df1 a where a.Number > 99",
             #    "select sum(a.Number) from df1 a where a.Number < 5",
             #    "select Letter from df1 where Number > 99"]
