@@ -293,13 +293,17 @@ def process_select(cmd):
     #okay, so we've outputted data from both of the tables, now I want to join what we've printed above:
     if logic == "and" or logic == "AND":
         for df in dfs:
-            #while len(outDict[df]["subset lists"]) > 1:
-            #    joined_cond_lists = which_join(df, df, outDict[df]["subset lists"][0], outDict[df]["subset lists"][1], TABLES[df].key, TABLES[df].key)
-            #    outDict[df]["subset lists"][0] = joined_cond_lists[0]
-            #    del outDict[df]["subset lists"][1]
-            if len(outDict[df]["subset lists"]) > 0:
+            whiled = False
+            while len(outDict[df]["subset lists"]) > 1:
+                whiled = True
                 joined_cond_lists = which_join(df, df, outDict[df]["subset lists"][0], outDict[df]["subset lists"][1], TABLES[df].key, TABLES[df].key)
-                outDict[df]["subset lists"] = joined_cond_lists[0]
+                outDict[df]["subset lists"][0] = joined_cond_lists[0]
+                outDict[df]["subset lists"].remove(outDict[df]["subset lists"][1])
+            if whiled:
+                new_subset_lists = []
+                for l in outDict[df]["subset lists"]:
+                    new_subset_lists.extend(l)
+                outDict[df]["subset lists"] = new_subset_lists
 
     #code to join tables (if necessary)
     if len(dfs_list) > 1:
@@ -881,7 +885,7 @@ def main():
                "insert into df3 (name,Color) values (aab,Red)",
                "insert into df3 (name,Color) values (aad,Red)",
                "insert into df3 (name,Color) values (aac,Orange)",
-                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number < 20 and a.Number > 3",
+                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number < 15 and a.Number > 5 and a.Number < 13",
                 "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 99 and a.Letter in ('abt')",
                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 90",
                "select a.Letter from df1 a, df2 b join on a.Letter = b.name where b.year == 2004"
