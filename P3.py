@@ -261,7 +261,8 @@ def process_select(cmd):
         outDict[df] = {
             "logic":logic,
             "columns to get":{},
-            "subset lists":[]
+            "subset lists":[],
+            "subsetted":False
         }
         if df in which_columns:
             outDict[df]["columns to get"] = which_columns[df]
@@ -269,6 +270,7 @@ def process_select(cmd):
         #move and optimizer here
         if df in cond_columns:
             outDict[df]["subset lists"] = [cond_columns[df][cond] for cond in cond_columns[df]]
+            outDict[df]["subsetted"] = True
             
     #PROCESS JOINS
     #and/or combination here
@@ -291,22 +293,20 @@ def process_select(cmd):
 
     #code to join tables (if necessary)
     if len(dfs_list) > 1:
-        if len(outDict[dfs[0]]["subset lists"]) > 0:
-            print(outDict[dfs[0]])
+        if outDict[dfs[0]]["subsetted"] is True:
             temp1 = outDict[dfs[0]]["subset lists"]
         else:
             temp1 = list(TABLES[dfs[0]].table[(TABLES[dfs[0]].key)].keys())
-        if len(outDict[dfs[1]]["subset lists"]) > 0:
+        if outDict[dfs[1]]["subsetted"] is True:
             temp2 = outDict[dfs[1]]["subset lists"]
         else:
             temp2 = list(TABLES[dfs[1]].table[(TABLES[dfs[1]].key)].keys())
         final_keys = which_join(dfs[0], dfs[1], temp1, temp2, TABLES[dfs[0]].key, TABLES[dfs[1]].key)[0]
     else:
-        if len(outDict[dfs[0]]["subset lists"]) > 0:
+        if outDict[dfs[0]]["subsetted"] is True:
             final_keys = outDict[dfs[0]]["subset lists"]
         else:
-            print("tbd")
-            #final_keys = TABLES[dfs[0]]
+            final_keys = list(TABLES[dfs[0]].table[(TABLES[dfs[1]].key)].keys())
 
     #FINAL OUTPUT!
     #NOTE: THIS CODE ASSUMES THAT THE AGGREGATION FUNCTIONS WORK CORRECTLY AND HAVE BEEN ERROR CHECKED PREVIOUSLY WHICH I DON'T THINK IT TRUE RN
@@ -357,11 +357,6 @@ def process_select(cmd):
                     for k in final_keys[0]:
                         sum_ = sum_ + TABLES[df].table[TABLES[df].key][k][column]
                     final_output[column] = sum_
-            elif x['agg'].lower() == "mode":
-                if column == TABLES[df].key:
-                    print("ERROR: Key values are unique mode does not exist.")
-                else:
-                    mode = find_data_type(dfs[0], column, "mode")
                 
     if agg is False:
         if len(dfs_list) > 1:
@@ -458,7 +453,7 @@ def get_col_funcs(col_list):
         alias = name
         if "(" in col:
             agg = col.split("(")[0].lower().strip()
-            if agg not in ["min","max","sum","avg","mode"]:
+            if agg not in ["min","max","sum","avg"]:
                 print(f"ERROR: aggregation method {agg} not supported")
                 return 1
             name = col.split("(")[1].split(")")[0].strip()
@@ -588,7 +583,6 @@ def get_cond_dict(where, df_aliases):
 
                     parsed = ast.parse(modified_cond, mode = "exec")
                     variable_names = [n.id for n in ast.walk(parsed) if isinstance(n, ast.Name)]
-                    print(variable_names)
                     for v in variable_names:
                         
                         if "___" in v:
@@ -776,6 +770,8 @@ def get_input():
 
 def which_join(df1, df2, data1, data2, col1, col2):
     #note: else statements in nested and merge SHOULD work, but I haven't tested them yet, so who's to say.
+    if len(data1) is 0 or len(data2) is 0:
+        return [[],[]]
     merge_cost = len(data1) * math.log(len(data1), 2) + len(data2) * math.log(len(data2), 2) + len(data1) + len(data2)
     nested_cost = len(data1) * len(data2)
     if merge_cost < nested_cost:
