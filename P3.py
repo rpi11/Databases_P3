@@ -35,7 +35,6 @@ class Table:
         if len(row_dict) != self.ncol:
             print(f"ERROR: row insert of length {len(row_dict)} does not match {self.name} column number of {self.ncol}")
             return 1
-
         for col in row_dict:
             if col in self.f_keys:
                 if row_dict[col] not in TABLES[self.f_keys[col]["table"]].table[self.f_keys[col]["col"]]:
@@ -218,7 +217,7 @@ def process_input(cmd_list):
                 columns = [e for e in c_v[0].replace("(","").replace(")","").split(",") if e]
                 vals = [e for e in c_v[1].replace("(","").replace(")","").split(",") if e]
                 if len(columns) != len(vals):
-                    print("ERROR: number of insert columns does not match number of insert values")
+                    print("ERROR: number of insert columns does not match number of insert values, check insert syntax")
                 else:
                     TABLES[name].insert({c:v for c,v in zip(columns, vals)})
         elif first_x(tokens, 1) == ["select"]:
@@ -446,12 +445,12 @@ def get_df_col_and_where_list(cmd):
     where = False
     cols_dfs_where = [""]
     for tkn in tokens[1:]:
-        if tkn == "from":
+        if tkn.lower() == "from":
             cols_dfs_where.append("")
-        elif tkn == "join":
+        elif tkn.lower() == "join":
             cols_dfs_where.append("")
             join = True
-        elif tkn == "where":
+        elif tkn.lower() == "where":
             cols_dfs_where.append("")
             where = True
         else:
@@ -526,6 +525,9 @@ def get_which_columns(col_funcs, df_aliases, dfs_list):
             else:
                 print(f"ERROR: alias {alias} not assigned to a table")
                 return 1
+        elif "*" in col:
+            for df in df_aliases:
+                which_columns[df_aliases[df]] = "*"
         else:
             if dfs_list[0] not in which_columns:
                 which_columns[dfs_list[0]] = {}
@@ -610,7 +612,7 @@ def get_cond_dict(where, df_aliases):
                     parsed = ast.parse(modified_cond, mode = "exec")
                     variable_names = [n.id for n in ast.walk(parsed) if isinstance(n, ast.Name)]
                     for v in variable_names:
-                        
+
                         if "___" in v:
                             df_col = v.split("___")
                         else:
@@ -885,26 +887,42 @@ def main():
         #     break
         # cmd = ["CREATE TABLE TeSt (state VARCHAR(15),year INT,emissions_per_cap FLOAT,PRIMARY KEY (state))",
         #        "LOAD DATA LOCAL INFILE 'data/emissions.csv' INTO TABLE emissions FIELDS TERMINATED BY ',' IGNORE 1 ROWS"]
-
+        cmd = [
+               "CREATE TABLE df1 (w1 INT, w2 INT, PRIMARY KEY(w1))",
+               "CREATE TABLE df2 (x1 INT, x2 INT, FOREIGN KEY (x1) REFERENCES df1(w1), PRIMARY KEY(x1))",
+               "CREATE TABLE df3 (y1 INT, y2 INT, PRIMARY KEY(y1))",
+               "CREATE TABLE df4 (z1 INT, z2 INT, FOREIGN KEY (z1) REFERENCES df3(y1), PRIMARY KEY(z1))",
+               "LOAD DATA INFILE 'data/rel_i_i_1000' INTO TABLE df1 IGNORE 1 ROWS",
+               "LOAD DATA INFILE 'data/rel_i_1_1000' INTO TABLE df2 IGNORE 1 ROWS",
+               "LOAD DATA INFILE 'data/rel_i_i_10000' INTO TABLE df3 IGNORE 1 ROWS",
+               "LOAD DATA INFILE 'data/rel_i_1_10000' INTO TABLE df4 IGNORE 1 ROWS",
+               "INSERT INTO df2 (x1, x2) VALUES (1001,1001))", # this should throw an error because there is no 1001 in df1, works
+               "INSERT INTO df1 (w1, w2) VALUES (1001,1001)", # add a 1001 in df1, works
+               "INSERT INTO df1 (w1, w2) VALUES (1000,1000)", # this should throw an error because there is a duplicate in primary key, not working
+               "INSERT INTO df2 (x1, x2) VALUES (1001,1001))", # this should not throw an error, works
+            #    "SELECT a.w1 FROM df1 as a", # not working because of parsing issue
+               "SELECT * FROM df3 as a, df2 as b JOIN ON a.y1 = b.x1 WHERE a.y1 < 20 OR b.x1 < 30" # was working but now not working because of parsing issue
+            #    "SELECT a.x1, b.x2 FROM df3 as a, df2 as b JOIN ON a.x1 = b.x1 WHERE a.x1 < 20 OR b.x1 < 30"
+               ]
         # 
-        cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
-               "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
-               "create table df2 (decimal float, state varchar(10), year int, name varchar(3), foreign key (name) references df1(Letter), primary key(name))",
-               "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)",
-               "insert into df2 (name,decimal,state,year) values (aao,0.4,Minnesota,2004)", 
-               "create table df3 (name varchar(3), Color VARCHAR(6), primary key (name))",
-               "insert into df3 (name,Color) values (aab,Red)",
-               "insert into df3 (name,Color) values (aad,Red)",
-               "insert into df3 (name,Color) values (aac,Orange)",
-                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number < 15 and a.Number > 5",
-                "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 99 and a.Letter in ('abt')",
-               "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 90",
-               "select a.Letter from df1 a, df2 b join on a.Letter = b.name where b.year == 2004"
+        # cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+        #        "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
+        #        "create table df2 (decimal float, state varchar(10), year int, name varchar(3), foreign key (name) references df1(Letter), primary key(name))",
+        #        "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)",
+        #        "insert into df2 (name,decimal,state,year) values (aao,0.4,Minnesota,2004)", 
+        #        "create table df3 (name varchar(3), Color VARCHAR(6), primary key (name))",
+        #        "insert into df3 (name,Color) values (aab,Red)",
+        #        "insert into df3 (name,Color) values (aad,Red)",
+        #        "insert into df3 (name,Color) values (aac,Orange)",
+        #         "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number < 15 and a.Number > 5",
+        #         "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 99 and a.Letter in ('abt')",
+        #        "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 90",
+        #        "select a.Letter from df1 a, df2 b join on a.Letter = b.name where b.year == 2004"
             #    "select sum(a.Number) from df1 a where a.Number < 5",
             #    "select Letter from df1 where Number > 99"]
             #    "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
                 #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50"
-                ]
+                # ]
         #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
         #   "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
         #   "create table df2 (name varchar(3),decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
