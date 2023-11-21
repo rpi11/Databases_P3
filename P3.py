@@ -17,10 +17,20 @@ dtypes = {
 
 class Table:
     def __init__(self, name, col_dtype_dict, key = "", foreign_keys = {"":{"table":"","col":""}}):
-        
+
         self.dtypes = col_dtype_dict
         self.key = key
         self.f_keys = foreign_keys
+        for col in foreign_keys:
+            if col:
+                TABLES[foreign_keys[col]["table"]].child_keys = {
+                    foreign_keys[col]["col"]:{
+                        "table":name,
+                        "col":col
+                    }
+                }
+        self.child_keys = {}
+
         self.columns = list(col_dtype_dict.keys())
         self.nrow = 0
         self.ncol = len(col_dtype_dict)
@@ -36,6 +46,8 @@ class Table:
             print(f"ERROR: row insert of length {len(row_dict)} does not match {self.name} column number of {self.ncol}")
             return 1
         for col in row_dict:
+            row_dict[col] = self.dtypes[col]["cast"](row_dict[col])
+
             if col in self.f_keys:
                 if row_dict[col] not in TABLES[self.f_keys[col]["table"]].table[self.f_keys[col]["col"]]:
                     print(f"ERROR: attempting to insert value {row_dict[col]} that does not exist in foreign key table {self.f_keys[col]['table']}, column {self.f_keys[col]['col']}")
@@ -50,17 +62,17 @@ class Table:
                 return 1
 
             if col != self.key:
-                val = self.dtypes[col]["cast"](row_dict[col])
-                if val not in self.table[col]:
-                    self.table[col][val] = []
-                self.table[col][val].append(row_dict[self.key])
+                # val = self.dtypes[col]["cast"](row_dict[col])
+                if row_dict[col] not in self.table[col]:
+                    self.table[col][row_dict[col]] = []
+                self.table[col][row_dict[col]].append(row_dict[self.key])
 
             else:
                 self.table[col][row_dict[col]] = {k:v for k,v in row_dict.items() if k != col}
 
         self.nrow += 1
         return 0
-    
+
     def import_file(self, tkns):
 
         file = ""
@@ -96,6 +108,78 @@ class Table:
                     if self.insert(new_row) == 1:
                         break
         return
+
+    def update(self, tokens):
+        cmd_sects = {
+            "df":"",
+            "set":"",
+            "where":""
+        }
+        key = ""
+        for t in tokens:
+            if t.lower() == "update":
+                key = "df"
+            elif t.lower() == "set":
+                key = "set"
+            elif t.lower() == "where":
+                key = "where"
+            else:
+                cmd_sects[key] += t + " "
+        
+        cols = [c.split("=")[0].strip() for c in cmd_sects["set"].split(",")]
+        
+        if any([c == self.key for c in cols]):
+            print("ERROR: trying to update value in primary key column")
+        else:
+            assigns = [c.split("=")[1].strip() for c in cmd_sects["set"].split(",")]
+            for i in range(len(assigns)):
+                try:
+                    assigns[i] = self.dtypes[cols[i]]["cast"](assigns[i])
+                    cont = True
+                except ValueError:
+                    cont = False
+                    print(f"ERROR: cannot convert value of type {type(assigns[i])} to {self.dtypes[cols[i]]['cast']}")
+
+            if cont:
+                assign_dict = {old:new for old, new in zip(cols, assigns)}
+                select = f"select {', '.join(cols)} from {cmd_sects['df'].strip()} where {cmd_sects['where'].strip()}"
+                subset_vals = process_select(select, do_print=False)
+
+                for col in assign_dict:
+                    if assign_dict[col] not in self.table[col]:
+                        self.table[col][assign_dict[col]] = []
+
+                    for val in subset_vals[col]:
+                        self.table[col][assign_dict[col]] += self.table[col][val]
+                        if val != assign_dict[col]:
+                            self.table[col].pop(val)
+                    
+                    for key in self.table[col][assign_dict[col]]:
+                        self.table[self.key][key][col] = assign_dict[col]
+
+    def delete(self, tokens):
+        print("HI")
+        print(tokens)
+        where = " ".join(tokens[2:]).split(",")
+        select_command = f"select {self.key} from {self.name} where {', '.join(where)}"
+        keys = process_select(select_command, False)
+
+        for key in keys[self.key]:
+            for col in self.table[self.key][key]:
+                val = self.table[self.key][key][col]
+                self.table[col][val].remove(key)
+                if col in self.child_keys:
+                    tbl = self.child_keys[col]["table"]
+                    c = self.child_keys[col]["col"]
+
+                    TABLES[tbl].delete([tbl,"where",c,"==",str(val)])
+            
+            if self.key in self.child_keys:
+                tbl = self.child_keys[self.key]["table"]
+                c = self.child_keys[self.key]["col"]
+                TABLES[tbl].delete([tbl,"where",c,"==",str(val)])
+
+            self.table[self.key].pop(key)
 
     def print_table(self, rows = float("inf")):
         output = []
@@ -222,10 +306,30 @@ def process_input(cmd_list):
                     TABLES[name].insert({c:v for c,v in zip(columns, vals)})
         elif first_x(tokens, 1) == ["select"]:
             process_select(cmd)
+        elif first_x(tokens, 1) == ["update"]:
+            name = tokens[1]
+            if name not in TABLES:
+                print("ERROR: the table you are trying to insert into does not exist")
+
+            if not all([c in [e.lower() for e in tokens] for c in ["set", "where"]]):
+                print("ERROR: update query not properly formatted")
+            else:
+                TABLES[name].update(tokens)
+        elif first_x(tokens, 2) == ["delete","from"]:
+            name = tokens[2]
+            if name not in TABLES:
+                print("ERROR: the table you are trying to insert into does not exist")
+            
+            if "where" not in [e.lower() for e in tokens]:
+                print("ERROR: deletion query not properly formatted")
+            else:
+                TABLES[name].delete(tokens[2:])
+
+
         #print("Time for", cmd, ": %s nanoseconds" % round(1000000000*(time.time() - start_time)))       
 
 # region SELECT ########################################################################
-def process_select(cmd):
+def process_select(cmd, do_print = True):
     print(cmd)
     # get columns, dfs, and where condition
     col_list, dfs_list, where, join_list = get_df_col_and_where_list(cmd)
@@ -321,7 +425,7 @@ def process_select(cmd):
         if outDict[dfs[0]]["subsetted"] is True:
             final_keys = outDict[dfs[0]]["subset lists"]
         else:
-            final_keys = list(TABLES[dfs[0]].table[(TABLES[dfs[1]].key)].keys())
+            final_keys = list(TABLES[dfs[0]].table[TABLES[dfs[0]].key].keys())
     
     #FINAL OUTPUT!
     #NOTE: THIS CODE ASSUMES THAT THE AGGREGATION FUNCTIONS WORK CORRECTLY AND HAVE BEEN ERROR CHECKED PREVIOUSLY WHICH I DON'T THINK IT TRUE RN
@@ -403,11 +507,15 @@ def process_select(cmd):
                             if column not in final_output:
                                 final_output[column] = []
                             final_output[column].append(temp2[column])
-    print_output(final_output)
-    return outDict
+    
+    if do_print:
+        print_output(final_output)
+    
+    return final_output
 
 def print_output(final_output):
     table = PrettyTable()
+
     table.field_names = list(final_output.keys())
 
     final_rows = list(map(list, zip(*final_output.values())))
@@ -690,7 +798,6 @@ def get_cond_dict(where, df_aliases):
     return condition_dict
 
 def get_cond_columns(c, df_aliases):
-
     # arithmetic
     cond_list = {}
     for cond in c["arithmetic"]:
@@ -783,9 +890,7 @@ def get_cond_columns(c, df_aliases):
                     else:    
                         cond_list[df][cond].extend(TABLES[df].table[column][val])
     return cond_list
-
 # endregion SELECT #####################################################################
-
 # region OPTIMIZATION ########################################################################
 def get_input():
     command = ""
@@ -861,7 +966,6 @@ def and_optimizer(cond_columns):
     sorted_cond_columns = sorted(subset, key = len)
     return sorted_cond_columns
 
-
 def or_optimizer(cond_columns):
     dfs = []
     if cond_columns:
@@ -901,7 +1005,10 @@ def main():
                "INSERT INTO df1 (w1, w2) VALUES (1000,1000)", # this should throw an error because there is a duplicate in primary key, not working
                "INSERT INTO df2 (x1, x2) VALUES (1001,1001))", # this should not throw an error, works
             #    "SELECT a.w1 FROM df1 as a", # not working because of parsing issue
-               "SELECT * FROM df3 as a, df2 as b JOIN ON a.y1 = b.x1 WHERE a.y1 < 20 OR b.x1 < 30" # was working but now not working because of parsing issue
+               "UPDATE df1 set w2 = 420 where w2 > 900 AND w2 < 925",
+               "delete from df1 where w1 == 1000",
+               "select * from df2"
+            #    "SELECT * FROM df3 as a, df2 as b JOIN ON a.y1 = b.x1 WHERE a.y1 < 20 OR b.x1 < 30" # was working but now not working because of parsing issue
             #    "SELECT a.x1, b.x2 FROM df3 as a, df2 as b JOIN ON a.x1 = b.x1 WHERE a.x1 < 20 OR b.x1 < 30"
                ]
         # 
