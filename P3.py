@@ -16,11 +16,26 @@ dtypes = {
 }
 
 class Table:
-    def __init__(self, name, col_dtype_dict, key = "", foreign_keys = {"":{"table":"","col":""}}):
+    """
+    Class definition for each table that will exist within out relation
+    """
 
+    def __init__(self, name, col_dtype_dict, key = "", foreign_keys = {"":{"table":"","col":""}}):
+        """
+        Initialization function for table
+
+        Params:
+            name: name of table
+            col_dtype_dict: dictionary of datatypes for each column
+            key: the column name that will be the key of the table
+            foreign_keys: a dictionary that will map columns to foreign column that they refer to
+        """
         self.dtypes = col_dtype_dict
         self.key = key
         self.f_keys = foreign_keys
+
+        # For each foreign key, add to that column's table's dictionary
+        # of "child columns." This is useful for cascading deletion
         for col in foreign_keys:
             if col:
                 TABLES[foreign_keys[col]["table"]].child_keys = {
@@ -42,31 +57,52 @@ class Table:
         return
 
     def insert(self, row_dict):
+        """
+        Member function for insertion into the table. This will insert
+        a single row element, which can then be chained for larger importing.
+
+        Params:
+            row_dict: the column:val dictionary for the row being inserted
+        
+        Return:
+            1 if error else 0
+        """
+
+        # Check if length of row dictionary is the same as number of columns
         if len(row_dict) != self.ncol:
             print(f"ERROR: row insert of length {len(row_dict)} does not match {self.name} column number of {self.ncol}")
             return 1
+        
         for col in row_dict:
-            row_dict[col] = self.dtypes[col]["cast"](row_dict[col])
 
+            try:
+                row_dict[col] = self.dtypes[col]["cast"](row_dict[col])
+            except ValueError:
+                print(f"ERROR: cannot convert value {row_dict[col]} to type {self.dtypes[col]["cast"]}")
+                return 1
+
+            # If the column is a foreign key, make sure that 
+            # no duplicates exist in the referred-to column
             if col in self.f_keys:
                 if row_dict[col] not in TABLES[self.f_keys[col]["table"]].table[self.f_keys[col]["col"]]:
                     print(f"ERROR: attempting to insert value {row_dict[col]} that does not exist in foreign key table {self.f_keys[col]['table']}, column {self.f_keys[col]['col']}")
                     return 1
             
+            # Make sure that the column exists in the table
             if col not in self.columns:
                 print(f"ERROR: insert column {col} does not exist in {self.name}")
                 return 1
             
+            # If the column is this table's key, make sure that
+            # no duplicates exist in the column
             if col == self.key and row_dict[col] in self.table[col]:
                 print(f"ERROR: trying to insert duplicate value {row_dict[col]} into column {col}")
                 return 1
 
             if col != self.key:
-                # val = self.dtypes[col]["cast"](row_dict[col])
                 if row_dict[col] not in self.table[col]:
                     self.table[col][row_dict[col]] = []
                 self.table[col][row_dict[col]].append(row_dict[self.key])
-
             else:
                 self.table[col][row_dict[col]] = {k:v for k,v in row_dict.items() if k != col}
 
@@ -74,6 +110,12 @@ class Table:
         return 0
 
     def import_file(self, tkns):
+        """
+        Member function for importing from a file
+
+        Params:
+            tkns: the tokenized version of the input command
+        """
 
         file = ""
         col_delimeter = ","
@@ -93,6 +135,8 @@ class Table:
             except IndexError:
                 pass
         
+        # Read in each line of the file and then
+        # use the insert command to add them to the table
         with open(file, "r") as f:
             reader = csv.reader(f, delimiter=col_delimeter, lineterminator=line_delimeter)
             i = 0
@@ -110,6 +154,13 @@ class Table:
         return
 
     def update(self, tokens):
+        """
+        Member function for updating values in the table.
+
+        Params:
+            tkns: the tokenized version of the input command
+        """
+
         cmd_sects = {
             "df":"",
             "set":"",
@@ -129,8 +180,10 @@ class Table:
         cols = [c.split("=")[0].strip() for c in cmd_sects["set"].split(",")]
         
         if any([c == self.key for c in cols]):
+            # Checks to make sure you are not trying to update a primary key column
             print("ERROR: trying to update value in primary key column")
         else:
+            # Get the values that need to be assigned
             assigns = [c.split("=")[1].strip() for c in cmd_sects["set"].split(",")]
             for i in range(len(assigns)):
                 try:
@@ -140,83 +193,124 @@ class Table:
                     cont = False
                     print(f"ERROR: cannot convert value of type {type(assigns[i])} to {self.dtypes[cols[i]]['cast']}")
 
-            if cont:
+            
+            # If the datatype conversion is acceptable, then actually update
+            if cont:  
+                # This part basically just runs a select-query and then
+                # gets the keys from thr returned table to then update
                 assign_dict = {old:new for old, new in zip(cols, assigns)}
                 select = f"select {', '.join(cols)} from {cmd_sects['df'].strip()} where {cmd_sects['where'].strip()}"
                 subset_vals = process_select(select, do_print=False)
 
+                # For each column in the returned, conditioned table...
                 for col in assign_dict:
+
+                    # If the update value is not in the table-column index,
+                    # create an empty table
                     if assign_dict[col] not in self.table[col]:
                         self.table[col][assign_dict[col]] = []
 
+                    # For each value in the subset values,
+                    # add the associated keys to the list for the
+                    # replacement value and then pop the value
+                    # from the column index if it is not the replacement value.
                     for val in subset_vals[col]:
-                        self.table[col][assign_dict[col]] += self.table[col][val]
+                        self.table[col][assign_dict[col]] += self.table[col][val].copy()
                         if val != assign_dict[col]:
                             self.table[col].pop(val)
                     
+                    # For each key in that new list, make sure that the 
+                    # corresponding value in the primary key index is
+                    # also correctly updated.
                     for key in self.table[col][assign_dict[col]]:
                         self.table[self.key][key][col] = assign_dict[col]
 
     def delete(self, tokens):
-        print("HI")
-        print(tokens)
+        """
+        Member function for deleting values in the table. This
+        incorporates cascading deletion.
+
+        Params:
+            tokens: the tokenized version of the input command
+        """
+
+        # Similar to update, just processes the conditional statement
+        # with the selection function and then handles the returned keys
         where = " ".join(tokens[2:]).split(",")
         select_command = f"select {self.key} from {self.name} where {', '.join(where)}"
         keys = process_select(select_command, False)
 
+        # For each key in the key column of the delete-list
         for key in keys[self.key]:
+            # For each column in the table
             for col in self.table[self.key][key]:
                 val = self.table[self.key][key][col]
+
+                # remove the key from the corresponding value list
                 self.table[col][val].remove(key)
+
+                # If the column has a child-list,
+                # then call the delete member function 
+                # for the table that references
                 if col in self.child_keys:
                     tbl = self.child_keys[col]["table"]
                     c = self.child_keys[col]["col"]
 
                     TABLES[tbl].delete([tbl,"where",c,"==",str(val)])
             
+            # If the key column has a child-list,
+            # do the same as with the columns.
             if self.key in self.child_keys:
                 tbl = self.child_keys[self.key]["table"]
                 c = self.child_keys[self.key]["col"]
                 TABLES[tbl].delete([tbl,"where",c,"==",str(val)])
-
+            
+            # Remove the key value from the primary-key column
             self.table[self.key].pop(key)
 
-    def print_table(self, rows = float("inf")):
-        output = []
-        for i in range(self.ncol):
-            output.append([])
+    # def print_table(self, rows = float("inf")):
+    #     output = []
+    #     for i in range(self.ncol):
+    #         output.append([])
 
-        for i, col in enumerate(self.columns):
-            output[i].append(f"<{col}>" if col == self.key else col)
-            output[i].append("" if col not in self.f_keys else f"{self.f_keys[col]['table']}({self.f_keys[col]['col']})")
+    #     for i, col in enumerate(self.columns):
+    #         output[i].append(f"<{col}>" if col == self.key else col)
+    #         output[i].append("" if col not in self.f_keys else f"{self.f_keys[col]['table']}({self.f_keys[col]['col']})")
             
-            if col == self.key:
-                output[i] += list(self.table[self.key].keys())
-            else:
-                output[i] += [self.table[self.key][k][col] for k in self.table[self.key]]
+    #         if col == self.key:
+    #             output[i] += list(self.table[self.key].keys())
+    #         else:
+    #             output[i] += [self.table[self.key][k][col] for k in self.table[self.key]]
         
-        output = [[" "," "]+list(range(self.nrow))] + output
-        max_w = [max(len(str(item)) for item in col) for col in output]
+    #     output = [[" "," "]+list(range(self.nrow))] + output
+    #     max_w = [max(len(str(item)) for item in col) for col in output]
 
-        print(self.name)
-        for i in range(self.nrow + 2):
-            if i < rows+1:
-                print("  ".join(f"{output[j][i]:<{max_w[j]}}" for j in range(self.ncol+1)))
-        print()
-        return
+    #     print(self.name)
+    #     for i in range(self.nrow + 2):
+    #         if i < rows+1:
+    #             print("  ".join(f"{output[j][i]:<{max_w[j]}}" for j in range(self.ncol+1)))
+    #     print()
+    #     return
 
-    def sort_table(self, by = ""):
-        by = self.key if by == "" else by
-        if by in self.table:
-            new_key_order = []
-            for key in sorted(list(self.table[by].keys())):
-                new_key_order += self.table[by][key]
-            self.table[self.key] = {k:self.table[self.key][k] for k in new_key_order}
-        else:
-            print("ERROR: specified column to sort by is not in table")
-        return
+    # def sort_table(self, by = ""):
+    #     by = self.key if by == "" else by
+    #     if by in self.table:
+    #         new_key_order = []
+    #         for key in sorted(list(self.table[by].keys())):
+    #             new_key_order += self.table[by][key]
+    #         self.table[self.key] = {k:self.table[self.key][k] for k in new_key_order}
+    #     else:
+    #         print("ERROR: specified column to sort by is not in table")
+    #     return
 
 def create_table(cmd):
+    """
+    Function to create a table
+
+    Params:
+        cmd: the tokenized command to create the table
+    """
+    
     cmd = " ".join(cmd)
 
     i = 0
@@ -230,6 +324,7 @@ def create_table(cmd):
     foreigns = {}
     primary_key = ""
     for col in cols:
+        # if the primary key is in the 
         if "primary key" in col.lower():
             primary_key = col.split()[-1]
         elif "foreign key" in col.lower():
