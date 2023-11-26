@@ -78,7 +78,7 @@ class Table:
             try:
                 row_dict[col] = self.dtypes[col]["cast"](row_dict[col])
             except ValueError:
-                print(f"ERROR: cannot convert value {row_dict[col]} to type {self.dtypes[col]["cast"]}")
+                print(f"ERROR: cannot convert value {row_dict[col]} to type {self.dtypes[col]['cast']}")
                 return 1
 
             # If the column is a foreign key, make sure that 
@@ -432,6 +432,9 @@ def process_select(cmd, do_print = True):
     col_funcs = get_col_funcs(col_list)
     if col_funcs == 1:
         return 1
+    if len(col_list) > 1 and list(col_funcs.values())[0]['agg'] != "":
+        print("ERROR: You cannot output more than one column with an aggregation function.")
+        return 1
 
     # get df alias names
     df_aliases = get_df_aliases(dfs_list)
@@ -523,9 +526,8 @@ def process_select(cmd, do_print = True):
             final_keys = list(TABLES[dfs[0]].table[TABLES[dfs[0]].key].keys())
     
     #FINAL OUTPUT!
-    #NOTE: THIS CODE ASSUMES THAT THE AGGREGATION FUNCTIONS WORK CORRECTLY AND HAVE BEEN ERROR CHECKED PREVIOUSLY WHICH I DON'T THINK IT TRUE RN
-    #WILL FIX LATER
     final_output = {}
+    #Handle aggregation operators (if any)
     agg = False
     for x in col_funcs.values():
         if x['agg'] != "":
@@ -540,38 +542,39 @@ def process_select(cmd, do_print = True):
                 i = i + 1
             if x['agg'].lower() == "min":
                 if column == TABLES[dfs[0]].key:
-                    minimum = min(final_keys[0])
+                    minimum = min(final_keys)
                 else:
                     minimum = find_data_type(dfs[0], column, "min")
-                    for k in final_keys[0]:
+                    for k in final_keys:
                         if TABLES[df].table[TABLES[df].key][k][column] < minimum:
                             minimum = TABLES[df].table[TABLES[df].key][k][column]
-                final_output[column] = minimum
+                final_output[column].append(minimum)
             elif x['agg'].lower() == "max":
                 if column == TABLES[dfs[0]].key:
-                    maximum = max(final_keys[0])
+                    maximum = max(final_keys)
                 else:
                     maximum = find_data_type(dfs[0], column, "max")
-                    for k in final_keys[0]:
+                    for k in final_keys:
                         if TABLES[df].table[TABLES[df].key][k][column] > maximum:
                             maximum = TABLES[df].table[TABLES[df].key][k][column]
-                final_output[column] = maximum
+                final_output[column].append(maximum)
             elif x['agg'].lower() == "avg":
                 average = find_data_type(dfs[0], column, "avg")
                 if average != 1:
                     j = 0
-                    for k in final_keys[0]:
+                    for k in final_keys:
                         average = average + TABLES[df].table[TABLES[df].key][k][column]
                         j = j + 1
                     average = average / j
-                    final_output[column] = average
+                    final_output[column].append(average)
             elif x['agg'].lower() == "sum":
                 sum_ = find_data_type(dfs[0], column, "sum")
                 if sum_ != 1:
-                    for k in final_keys[0]:
+                    for k in final_keys:
                         sum_ = sum_ + TABLES[df].table[TABLES[df].key][k][column]
-                    final_output[column] = sum_
+                    final_output[column].append(sum_)
                 
+    #Finds final output if there are no aggregation operators 
     if agg is False:
         if len(dfs_list) > 1:
             for df in dfs:
@@ -609,6 +612,7 @@ def process_select(cmd, do_print = True):
     return final_output
 
 def print_output(final_output):
+    #Takes the final output and prints it for the user (last step!)
     table = PrettyTable()
 
     table.field_names = list(final_output.keys())
@@ -620,6 +624,7 @@ def print_output(final_output):
     print(table)
 
 def find_data_type(df, c, string):
+    #Used for aggregation operators: gets the datatype of the operator and returns appropriate type and value
     for column in TABLES[df].dtypes:
         if c == column:
             if TABLES[df].dtypes[column]['cast'] == str:
@@ -994,7 +999,7 @@ def get_input():
     return [c.strip() for c in command.split(";") if c]
 
 def which_join(df1, df2, data1, data2, col1, col2):
-    #note: else statements in nested and merge SHOULD work, but I haven't tested them yet, so who's to say.
+    #This function determines using cost-based optimization whether we should call merge_scan or nested_loop
     if len(data1) == 0 or len(data2) == 0:
         return [[],[]]
     merge_cost = len(data1) * math.log(len(data1), 2) + len(data2) * math.log(len(data2), 2) + len(data1) + len(data2)
@@ -1095,19 +1100,19 @@ def main():
                "LOAD DATA INFILE 'data/rel_i_1_1000' INTO TABLE df2 IGNORE 1 ROWS",
                "LOAD DATA INFILE 'data/rel_i_i_10000' INTO TABLE df3 IGNORE 1 ROWS",
                "LOAD DATA INFILE 'data/rel_i_1_10000' INTO TABLE df4 IGNORE 1 ROWS",
-               "INSERT INTO df2 (x1, x2) VALUES (1001,1001))", # this should throw an error because there is no 1001 in df1, works
-               "INSERT INTO df1 (w1, w2) VALUES (1001,1001)", # add a 1001 in df1, works
-               "INSERT INTO df1 (w1, w2) VALUES (1000,1000)", # this should throw an error because there is a duplicate in primary key, not working
-               "INSERT INTO df2 (x1, x2) VALUES (1001,1001))", # this should not throw an error, works
+          #     "INSERT INTO df2 (x1, x2) VALUES (1001,1001))", # this should throw an error because there is no 1001 in df1, works
+           #    "INSERT INTO df1 (w1, w2) VALUES (1001,1001)"] # add a 1001 in df1, works
+               "INSERT INTO df1 (w1, w2) VALUES (1000,1000)"] # this should throw an error because there is a duplicate in primary key, not working (I think it's working?)
+          #     "INSERT INTO df2 (x1, x2) VALUES (1001,1001))", # this should not throw an error, works
             #    "SELECT a.w1 FROM df1 as a", # not working because of parsing issue
-               "UPDATE df1 set w2 = 420 where w2 > 900 AND w2 < 925",
-               "delete from df1 where w1 == 1000",
-               "select * from df2"
+        #       "UPDATE df1 set w2 = 420 where w2 > 900 AND w2 < 925",
+        #       "delete from df1 where w1 == 1000",
+        #       "select * from df2"
             #    "SELECT * FROM df3 as a, df2 as b JOIN ON a.y1 = b.x1 WHERE a.y1 < 20 OR b.x1 < 30" # was working but now not working because of parsing issue
             #    "SELECT a.x1, b.x2 FROM df3 as a, df2 as b JOIN ON a.x1 = b.x1 WHERE a.x1 < 20 OR b.x1 < 30"
-               ]
+        #       ]
         # 
-        # cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+        #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
         #        "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
         #        "create table df2 (decimal float, state varchar(10), year int, name varchar(3), foreign key (name) references df1(Letter), primary key(name))",
         #        "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)",
@@ -1119,12 +1124,14 @@ def main():
         #         "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number < 15 and a.Number > 5",
         #         "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 99 and a.Letter in ('abt')",
         #        "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 90",
-        #        "select a.Letter from df1 a, df2 b join on a.Letter = b.name where b.year == 2004"
-            #    "select sum(a.Number) from df1 a where a.Number < 5",
-            #    "select Letter from df1 where Number > 99"]
-            #    "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
-                #"select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 50"
-                # ]
+        #        "select a.Letter from df1 a, df2 b join on a.Letter = b.name where b.year == 2004",
+        #        "select Letter from df1 where Number > 99",
+        #        "select a.Letter, b.name from df1 a, df2 b join on a.Letter = b.name",
+        #        "select a.Letter, b.name from df1 a, df2 b join on a.Letter = b.name where a.Number > 50",
+        #        "select a.Color, b.name from df1 a, df2 b join on a.Color = b.Color where a.Color in ('Turquo', 'Purple')",
+        #        "select avg(a.Number) from df1 a where a.Number < 5",
+        #        "select name, decimal, year from df2 where decimal == 0.2 or decimal == 0.6"
+         #        ]
         #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
         #   "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
         #   "create table df2 (name varchar(3),decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
