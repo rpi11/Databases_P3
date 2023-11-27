@@ -462,6 +462,11 @@ def process_select(cmd, do_print = True):
     #if cond_columns:
     #    dfs += list(cond_columns.keys())
     #dfs = list(set(dfs))
+    conjunctive = True
+    if logic == "or" or logic == "OR":
+        conjunctive = False
+    elif logic == "and" or logic == "AND":
+        conjunctive = True
 
     outDict = {}
     for df in dfs:
@@ -482,7 +487,6 @@ def process_select(cmd, do_print = True):
     #PROCESS JOINS
     #and/or combination here
 
-
     for df in dfs:
         if len(outDict[df]["subset lists"]) > 1:
             outDict[df]["subset lists"] = and_optimizer(cond_columns) if logic=="and" else or_optimizer(cond_columns)
@@ -491,14 +495,14 @@ def process_select(cmd, do_print = True):
             for l in outDict[df]["subset lists"]:
                 new_subset_lists.extend(l)
             outDict[df]["subset lists"] = new_subset_lists
-            
+
     #okay, so we've outputted data from both of the tables, now I want to join what we've printed above:
     if logic == "and" or logic == "AND":
         for df in dfs:
             whiled = False
             while len(outDict[df]["subset lists"]) > 1:
                 whiled = True
-                joined_cond_lists = which_join(df, df, outDict[df]["subset lists"][0], outDict[df]["subset lists"][1], TABLES[df].key, TABLES[df].key)
+                joined_cond_lists = which_join(df, df, outDict[df]["subset lists"][0], outDict[df]["subset lists"][1], TABLES[df].key, TABLES[df].key, conjunctive)
                 outDict[df]["subset lists"][0] = joined_cond_lists[0]
                 outDict[df]["subset lists"].remove(outDict[df]["subset lists"][1])
             if whiled:
@@ -506,7 +510,7 @@ def process_select(cmd, do_print = True):
                 for l in outDict[df]["subset lists"]:
                     new_subset_lists.extend(l)
                 outDict[df]["subset lists"] = new_subset_lists
-
+  
     #code to join tables (if necessary)
     if len(dfs_list) > 1:
         if outDict[dfs[0]]["subsetted"] is True:
@@ -518,13 +522,13 @@ def process_select(cmd, do_print = True):
             temp2 = outDict[dfs[1]]["subset lists"]
         else:
             temp2 = list(TABLES[dfs[1]].table[(TABLES[dfs[1]].key)].keys())
-        final_keys = which_join(dfs[0], dfs[1], temp1, temp2, TABLES[dfs[0]].key, TABLES[dfs[1]].key)[0]
+        final_keys = which_join(dfs[0], dfs[1], temp1, temp2, TABLES[dfs[0]].key, TABLES[dfs[1]].key, conjunctive)[0]
     else:
         if outDict[dfs[0]]["subsetted"] is True:
             final_keys = outDict[dfs[0]]["subset lists"]
         else:
             final_keys = list(TABLES[dfs[0]].table[TABLES[dfs[0]].key].keys())
-    
+            
     #FINAL OUTPUT!
     final_output = {}
     #Handle aggregation operators (if any)
@@ -998,37 +1002,53 @@ def get_input():
         command += " "+input("> ")
     return [c.strip() for c in command.split(";") if c]
 
-def which_join(df1, df2, data1, data2, col1, col2):
+def which_join(df1, df2, data1, data2, col1, col2, conjunctive):
     #This function determines using cost-based optimization whether we should call merge_scan or nested_loop
     if len(data1) == 0 or len(data2) == 0:
         return [[],[]]
     merge_cost = len(data1) * math.log(len(data1), 2) + len(data2) * math.log(len(data2), 2) + len(data1) + len(data2)
     nested_cost = len(data1) * len(data2)
     if merge_cost < nested_cost:
-        return merge_scan(df1, df2, data1, data2, col1, col2)
+        return merge_scan(df1, df2, data1, data2, col1, col2, conjunctive)
     if len(data1) < len(data2):
-        return nested_loop(df1, df2, data1, data2, col1, col2)
-    return nested_loop(df2, df1, data2, data1, col2, col1)
+        return nested_loop(df1, df2, data1, data2, col1, col2, conjunctive)
+    return nested_loop(df2, df1, data2, data1, col2, col1, conjunctive)
 
-def nested_loop(df1, df2, data1, data2, col1, col2):
+def nested_loop(df1, df2, data1, data2, col1, col2, conjunctive):
     keys1 = []
     keys2 = []
     for i in data1:
         for j in data2:
-            if i == j:
-                if col1 == TABLES[df1].key:
-                    keys1.append(i)
+                if conjunctive:
+                    if i == j:
+                        if col1 == TABLES[df1].key:
+                            keys1.append(i)
+                        else:
+                            temp = TABLES[df1].table[col1]
+                            keys1.append(temp[i])
+                        if col2 == TABLES[df2].key:
+                            keys2.append(j)
+                        else:
+                            temp = TABLES[df2].table[col2]
+                            keys2.append(temp[i])
                 else:
-                    temp = TABLES[df1].table[col1]
-                    keys1.append(temp[i])
-                if col2 == TABLES[df2].key:
-                    keys2.append(j)
-                else:
-                    temp = TABLES[df2].table[col2]
-                    keys2.append(temp[i])
+                    if col1 == TABLES[df1].key and i not in keys1:
+                        keys1.append(i)
+                    elif col1 == TABLES[df1].key and i in keys1:
+                        pass
+                    else:
+                        temp = TABLES[df1].table[col1]
+                        keys1.append(temp[i])
+                    if col2 == TABLES[df2].key and j not in keys2:
+                        keys2.append(j)
+                    elif col2 == TABLES[df2].key and j in keys2:
+                        pass
+                    else:
+                        temp = TABLES[df2].table[col2]
+                        keys2.append(temp[j])
     return [keys1, keys2]
 
-def merge_scan(df1, df2, data1, data2, col1, col2):
+def merge_scan(df1, df2, data1, data2, col1, col2, conjunctive):
     keys1 = []
     keys2 = []
     i = 0
@@ -1041,16 +1061,32 @@ def merge_scan(df1, df2, data1, data2, col1, col2):
         elif data1[i] > data2[j]:
             j = j + 1
         else:
-            if col1 == TABLES[df1].key:
-                keys1.append(data1[i])
+            if conjunctive: 
+                if col1 == TABLES[df1].key:
+                    keys1.append(data1[i])
+                else:
+                    temp = TABLES[df1].table[col1]
+                    keys1.append(temp[i])
+                if col2 == TABLES[df2].key:
+                    keys2.append(data2[j])
+                else:
+                    temp = TABLES[df2].table[col2]
+                    keys1.append(temp[i])
             else:
-                temp = TABLES[df1].table[col1]
-                keys1.append(temp[i])
-            if col2 == TABLES[df2].key:
-                keys2.append(data2[j])
-            else:
-                temp = TABLES[df2].table[col2]
-                keys1.append(temp[i])
+                if col1 == TABLES[df1].key and i not in keys1:
+                    keys1.append(i)
+                elif col1 == TABLES[df1].key and i in keys1:
+                    pass
+                else:
+                    temp = TABLES[df1].table[col1]
+                    keys1.append(temp[i])
+                if col2 == TABLES[df2].key and j not in keys2:
+                    keys2.append(j)
+                elif col2 == TABLES[df2].key and j in keys2:
+                    pass
+                else:
+                    temp = TABLES[df2].table[col2]
+                    keys2.append(temp[j])
             i = i + 1
             j = j + 1
     return [keys1, keys2]
@@ -1071,9 +1107,10 @@ def or_optimizer(cond_columns):
     if cond_columns:
         dfs += list(cond_columns.keys())
     dfs = list(set(dfs))
+    subset = []
     for df in dfs:
         if df in cond_columns:
-            subset = [cond_columns[df][cond] for cond in cond_columns[df]]
+            subset.extend([cond_columns[df][cond] for cond in cond_columns[df]])
     or_keys = []
     for sublist in subset:
         for item in sublist:
@@ -1100,17 +1137,17 @@ def main():
                "LOAD DATA INFILE 'data/rel_i_1_1000' INTO TABLE df2 IGNORE 1 ROWS",
                "LOAD DATA INFILE 'data/rel_i_i_10000' INTO TABLE df3 IGNORE 1 ROWS",
                "LOAD DATA INFILE 'data/rel_i_1_10000' INTO TABLE df4 IGNORE 1 ROWS",
-          #     "INSERT INTO df2 (x1, x2) VALUES (1001,1001))", # this should throw an error because there is no 1001 in df1, works
-           #    "INSERT INTO df1 (w1, w2) VALUES (1001,1001)"] # add a 1001 in df1, works
-               "INSERT INTO df1 (w1, w2) VALUES (1000,1000)"] # this should throw an error because there is a duplicate in primary key, not working (I think it's working?)
-          #     "INSERT INTO df2 (x1, x2) VALUES (1001,1001))", # this should not throw an error, works
-            #    "SELECT a.w1 FROM df1 as a", # not working because of parsing issue
+          #     "INSERT INTO df2 (x1, x2) VALUES (1001,1001))"", # this should throw an error because there is no 1001 in df1, works"
+           #    "INSERT INTO df1 (w1, w2) VALUES (1001,1001)"],
+               "INSERT INTO df1 (w1, w2) VALUES (1000,1000)",
+          #     "INSERT INTO df2 (x1, x2) VALUES (1001,1001))",
+            #    "SELECT * FROM df1 as a",
         #       "UPDATE df1 set w2 = 420 where w2 > 900 AND w2 < 925",
         #       "delete from df1 where w1 == 1000",
-        #       "select * from df2"
-            #    "SELECT * FROM df3 as a, df2 as b JOIN ON a.y1 = b.x1 WHERE a.y1 < 20 OR b.x1 < 30" # was working but now not working because of parsing issue
-            #    "SELECT a.x1, b.x2 FROM df3 as a, df2 as b JOIN ON a.x1 = b.x1 WHERE a.x1 < 20 OR b.x1 < 30"
-        #       ]
+        #       "select * from df2",
+            #    "SELECT * FROM df3 as a, df2 as b JOIN ON a.y1 = b.x1 WHERE a.y1 < 5 OR b.x1 < 3", # was working but now not working because of parsing issue
+               "SELECT a.y1, b.x2 FROM df3 as a, df2 as b JOIN ON a.y1 = b.x1 WHERE a.y1 < 5 OR b.x1 < 3"
+              ]
         # 
         #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
         #        "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
