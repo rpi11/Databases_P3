@@ -522,7 +522,15 @@ def process_select(cmd, do_print = True):
             temp2 = outDict[dfs[1]]["subset lists"]
         else:
             temp2 = list(TABLES[dfs[1]].table[(TABLES[dfs[1]].key)].keys())
-        final_keys = which_join(dfs[0], dfs[1], temp1, temp2, TABLES[dfs[0]].key, TABLES[dfs[1]].key, conjunctive)[0]
+        if conjunctive:
+            final_keys = which_join(dfs[0], dfs[1], temp1, temp2, TABLES[dfs[0]].key, TABLES[dfs[1]].key, conjunctive)[0]
+        else:
+            final_keys = which_join(dfs[0], dfs[1], temp1, temp2, TABLES[dfs[0]].key, TABLES[dfs[1]].key, conjunctive)
+            temp = final_keys[0]
+            for x in final_keys:
+                if len(x) > len(temp):
+                    temp = x
+            final_keys = temp
     else:
         if outDict[dfs[0]]["subsetted"] is True:
             final_keys = outDict[dfs[0]]["subset lists"]
