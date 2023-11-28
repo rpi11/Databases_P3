@@ -632,9 +632,9 @@ def process_select(cmd, do_print = True):
         for df in dfs:
             for column in list(outDict[df]["columns to get"].keys()):
                 if column != TABLES[df].key:
-                    final_output[df+"_"+column] = [TABLES[df].table[TABLES[df].key][k][column] for k in final_keys[df]]
+                    final_output[column] = [TABLES[df].table[TABLES[df].key][k][column] for k in final_keys[df]]
                 else:
-                    final_output[df+"_"+column] = [k for k in final_keys[df]]
+                    final_output[column] = [k for k in final_keys[df]]
                 
 
         # if len(dfs_list) > 1:
@@ -1084,59 +1084,33 @@ def nested_loop(df1, df2, data1, data2, col1, col2, conjunctive):
     keys2 = []
     for i in data1:
         for j in data2:
-    #for i in TABLES[df1].table[col1]:
-        #for j in TABLES[df2].table[col2]:
-                print(i)
-                print(j)
-                if conjunctive:
+                #if conjunctive:
                     if col1 == TABLES[df1].key and col2 == TABLES[df2].key:
                         if i == j:
                             keys1.append(i)
                             keys2.append(j)
                     else:
-                    #print("in this if")
-                    #if i == j:
-                    #print(TABLES[df1].table[TABLES[df1].key][i][col1])
-                        print(TABLES[df1].table[TABLES[df1].key][i])
-                        print(TABLES[df2].table[TABLES[df2].key][j][col2])
                         if TABLES[df1].table[TABLES[df1].key][i][col1] == TABLES[df2].table[TABLES[df2].key][j][col2]:
-                            print("in second if")
-                            if col1 == TABLES[df1].key:
-                                print("in if")
-                                keys1.append(i)
-                            else:
-                                print("in else")
-                                temp = TABLES[df1].table[col1]
-                                #print(temp)
-                                #print(i)
-                                #keys1.append(temp[i])
-                                keys1.append(i)
-                            if col2 == TABLES[df2].key:
-                                print("in if2")
-                                keys2.append(j)
-                            else:
-                                print("in else2")
-                                #temp = TABLES[df2].table[col2]
-                                #keys2.append(temp[i])
-                                keys2.append(j)
-                else:
-                    print("in this else")
-                    if col1 == TABLES[df1].key and i not in keys1:
-                        keys1.append(data1[i])
-                    elif col1 == TABLES[df1].key and i in keys1:
-                        pass
-                    else:
-                        print("in else")
-                        temp = TABLES[df1].table[col1]
-                        keys1.append(temp[i])
-                    if col2 == TABLES[df2].key and j not in keys2:
-                        keys2.append(data2[j])
-                    elif col2 == TABLES[df2].key and j in keys2:
-                        pass
-                    else:
-                        print("in else")
-                        temp = TABLES[df2].table[col2]
-                        keys2.append(temp[j])
+                            keys1.append(i)
+                            keys2.append(j)
+                # else:
+                #     print("in this else")
+                #     if col1 == TABLES[df1].key and i not in keys1:
+                #         keys1.append(data1[i])
+                #     elif col1 == TABLES[df1].key and i in keys1:
+                #         pass
+                #     else:
+                #         print("in else")
+                #         temp = TABLES[df1].table[col1]
+                #         keys1.append(temp[i])
+                #     if col2 == TABLES[df2].key and j not in keys2:
+                #         keys2.append(data2[j])
+                #     elif col2 == TABLES[df2].key and j in keys2:
+                #         pass
+                #     else:
+                #         print("in else")
+                #         temp = TABLES[df2].table[col2]
+                #         keys2.append(temp[j])
     return [keys1, keys2]
 
 def merge_scan(df1, df2, data1, data2, col1, col2, conjunctive):
@@ -1152,32 +1126,35 @@ def merge_scan(df1, df2, data1, data2, col1, col2, conjunctive):
         elif data1[i] > data2[j]:
             j = j + 1
         else:
-            if conjunctive: 
-                if col1 == TABLES[df1].key:
-                    keys1.append(data1[i])
-                else:
-                    temp = TABLES[df1].table[col1]
-                    keys1.append(temp[i])
-                if col2 == TABLES[df2].key:
-                    keys2.append(data2[j])
-                else:
-                    temp = TABLES[df2].table[col2]
-                    keys1.append(temp[i])
-            else:
-                if col1 == TABLES[df1].key and i not in keys1:
-                    keys1.append(data1[i])
-                elif col1 == TABLES[df1].key and i in keys1:
-                    pass
-                else:
-                    temp = TABLES[df1].table[col1]
-                    keys1.append(temp[i])
-                if col2 == TABLES[df2].key and j not in keys2:
-                    keys2.append(data2[j])
-                elif col2 == TABLES[df2].key and j in keys2:
-                    pass
-                else:
-                    temp = TABLES[df2].table[col2]
-                    keys2.append(temp[j])
+            #if conjunctive: 
+                # if col1 == TABLES[df1].key:
+                #     keys1.append(data1[i])
+                # else:
+                #     temp = TABLES[df1].table[col1]
+                #     keys1.append(temp[i])
+                # if col2 == TABLES[df2].key:
+                #     keys2.append(data2[j])
+                # else:
+                #     temp = TABLES[df2].table[col2]
+                #     keys1.append(temp[i])
+            keys1.append(data1[i])
+            keys2.append(data2[j])
+
+            # else:
+            #     if col1 == TABLES[df1].key and i not in keys1:
+            #         keys1.append(data1[i])
+            #     elif col1 == TABLES[df1].key and i in keys1:
+            #         pass
+            #     else:
+            #         temp = TABLES[df1].table[col1]
+            #         keys1.append(temp[i])
+            #     if col2 == TABLES[df2].key and j not in keys2:
+            #         keys2.append(data2[j])
+            #     elif col2 == TABLES[df2].key and j in keys2:
+            #         pass
+            #     else:
+            #         temp = TABLES[df2].table[col2]
+            #         keys2.append(temp[j])
             i = i + 1
             j = j + 1
     return [keys1, keys2]
@@ -1255,16 +1232,16 @@ def main():
                  "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number < 15 and a.Number > 5",
                  "select b.name, a.Letter, a.Color FROM df1 a, df3 b JOIN ON a.Color = b.color WHERE a.Color == 'Red'",
          #        ]
-        #          "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 99 and a.Letter in ('abt')",
-        #         "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 90",
-        #         "select a.Letter from df1 a, df2 b join on a.Letter = b.name where b.year == 2004",
-        #         "select Letter from df1 where Number > 99",
-        #         "select a.Letter, b.name from df1 a, df2 b join on a.Letter = b.name",
-        #         "select a.Letter, b.name from df1 a, df2 b join on a.Letter = b.name where a.Number > 50",
-        #         "select a.Color, b.name from df1 a, df2 b join on a.Color = b.Color where a.Color in ('Turquo', 'Purple')",
-                 "select avg(a.Number) from df1 a where a.Number < 5"]
-        #         "select name, decimal, year from df2 where decimal == 0.2 or decimal == 0.6"
-        #         ]
+                  "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 99 and a.Letter in ('abt')",
+                 "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 90",
+                 "select a.Letter from df1 a, df2 b join on a.Letter = b.name where b.year == 2004",
+                 "select Letter from df1 where Number > 99",
+                 "select a.Letter, b.name from df1 a, df2 b join on a.Letter = b.name",
+                 "select a.Letter, b.name from df1 a, df2 b join on a.Letter = b.name where a.Number > 50",
+               #  "select a.Color, b.name from df1 a, df2 b join on a.Color = b.color where a.Color in ('Turquo', 'Purple')",
+                 "select avg(a.Number) from df1 a where a.Number < 5",#]
+                 "select name, decimal, year from df2 where decimal == 0.2 or decimal == 0.6"
+                 ]
         # #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
         # #   "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
         # #   "create table df2 (name varchar(3),decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
