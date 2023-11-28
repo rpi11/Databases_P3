@@ -376,7 +376,12 @@ def process_input(cmd_list):
                 TABLES[name] = tbl
         elif first_x(tokens, 2) == ["drop","table"]:
             name = tokens[2]
-            TABLES.pop(name)
+            if name in TABLES:
+                TABLES[name].empty()
+                TABLES.pop(name)
+            else:
+                print("ERROR: the table you are trying to load into does not exist")
+            
         elif first_x(tokens, 2) == ["load","data"]:
             for i in range(len(tokens[2:])-2):
                 if tokens[2:][i].lower() == "into" and tokens[2:][i+1].lower() == "table":
