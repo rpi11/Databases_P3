@@ -987,7 +987,6 @@ def get_cond_columns(c, df_aliases):
                         cond_list[df][cond_back].append(val)
                     else:
                         cond_list[df][cond_back].extend(TABLES[df].table[column][val])
-            cond_list[df][cond_back] = list(set(cond_list[df][cond_back]))
         else: # Otherwise we need to actually just scan each value
             var_col_dict = {var:c["arithmetic"][cond][var]["column"] for var in c["arithmetic"][cond]}
             for key in TABLES[df].table[TABLES[df].key]:
