@@ -450,7 +450,7 @@ def process_select(cmd, do_print = True):
     df_aliases = get_df_aliases(dfs_list)
     if df_aliases == 1:
         return 1
-    
+
     # create column dict that connects aliases
     which_columns = get_which_columns(col_funcs, df_aliases, dfs_list)
     if which_columns == 1:
@@ -818,6 +818,7 @@ def get_join_cols(join_list, df_aliases):
     return which_join_cols
 
 def get_cond_dict(where, df_aliases):
+
     condition_dict = {
         "logic":"",
         "arithmetic":{},
@@ -853,7 +854,9 @@ def get_cond_dict(where, df_aliases):
     arithmetic = ["<=", ">=", "!=", "==", "<", ">"]
     ins = ["not in","in"]
     likes = ["not like","like"]
+
     for cond in where:
+
         if any([a in cond for a in arithmetic]):
             for a in arithmetic:
                 if a in cond:
@@ -871,7 +874,6 @@ def get_cond_dict(where, df_aliases):
                             df_col = v.split("___")
                         else:
                             df_col = [list(df_aliases.keys())[0],v]
-                        
                         if def_col_error(df_col):
                             return 1
 
@@ -888,7 +890,7 @@ def get_cond_dict(where, df_aliases):
                     if "." in col_list[0]:
                         df_col = col_list[0].split(".")
                     else:
-                        df_col = ["",col_list[0]]
+                        df_col = [list(df_aliases.keys())[0],col_list[0]]
                     if def_col_error(df_col):
                         return 1
 
@@ -912,11 +914,12 @@ def get_cond_dict(where, df_aliases):
                 if f" {s} " in cond:
                     col_string = [e.strip() for e in cond.split(f" {s} ")]
                     compare = col_string[1].replace("'","").replace('"',"")
-                    
+                    print(col_string)
                     if "." in col_string[0]:
                         df_col = col_string[0].split(".")
                     else:
-                        df_col = ["",col_string[0]]
+                        df_col = [list(df_aliases.keys())[0],col_string[0]]
+
                     if def_col_error(df_col):
                         return 1
                     
@@ -980,6 +983,7 @@ def get_cond_columns(c, df_aliases):
                     cond_list[df][cond_back].append(key)
     # ins
     for cond in c["string"]["ins"]:
+        df = ""
         df = df_aliases[c["string"]["ins"][cond]["df_alias"]]
 
         if df not in cond_list:
