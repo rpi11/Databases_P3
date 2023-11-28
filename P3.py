@@ -1082,15 +1082,6 @@ def which_join(df1, df2, data1, data2, col1, col2, conjunctive):
 def nested_loop(df1, df2, data1, data2, col1, col2, conjunctive):
     keys1 = []
     keys2 = []
-    #print(data2)
-    #print(data1)
-    #print(TABLES[df1].table[col1])
-    #print(TABLES[df2].table[col2])
-    print("here")
-    #print(TABLES[df1].table[TABLES[df1].key])
-    #temp = TABLES[df1].table[TABLES[df1].key]['aab']['color']
-    #temp2 = temp['aab']
-    #print(temp)
     for i in data1:
         for j in data2:
     #for i in TABLES[df1].table[col1]:
