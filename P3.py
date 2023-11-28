@@ -220,6 +220,7 @@ class Table:
                     # replacement value and then pop the value
                     # from the column index if it is not the replacement value.
                     for val in subset_vals[col]:
+                        val = self.dtypes[col]["cast"](val)
                         self.table[col][assign_dict[col]] += self.table[col][val].copy()
                         if val != assign_dict[col]:
                             self.table[col].pop(val)
