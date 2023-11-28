@@ -421,7 +421,7 @@ def process_input(cmd_list):
                 TABLES[name].delete(tokens[2:])
 
 
-        #print("Time for", cmd, ": %s nanoseconds" % round(1000000000*(time.time() - start_time)))       
+        print("Time for", cmd, ": %s nanoseconds" % round(1000000000*(time.time() - start_time)))     
 
 # region SELECT ########################################################################
 def process_select(cmd, do_print = True):
@@ -523,17 +523,29 @@ def process_select(cmd, do_print = True):
         else:
             temp2 = list(TABLES[dfs[1]].table[(TABLES[dfs[1]].key)].keys())
         final_keys = which_join(dfs[0], dfs[1], temp1, temp2, TABLES[dfs[0]].key, TABLES[dfs[1]].key, conjunctive)
+        #test_time = time.time()
         if conjunctive:
             temp = final_keys[0]
-            for k in temp:
-                if k not in final_keys[1]:
-                    temp.remove(k)
-            final_keys = temp
+            for k in final_keys[1]:
+                temp.append(k)
+            temp = sorted(temp)
+            i = 0
+            j = 0
+            temp2 = []
+            while i < len(temp) - 1:
+                if temp[i] == temp[i + 1]:
+                    if j == 0:
+                        j = i
+                        temp2.append(temp[i])
+                    else:
+                        if temp[i] != temp[j]:
+                            temp2.append(temp[i])
+                i = i + 1
+            final_keys = temp2  
         else:
             temp = final_keys[0]
             for k in final_keys[1]:
                 temp.append(k)
-            print(temp)
             temp = sorted(temp)
             i = 0
             while i < len(temp) - 1:
@@ -542,6 +554,7 @@ def process_select(cmd, do_print = True):
                 else:
                     i = i + 1
             final_keys = temp
+        #print(round(1000000000*(time.time() - test_time)))
     else:
         if outDict[dfs[0]]["subsetted"] is True:
             final_keys = outDict[dfs[0]]["subset lists"]
@@ -1147,32 +1160,35 @@ def main():
         #     break
         # cmd = ["CREATE TABLE TeSt (state VARCHAR(15),year INT,emissions_per_cap FLOAT,PRIMARY KEY (state))",
         #        "LOAD DATA LOCAL INFILE 'data/emissions.csv' INTO TABLE emissions FIELDS TERMINATED BY ',' IGNORE 1 ROWS"]
-        #cmd = [
-        #       "CREATE TABLE df1 (w1 INT, w2 INT, PRIMARY KEY(w1))",
-        #       "CREATE TABLE df2 (x1 INT, x2 INT, FOREIGN KEY (x1) REFERENCES df1(w1), PRIMARY KEY(x1))",
-        #       "CREATE TABLE df3 (y1 INT, y2 INT, PRIMARY KEY(y1))",
-        #       "CREATE TABLE df4 (z1 INT, z2 INT, FOREIGN KEY (z1) REFERENCES df3(y1), PRIMARY KEY(z1))",
-        #       "LOAD DATA INFILE 'data/rel_i_i_1000' INTO TABLE df1 IGNORE 1 ROWS",
-        #       "LOAD DATA INFILE 'data/rel_i_1_1000' INTO TABLE df2 IGNORE 1 ROWS",
-        #       "LOAD DATA INFILE 'data/rel_i_i_10000' INTO TABLE df3 IGNORE 1 ROWS",
-        #       "LOAD DATA INFILE 'data/rel_i_1_10000' INTO TABLE df4 IGNORE 1 ROWS",
-          #     "INSERT INTO df2 (x1, x2) VALUES (1001,1001))"", # this should throw an error because there is no 1001 in df1, works"
-           #    "INSERT INTO df1 (w1, w2) VALUES (1001,1001)"],
-        #       "INSERT INTO df1 (w1, w2) VALUES (1000,1000)",
-          #     "INSERT INTO df2 (x1, x2) VALUES (1001,1001))",
-            #    "SELECT * FROM df1 as a",
-        #       "UPDATE df1 set w2 = 420 where w2 > 900 AND w2 < 925",
-        #       "delete from df1 where w1 == 1000",
-        #       "select * from df2",
-            #    "SELECT * FROM df3 as a, df2 as b JOIN ON a.y1 = b.x1 WHERE a.y1 < 5 OR b.x1 < 3", # was working but now not working because of parsing issue
-        #       "SELECT a.y1, b.x2 FROM df3 as a, df2 as b JOIN ON a.y1 = b.x1 WHERE a.y1 < 5 OR b.x1 < 3"
-        #      ]
+        cmd = [
+               "CREATE TABLE df1 (w1 INT, w2 INT, PRIMARY KEY(w1))",
+               "CREATE TABLE df2 (x1 INT, x2 INT, FOREIGN KEY (x1) REFERENCES df1(w1), PRIMARY KEY(x1))",
+               "CREATE TABLE df3 (y1 INT, y2 INT, PRIMARY KEY(y1))",
+               "CREATE TABLE df4 (z1 INT, z2 INT, FOREIGN KEY (z1) REFERENCES df3(y1), PRIMARY KEY(z1))",
+               "LOAD DATA INFILE 'data/rel_i_i_1000' INTO TABLE df1 IGNORE 1 ROWS",
+               "LOAD DATA INFILE 'data/rel_i_1_1000' INTO TABLE df2 IGNORE 1 ROWS",
+               "LOAD DATA INFILE 'data/rel_i_i_10000' INTO TABLE df3 IGNORE 1 ROWS",
+               "LOAD DATA INFILE 'data/rel_i_1_10000' INTO TABLE df4 IGNORE 1 ROWS",
+               "INSERT INTO df2 (x1, x2) VALUES (1001,1001))"", # this should throw an error because there is no 1001 in df1, works"
+               "INSERT INTO df1 (w1, w2) VALUES (1001,1001)",
+               "INSERT INTO df1 (w1, w2) VALUES (1000,1000)",
+               "INSERT INTO df2 (x1, x2) VALUES (1001,1001))",
+                "SELECT * FROM df1 as a",
+               "UPDATE df1 set w2 = 420 where w2 > 900 AND w2 < 925",
+               "delete from df1 where w1 == 1000",
+               "select * from df2",
+                "SELECT * FROM df3 as a, df2 as b JOIN ON a.y1 = b.x1 WHERE a.y1 < 5 OR b.x1 < 3", # was working but now not working because of parsing issue
+               "SELECT a.y1, b.x2 FROM df3 as a, df2 as b JOIN ON a.y1 = b.x1 WHERE a.y1 < 5 OR b.x1 < 3",
+               "SELECT a.y1, b.z1 FROM df3 as a, df4 as b JOIN ON a.y2 = b.z2"
+              ]
         # 
-        cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+        cmd2 = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
                 "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
                 "create table df2 (decimal float, state varchar(10), year int, name varchar(3), foreign key (name) references df1(Letter), primary key(name))",
                 "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)",
                 "insert into df2 (name,decimal,state,year) values (aao,0.4,Minnesota,2004)", 
+                #"create table df2 (name varchar(3), decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
+                #"load data infile 'data/df2.csv' into table df2 ignore 1 rows",
                 "create table df3 (name varchar(3), Color VARCHAR(6), primary key (name))",
                 "insert into df3 (name,Color) values (aab,Red)",
                 "insert into df3 (name,Color) values (aad,Red)",
