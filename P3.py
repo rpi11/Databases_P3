@@ -1077,78 +1077,79 @@ def or_optimizer(cond_columns):
 def main():
 
     while True:
-        #cmd = get_input()
-        #if cmd == ["exit"]:
-        #    break
-        # cmd = ["CREATE TABLE TeSt (state VARCHAR(15),year INT,emissions_per_cap FLOAT,PRIMARY KEY (state))",
-        #        "LOAD DATA LOCAL INFILE 'data/emissions.csv' INTO TABLE emissions FIELDS TERMINATED BY ',' IGNORE 1 ROWS"]
-        # cmd = [
-        #        "CREATE TABLE df1 (w1 INT, w2 INT, PRIMARY KEY(w1))",
-        #        "CREATE TABLE df2 (x1 INT, x2 INT, FOREIGN KEY (x1) REFERENCES df1(w1), PRIMARY KEY(x1))",
-        #        "CREATE TABLE df3 (y1 INT, y2 INT, PRIMARY KEY(y1))",
-        #        "CREATE TABLE df4 (z1 INT, z2 INT, FOREIGN KEY (z1) REFERENCES df3(y1), PRIMARY KEY(z1))",
-        #        "LOAD DATA INFILE 'data/rel_i_i_1000' INTO TABLE df1 IGNORE 1 ROWS",
-        #        "LOAD DATA INFILE 'data/rel_i_1_1000' INTO TABLE df2 IGNORE 1 ROWS",
-        #        "LOAD DATA INFILE 'data/rel_i_i_10000' INTO TABLE df3 IGNORE 1 ROWS",
-        #        "LOAD DATA INFILE 'data/rel_i_1_10000' INTO TABLE df4 IGNORE 1 ROWS",
-        #        "INSERT INTO df2 (x1, x2) VALUES (1001,1001))"", # this should throw an error because there is no 1001 in df1, works"
-        #        "INSERT INTO df1 (w1, w2) VALUES (1001,1001)",
-        #        "INSERT INTO df1 (w1, w2) VALUES (1000,1000)",
-        #        "INSERT INTO df2 (x1, x2) VALUES (1001,1001))",
-        #         "SELECT * FROM df1 as a",
-        #        "UPDATE df1 set w2 = 420 where w2 > 900 AND w2 < 925",
-        #        "delete from df1 where w1 == 1000",
-        #        "select * from df2",
-        #         "SELECT * FROM df3 as a, df2 as b JOIN ON a.y1 = b.x1 WHERE a.y1 < 5 OR b.x1 < 3", # was working but now not working because of parsing issue
-        #        "SELECT a.y1, b.x2 FROM df3 as a, df2 as b JOIN ON a.y1 = b.x1 WHERE a.y1 < 5 OR b.x1 < 3",
-        #        "SELECT a.y1, b.z1 FROM df3 as a, df4 as b JOIN ON a.y2 = b.z2"
-        #       ]
-        # # 
-        cmd2 = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
-                 "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
-                 "create table df2 (decimal float, state varchar(10), year int, name varchar(3), foreign key (name) references df1(Letter), primary key(name))",
-                 "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)",
-                 "insert into df2 (name,decimal,state,year) values (aao,0.4,Minnesota,2004)", 
-                 #"create table df2 (name varchar(3), decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
-        #         #"load data infile 'data/df2.csv' into table df2 ignore 1 rows",
-                 "create table df3 (name varchar(3), color VARCHAR(6), primary key (name))",
-                 "insert into df3 (name,color) values (aab,Red)",
-                 "insert into df3 (name,color) values (aad,Red)",
-                 "insert into df3 (name,color) values (aac,Orange)",
-                 "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number < 15 and a.Number > 5",
-                 "select b.name, a.Letter, a.Color FROM df1 a, df3 b JOIN ON a.Color = b.color WHERE a.Color == 'Red'",
-         #        ]
-                  "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 99 and a.Letter in ('abt')",
-                 "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 90",
-                 "select a.Letter from df1 a, df2 b join on a.Letter = b.name where b.year == 2004",
-                 "select Letter from df1 where Number > 99",
-                 "select a.Letter, b.name from df1 a, df2 b join on a.Letter = b.name",
-                 "select a.Letter, b.name from df1 a, df2 b join on a.Letter = b.name where a.Number > 50",
-               #  "select a.Color, b.name from df1 a, df2 b join on a.Color = b.color where a.Color in ('Turquo', 'Purple')",
-                 "select avg(a.Number) from df1 a where a.Number < 5",#]
-                 "select name, decimal, year from df2 where decimal == 0.2 or decimal == 0.6"
-                 ]
-        # #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
-        # #   "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
-        # #   "create table df2 (name varchar(3),decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
-        # #   "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
-        # #    "select b.name, b.decimal from df2 as b where b.name not like 'aa%' and b.decimal*2<.05 and b.state <= 'Alabama' and b.decimal*800 + b.year < 1910 and b.state in ('Iowa','Minnesota','Indiana')",
-        # #    "select a.Letter, max(a.Number) from df1 as a where a.Letter not like 'aa%' and a.Number*2 < 20 and a.Number + a.Number < 30 and a.Color in ('Orange','Yellow','Blue')",
-        # #    "select min(a.Letter) as minimum, b.state from df1 a, df2 as b where a.Letter == b.name and b.decimal in (1,2,3,4)",
-        # #    "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
-        # #    "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 99",
-        # #    ]
-        process_input(cmd2)
+        cmd = get_input()
+        if cmd == ["exit"]:
+           break
+        process_input(cmd)
+        # # cmd = ["CREATE TABLE TeSt (state VARCHAR(15),year INT,emissions_per_cap FLOAT,PRIMARY KEY (state))",
+        # #        "LOAD DATA LOCAL INFILE 'data/emissions.csv' INTO TABLE emissions FIELDS TERMINATED BY ',' IGNORE 1 ROWS"]
+        # # cmd = [
+        # #        "CREATE TABLE df1 (w1 INT, w2 INT, PRIMARY KEY(w1))",
+        # #        "CREATE TABLE df2 (x1 INT, x2 INT, FOREIGN KEY (x1) REFERENCES df1(w1), PRIMARY KEY(x1))",
+        # #        "CREATE TABLE df3 (y1 INT, y2 INT, PRIMARY KEY(y1))",
+        # #        "CREATE TABLE df4 (z1 INT, z2 INT, FOREIGN KEY (z1) REFERENCES df3(y1), PRIMARY KEY(z1))",
+        # #        "LOAD DATA INFILE 'data/rel_i_i_1000' INTO TABLE df1 IGNORE 1 ROWS",
+        # #        "LOAD DATA INFILE 'data/rel_i_1_1000' INTO TABLE df2 IGNORE 1 ROWS",
+        # #        "LOAD DATA INFILE 'data/rel_i_i_10000' INTO TABLE df3 IGNORE 1 ROWS",
+        # #        "LOAD DATA INFILE 'data/rel_i_1_10000' INTO TABLE df4 IGNORE 1 ROWS",
+        # #        "INSERT INTO df2 (x1, x2) VALUES (1001,1001))"", # this should throw an error because there is no 1001 in df1, works"
+        # #        "INSERT INTO df1 (w1, w2) VALUES (1001,1001)",
+        # #        "INSERT INTO df1 (w1, w2) VALUES (1000,1000)",
+        # #        "INSERT INTO df2 (x1, x2) VALUES (1001,1001))",
+        # #         "SELECT * FROM df1 as a",
+        # #        "UPDATE df1 set w2 = 420 where w2 > 900 AND w2 < 925",
+        # #        "delete from df1 where w1 == 1000",
+        # #        "select * from df2",
+        # #         "SELECT * FROM df3 as a, df2 as b JOIN ON a.y1 = b.x1 WHERE a.y1 < 5 OR b.x1 < 3", # was working but now not working because of parsing issue
+        # #        "SELECT a.y1, b.x2 FROM df3 as a, df2 as b JOIN ON a.y1 = b.x1 WHERE a.y1 < 5 OR b.x1 < 3",
+        # #        "SELECT a.y1, b.z1 FROM df3 as a, df4 as b JOIN ON a.y2 = b.z2"
+        # #       ]
+        # # # 
+        # cmd2 = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+        #          "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
+        #          "create table df2 (decimal float, state varchar(10), year int, name varchar(3), foreign key (name) references df1(Letter), primary key(name))",
+        #          "insert into df2 (name,decimal,state,year) values (aab,0.2,Minnesota,2002)",
+        #          "insert into df2 (name,decimal,state,year) values (aao,0.4,Minnesota,2004)", 
+        #          #"create table df2 (name varchar(3), decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
+        # #         #"load data infile 'data/df2.csv' into table df2 ignore 1 rows",
+        #          "create table df3 (name varchar(3), color VARCHAR(6), primary key (name))",
+        #          "insert into df3 (name,color) values (aab,Red)",
+        #          "insert into df3 (name,color) values (aad,Red)",
+        #          "insert into df3 (name,color) values (aac,Orange)",
+        #          "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number < 15 and a.Number > 5",
+        #          "select b.name, a.Letter, a.Color FROM df1 a, df3 b JOIN ON a.Color = b.color WHERE a.Color == 'Red'",
+        #  #        ]
+        #           "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 99 and a.Letter in ('abt')",
+        #          "select a.Letter, b.year from df1 a, df2 b join on a.Letter = b.name where a.Number > 90",
+        #          "select a.Letter from df1 a, df2 b join on a.Letter = b.name where b.year == 2004",
+        #          "select Letter from df1 where Number > 99",
+        #          "select a.Letter, b.name from df1 a, df2 b join on a.Letter = b.name",
+        #          "select a.Letter, b.name from df1 a, df2 b join on a.Letter = b.name where a.Number > 50",
+        #        #  "select a.Color, b.name from df1 a, df2 b join on a.Color = b.color where a.Color in ('Turquo', 'Purple')",
+        #          "select avg(a.Number) from df1 a where a.Number < 5",#]
+        #          "select name, decimal, year from df2 where decimal == 0.2 or decimal == 0.6"
+        #          ]
+        # # #cmd = ["create table df1 (Letter varchar(3), Number int, Color VARCHAR(6), primary key (Letter))",
+        # # #   "load data infile 'data/df1.csv' into table df1 ignore 1 rows",
+        # # #   "create table df2 (name varchar(3),decimal float, state varchar(10), year int, foreign key (name) references df1(Letter), primary key(name))",
+        # # #   "load data infile 'data/df2.csv' into table df2 ignore 1 rows",
+        # # #    "select b.name, b.decimal from df2 as b where b.name not like 'aa%' and b.decimal*2<.05 and b.state <= 'Alabama' and b.decimal*800 + b.year < 1910 and b.state in ('Iowa','Minnesota','Indiana')",
+        # # #    "select a.Letter, max(a.Number) from df1 as a where a.Letter not like 'aa%' and a.Number*2 < 20 and a.Number + a.Number < 30 and a.Color in ('Orange','Yellow','Blue')",
+        # # #    "select min(a.Letter) as minimum, b.state from df1 a, df2 as b where a.Letter == b.name and b.decimal in (1,2,3,4)",
+        # # #    "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name",
+        # # #    "select a.Letter, b.name from df1 a, df2 b join a.Letter = b.name where a.Number > 99",
+        # # #    ]
+        # process_input(cmd2)
 
-        # #x = nested_loop(TABLES["df1"], TABLES["df3"], "Color", "Color")
-        # #output(TABLES["df1"], TABLES["df3"], x)
-        # #nested_loop(TABLES["df1"], TABLES["df2"], "Letter", "name")
-        # #print(merge_scan(TABLES["df1"], TABLES["df2"], "Letter", "name"))
-        # # print(which_join(TABLES["df1"], TABLES["df2"], "Letter", "name"))
-        # # print(merge_scan(TABLES["df1"], TABLES["df3"], "Color", "Color"))
-        # # cmd2 = ["select test1, test2, test3 from test4, test5 where"]
-        # # process_input(cmd2)
-        break
+        # # #x = nested_loop(TABLES["df1"], TABLES["df3"], "Color", "Color")
+        # # #output(TABLES["df1"], TABLES["df3"], x)
+        # # #nested_loop(TABLES["df1"], TABLES["df2"], "Letter", "name")
+        # # #print(merge_scan(TABLES["df1"], TABLES["df2"], "Letter", "name"))
+        # # # print(which_join(TABLES["df1"], TABLES["df2"], "Letter", "name"))
+        # # # print(merge_scan(TABLES["df1"], TABLES["df3"], "Color", "Color"))
+        # # # cmd2 = ["select test1, test2, test3 from test4, test5 where"]
+        # # # process_input(cmd2)
+        # break
         # break
     #TABLES["df2"].sort_table(by="name")
     #TABLES["df2"].print_table()
