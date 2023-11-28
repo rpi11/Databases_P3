@@ -515,7 +515,6 @@ def process_select(cmd, do_print = True):
                 whiled = True
                 joined_cond_lists = which_join(df, df, outDict[df]["subset lists"][0], outDict[df]["subset lists"][1], join_cols[df], join_cols[df], conjunctive)
                 joined_cond_lists = [v for v in joined_cond_lists.values()]
-                #joined_cond_lists = which_join(df, df, outDict[df]["subset lists"][0], outDict[df]["subset lists"][1], TABLES[df].key, TABLES[df].key, conjunctive)
                 outDict[df]["subset lists"][0] = joined_cond_lists[0]
                 outDict[df]["subset lists"].remove(outDict[df]["subset lists"][1])
             if whiled:
@@ -530,47 +529,11 @@ def process_select(cmd, do_print = True):
             temp1 = outDict[dfs[0]]["subset lists"]
         else:
             temp1 = list(TABLES[dfs[0]].table[(TABLES[dfs[0]].key)].keys())
-            #temp1 = TABLES[dfs[0]].table[col1]
         if outDict[dfs[1]]["subsetted"] is True:
             temp2 = outDict[dfs[1]]["subset lists"]
         else:
             temp2 = list(TABLES[dfs[1]].table[(TABLES[dfs[1]].key)].keys())
-            #print(i.values())
-        #final_keys = which_join(dfs[0], dfs[1], temp1, temp2, TABLES[dfs[0]].key, TABLES[dfs[1]].key, conjunctive)
         final_keys = which_join(dfs[0], dfs[1], temp1, temp2, join_cols[dfs[0]], join_cols[dfs[1]], conjunctive)
-        #print(final_keys)
-        #test_time = time.time()
-        # if conjunctive:
-        #     temp = final_keys[0]
-        #     for k in final_keys[1]:
-        #         temp.append(k)
-        #     temp = sorted(temp)
-        #     i = 0
-        #     j = 0
-        #     temp2 = []
-        #     while i < len(temp) - 1:
-        #         if temp[i] == temp[i + 1]:
-        #             if j == 0:
-        #                 j = i
-        #                 temp2.append(temp[i])
-        #             else:
-        #                 if temp[i] != temp[j]:
-        #                     temp2.append(temp[i])
-        #         i = i + 1
-        #     final_keys = temp2
-        # else:
-        #     temp = final_keys[0]
-        #     for k in final_keys[1]:
-        #         temp.append(k)
-        #     temp = sorted(temp)
-        #     i = 0
-        #     while i < len(temp) - 1:
-        #         if temp[i] == temp[i + 1]:
-        #             temp.remove(temp[i])
-        #         else:
-        #             i = i + 1
-        #     final_keys = temp
-        #print(round(1000000000*(time.time() - test_time)))
     else:
         if outDict[dfs[0]]["subsetted"] is True:
             final_keys = {dfs[0]:outDict[dfs[0]]["subset lists"]}
@@ -635,39 +598,6 @@ def process_select(cmd, do_print = True):
                     final_output[column] = [TABLES[df].table[TABLES[df].key][k][column] for k in final_keys[df]]
                 else:
                     final_output[column] = [k for k in final_keys[df]]
-                
-
-        # if len(dfs_list) > 1:
-        #     for df in dfs:
-        #         for column in TABLES[df].columns:
-        #             if column in list(outDict[df]["columns to get"].keys()):
-        #                 for k in final_keys:
-        #                     if column == TABLES[df].key:
-        #                         if column not in final_output:
-        #                             final_output[column] = []
-        #                         final_output[column].append(k)
-        #                     else:
-        #                         temp = TABLES[df].table[TABLES[df].key]
-        #                         #print(temp)
-        #                         temp2 = temp[k]
-        #                         if column not in final_output:
-        #                             final_output[column] = []
-        #                         final_output[column].append(temp2[column])
-        # else:
-        #     for column in TABLES[dfs[0]].columns:
-        #         if column in list(outDict[dfs[0]]["columns to get"].keys()):
-        #             for k in final_keys:
-        #                 if column == TABLES[dfs[0]].key:
-        #                     if column not in final_output:
-        #                         final_output[column] = []
-        #                     final_output[column].append(k)
-        #                 else:
-        #                     temp = TABLES[dfs[0]].table[TABLES[dfs[0]].key]
-        #                     temp2 = temp[k]
-        #                     if column not in final_output:
-        #                         final_output[column] = []
-        #                     final_output[column].append(temp2[column])
-    print(final_output)
     if do_print:
         print_output(final_output)
     
@@ -1093,24 +1023,6 @@ def nested_loop(df1, df2, data1, data2, col1, col2, conjunctive):
                         if TABLES[df1].table[TABLES[df1].key][i][col1] == TABLES[df2].table[TABLES[df2].key][j][col2]:
                             keys1.append(i)
                             keys2.append(j)
-                # else:
-                #     print("in this else")
-                #     if col1 == TABLES[df1].key and i not in keys1:
-                #         keys1.append(data1[i])
-                #     elif col1 == TABLES[df1].key and i in keys1:
-                #         pass
-                #     else:
-                #         print("in else")
-                #         temp = TABLES[df1].table[col1]
-                #         keys1.append(temp[i])
-                #     if col2 == TABLES[df2].key and j not in keys2:
-                #         keys2.append(data2[j])
-                #     elif col2 == TABLES[df2].key and j in keys2:
-                #         pass
-                #     else:
-                #         print("in else")
-                #         temp = TABLES[df2].table[col2]
-                #         keys2.append(temp[j])
     return [keys1, keys2]
 
 def merge_scan(df1, df2, data1, data2, col1, col2, conjunctive):
@@ -1126,35 +1038,8 @@ def merge_scan(df1, df2, data1, data2, col1, col2, conjunctive):
         elif data1[i] > data2[j]:
             j = j + 1
         else:
-            #if conjunctive: 
-                # if col1 == TABLES[df1].key:
-                #     keys1.append(data1[i])
-                # else:
-                #     temp = TABLES[df1].table[col1]
-                #     keys1.append(temp[i])
-                # if col2 == TABLES[df2].key:
-                #     keys2.append(data2[j])
-                # else:
-                #     temp = TABLES[df2].table[col2]
-                #     keys1.append(temp[i])
             keys1.append(data1[i])
             keys2.append(data2[j])
-
-            # else:
-            #     if col1 == TABLES[df1].key and i not in keys1:
-            #         keys1.append(data1[i])
-            #     elif col1 == TABLES[df1].key and i in keys1:
-            #         pass
-            #     else:
-            #         temp = TABLES[df1].table[col1]
-            #         keys1.append(temp[i])
-            #     if col2 == TABLES[df2].key and j not in keys2:
-            #         keys2.append(data2[j])
-            #     elif col2 == TABLES[df2].key and j in keys2:
-            #         pass
-            #     else:
-            #         temp = TABLES[df2].table[col2]
-            #         keys2.append(temp[j])
             i = i + 1
             j = j + 1
     return [keys1, keys2]
