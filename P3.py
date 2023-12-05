@@ -246,33 +246,36 @@ class Table:
         select_command = f"select {self.key} from {self.name} where {', '.join(where)}"
         keys = process_select(select_command, False)
 
-        # For each key in the key column of the delete-list
-        for key in keys[self.key]:
-            # For each column in the table
-            for col in self.table[self.key][key]:
-                val = self.table[self.key][key][col]
+        if not keys[self.key]:
+            print(f"ERROR: no values match delete condition")
+        else:
+            # For each key in the key column of the delete-list
+            for key in keys[self.key]:
+                # For each column in the table
+                for col in self.table[self.key][key]:
+                    val = self.table[self.key][key][col]
 
-                # remove the key from the corresponding value list
-                self.table[col][val].remove(key)
+                    # remove the key from the corresponding value list
+                    self.table[col][val].remove(key)
 
-                # If the column has a child-list,
-                # then call the delete member function 
-                # for the table that references
-                if col in self.child_keys:
-                    tbl = self.child_keys[col]["table"]
-                    c = self.child_keys[col]["col"]
+                    # If the column has a child-list,
+                    # then call the delete member function 
+                    # for the table that references
+                    if col in self.child_keys:
+                        tbl = self.child_keys[col]["table"]
+                        c = self.child_keys[col]["col"]
 
+                        TABLES[tbl].delete([tbl,"where",c,"==",str(val)])
+                
+                # If the key column has a child-list,
+                # do the same as with the columns.
+                if self.key in self.child_keys:
+                    tbl = self.child_keys[self.key]["table"]
+                    c = self.child_keys[self.key]["col"]
                     TABLES[tbl].delete([tbl,"where",c,"==",str(val)])
-            
-            # If the key column has a child-list,
-            # do the same as with the columns.
-            if self.key in self.child_keys:
-                tbl = self.child_keys[self.key]["table"]
-                c = self.child_keys[self.key]["col"]
-                TABLES[tbl].delete([tbl,"where",c,"==",str(val)])
-            
-            # Remove the key value from the primary-key column
-            self.table[self.key].pop(key)
+                
+                # Remove the key value from the primary-key column
+                self.table[self.key].pop(key)
 
     # def print_table(self, rows = float("inf")):
     #     output = []
